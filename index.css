@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-color {
+    background-color: #04A9B4;
+}
+
+main {
+    background-color: #AFD6D9;
+    height: 100%;
+    width: 100%;
+}
+
+.modmenu {
+    height: 30%;
+    width: 20%;
+}
+
+.nombre {
+    font-size: 450%;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.botones li {
+    font-size: xx-large;
+    font-style: inherit;
+    color: rgb(190, 190, 190);
+}
+
+.centrar {
+    margin: 0 auto;
+}
