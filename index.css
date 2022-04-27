@@ -3,11 +3,12 @@
     padding: 0;
 }
 
-body,
-html {
+body{
+    position: relative;
     background-color: black;
     width: 100%;
     height: 100%;
+    margin: 0;
 }
 
 .nav-color {
@@ -15,6 +16,7 @@ html {
 }
 
 main {
+    position: relative;
     background-color: #AFD6D9;
     height: 100%;
     width: 100%;
@@ -26,21 +28,88 @@ main {
 }
 
 .nombre {
-    font-size: 450%;
+    font-size: 200%;
 }
 
 .botones {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    font-weight: 400;
 }
 
 .botones li {
-    font-size: xx-large;
+    font-size: large;
+    font-weight: bold;
     font-style: inherit;
     color: rgb(190, 190, 190);
 }
 
+.modnavbar{
+    background-color: blue;
+}
+
 .centrar {
     margin: 0 auto;
+}
+
+/*CSS Footer*/
+
+.piePagina{
+    position: relative;
+    margin-top: -1%;
+    width: 100%;
+    height: auto;
+}
+
+.piePag li {
+    font-style: inherit;
+    color: rgb(255, 255, 255);
+}
+
+.pie{
+    height: 20%;
+    width: 100%;
+    background-color: gray;
+    height: 100%;
+    font-size: medium;
+    font-weight: 500;
+}
+
+.piePag {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 5%;
+    padding: 20px 0;
+}
+
+.pieCuadro{
+    color: white;
+}
+
+.borde-der{
+    /*border-right: 2px solid white;
+    padding-right: 140px;*/
+}
+
+.separar{
+    display: block;
+    background-color: white;
+    margin-top: 4%;
+    width: 7%;
+    border: 2px solid white;
+    transform: rotate(90deg);
+}
+
+@media only screen and (max-width: 991px) {
+    .separar {
+        display: block;
+        background-color: white;
+        width: 90%;
+        border: 2px solid white;
+        transform: rotate(180deg);
+    }
+
+    
 }
