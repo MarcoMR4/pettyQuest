@@ -39,9 +39,9 @@ main {
 }
 
 .botones li {
-    font-size: large;
+    font-size: x-large;
     font-weight: bold;
-    font-style: inherit;
+    font-style: initial;
     color: rgb(190, 190, 190);
 }
 
