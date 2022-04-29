@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-body{
+body {
     position: relative;
     background-color: black;
     width: 100%;
@@ -22,9 +22,47 @@ main {
     width: 100%;
 }
 
+/* Menu Desplegable */
+
 .modmenu {
-    height: 30%;
+    /* height: 30%; */
+    height: auto;
     width: 20%;
+}
+
+.SignIn{
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+.correoSignIn{
+    position: relative;
+    width: 100%;
+    padding: 5% 5% 0 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.correoSignIn input{
+    width: 70%;
+}
+
+.passwordSignIn{
+    position: relative;
+    width: 100%;
+    padding: 5% 5% 0 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.passwordSignIn input{
+    width: 100%;
+}
+
+.btnSignIn{
+    position: relative;
+    padding: 0 22% 0 22%;
 }
 
 .nombre {
@@ -45,7 +83,7 @@ main {
     color: rgb(190, 190, 190);
 }
 
-.modnavbar{
+.modnavbar {
     background-color: blue;
 }
 
@@ -55,7 +93,7 @@ main {
 
 /*CSS Footer*/
 
-.piePagina{
+.piePagina {
     position: relative;
     margin-top: -1%;
     width: 100%;
@@ -67,7 +105,7 @@ main {
     color: rgb(255, 255, 255);
 }
 
-.pie{
+.pie {
     height: 20%;
     width: 100%;
     background-color: gray;
@@ -84,16 +122,16 @@ main {
     padding: 20px 0;
 }
 
-.pieCuadro{
+.pieCuadro {
     color: white;
 }
 
-.borde-der{
+.borde-der {
     /*border-right: 2px solid white;
     padding-right: 140px;*/
 }
 
-.separar{
+.separar {
     display: block;
     background-color: white;
     margin-top: 4%;
@@ -111,5 +149,5 @@ main {
         transform: rotate(180deg);
     }
 
-    
+
 }
