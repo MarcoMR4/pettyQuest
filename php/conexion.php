@@ -38,8 +38,8 @@ class conexion{
             ];
         }
 
-        echo json_encode($data);
-        return $data;
+        $datajson=json_encode($data);
+        return $datajson;
     }
 }
 ?>
