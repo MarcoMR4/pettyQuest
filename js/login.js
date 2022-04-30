@@ -14,12 +14,12 @@ $(window).ready(function() {
 
             if (usuarioexiste == 1) {
                 if (data[0].email == email && data[0].password == password) {
-                    console.log("Entra");
+                    alert("Entra");
                 } else {
-                    console.log("Correo o contraseña incorrectos");
+                    alert("Correo o contraseña incorrectos");
                 }
             } else {
-                console.log("El usuario no existe");
+                alert("El usuario no existe");
             }
         });
     });
