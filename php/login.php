@@ -1,8 +1,8 @@
 <?php
 require 'conexion.php';
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+$email = isset($_POST['email']) ? $_POST['email'] : '';
+$password = isset($_POST['password']) ? $_POST['password'] : '';
 
 $nuevacon= new conexion();
 $respuestajson=$nuevacon->login();
