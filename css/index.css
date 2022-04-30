@@ -29,13 +29,13 @@ main {
     width: 20%;
 }
 
-.SignIn{
+.SignIn {
     position: absolute;
     width: 100%;
     height: auto;
 }
 
-.correoSignIn{
+.correoSignIn {
     position: relative;
     width: 100%;
     padding: 5% 5% 0 5%;
@@ -43,11 +43,19 @@ main {
     justify-content: space-between;
 }
 
-.correoSignIn input{
-    width: 70%;
+.correoSignIn input {
+    width: 60%;
 }
 
-.passwordSignIn{
+#email{
+    margin-left: auto;
+}
+
+#password{
+    margin-left: auto;
+}
+
+.passwordSignIn {
     position: relative;
     width: 100%;
     padding: 5% 5% 0 5%;
@@ -55,13 +63,13 @@ main {
     justify-content: space-between;
 }
 
-.passwordSignIn input{
-    width: 100%;
+.passwordSignIn input {
+    width: 60%;
 }
 
-.btnSignIn{
+.btnSignIn {
     position: relative;
-    padding: 0 22% 0 22%;
+    text-align: center;
 }
 
 
@@ -91,11 +99,11 @@ main {
     margin: 0 auto;
 }
 
-/*CSS Footer*/
+/*Footer*/
 
 .piePagina {
     position: relative;
-    margin-top: -1%;
+    margin-top: 0%;
     width: 100%;
     height: auto;
 }
@@ -135,6 +143,62 @@ main {
     transform: rotate(90deg);
 }
 
+/* Fin Footer */
+
+/* Soporte */
+
+.soporte {
+    position: sticky;
+    left: 80%;
+    width: 20%;
+    height: 20%;
+    bottom: 0;
+    z-index: 15;
+    border: 2px solid white;
+}
+
+.contacto {
+    position: relative;
+    background-color: #04A9B4;
+}
+
+.contacto button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: x-large;
+}
+
+.conversacion {
+    position: relative;
+    overflow: auto;
+    height: 300px;
+}
+
+.enviarMensaje {
+    position: relative;
+    width: 100%;
+    padding: 0 5% 0 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#mensaje {
+    width: 80%;
+}
+
+#btnEnviarMensaje {
+    width: 10%;
+    border: none;
+}
+
+#btnEnviarMensaje i {
+    font-size: x-large;
+}
+
+/* Fin Soporte */
+
 @media only screen and (max-width: 991px) {
     .separar {
         display: block;
@@ -144,5 +208,7 @@ main {
         transform: rotate(180deg);
     }
 
-
+    .soporte{
+        width: 25%;
+    }
 }
