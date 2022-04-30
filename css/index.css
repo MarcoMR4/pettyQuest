@@ -36,11 +36,6 @@ main {
     height: auto;
 }
 
-.carousel-item img{
-    height: 500px;
-    max-height: 500px !important;
-}
-
 .correoSignIn{
     position: relative;
     width: 100%;
@@ -130,6 +125,11 @@ main {
 .pieCuadro {
     color: white;
 }
+
+/*.borde-der {
+    border-right: 2px solid white;
+    padding-right: 140px;
+}*/
 
 .separar {
     display: block;
