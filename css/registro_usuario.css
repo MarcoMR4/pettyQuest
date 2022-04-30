@@ -1,0 +1,80 @@
+.contenido{
+    display: absolute;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.contenido2{
+    display: block;
+}
+
+.titulo{
+    margin-top: 1%;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    height: 2.5rem;
+    color: rgb(58, 56, 56);
+}
+.formulario{
+    text-align: center;
+}
+
+.informacion{
+display: flex;
+background-color: #A8C7CA;
+height: 50%;
+width: 75%;
+margin-top: 2%;
+margin-bottom: 5%;
+margin-left: 12.5%;
+margin-right: 12.5%;
+font-size: x-large;
+}
+
+.informacion div{
+    margin-bottom: 1% ;
+    position: relative;
+}
+
+.info{
+    display: flex;
+}
+
+.lab{
+    margin-left: 2%;
+    margin-right: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.lab div{
+    margin-bottom: 3.5%;
+}
+.inp input{
+    width: 37rem;
+    height: 2rem;
+}
+.inp{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 1%;
+}
+
+.btn1{
+    height: auto;
+    margin-left: 72.5%;
+    margin-bottom: 2rem;
+}
+.btn1 input{
+    height: 2.5rem;
+    width: 6rem;
+    background-color: white;
+    border-color: white;
+   
+    border-radius: 10%;
+    color: rgb(92, 91, 91);
+    font-size: x-large;
+    margin-left: 10px;
+}

@@ -5,7 +5,7 @@
 
 body {
     position: relative;
-    background-color: black;
+    background-color: #AFD6D9;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -25,7 +25,6 @@ main {
 /* Menu Desplegable */
 
 .modmenu {
-    /* height: 30%; */
     height: auto;
     width: 20%;
 }
@@ -65,9 +64,6 @@ main {
     padding: 0 22% 0 22%;
 }
 
-.nombre {
-    font-size: 200%;
-}
 
 .botones {
     display: flex;
@@ -81,6 +77,10 @@ main {
     font-weight: bold;
     font-style: initial;
     color: rgb(190, 190, 190);
+}
+
+.nombre {
+    font-size: 200%;
 }
 
 .modnavbar {
@@ -125,11 +125,6 @@ main {
 .pieCuadro {
     color: white;
 }
-
-/*.borde-der {
-    border-right: 2px solid white;
-    padding-right: 140px;
-}*/
 
 .separar {
     display: block;
