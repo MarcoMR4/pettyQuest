@@ -18,9 +18,9 @@ class conexion{
         }
     }
 
-    function login(){
+    function login($email,$password){
         $link = $this->conectar();
-        $result = $link->query('SELECT * FROM USUARIO') or die (print("Error"));
+        $result = $link->query("SELECT * FROM USUARIO WHERE (email='".$email."') AND (password='".$password."')") or die (print("Error"));
         $data=[];
         while($item = $result->fetch(PDO::FETCH_OBJ)){
             $data[]=[

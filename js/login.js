@@ -13,13 +13,9 @@ $(window).ready(function() {
             usuarioexiste = (Object.keys(data).length);
 
             if (usuarioexiste == 1) {
-                if (data[0].email == email && data[0].password == password) {
-                    alert("Entra");
-                } else {
-                    alert("Correo o contraseña incorrectos");
-                }
+                alert("entra")
             } else {
-                alert("El usuario no existe");
+                alert("no entra");
             }
         });
     });
