@@ -41,5 +41,10 @@ class conexion{
         $datajson=json_encode($data);
         return $datajson;
     }
+
+    function registroUsuarios($nombre,$ap,$am,$ciudad,$calle,$numero,$email,$password,$telefono,$edad){
+        $link = $this->conectar();
+        $result = $link->query("INSERT INTO usuario (nombre,apellidoPaterno,apellidoMaterno,ciudad,calle,numeroCasa,email,edad,telefono,password) VALUES ('$nombre','$ap','$am','$ciudad','$calle','$numero','$email','$edad','$telefono','$password')") or die (print("Error")); 
+    }
 }
 ?>
