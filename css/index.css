@@ -157,12 +157,12 @@ main {
     border: 2px solid white;
 }
 
-.contacto {
+.btnSoporte {
     position: relative;
     background-color: #04A9B4;
 }
 
-.contacto button {
+.btnSoporte button {
     width: 100%;
     background: none;
     border: none;
