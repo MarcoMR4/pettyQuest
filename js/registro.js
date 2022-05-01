@@ -14,13 +14,10 @@ $(window).ready(function() {
         let telefono = $("#telefono").val();
         let edad = $("#edad").val();
 
-
-        console.log(password2);
-
         if (password == password2) {
             $.post('./php/registro.php', { nombre, ap, am, ciudad, calle, numero, email, password2, telefono, edad }, function(data) {});
         } else {
-            console.log("la contraseña no es la misma");
+            alert("la contraseña no es la misma");
         }
 
 
