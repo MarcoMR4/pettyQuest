@@ -8,6 +8,9 @@
 
 .contenido2{
     display: block;
+    text-align: center;
+    align-content: center;
+    align-items: center;
 }
 
 .titulo{
@@ -16,22 +19,25 @@
     width: 100%;
     text-align: center;
     height: 2.5rem;
-    color: rgb(58, 56, 56);
+    color: rgb(105, 103, 103);
 }
 .formulario{
     text-align: center;
+    text-align: center;
+    align-content: center;
+    align-items: center;
 }
 
 .informacion{
 display: flex;
 background-color: #A8C7CA;
-height: 50%;
-width: 75%;
-margin-top: 2%;
-margin-bottom: 5%;
+width: 60rem;
+margin-top: 2rem;
+margin-bottom: 5rem;
 margin-left: 12.5%;
 margin-right: 12.5%;
 font-size: x-large;
+border: 2px solid rgb(146, 143, 143);
 }
 
 .informacion div{
