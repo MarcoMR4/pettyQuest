@@ -1,0 +1,67 @@
+.contenido {
+    position: relative;
+    width: 75rem;
+    height: auto;
+    background-color: #A8C7CA;
+    border: 2px solid rgb(70, 69, 69);
+    margin-left: 4.5%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.produc {
+    position: relative;
+    display: flex;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    width: 35rem;
+    float: left;
+    text-align: center;
+    border: 2px solid rgb(146, 143, 143); 
+    background-color: #b1b4b4;
+}
+
+.produc h5 {
+    color: rgb(87, 87, 87);
+
+}
+
+.produc img {
+    height: 17rem;
+    width: 17rem;
+}
+
+.produc img:hover {
+    border: 2px solid rgb(62, 20, 211);
+}
+
+.cardsRenglon {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.info{
+    margin-left: 1rem;
+    justify-content: left;
+    text-align: left;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.barra{
+    margin-left: 60rem;
+    margin-top: 1rem;
+}
+
+.barra img{
+    width: 2rem;
+    height: 2rem;
+}
+
+#busqueda{
+    width: 16rem;
+}

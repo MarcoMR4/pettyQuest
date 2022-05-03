@@ -145,60 +145,6 @@ main {
 
 /* Fin Footer */
 
-/* Soporte */
-
-.soporte {
-    position: sticky;
-    left: 80%;
-    width: 20%;
-    height: 20%;
-    bottom: 0;
-    z-index: 15;
-    border: 2px solid white;
-}
-
-.btnSoporte {
-    position: relative;
-    background-color: #04A9B4;
-}
-
-.btnSoporte button {
-    width: 100%;
-    background: none;
-    border: none;
-    color: white;
-    font-size: x-large;
-}
-
-.conversacion {
-    position: relative;
-    overflow: auto;
-    height: 300px;
-}
-
-.enviarMensaje {
-    position: relative;
-    width: 100%;
-    padding: 0 5% 0 5%;
-    display: flex;
-    justify-content: space-between;
-}
-
-#mensaje {
-    width: 80%;
-}
-
-#btnEnviarMensaje {
-    width: 10%;
-    border: none;
-}
-
-#btnEnviarMensaje i {
-    font-size: x-large;
-}
-
-/* Fin Soporte */
-
 @media only screen and (max-width: 991px) {
     .separar {
         display: block;
