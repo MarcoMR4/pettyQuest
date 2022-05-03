@@ -1,0 +1,93 @@
+.contenido {
+    display: absolute;
+    border: 2px solid rgba(255, 0, 0, 0);
+    width: auto;
+}
+
+.contenido2 {
+    display: flex;
+    margin-bottom: 5%;
+    width: auto;
+    height: 100%;
+}
+
+.formulario {
+    display: flex;
+    
+}
+
+.foto {
+    display: flex;
+    position: relative;
+    height: 18rem;
+    width: 18rem;
+    background-color: white;
+    margin-left: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+    margin-right: 14rem;
+    align-items: center;
+    padding-left: 1%;
+}
+
+.divFormulario {
+    position: absolute;
+    height: auto;
+    width: 45rem;
+}
+
+.informacion {
+    display: flex;
+    position: relative;
+    background-color: #A8C7CA;
+    height: 100%;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    font-size: x-large;
+}
+
+.lab {
+    position: relative;
+    margin-left: 2%;
+    margin-top: 2.9%;
+    margin-bottom: 2%;
+}
+
+.inp input {
+    width: 90%;
+}
+
+.inp {
+    position: relative;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    align-content: center;
+}
+
+.btn1 {
+    display: flex;
+    height: auto;
+    margin-bottom: 2rem;
+    float: right;
+}
+
+.btn1 input {
+    height: 2.5rem;
+    width: 6rem;
+    background-color: white;
+    border-color: white;
+    border-radius: 10%;
+    color: rgb(92, 91, 91);
+    font-size: x-large;
+    margin-left: 10px;
+}
+
+h1{
+    text-align: center;
+    font-size: 30px;
+}
