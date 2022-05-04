@@ -78,10 +78,10 @@
 
 .btn1 input {
     height: 2.5rem;
-    width: 6rem;
+    width: 7rem;
     background-color: white;
     border-color: white;
-    border-radius: 10%;
+    border-radius: 10px;
     color: rgb(92, 91, 91);
     font-size: x-large;
     margin-left: 10px;

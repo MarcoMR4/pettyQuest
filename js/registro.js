@@ -15,11 +15,11 @@ $(window).ready(function() {
         let edad = $("#edad").val();
 
         if (password == password2) {
-            $.post('./php/registro.php', { nombre, ap, am, ciudad, calle, numero, email, password2, telefono, edad }, function(data) {});
+            $.post('./php/registro.php', { nombre, ap, am, ciudad, calle, numero, email, password2, telefono, edad }, function(data) {
+                
+            });
         } else {
             alert("la contraseña no es la misma");
         }
-
-
     });
 });
