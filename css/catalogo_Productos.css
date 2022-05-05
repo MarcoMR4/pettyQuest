@@ -65,3 +65,11 @@
 #busqueda{
     width: 16rem;
 }
+
+.separar{
+    padding: 10px 5px !important;
+}
+
+.card{
+    height: 100%;
+}
