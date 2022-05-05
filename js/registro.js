@@ -18,8 +18,10 @@ $(window).ready(function() {
             $.post('./php/registro.php', { nombre, ap, am, ciudad, calle, numero, email, password2, telefono, edad }, function(data) {
                 
             });
+            
         } else {
             alert("la contraseña no es la misma");
         }
+        $("#btnsalirregistro").trigger("click");
     });
 });

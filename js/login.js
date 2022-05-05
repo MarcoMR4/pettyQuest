@@ -13,10 +13,10 @@ $(window).ready(function() {
             usuarioexiste = (Object.keys(data).length);
 
             if (usuarioexiste == 1) {
-                alert("entra")
-            } else {
-                alert("no entra");
+                console.log(data[0]['idUsuario']);
             }
         });
+
+        $("#btnsalirsesion").trigger("click");
     });
 });

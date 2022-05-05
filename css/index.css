@@ -13,7 +13,7 @@ a{
 .color-link-black{
     color: black !important;
 }
-.color-text a:visited, a:active{
+.color-text a:visited, a:active, a:link{
     color: black;
 }
 .color-link-black:hover{
@@ -46,7 +46,7 @@ a{
     padding: 15px 0;
     color: white !important;
 }
-.color-letra-PiePag a:visited, a:active{
+.color-letra-PiePag a:visited, a:active, a:link{
     color: white !important;
 }
 .border-r{
