@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-$_SESSION['idUsuario'];
 
 class conexion{
     private $server = 'localhost';
@@ -23,45 +22,40 @@ class conexion{
     function login($email,$password){
         $link = $this->conectar();
 
-        /* Query para contar filas */
-        $sql2="SELECT COUNT(*) FROM USUARIO WHERE (email='".$email."') AND (password='".$password."')";
-        $count = $link->query($sql2) or die (print("Error"));
+        /* Query para obtener datos */
+        $sql="SELECT * FROM USUARIO WHERE (email='".$email."') AND (password='".$password."')";
+        $result = $link->query($sql) or die (print("Error"));
 
-        if($sql2>0){
-            /* Query para obtener datos */
-            $sql="SELECT * FROM USUARIO WHERE (email='".$email."') AND (password='".$password."')";
-            $result = $link->query($sql) or die (print("Error"));
-
-            /* Creacion del JSON */
-            $data=[];
-            while($item = $result->fetch(PDO::FETCH_OBJ)){
-                $_SESSION['idUsuario']=$item->idUsuario;
-                $data[]=[
-                    'idUsuario' => $item->idUsuario,
-                    'nombre' => $item->nombre,
-                    'apellidoPaterno' => $item->apellidoPaterno,
-                    'apellidoMaterno' => $item->apellidoMaterno,
-                    'ciudad' => $item->ciudad,
-                    'calle' => $item->calle,
-                    'numeroCasa' => $item->numeroCasa,
-                    'email' => $item->email,
-                    'edad' => $item->edad,
-                    'telefono' => $item->telefono,
-                    'password' => $item->password
-                ];
-            }
-
-            $datajson=json_encode($data);
-         return $datajson;   
+        /* Creacion del JSON */
+        $data=[];
+        while($item = $result->fetch(PDO::FETCH_OBJ)){
+            $_SESSION['idUsuario']=$item->idUsuario;
+            $data[]=[
+                'idUsuario' => $item->idUsuario,
+                'nombre' => $item->nombre,
+                'apellidoPaterno' => $item->apellidoPaterno,
+                'apellidoMaterno' => $item->apellidoMaterno,
+                'ciudad' => $item->ciudad,
+                'calle' => $item->calle,
+                'numeroCasa' => $item->numeroCasa,
+                'email' => $item->email,
+                'edad' => $item->edad,
+                'telefono' => $item->telefono,
+                'password' => $item->password
+            ];
         }
-
-        
-        
+        $datajson=json_encode($data);
+        return $datajson; 
     }
 
     function registroUsuarios($nombre,$ap,$am,$ciudad,$calle,$numero,$email,$password,$telefono,$edad){
         $link = $this->conectar();
         $result = $link->query("INSERT INTO usuario (nombre,apellidoPaterno,apellidoMaterno,ciudad,calle,numeroCasa,email,edad,telefono,password) VALUES ('$nombre','$ap','$am','$ciudad','$calle','$numero','$email','$edad','$telefono','$password')") or die (print("Error")); 
+
+        /* Si regresa datos :v */
+        $salida=array("Hola","Adios");
+        $mijson = json_encode($salida);
+        return $mijson;
     }
 
     function pruebaSesion(){
