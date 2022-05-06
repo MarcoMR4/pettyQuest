@@ -15,8 +15,9 @@ $(window).ready(function() {
         let edad = $("#edad").val();
 
         if (password == password2) {
-            $.post('./php/registro.php', { nombre, ap, am, ciudad, calle, numero, email, password2, telefono, edad }, function(data) {
-                
+            $.post('./php/registro.php', { nombre, ap, am, ciudad, calle, numero, email, password2, telefono, edad }, function(datas) {
+                datas = JSON.parse(datas);
+                console.log(datas);
             });
             
         } else {

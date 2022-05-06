@@ -46,7 +46,7 @@ a{
     padding: 15px 0;
     color: white !important;
 }
-.color-letra-PiePag a:visited, a:active, a:link{
+.color-letra-PiePag a:visited,.color-letra-PiePag a:active,.color-letra-PiePag a:link{
     color: white !important;
 }
 .border-r{

@@ -14,4 +14,5 @@ $edad = isset($_POST['edad']) ? $_POST['edad'] : '';
 
 $nuevacon= new conexion();
 $respuestajson=$nuevacon->registroUsuarios($nombre,$ap,$am,$ciudad,$calle,$numero,$email,$password,$telefono,$edad);
+echo($respuestajson);
 ?>
