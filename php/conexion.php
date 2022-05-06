@@ -52,9 +52,12 @@ class conexion{
         $link = $this->conectar();
         $result = $link->query("INSERT INTO usuario (nombre,apellidoPaterno,apellidoMaterno,ciudad,calle,numeroCasa,email,edad,telefono,password) VALUES ('$nombre','$ap','$am','$ciudad','$calle','$numero','$email','$edad','$telefono','$password')") or die (print("Error")); 
 
-        /* Si regresa datos :v */
-        $salida=array("Hola","Adios");
-        $mijson = json_encode($salida);
+        /* Si regresa datos :v*/
+        $datos[]=[
+            "estatus" => "hola",
+            "numero" => "123"
+        ];
+        $mijson = json_encode($datos);
         return $mijson;
     }
 
