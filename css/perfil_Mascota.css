@@ -1,21 +1,19 @@
 
 .foto {
     display: flex;
-    flex-wrap: unset;
+    justify-content: flex-start;
     height: 18rem;
     width: 18rem;
     background-color: white;
     margin-left: 2rem;
     margin-top: 2rem;
     margin-right: 14rem;
-    align-items: center;
-    padding-left: 1%;
     border: 2px solid rgb(146, 143, 143); 
 }
 
-.btnFoto{
-    margin-top: 1rem;
-    margin-left: 2rem;
+.foto img{
+    height: 17.75rem;
+    width: 17.75rem;
 }
 
 .informacion { 
@@ -26,6 +24,9 @@
     border: 2px solid rgb(146, 143, 143); 
 }
 
+.informacion input{
+    border: 1px solid rgba(0, 0, 0, 0.158);
+}
 
 .btn1 {
    
@@ -36,5 +37,4 @@
 
 .btn1 input {
     font-size: x-large;
-    margin-left: 10px;
 } 
