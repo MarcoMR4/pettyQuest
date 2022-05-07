@@ -39,13 +39,10 @@
     align-content: center;
 }
 
-.info{
-    margin-left: 1rem;
-    justify-content: left;
-    text-align: left;
-    margin-right: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+.nombre{
+    text-align: center;
+    background-color: rgb(146, 143, 143);
+    color: whitesmoke; 
 }
 
 .barra{
@@ -63,9 +60,11 @@
 }
 
 .separar{
-    padding: 10px 5px !important;
+    padding: 10px 10px !important;
 }
 
 .card{
     height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px;
 }
