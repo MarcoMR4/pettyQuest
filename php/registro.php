@@ -8,7 +8,7 @@ $ciudad = isset($_POST['ciudad']) ? $_POST['ciudad'] : '';
 $calle = isset($_POST['calle']) ? $_POST['calle'] : '';
 $numero = isset($_POST['numero']) ? $_POST['numero'] : '';
 $email = isset($_POST['email']) ? $_POST['email'] : '';
-$password = isset($_POST['password2']) ? $_POST['password2'] : '';
+$password = isset($_POST['password']) ? $_POST['password'] : '';
 $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : '';
 $edad = isset($_POST['edad']) ? $_POST['edad'] : '';
 

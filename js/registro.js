@@ -1,28 +1,28 @@
 $(window).ready(function() {
-    $("#formregistro").on('submit', function(e) {
-        e.preventDefault();
 
-        let nombre = $("#nombre").val();
-        let ap = $("#ap").val();
-        let am = $("#am").val();
-        let ciudad = $("#ciudad").val();
-        let calle = $("#calle").val();
-        let numero = $("#numero").val();
-        let email = $("#correo").val();
-        let password = $("#password1").val();
+    $('#formregistro').submit(function (e) { 
+        e.preventDefault();
+        var datos = $(this).serializeArray();
+        let password = $("#passwordr").val();
         let password2 = $("#password2").val();
-        let telefono = $("#telefono").val();
-        let edad = $("#edad").val();
 
         if (password == password2) {
-            $.post('./php/registro.php', { nombre, ap, am, ciudad, calle, numero, email, password2, telefono, edad }, function(data) {
-                data = JSON.parse(data);
-                console.log(data);
-            });
-            
+            console.log("Son iguales"); 
         } else {
-            alert("la contraseña no es la misma");
+            console.log("la contraseña no es la misma");
         }
+
+        $.ajax({
+            type: "POST",
+            url: "./php/registro.php",
+            data: datos,
+            dataType: "JSON",
+            success: function (response) {
+                console.log(response);
+            }
+        });
+
         $("#btnsalirregistro").trigger("click");
+        
     });
 });
