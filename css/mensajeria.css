@@ -8,20 +8,23 @@
     margin-top: 1%;
     margin-bottom: 1%;
     background-color: #71a2a5;
+    border-radius: 6px;
     overflow: auto;
 }
 
 .contactos button{
     position: relative;
+    background-color: #04A9B4;
     width: 100%;
     border: none;
-    margin-top: 3%;
+    margin-top: 3%;    
+    border: 2px solid white;
+    border-radius: 6px;
 }
 
 .contacto{
     position: relative;    
     display: flex;
-    background-color: #04A9B4;
     width: 100%;
     height: 15%;
     top: 2%;
@@ -53,7 +56,7 @@
     position: absolute;
     width: 70%;
     left: 28%;
-    top: 0;
+    top: 90px;
 }
 
 .nombreContacto{
@@ -79,7 +82,7 @@
 }
 
 .imagenPerfilConversacion i{
-    font-size: 50px;
+    font-size: 48px;
 }
 
 .nombrePerfilConversacion {
@@ -100,11 +103,14 @@
     height: 415px;
 }
 
+/* form enviar mensaje */
+
 .enviarMensajeContacto{
     position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 #mensajeContacto{
@@ -113,11 +119,15 @@
 }
 
 #btnEnviarMensajeContacto {
-    width: 3%;
-    border: none;
-    background: none;
+    display: flex;
+    justify-content: center;
+    width: 4%;
+    height: 50%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background: white;
 }
 
 #btnEnviarMensajeContacto i {
-    font-size: 30px;
+    font-size: 200%;
 }

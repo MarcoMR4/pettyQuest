@@ -87,5 +87,18 @@ class conexion{
         $datajson=json_encode($data);
         return $datajson;
     }
+
+    function enviarMensaje($mensaje, $destinatario)
+    {
+        $link = $this->conectar();
+        $id = $_SESSION['idUsuario'];
+        $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario) VALUES ('$mensaje', '$id', '$destinatario')") or die(print("Error"));
+        $datos[]=[
+            "remitente" => $id,
+            "destinatario" => $destinatario
+        ];
+        $mijson = json_encode($datos);
+        return $mijson;
+    }
 }
 ?>
