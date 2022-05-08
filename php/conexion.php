@@ -100,5 +100,60 @@ class conexion{
         $mijson = json_encode($datos);
         return $mijson;
     }
+
+    function cargarMensajes($destinatario)
+    {
+        $link = $this->conectar();
+        $id = $_SESSION['idUsuario'];
+        $sql = "SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $id . " AND `claveDestinatario` = " . $destinatario . ") UNION SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $destinatario . " AND `claveDestinatario` = " . $id . ")";
+        $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
+        $data = [];
+        while ($item = $result->fetch(PDO::FETCH_OBJ)) {
+            $_SESSION['idUsuario'] = $item->idUsuario;
+            $data[] = [
+                'claveMensaje' => $item->claveMensaje,
+                'mensaje' => $item->mensaje,
+                'claveRemitente' => $item->claveRemitente,
+                'claveDestinatario' => $item->claveDestinatario                
+            ];
+        }
+        $datajson = json_encode($data);
+        return $datajson;
+    }
+
+    function cargarContactos()
+    {
+        $link = $this->conectar();
+        $id = $_SESSION['idUsuario'];
+        $sql = "SELECT * FROM asociacion/veterinaria";
+        $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
+        $data = [];
+        while ($item = $result->fetch(PDO::FETCH_OBJ)) {
+            $_SESSION['idUsuario'] = $item->idUsuario;
+            $data[] = [
+                'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
+                'nombre' => $item->nombre             
+            ];
+        }
+        $datajson = json_encode($data);
+        return $datajson;
+    }
+
+    function buscarAsociacionClave($claveAsociacion)
+    {
+        $link = $this->conectar();     
+        $sql = "SELECT * FROM asociacion/veterinaria WHERE claveAsociacionVeterinaria = ".$claveAsociacion."";   
+        $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
+        $data = [];
+        while ($item = $result->fetch(PDO::FETCH_OBJ)) {
+            $_SESSION['idUsuario'] = $item->idUsuario;
+            $data[] = [
+                'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
+                'nombre' => $item->nombre             
+            ];
+        }
+        $datajson = json_encode($data);
+        return $datajson;
+    }
 }
 ?>
