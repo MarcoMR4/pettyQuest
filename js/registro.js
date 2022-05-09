@@ -22,6 +22,10 @@ $(window).ready(function() {
             }
         });
 
+        /* Llamar otro js desde este mismo */
+        $.getScript('./js/cambio_menu_tipo.js', function(){});
+
+        /* Dar click al boton de x en el registro desde aqui */
         $("#btnsalirregistro").trigger("click");
         
     });

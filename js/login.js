@@ -15,13 +15,14 @@ $(window).ready(function() {
                 usuarioexiste = (Object.keys(response).length);
                 if (usuarioexiste == 1) {
                     console.log(response)
-                    var nombre = response[0]['nombre']+ " " +response[0]['apellidoPaterno']+ " " +response[0]['apellidoMaterno'];
-                    $("#Cambio").html(nombre).addClass("nav-link color-link-black");
-                    $("#Cambio1").html("Editar Perfil").addClass("dropdown-item");
-                    $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item");
                 }
             }
         });
+
+        /* Llamar otro js desde este mismo */
+        $.getScript('./js/cambio_menu_tipo.js', function(){});
+
+        /* Dar click al boton de x en el registro desde aqui */
         $("#btnsalirsesion").trigger("click");
     });
 });
