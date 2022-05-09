@@ -7,30 +7,24 @@ function removerMensajes() {
 
 function cargarContactos() {
     $.post("./php/cargarContactos.php", {}, function (data) {
+        console.log(data);
         data = JSON.parse(data);
-        const divContactos = document.querySelector(".contactos");
-        for (let i = 0; i < Object.keys(data).length; i++) {
-            // crear elementos
-            const boton = document.createElement("button");
-            boton.className = "btnContacto";
-            boton.value = data[i]['claveAsociacionVeterinaria'];
-            const divContacto = document.createElement("div");
-            divContacto.className = "contacto";
-            const divImagen = document.createElement("div");
-            divImagen.className = "imagenPerfil";
-            const divNombre = document.createElement("div");
-            divNombre.className = "nombrePerfil";
-            const imagen = document.createElement("i");
-            imagen.className = "bx bxs-user-circle";
-            const nombre = document.createElement("p");
-            nombre.textContent = data[i]['nombre'];
-            // Colocar elementos
-            divImagen.insertAdjacentElement("afterbegin", imagen);
-            divNombre.insertAdjacentElement("afterbegin", nombre);
-            divContacto.insertAdjacentElement("afterbegin", divImagen);
-            divContacto.insertAdjacentElement("beforeend", divNombre);
-            divContactos.insertAdjacentElement("beforeend", divContacto);
-        }
+        var relleno = "";
+        data.map(item => {
+            relleno += `
+                <button class="btnContacto" value="${item.claveAsociacionVeterinaria}">
+                    <div class="contacto">
+                    <div class="imagenPerfil">
+                        <i class='bx bxs-user-circle'></i>
+                    </div>
+                    <div class="nombrePerfil">
+                        <p>${item.nombre}</p>
+                    </div>
+                    </div>
+                </button>
+            `;
+        })
+        $(".contactos").html(relleno);
     });
 }
 

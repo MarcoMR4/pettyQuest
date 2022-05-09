@@ -124,12 +124,12 @@ class conexion{
     function cargarContactos()
     {
         $link = $this->conectar();
-        $id = $_SESSION['idUsuario'];
-        $sql = "SELECT * FROM asociacion/veterinaria";
+        //$id = $_SESSION['idUsuario'];
+        $sql = "SELECT * FROM `asociacion/veterinaria`";
         $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
         $data = [];
         while ($item = $result->fetch(PDO::FETCH_OBJ)) {
-            $_SESSION['idUsuario'] = $item->idUsuario;
+            //$_SESSION['idUsuario'] = $item->idUsuario;
             $data[] = [
                 'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
                 'nombre' => $item->nombre             
