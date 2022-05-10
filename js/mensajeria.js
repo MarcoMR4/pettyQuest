@@ -1,18 +1,8 @@
-function botonClick(destinatario) {
-    $(".enviarMensajeContacto").show();        
-    $.post("./php/buscarAsociacionClave.php", { destinatario }, function (data) {
-        console.log(data);
-        data = JSON.parse(data);
-        $("#nombre").val(data[0]['nombre']);
-    });
-    cargarMensajes(destinatario);
-}
-
 function removerMensajes() {
-    // const list = document.getElementsByClassName("mensajesContacto");
-    // if (list.hasChildNodes()) {
-    //     list.removeChild(list.children[0]);
-    // }
+    const list = document.getElementsByClassName("mensajesContacto");
+    if (list.hasChildNodes()) {
+        list.removeChild(list.children[0]);
+    }
 }
 
 function cargarContactos() {
@@ -22,7 +12,7 @@ function cargarContactos() {
         var relleno = "";
         data.map(item => {
             relleno += `
-                <button class="btnContacto" value="${item.claveAsociacionVeterinaria}" onclick="botonClick(this.value)>
+                <button class="btnContacto" value="${item.claveAsociacionVeterinaria}">
                     <div class="contacto">
                     <div class="imagenPerfil">
                         <i class='bx bxs-user-circle'></i>
@@ -79,14 +69,14 @@ $(document).ready(function () {
         cargarMensajes();
     });
 
-    // $(".btnContacto").click(function (e) {
-    //     $(".enviarMensajeContacto").show();
-    //     e.preventDefault();
-    //     let destinatario = $(this).val();
-    //     $.post("./php/buscarAsociacionClave.php", {destinatario}, function (data) {
-    //         data = JSON.parse(data);   
-    //         $("#nombre").val(data[0]['nombre']);                     
-    //     });
-    //     cargarMensajes(destinatario);
-    // });
+    $(".btnContacto").click(function (e) {
+        $(".enviarMensajeContacto").show();
+        e.preventDefault();
+        let destinatario = $(this).val();
+        $.post("./php/buscarAsociacionClave.php", {destinatario}, function (data) {
+            data = JSON.parse(data);   
+            $("#nombre").val(data[0]['nombre']);                     
+        });
+        cargarMensajes(destinatario);
+    });
 });
