@@ -140,7 +140,7 @@ class conexion{
     function buscarAsociacionClave($claveAsociacion)
     {
         $link = $this->conectar();     
-        $sql = "SELECT * FROM asociacion/veterinaria WHERE claveAsociacionVeterinaria = ".$claveAsociacion."";   
+        $sql = "SELECT * FROM `asociacion/veterinaria` WHERE claveAsociacionVeterinaria = ".$claveAsociacion."";   
         $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
         $data = [];
         while ($item = $result->fetch(PDO::FETCH_OBJ)) {
