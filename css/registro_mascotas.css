@@ -19,11 +19,12 @@
 }
 
 .informacion { 
-    background-color: #A8C7CA;
+    background-color: #FFFFFF;
     margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     font-size: x-large;
-    border: 2px solid rgb(146, 143, 143); 
+    border: 2px solid rgba(146, 143, 143, 0.425);
+    box-shadow: 5px 5px 5px 0 grey; 
 }
 
 
@@ -38,3 +39,7 @@
     font-size: x-large;
     margin-left: 10px;
 } 
+
+.btnFoto input{
+    display: none;
+}

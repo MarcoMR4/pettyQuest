@@ -15,4 +15,10 @@ $(window).ready(function() {
         });
         
     });
+
+    $("#btnFoto").click(function (e) { 
+        e.preventDefault();
+        $("#nuevaFoto").click();
+    });
+
 });
