@@ -3,11 +3,13 @@ $(document).ready(function () {
     $("#espacio3").hide();
     $("#btn2").hide();
     $("#btn3").hide();
+    $("#btn4").hide();
 
     $("#btnEditar").click(function (e) { 
         e.preventDefault();
         $("#espacio3").show();
         $("#btn3").show();
+        $("#btn4").show();
         $("#espacio2").hide();
         $("#btn2").hide();
         $("#idNombre").prop('readonly', false).prop('disabled', false).prop('required',true);
@@ -23,6 +25,7 @@ $(document).ready(function () {
         e.preventDefault();
         $("#espacio3").hide();
         $("#btn3").hide();
+        $("#btn4").hide();
         $("#espacio2").show();
         $("#btn2").show();
         $("#idNombre").prop('readonly', true).prop('disabled', true).prop('required',false);
@@ -31,6 +34,11 @@ $(document).ready(function () {
         $("#idRaza").prop('readonly', true).prop('disabled', true).prop('required',false);
         $("#idTamaño").prop('readonly', true).prop('disabled', true).prop('required',false);
         $("#idUbicacion").prop('readonly', true).prop('disabled', true).prop('required',false);
+    });
+
+    $("#btnFoto").click(function (e) { 
+        e.preventDefault();
+        $("#nuevaFoto").click();
     });
 
 });

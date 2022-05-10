@@ -39,3 +39,12 @@
 .btn1 input {
     font-size: x-large;
 } 
+
+.btnFoto{
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.btnFoto input{
+    display: none;
+}
