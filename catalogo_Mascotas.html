@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/catalogo_Mascotas.css">
-    <link rel="stylesheet" href="css/index.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/catalogo_Mascotas.css">
+  <link rel="stylesheet" href="css/index.css">
 
 </head>
 
@@ -19,17 +19,19 @@
   <!--Menu-->
   <nav class="navbar navbar-expand-lg color-nav sticky-top navbar-light">
     <div class="container-fluid color-text">
-      <a class="navbar-brand negritas" href="#">
+      <a class="navbar-brand negritas" href="index.html">
         <img src="img/Logo/Final.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
         PettyQuest
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" style="margin-left: auto;">
           <li class="nav-item">
-            <a class="nav-link color-link-black" aria-current="page" href="catalogo_Productos.html">Productos y Servicios</a>
+            <a class="nav-link color-link-black" aria-current="page" href="catalogo_Productos.html">Productos y
+              Servicios</a>
           </li>
           <li class="nav-item">
             <a class="nav-link color-link-black" href="catalogo_Mascotas.html">Ver mascotas</a>
@@ -38,16 +40,21 @@
             <a class="nav-link color-link-black" href="#">Foro</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle color-link-black" href="#" id="Cambio" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle color-link-black" href="#" id="Cambio" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
               Iniciar Sesion / Registro
             </a>
             <ul class="dropdown-menu" aria-labelledby="Cambio">
-              <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion" role="button" aria-controls="InicioSesion" id="Cambio1">
-                Inicar Sesion
-              </a></li>
-              <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button" aria-controls="offcanvasExample" id="Cambio2">
-                Registrar
-              </a></li>
+              <div id="agregar">
+                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion" role="button"
+                    aria-controls="InicioSesion" id="Cambio1">
+                    Inicar Sesion
+                  </a></li>
+                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button"
+                    aria-controls="offcanvasExample" id="Cambio2">
+                    Registrar
+                  </a></li>
+              </div>
             </ul>
           </li>
         </ul>
@@ -55,183 +62,183 @@
     </div>
   </nav>
 
-    <!-- Contenido -->
-    <div class="container contenido">
-        <nav class="navbar">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Buscar Mascota..." aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-        </nav>
-        <div class="row">
-            <div class="col separar">
-                <div class="card" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <a href="perfil_Mascota.html">
-                        <div class="row-md-2">
-                            <img src="img/Mascotas/p1.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="row-md-2">
-                            <div class="card-body nombre">
-                                <h4 class="card-text">Pancho</h4>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
+  <!-- Contenido -->
+  <div class="container contenido">
+    <nav class="navbar">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Buscar Mascota..." aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </nav>
+    <div class="row">
+      <div class="col separar">
+        <div class="card" style="max-width: 540px;">
+          <div class="row g-0">
+            <a href="perfil_Mascota.html">
+              <div class="row-md-2">
+                <img src="img/Mascotas/p1.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="row-md-2">
+                <div class="card-body nombre">
+                  <h4 class="card-text">Pancho</h4>
                 </div>
-            </div>
-            <div class="col separar">
-                <div class="card" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <a href="perfil_Mascota.html">
-                        <div class="row-md-2">
-                            <img src="img/Mascotas/p2.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="row-md-2">
-                            <div class="card-body nombre">
-                                <h4 class="card-text">Fido</h4>
-                            </div>
-                        </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col separar">
-                <div class="card" style="max-width: 540px;">
-                    <div class="row justify-content-center g-0">
-                        <a href="perfil_Mascota.html">
-                        <div class="row-md-2">
-                            <img src="img/Mascotas/p3.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="row-md-2">
-                            <div class="card-body nombre">
-                                <h4 class="card-text">Firulais</h4>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
+      </div>
+      <div class="col separar">
+        <div class="card" style="max-width: 540px;">
+          <div class="row g-0">
+            <a href="perfil_Mascota.html">
+              <div class="row-md-2">
+                <img src="img/Mascotas/p2.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="row-md-2">
+                <div class="card-body nombre">
+                  <h4 class="card-text">Fido</h4>
                 </div>
-            </div>
-            <div class="col separar">
-                <div class="card" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <a href="perfil_Mascota.html">
-                        <div class="row-md-2">
-                            <img src="img/Mascotas/p4.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="row-md-2">
-                            <div class="card-body nombre">
-                                <h4 class="card-text">Hitler</h4>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                </div>
-            </div>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="row">
-            <div class="col separar">
-                <div class="card" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <a href="perfil_Mascota.html">
-                        <div class="row-md-2">
-                            <img src="img/Mascotas/p1.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="row-md-2">
-                            <div class="card-body nombre">
-                                <h4 class="card-text">Pancho</h4>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col separar">
+        <div class="card" style="max-width: 540px;">
+          <div class="row justify-content-center g-0">
+            <a href="perfil_Mascota.html">
+              <div class="row-md-2">
+                <img src="img/Mascotas/p3.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="row-md-2">
+                <div class="card-body nombre">
+                  <h4 class="card-text">Firulais</h4>
                 </div>
-            </div>
-            <div class="col separar">
-                <div class="card" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <a href="perfil_Mascota.html">
-                        <div class="row-md-2">
-                            <img src="img/Mascotas/p2.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="row-md-2">
-                            <div class="card-body nombre">
-                                <h4 class="card-text">Fido</h4>
-                            </div>
-                        </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="row">
-            <div class="col separar">
-                <div class="card" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <a href="perfil_Mascota.html">
-                        <div class="row-md-2">
-                            <img src="img/Mascotas/p3.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="row-md-2">
-                            <div class="card-body nombre">
-                                <h4 class="card-text">Firulais</h4>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
+      </div>
+      <div class="col separar">
+        <div class="card" style="max-width: 540px;">
+          <div class="row g-0">
+            <a href="perfil_Mascota.html">
+              <div class="row-md-2">
+                <img src="img/Mascotas/p4.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="row-md-2">
+                <div class="card-body nombre">
+                  <h4 class="card-text">Hitler</h4>
                 </div>
-            </div>
-            <div class="col separar">
-                <div class="card" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <a href="perfil_Mascota.html">
-                        <div class="row-md-2">
-                            <img src="img/Mascotas/p4.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="row-md-2">
-                            <div class="card-body nombre">
-                                <h4 class="card-text">Hitler</h4>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                </div>
-            </div>
+              </div>
+            </a>
+          </div>
         </div>
-
+      </div>
     </div>
 
-    <!--Pie de Pagina-->
-    <div class="container-fluid PiePag navbar-fixed-bottom">
-        <div class="row color-letra-PiePag">
-            <div class="col border-r">
-                <span>Contactanos!</span><br>
-                <span>Telefono: 443-48-90-12</span><br>
-                <span>Correo: pettyquest@gmail.com.mx</span>
-            </div>
-            <div class="col border-r">
-                <a href="#">Ver mascotas</a><br>
-                <a href="#">Ver productos/servicios</a><br>
-                <a href="#">Ver adopciones</a>
-            </div>
-            <div class="col">
-                <a href="#">Legales</a><br>
-                <a href="#">Terminos y condiciones</a><br>
-                <a href="#">Leyes</a>
-            </div>
+    <div class="row">
+      <div class="col separar">
+        <div class="card" style="max-width: 540px;">
+          <div class="row g-0">
+            <a href="perfil_Mascota.html">
+              <div class="row-md-2">
+                <img src="img/Mascotas/p1.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="row-md-2">
+                <div class="card-body nombre">
+                  <h4 class="card-text">Pancho</h4>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
+      </div>
+      <div class="col separar">
+        <div class="card" style="max-width: 540px;">
+          <div class="row g-0">
+            <a href="perfil_Mascota.html">
+              <div class="row-md-2">
+                <img src="img/Mascotas/p2.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="row-md-2">
+                <div class="card-body nombre">
+                  <h4 class="card-text">Fido</h4>
+                </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col separar">
+        <div class="card" style="max-width: 540px;">
+          <div class="row g-0">
+            <a href="perfil_Mascota.html">
+              <div class="row-md-2">
+                <img src="img/Mascotas/p3.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="row-md-2">
+                <div class="card-body nombre">
+                  <h4 class="card-text">Firulais</h4>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col separar">
+        <div class="card" style="max-width: 540px;">
+          <div class="row g-0">
+            <a href="perfil_Mascota.html">
+              <div class="row-md-2">
+                <img src="img/Mascotas/p4.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="row-md-2">
+                <div class="card-body nombre">
+                  <h4 class="card-text">Hitler</h4>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/soporte.js"></script>
-    <script src="js/cambio_menu_tipo.js"></script>
+  <!--Pie de Pagina-->
+  <div class="container-fluid PiePag navbar-fixed-bottom">
+    <div class="row color-letra-PiePag">
+      <div class="col border-r">
+        <span>Contactanos!</span><br>
+        <span>Telefono: 443-48-90-12</span><br>
+        <span>Correo: pettyquest@gmail.com.mx</span>
+      </div>
+      <div class="col border-r">
+        <a href="#">Ver mascotas</a><br>
+        <a href="#">Ver productos/servicios</a><br>
+        <a href="#">Ver adopciones</a>
+      </div>
+      <div class="col">
+        <a href="#">Legales</a><br>
+        <a href="#">Terminos y condiciones</a><br>
+        <a href="#">Leyes</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/soporte.js"></script>
+  <script src="js/cambio_menu_tipo.js"></script>
 </body>
 
 </html>

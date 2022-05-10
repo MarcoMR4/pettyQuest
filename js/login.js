@@ -14,8 +14,20 @@ $(window).ready(function() {
                 //obtener tamaño del json
                 usuarioexiste = (Object.keys(response).length);
                 if (usuarioexiste == 1) {
-                    console.log(response)
+                    console.log(response);
                 }
+                else{
+                    console.log("No es un usuario puede ser veterinaria");
+                    $.ajax({
+                        type: "POST",
+                        url: "./php/loginVeterinaria.php",
+                        data: datos,
+                        dataType: "JSON",
+                        success: function (response) {
+                            console.log(response);
+                        }
+                    });  
+                } 
             }
         });
 

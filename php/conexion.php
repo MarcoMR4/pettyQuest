@@ -63,25 +63,36 @@ class conexion{
 
     function pruebaSesion(){
         $link = $this->conectar();
-        $id=$_SESSION['idUsuario'];
+        /*$id=$_SESSION['idUsuario'];
         $sql="SELECT * FROM USUARIO WHERE (idUsuario='".$id."')";
-        $result = $link->query($sql) or die (print("Error")) or die (print("Error")); 
+        $result = $link->query($sql) or die (print("Error")) or die (print("Error"));*/
 
-        $data=[];
-        while($item = $result->fetch(PDO::FETCH_OBJ)){
+        if(!isset($_SESSION['idUsuario'])){
             $data[]=[
-                'idUsuario' => $item->idUsuario,
-                'nombre' => $item->nombre,
-                'apellidoPaterno' => $item->apellidoPaterno,
-                'apellidoMaterno' => $item->apellidoMaterno,
-                'ciudad' => $item->ciudad,
-                'calle' => $item->calle,
-                'numeroCasa' => $item->numeroCasa,
-                'email' => $item->email,
-                'edad' => $item->edad,
-                'telefono' => $item->telefono,
-                'password' => $item->password
+                "estatus" => "NoUsuario"
             ];
+        }
+        else{
+            $id=$_SESSION['idUsuario'];
+            $sql="SELECT * FROM USUARIO WHERE (idUsuario='".$id."')";
+            $result = $link->query($sql) or die (print("Error")) or die (print("Error"));
+            $data=[];
+            while($item = $result->fetch(PDO::FETCH_OBJ)){
+                $data[]=[
+                    'idUsuario' => $item->idUsuario,
+                    'nombre' => $item->nombre,
+                    'apellidoPaterno' => $item->apellidoPaterno,
+                    'apellidoMaterno' => $item->apellidoMaterno,
+                    'ciudad' => $item->ciudad,
+                    'calle' => $item->calle,
+                    'numeroCasa' => $item->numeroCasa,
+                    'email' => $item->email,
+                    'edad' => $item->edad,
+                    'telefono' => $item->telefono,
+                    'password' => $item->password,
+                    "estatus" => "SiUsuario"
+                ];
+            }
         }
 
         $datajson=json_encode($data);
@@ -140,7 +151,7 @@ class conexion{
     function buscarAsociacionClave($claveAsociacion)
     {
         $link = $this->conectar();     
-        $sql = "SELECT * FROM asociacion/veterinaria WHERE claveAsociacionVeterinaria = ".$claveAsociacion."";   
+        $sql = "SELECT * FROM `asociacion/veterinaria` WHERE claveAsociacionVeterinaria = ".$claveAsociacion."";   
         $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
         $data = [];
         while ($item = $result->fetch(PDO::FETCH_OBJ)) {

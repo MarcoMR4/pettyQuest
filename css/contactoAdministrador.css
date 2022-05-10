@@ -1,0 +1,123 @@
+/* Lista contactos */
+
+.contactos {
+    position: relative;
+    width: 25%;
+    height: 543px;
+    margin-left: 0;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: #71a2a5;
+    overflow: auto;
+}
+
+.contactos button{
+    position: relative;
+    width: 100%;
+    border: none;
+    margin-top: 3%;
+}
+
+.contacto{
+    position: relative;    
+    display: flex;
+    background-color: #04A9B4;
+    width: 100%;
+    height: 15%;
+    top: 2%;
+}
+
+.imagenPerfil{
+    width: 30%;
+}
+
+.imagenPerfil i{
+    font-size: 60px;    
+    color: white;
+    width: auto;
+}
+
+.nombrePerfil{
+    display: block;
+    width: 70%;    
+}
+
+.nombrePerfil p{
+    font-size: x-large;    
+    color: white;
+}
+
+/* Conversacion */
+
+.conversacionContacto{
+    position: absolute;
+    width: 70%;
+    left: 28%;
+    top: 0;
+}
+
+.nombreContacto{
+    position: relative;
+    background-color: #04A9B4;
+    height: 62px;
+}
+
+.nombreContacto button{
+    position: relative;
+    width: 100%;
+    background-color: #04A9B4;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.imagenPerfilConversacion{
+    position: relative;
+    height: 100%;
+    width: 7%;
+    color: white;
+}
+
+.imagenPerfilConversacion i{
+    font-size: 50px;
+}
+
+.nombrePerfilConversacion {
+    position: relative;
+    width: 80%;
+    left: 5%;
+    color: white;
+    text-align: center;
+}
+
+.nombrePerfilConversacion p{
+    font-size: 20px;
+}
+
+.mensajesContacto{
+    position: relative;
+    overflow: auto;
+    height: 415px;
+}
+
+.enviarMensajeContacto{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#mensajeContacto{
+    resize: none;
+    width: 90%;
+}
+
+#btnEnviarMensajeContacto {
+    width: 3%;
+    border: none;
+    background: none;
+}
+
+#btnEnviarMensajeContacto i {
+    font-size: 30px;
+}

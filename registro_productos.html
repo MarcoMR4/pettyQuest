@@ -18,17 +18,19 @@
   <!--Menu-->
   <nav class="navbar navbar-expand-lg color-nav sticky-top navbar-light">
     <div class="container-fluid color-text">
-      <a class="navbar-brand negritas" href="#">
+      <a class="navbar-brand negritas" href="index.html">
         <img src="img/Logo/Final.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
         PettyQuest
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" style="margin-left: auto;">
           <li class="nav-item">
-            <a class="nav-link color-link-black" aria-current="page" href="catalogo_Productos.html">Productos y Servicios</a>
+            <a class="nav-link color-link-black" aria-current="page" href="catalogo_Productos.html">Productos y
+              Servicios</a>
           </li>
           <li class="nav-item">
             <a class="nav-link color-link-black" href="catalogo_Mascotas.html">Ver mascotas</a>
@@ -37,16 +39,21 @@
             <a class="nav-link color-link-black" href="#">Foro</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle color-link-black" href="#" id="Cambio" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle color-link-black" href="#" id="Cambio" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
               Iniciar Sesion / Registro
             </a>
             <ul class="dropdown-menu" aria-labelledby="Cambio">
-              <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion" role="button" aria-controls="InicioSesion" id="Cambio1">
-                Inicar Sesion
-              </a></li>
-              <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button" aria-controls="offcanvasExample" id="Cambio2">
-                Registrar
-              </a></li>
+              <div id="agregar">
+                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion" role="button"
+                    aria-controls="InicioSesion" id="Cambio1">
+                    Inicar Sesion
+                  </a></li>
+                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button"
+                    aria-controls="offcanvasExample" id="Cambio2">
+                    Registrar
+                  </a></li>
+              </div>
             </ul>
           </li>
         </ul>
@@ -58,52 +65,52 @@
 
   <div class="container-fluid">
 
-    <form action="php/login.php" method="post" autocomplete="off">
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="col foto">
-          <img src="" alt="" id="idFotoMas">
+    <form autocomplete="off" id="formproducto">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="col foto">
+            <img src="" alt="" id="idFotoMas">
+          </div>
+          <div class="col btnFoto">
+            <button type="button" class="btn btn-outline-primary" required>Subir foto</button>
+          </div>
         </div>
-        <div class="col btnFoto">
-          <button type="button" class="btn btn-outline-primary" required>Subir foto</button>
+        <div class="col-lg-7 informacion">
+          <div class="mb-3 row mt-4">
+            <label for="nombreP" class="col-sm-2 col-form-label">Nombre:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="nombreP" id="nombreP" required>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="TipoP" class="col-sm-2 col-form-label" >Tipo:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="TipoP" id="TipoP" required>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="Cantidad" class="col-sm-2 col-form-label">Cantidad:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="Cantidad" id="Cantidad" required> 
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="Precio" class="col-sm-2 col-form-label">Precio:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="Precio" id="Precio" required>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-lg-7 informacion">
-        <div class="mb-3 row mt-4">
-          <label for="nombreP" class="col-sm-2 col-form-label">Nombre:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="nombreP" required>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="TipoP" class="col-sm-2 col-form-label" >Tipo:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="TipoP" required>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="Cantidad" class="col-sm-2 col-form-label">Cantidad:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="Cantidad" required> 
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="Precio" class="col-sm-2 col-form-label">Precio:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="Precio" required>
-          </div>
+      <div class="row">
+        <div class="col-md-8"></div>
+        <div class="btn1 col-md-4">
+          <input class="btn btn-outline-danger" type="button" value="Cancelar">
+          <input class="btn btn-outline-secondary" type="submit" value="Agregar">
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8"></div>
-      <div class="btn1 col-md-4">
-        <input class="btn btn-outline-danger" type="button" value="Cancelar">
-        <input class="btn btn-outline-secondary" type="submit" value="Agregar">
-      </div>
-    </div>
+    </form>
   </div>
-  </form>
   </div>
 
 
@@ -139,6 +146,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/soporte.js"></script>
   <script src="js/cambio_menu_tipo.js"></script>
+  <script src="js/registro_productos.js"></script>
 </body>
 
 </html>

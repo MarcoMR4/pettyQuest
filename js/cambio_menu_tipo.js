@@ -4,19 +4,59 @@ function actualizarMenu(){
     var usuarioexiste = 0;
 
     $.ajax({
-        type: "GET",
-        url: "./php/catalogo_Producto.php",
+        type: "POST",
+        url: "./php/pruebaSesionUsuario.php",
         data: "",
         dataType: "JSON",
         success: function (response) {
             console.log(response);
-            usuarioexiste = (Object.keys(response).length);
-            if (usuarioexiste == 1) {
-                var nombre = response[0]['nombre']+ " " +response[0]['apellidoPaterno']+ " " +response[0]['apellidoMaterno'];
-                $("#Cambio").html(nombre).addClass("nav-link color-link-black");
-                $("#Cambio1").html("Editar Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');
-                $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');;
+            if(response[0]['estatus']=='NoUsuario'){
+                /* checamos si es veterinaria */
+                $.ajax({
+                    type: "POST",
+                    url: "./php/pruebaSesionVeterinaria.php",
+                    data: "",
+                    dataType: "JSON",
+                    success: function (response) {
+                        console.log(response);
+                        
+                        if(response[0]['estatus']=='SiVeterinaria'){
+                            usuarioexiste = (Object.keys(response).length);
+                            if (usuarioexiste == 1) {
+                                var nombre = response[0]['nombre']+ " / " +response[0]['nombreEncargado'];
+                                $("#Cambio").html(nombre).addClass("nav-link color-link-black");
+                                $("#Cambio1").html("Editar Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');
+                                $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');
+                                opciones();
+                            }
+                        }
+
+                        
+                    }
+                });
+            }
+            else if(response[0]['estatus']=='SiUsuario'){
+                usuarioexiste = (Object.keys(response).length);
+                if (usuarioexiste == 1) {
+                    var nombre = response[0]['nombre']+ " " +response[0]['apellidoPaterno']+ " " +response[0]['apellidoMaterno'];
+                    $("#Cambio").html(nombre).addClass("nav-link color-link-black");
+                    $("#Cambio1").html("Editar Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');
+                    $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');
+                }
             }
         }
     });
+}
+
+function opciones(){
+    var relleno = "";
+        relleno += `
+           <li><a class="dropdown-item" href="registro_mascotas.html"  role="button" aria-controls="InicioSesion">
+                Registar mascota
+            </a></li>
+            <li><a class="dropdown-item" href="registro_productos.html"  role="button" aria-controls="InicioSesion">
+                Registar producto
+            </a></li>
+        `;
+    $("#agregar").append(relleno);
 }
