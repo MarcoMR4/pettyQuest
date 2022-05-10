@@ -1,0 +1,22 @@
+.informacion { 
+    background-color: #A8C7CA;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: x-large;
+    border: 2px solid rgb(146, 143, 143); 
+}
+
+.informacion input{
+    border: 1px solid rgba(0, 0, 0, 0.158);
+}
+
+.btn1 {
+   
+    height: auto;
+    margin-bottom: 2rem;
+   
+}
+
+.btn1 input {
+    font-size: x-large;
+} 
