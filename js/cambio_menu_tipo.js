@@ -46,6 +46,19 @@ function actualizarMenu(){
             }
         }
     });
+
+    $("#Cambio2").click(function (e) { 
+        console.log("hola");
+        $.ajax({
+            type: "POST",
+            url: "./php/cerrarSesionUsuario.php",
+            data: "",
+            dataType: "JSON",
+            success: function (response) {
+                window.location.replace("index.html");
+            }
+        });
+    });
 }
 
 function opciones(){
