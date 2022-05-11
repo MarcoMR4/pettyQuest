@@ -148,20 +148,5 @@ class conexion{
         return $datajson;
     }
 
-    function buscarAsociacionClave($claveAsociacion)
-    {
-        $link = $this->conectar();     
-        $sql = "SELECT * FROM `asociacion/veterinaria` WHERE claveAsociacionVeterinaria = ".$claveAsociacion."";   
-        $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
-        $data = [];
-        while ($item = $result->fetch(PDO::FETCH_OBJ)) {
-            $data[] = [
-                'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
-                'nombre' => $item->nombre             
-            ];
-        }
-        $datajson = json_encode($data);
-        return $datajson;
-    }
 }
 ?>
