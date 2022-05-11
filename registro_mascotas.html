@@ -73,32 +73,46 @@
             <img src="" alt="" id="idFotoMas">
           </div>
           <div class="col btnFoto">
-            <button type="button" class="btn btn-outline-primary" required>Subir foto</button>
+            <button type="button" class="btn btn-outline-primary"  id="btnFoto">Subir foto
+            </button>
+            <input type="file" id="nuevaFoto" required>
           </div>
         </div>
         <div class="col-lg-7 informacion">
           <div class="mb-3 row mt-4">
-            <label for="nombreMas" class="col-sm-2 col-form-label">Nombre:</label>
+            <label for="idNombre" class="col-sm-2 col-form-label">Nombre:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="nombreMas" id="nombreMas" required>
+              <input type="text" class="form-control" id="idNombre">
             </div>
           </div>
           <div class="mb-3 row">
-            <label for="edadMas" class="col-sm-2 col-form-label">Edad:</label>
+            <label for="idEdad" class="col-sm-2 col-form-label">Edad:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="edadMas" id="edadMas" required>
+              <input type="text" class="form-control" id="idEdad">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="idGenero" class="col-sm-2 col-form-label">Genero:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="idGenero">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="idRaza" class="col-sm-2 col-form-label">Raza:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="idRaza" id="idRaza" required>
+              <input type="text" class="form-control" id="idRaza">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="idTamaño" class="col-sm-2 col-form-label">Tamaño:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="idTamaño">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="idUbicacion" class="col-sm-2 col-form-label">Ubicacion:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="idUbicacion" id="idUbicacion" required>
+              <input type="text" class="form-control" id="idUbicacion">
             </div>
           </div>
         </div>
@@ -147,6 +161,7 @@
   <script src="js/soporte.js"></script>
   <script src="js/cambio_menu_tipo.js"></script>
   <script src="js/registro_mascotas.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>

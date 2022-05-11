@@ -1,9 +1,9 @@
 .informacion { 
-    background-color: #A8C7CA;
+    background-color: #FFFFFF;
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-size: x-large;
-    border: 2px solid rgb(146, 143, 143); 
+    border: 2px solid rgba(146, 143, 143, 0.425); 
 }
 
 .informacion input{
@@ -19,4 +19,13 @@
 
 .btn1 input {
     font-size: x-large;
+    padding: 0 50px 0 50px;
+} 
+
+#btn1 input {
+    padding: 0 47px 0 47px;
+} 
+
+#btn2 input {
+    margin-top: 10px;
 } 

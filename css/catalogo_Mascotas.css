@@ -1,6 +1,6 @@
 .contenido {
-    background-color: #A8C7CA;
-    border: 2px solid rgb(70, 69, 69);
+    
+   
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -41,8 +41,8 @@
 
 .nombre{
     text-align: center;
-    background-color: rgb(146, 143, 143);
-    color: whitesmoke; 
+    background-color: #FFFFFF;
+    color: rgb(0, 0, 0); 
 }
 
 .barra{
@@ -67,4 +67,5 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0);
     border: 0px;
+    box-shadow: 5px 5px 5px 0 grey;
 }
