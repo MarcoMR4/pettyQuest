@@ -1,11 +1,8 @@
-function botonClick(destinatario){
-    $(".enviarMensajeContacto").show();                
-        $.post("./php/buscarAsociacionClave.php", {destinatario}, function (data) {
-            console.log(data); 
-            data = JSON.parse(data);  
-            $("#nombre").val(data[0]['nombre']);                     
-        });
-        cargarMensajes(destinatario);
+function botonClick(destinatario) {
+    $(".enviarMensajeContacto").show();
+    let nombre = document.getElementById(destinatario).getElementsByClassName("nombrePerfil").item("p").textContent.trim().toString();
+    $("#nombre").text(nombre);
+    cargarMensajes(destinatario);
 }
 
 function removerMensajes() {
@@ -17,12 +14,12 @@ function removerMensajes() {
 
 function cargarContactos() {
     $.post("./php/cargarContactos.php", {}, function (data) {
-        
+
         data = JSON.parse(data);
         var relleno = "";
         data.map(item => {
             relleno += `
-                <button class="btnContacto" value="${item.claveAsociacionVeterinaria}" onClick="botonClick(this.value)">
+                <button class="btnContacto" id="${item.claveAsociacionVeterinaria}" value="${item.claveAsociacionVeterinaria}" onClick="botonClick(this.value)">
                     <div class="contacto">
                     <div class="imagenPerfil">
                         <i class='bx bxs-user-circle'></i>
@@ -83,9 +80,9 @@ $(document).ready(function () {
         $(".enviarMensajeContacto").show();
         e.preventDefault();
         let destinatario = $(this).val();
-        $.post("./php/buscarAsociacionClave.php", {destinatario}, function (data) {
-            data = JSON.parse(data);   
-            $("#nombre").val(data[0]['nombre']);                     
+        $.post("./php/buscarAsociacionClave.php", { destinatario }, function (data) {
+            data = JSON.parse(data);
+            $("#nombre").val(data[0]['nombre']);
         });
         cargarMensajes(destinatario);
     });
