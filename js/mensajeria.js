@@ -14,12 +14,11 @@ function removerMensajes() {
 
 function cargarContactos() {
     $.post("./php/cargarContactos.php", {}, function (data) {
-
         data = JSON.parse(data);
         var relleno = "";
         data.map(item => {
             relleno += `
-                <button class="btnContacto" id="${item.claveAsociacionVeterinaria}" value="${item.claveAsociacionVeterinaria}" onClick="botonClick(this.value)">
+                <button type="button" class="btnContacto" id="${item.claveAsociacionVeterinaria}" value="${item.claveAsociacionVeterinaria}" onclick="botonClick(this.value)">
                     <div class="contacto">
                     <div class="imagenPerfil">
                         <i class='bx bxs-user-circle'></i>
@@ -74,16 +73,5 @@ $(document).ready(function () {
             console.log(data);
         });
         cargarMensajes();
-    });
-
-    $(".btnContacto").click(function (e) {
-        $(".enviarMensajeContacto").show();
-        e.preventDefault();
-        let destinatario = $(this).val();
-        $.post("./php/buscarAsociacionClave.php", { destinatario }, function (data) {
-            data = JSON.parse(data);
-            $("#nombre").val(data[0]['nombre']);
-        });
-        cargarMensajes(destinatario);
     });
 });
