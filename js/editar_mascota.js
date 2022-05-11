@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    
+
     $("#espacio2").hide();
     $("#espacio3").hide();
     $("#btn2").hide();
