@@ -135,7 +135,7 @@ class conexion{
     function cargarContactos()
     {
         $link = $this->conectar();
-        $sql = "SELECT * FROM `asociacion/veterinaria`";
+        $sql = "SELECT * FROM asociacionveterinaria";
         $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
         $data = [];
         while ($item = $result->fetch(PDO::FETCH_OBJ)) {
