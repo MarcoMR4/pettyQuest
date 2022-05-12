@@ -1,13 +1,9 @@
 
-.foto {
-    display: flex;
-    justify-content: flex-start;
-    height: 18rem;
+.foto {  
     width: 18rem;
-    background-color: white;
-    margin-left: 2rem;
+    background-color: rgba(255, 255, 255, 0);
     margin-top: 2rem;
-    margin-right: 14rem;
+    box-shadow: 5px 5px 5px 0 grey; 
    
 }
 
@@ -22,7 +18,8 @@
     margin-bottom: 1rem;
     font-size: x-large;
     border: 2px solid rgba(146, 143, 143, 0.425);
-    box-shadow: 5px 5px 5px 0 grey; 
+    box-shadow: 5px 5px px 0 grey; 
+    font-size: large;
 }
 /*
 .informacion input{

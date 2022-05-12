@@ -67,10 +67,10 @@
   <div class="container-fluid">
 
     <form action="php/login.php" method="post" autocomplete="off">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-lg-4">
-        <div class="col foto">
-          <img src="img/Mascotas/p1.jpg" alt="" id="idFotoMas">
+        <div class="card foto" style="width: 18rem;">
+          <img src="img/Mascotas/p1.jpg" class="card-img-top" alt="...">
         </div>
         <div class="col btnFoto" id="btn4">
           <button type="button" class="btn btn-outline-primary"  id="btnFoto">Subir foto
@@ -78,58 +78,58 @@
           <input type="file" id="nuevaFoto" required>
         </div>
       </div>
-        <div class="col-lg-7 informacion">
-          <div class="mb-3 row mt-4">
-            <label for="idNombre" class="col-sm-2 col-form-label">Nombre:</label>
-            <div class="col-sm-10">
+        <div class="col-lg-5 informacion">
+          <div class="row mt-3">
+            <label for="idNombre" class="col-sm-3 col-form-label">Nombre:</label>
+            <div class="col-sm-9">
               <input type="text" readonly class="form-control-plaintext" id="idNombre" value="Pedro" disabled>
             </div>
           </div>
           <hr>
-          <div class="mb-3 row">
-            <label for="idEdad" class="col-sm-2 col-form-label">Estatus:</label>
-            <div class="col-sm-10">
+          <div class="row">
+            <label for="idEdad" class="col-sm-3 col-form-label">Estatus:</label>
+            <div class="col-sm-9">
               <input type="text" readonly class="form-control-plaintext" id="idEdad" value="En adopcion" disabled>
             </div>
           </div>
           <hr>
-          <div class="mb-3 row">
-            <label for="idEdad" class="col-sm-2 col-form-label">Edad:</label>
-            <div class="col-sm-10">
+          <div class="mb- row">
+            <label for="idEdad" class="col-sm-3 col-form-label">Edad:</label>
+            <div class="col-sm-9">
               <input type="text" readonly class="form-control-plaintext" id="idEdad" disabled>
             </div>
           </div>
           <hr>
-          <div class="mb-3 row">
-            <label for="idGenero" class="col-sm-2 col-form-label">Genero:</label>
-            <div class="col-sm-10">
+          <div class="mb- row">
+            <label for="idGenero" class="col-sm-3 col-form-label">Genero:</label>
+            <div class="col-sm-9">
               <input type="text" readonly class="form-control-plaintext" id="idGenero" disabled>
             </div>
           </div>
           <hr>
-          <div class="mb-3 row">
-            <label for="idRaza" class="col-sm-2 col-form-label">Raza:</label>
-            <div class="col-sm-10">
+          <div class="mb-1 row">
+            <label for="idRaza" class="col-sm-3 col-form-label">Raza:</label>
+            <div class="col-sm-9">
               <input type="text" readonly class="form-control-plaintext" id="idRaza" disabled>
             </div>
           </div>
           <hr>
-          <div class="mb-3 row">
-            <label for="idTamaño" class="col-sm-2 col-form-label">Tamaño:</label>
-            <div class="col-sm-10">
+          <div class="mb-1 row">
+            <label for="idTamaño" class="col-sm-3 col-form-label">Tamaño:</label>
+            <div class="col-sm-9">
               <input type="text" readonly class="form-control-plaintext" id="idTamaño" disabled>
             </div>
           </div>
           <hr>
           <div class="mb-3 row">
-            <label for="idUbicacion" class="col-sm-2 col-form-label">Ubicacion:</label>
-            <div class="col-sm-10">
+            <label for="idUbicacion" class="col-sm-3 col-form-label">Ubicacion:</label>
+            <div class="col-sm-9">
               <input type="text" readonly class="form-control-plaintext" id="idUbicacion" disabled>
             </div>
           </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-2">
       <div class="col-9" id="espacio1"></div>
       <div class="btn1 col-md-2" id="btn1">
         <input class="btn btn-outline-success" type="button" value="Adoptar" id="btnAdoptar">

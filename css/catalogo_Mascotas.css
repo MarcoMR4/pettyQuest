@@ -65,7 +65,7 @@
 
 .card{
     height: 100%;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
     border: 0px;
     box-shadow: 5px 5px 5px 0 grey;
 }
