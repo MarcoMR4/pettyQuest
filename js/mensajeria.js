@@ -1,10 +1,4 @@
-function botonClick(destinatario) {
-    $(".enviarMensajeContacto").show();
-    let nombre = document.getElementById(destinatario).getElementsByClassName("nombrePerfil").item("p").textContent.trim().toString();
-    $("#nombre").text(nombre);
-    cargarMensajes(destinatario);
-}
-
+// Eliminar mensajes del chat anterior
 function removerMensajes() {
     // const list = document.getElementsByClassName("mensajesContacto");
     // if (list.hasChildNodes()) {
@@ -12,7 +6,45 @@ function removerMensajes() {
     // }
 }
 
-function cargarContactos() {
+// Separar mensajes de remitente y destinatario
+function dividirMensajes(remitente, mensaje) {
+    const divMensaje = document.querySelector(".mensajesContacto");
+    const parrafo = document.createElement("p");
+    parrafo.textContent = mensaje;
+    if (remitente == true)
+        parrafo.id = "mensajeRemitente";
+    else
+        parrafo.id = "mensajeDestinatario";
+    divMensaje.insertAdjacentElement("beforeend", parrafo);
+}
+
+// Obtener mensajes del remitente con el destinatario
+function cargarMensajes(destinatario) {
+    removerMensajes();
+    $.post("./php/cargarMensajes.php", { destinatario }, function (data) {
+        console.log(data);
+        data = JSON.parse(data);
+        for (let i = 0; i < Object.keys(data).length; i++) {
+            if (data[i]['claveRemitente'] != destinatario) {
+                dividirMensajes(true, data[i]['mensaje']);
+            }
+            else {
+                dividirMensajes(false, data[i]['mensaje']);
+            }
+        }
+    });
+}
+
+// Seleccionar un contacto de la lista
+function botonClick(destinatario) {
+    $(".enviarMensajeContacto").show();
+    let nombre = document.getElementById(destinatario).getElementsByClassName("nombrePerfil").item("p").textContent.trim().toString();
+    $("#nombre").text(nombre);
+    cargarMensajes(destinatario);
+}
+
+// Cargar todos los contactos disponibles en la base de datos
+function cargarContactos() {    
     $.post("./php/cargarContactos.php", {}, function (data) {
         data = JSON.parse(data);
         var relleno = "";
@@ -31,32 +63,6 @@ function cargarContactos() {
             `;
         })
         $(".contactos").html(relleno);
-    });
-}
-
-function dividirMensajes(remitente, mensaje) {
-    const divMensaje = document.querySelector(".mensajesContacto");
-    const parrafo = document.createElement("p");
-    parrafo.textContent = mensaje;
-    if (remitente == true)
-        parrafo.id = "mensajeRemitente";
-    else
-        parrafo.id = "mensajeDestinatario";
-    divMensaje.insertAdjacentElement("beforeend", parrafo);
-}
-
-function cargarMensajes(destinatario) {
-    removerMensajes();
-    $.post("./php/cargarMensajes.php", { destinatario }, function (data) {
-        data = JSON.parse(data);
-        for (let i = 0; i < Object.keys(data).length; i++) {
-            if (data[i]['claveRemitente'] != destinatario) {
-                dividirMensajes(true, data[i]['mensaje']);
-            }
-            else {
-                dividirMensajes(false, data[i]['mensaje']);
-            }
-        }
     });
 }
 
