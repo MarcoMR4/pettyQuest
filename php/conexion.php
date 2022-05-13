@@ -125,7 +125,8 @@ class conexion{
                 'claveMensaje' => $item->claveMensaje,
                 'mensaje' => $item->mensaje,
                 'claveRemitente' => $item->claveRemitente,
-                'claveDestinatario' => $item->claveDestinatario                
+                'claveDestinatario' => $item->claveDestinatario,
+                'usuario' => $item->usuario                
             ];
         }
         $datajson = json_encode($data);
@@ -141,8 +142,7 @@ class conexion{
         while ($item = $result->fetch(PDO::FETCH_OBJ)) {
             $data[] = [
                 'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
-                'nombre' => $item->nombre,
-                'usuario' => $item->usuario             
+                'nombre' => $item->nombre,                   
             ];
         }
         $datajson = json_encode($data);

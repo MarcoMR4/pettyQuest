@@ -46,6 +46,7 @@ function botonClick(destinatario) {
 // Cargar todos los contactos disponibles en la base de datos
 function cargarContactos() {    
     $.post("./php/cargarContactos.php", {}, function (data) {
+        console.log(data)
         data = JSON.parse(data);
         var relleno = "";
         data.map(item => {
