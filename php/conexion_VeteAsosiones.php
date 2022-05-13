@@ -23,7 +23,7 @@ class conexion_VeteAsosiones{
         $link = $this->conectar();
 
         /* Query para obtener datos */
-        $sql="SELECT * FROM `asociacion/veterinaria` WHERE (email='".$email."') AND (password='".$password."')";
+        $sql="SELECT * FROM `asociacionveterinaria` WHERE (email='".$email."') AND (password='".$password."')";
         $result = $link->query($sql) or die (print("Error"));
 
         /* Creacion del JSON */
@@ -104,7 +104,7 @@ class conexion_VeteAsosiones{
         }
         else{
             $id=$_SESSION['idUsuarioVeterinaria'];
-            $sql="SELECT * FROM `asociacion/veterinaria` WHERE (claveAsociacionVeterinaria='".$id."')";
+            $sql="SELECT * FROM `asociacionveterinaria` WHERE (claveAsociacionVeterinaria='".$id."')";
             $result = $link->query($sql) or die (print("Error")) or die (print("Error"));
             $data=[];
             while($item = $result->fetch(PDO::FETCH_OBJ)){
