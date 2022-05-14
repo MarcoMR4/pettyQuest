@@ -192,13 +192,14 @@ class conexion{
 
     function tipoUsuario(){         
         $tipo = $_SESSION['tipoUsuario'];  
-
-      /* Si regresa algo*/
-      $data[]=[
-        "tipo" => $tipo        
-      ];
-      $datajson=json_encode($data);
-      return $datajson; 
+        if($tipo == null)
+            $tipo ="1";
+        /* Si regresa algo*/
+        $data[]=[
+            "tipo" => $tipo        
+        ];
+        $datajson=json_encode($data);
+        return $datajson; 
     }
 }
 ?>

@@ -40,9 +40,10 @@ function botonClick(clave) {
 function cargarContactos() {
 
     $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
+        console.log(tipo)
         tipo = JSON.parse(tipo);
         tipo = tipo[0]['tipo'];
-        $.post("./php/cargarContactos.php", {tipo}, function (data) {            
+        $.post("./php/cargarContactos.php", {tipo}, function (data) {                   
             data = JSON.parse(data);
             var relleno = "";
             if(tipo[0]['tipo'] == "0"){

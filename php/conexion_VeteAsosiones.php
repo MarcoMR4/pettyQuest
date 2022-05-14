@@ -30,6 +30,7 @@ class conexion_VeteAsosiones{
         $data=[];
         while($item = $result->fetch(PDO::FETCH_OBJ)){
             $_SESSION['idUsuarioVeterinaria']=$item->claveAsociacionVeterinaria;
+            $_SESSION['tipoUsuario']="1";
             $data[]=[
                 'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
                 'nombre' => $item->nombre,
