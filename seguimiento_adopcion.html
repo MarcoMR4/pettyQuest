@@ -66,28 +66,28 @@
 
   <div class="container-fluid">
 
-    <form action="" method="post" autocomplete="off">
+    <form id="formSeg" autocomplete="off">
     <div class="row">
       <div class="col-lg-7 informacion">
         <div class="mb-3 row mt-4">
-          <label for="Date">Fecha Actual:</label>
+          <label for="fecha">Fecha Actual:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="Date" required>
+            <input type="date" class="form-control" id="fecha" name="fecha" required>
           </div>
         </div>
         <div class="mb-3 row">
-          <label for="Comment" >¿Tiene algun comentario tanto positivo como negativo del cuidado de la mascota?:</label>
+          <label for="comentarios" >¿Tiene algun comentario tanto positivo como negativo del cuidado de la mascota?:</label>
           <div class="col-sm-10">
-            <textarea class="form-control" id="Comment" name="Comment" rows="4" cols="50" required></textarea>
+            <textarea class="form-control" id="comentarios" name="comentarios" rows="4" cols="50" required></textarea>
            </div>
         </div>
         <div class="mb-3 row">
           <label>Suba una foto o escaneo de la cartilla de vacunacion de la mascota:</label>
-            <input type="file" class="form-control" id="vacine" required>
+            <input type="file" class="form-control" id="fotoCartilla" name="fotoCartilla" required>
         </div>
         <div class="mb-3 row">
             <label>Suba una foto de como se encuentra con la mascota:</label>
-              <input type="file" class="form-control" id="state" required>
+              <input type="file" class="form-control" id="foto" name="foto" required>
           </div>
       </div>
     </div>
@@ -135,6 +135,8 @@
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/soporte.js"></script>
   <script src="js/cambio_menu_tipo.js"></script>
+  <script src="js/seguimiento_adopcion.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>

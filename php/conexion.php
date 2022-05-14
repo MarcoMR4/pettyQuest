@@ -149,5 +149,17 @@ class conexion{
         return $datajson;
     }
 
+    function nuevoSeguimiento($fecha,$foto,$comentarios,$fotoCartilla){
+        $link = $this->conectar();
+        $result = $link->query("INSERT INTO seguimiento (fecha,foto,comentarios,fotoCartilla) VALUES ('$fecha','$foto','$comentarios','$fotoCartilla')") or die (print("Error")); 
+
+      /* Si regresa algo*/
+      $data[]=[
+        "estatus" => "hecho",
+        "numero" => "123"
+      ];
+      $datajson=json_encode($data);
+      return $datajson; 
+    }
 }
 ?>
