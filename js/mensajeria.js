@@ -1,52 +1,44 @@
-// Eliminar mensajes del chat anterior
-function removerMensajes() {
-    // const list = document.getElementsByClassName("mensajesContacto");
-    // if (list.hasChildNodes()) {
-    //     list.removeChild(list.children[0]);
-    // }
-}
-
-// Separar mensajes de remitente y destinatario
-function dividirMensajes(remitente, mensaje) {
-    const divMensaje = document.querySelector(".mensajesContacto");
-    const parrafo = document.createElement("p");
-    parrafo.textContent = mensaje;
-    if (remitente == true)
-        parrafo.id = "mensajeRemitente";
-    else
-        parrafo.id = "mensajeDestinatario";
-    divMensaje.insertAdjacentElement("beforeend", parrafo);
-}
+var destinatario;
 
 // Obtener mensajes del remitente con el destinatario
-function cargarMensajes(destinatario) {
-    removerMensajes();
-    $.post("./php/cargarMensajes.php", { destinatario }, function (data) {
-        console.log(data);
+function cargarMensajes(destinatario) {    
+    $.post("./php/cargarMensajes.php", { destinatario }, function (data) {        
+        var contenido = "";
         data = JSON.parse(data);
-        for (let i = 0; i < Object.keys(data).length; i++) {
-            if (data[i]['claveRemitente'] != destinatario) {
-                dividirMensajes(true, data[i]['mensaje']);
+        data.map(item => {
+            if((item.usuario) == "0"){
+                contenido += `
+                    <p id="remitente">
+                    ${item.mensaje}
+                    </p>
+                `;
             }
-            else {
-                dividirMensajes(false, data[i]['mensaje']);
+            else{
+                contenido += `
+                    <p id="destinatario">
+                    ${item.mensaje}
+                    </p>
+                `;                
             }
-        }
+        })
+        $(".mensajesContacto").html(contenido);
     });
 }
 
 // Seleccionar un contacto de la lista
-function botonClick(destinatario) {
+function botonClick(clave) {    
+    
+    destinatario = clave;
     $(".enviarMensajeContacto").show();
     let nombre = document.getElementById(destinatario).getElementsByClassName("nombrePerfil").item("p").textContent.trim().toString();
     $("#nombre").text(nombre);
     cargarMensajes(destinatario);
+    
 }
 
 // Cargar todos los contactos disponibles en la base de datos
-function cargarContactos() {    
-    $.post("./php/cargarContactos.php", {}, function (data) {
-        console.log(data)
+function cargarContactos() {
+    $.post("./php/cargarContactos.php", {}, function (data) {        
         data = JSON.parse(data);
         var relleno = "";
         data.map(item => {
@@ -70,15 +62,12 @@ function cargarContactos() {
 $(document).ready(function () {
     cargarContactos();
     $(".enviarMensajeContacto").hide();
+
     $(".enviarMensajeContacto").on('submit', function (e) {
 
-        let mensaje = $("#mensajeContacto").val();
-        let destinatario = $(".btnContacto").val();
-
+        let mensaje = $("#mensajeContacto").val();        
         $.post("./php/mensajeria.php", { mensaje, destinatario }, function (data) {
-            data = JSON.parse(data);
-            console.log(data);
-        });
-        cargarMensajes();
+            data = JSON.parse(data);            
+        });        
     });
 });

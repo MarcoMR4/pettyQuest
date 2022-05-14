@@ -5,7 +5,7 @@ session_start();
 class conexion{
     private $server = 'localhost';
     private $username = 'root';
-    private $password = '123';
+    private $password = '';
     private $database = 'pettyquest';
     private $link;
     private $conn;
@@ -30,6 +30,7 @@ class conexion{
         $data=[];
         while($item = $result->fetch(PDO::FETCH_OBJ)){
             $_SESSION['idUsuario']=$item->idUsuario;
+            $_SESSION['tipoUsuario']="0";
             $data[]=[
                 'idUsuario' => $item->idUsuario,
                 'nombre' => $item->nombre,
@@ -119,8 +120,7 @@ class conexion{
         $sql = "SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $id . " AND `claveDestinatario` = " . $destinatario . ") UNION SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $destinatario . " AND `claveDestinatario` = " . $id . ")";
         $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
         $data = [];
-        while ($item = $result->fetch(PDO::FETCH_OBJ)) {
-            $_SESSION['idUsuario'] = $item->idUsuario;
+        while ($item = $result->fetch(PDO::FETCH_OBJ)) {            
             $data[] = [
                 'claveMensaje' => $item->claveMensaje,
                 'mensaje' => $item->mensaje,

@@ -5,7 +5,7 @@ session_start();
 class conexion_VeteAsosiones{
     private $server = 'localhost';
     private $username = 'root';
-    private $password = '123';
+    private $password = '';
     private $database = 'pettyquest';
     private $link;
     private $conn;

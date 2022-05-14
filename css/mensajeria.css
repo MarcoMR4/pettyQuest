@@ -131,3 +131,27 @@
 #btnEnviarMensajeContacto i {
     font-size: 200%;
 }
+
+/* Formato mensajes */
+
+#remitente {
+    position: relative;
+    background-color: #0eb9ff;
+    border: 5px solid #0eb9ff;
+    color: white;
+    border-radius: 15px;
+    width: 50%;
+    font-size: large;
+    margin-left: auto;
+}
+
+#destinatario {
+    position: relative;
+    background-color: #358f80;
+    border: 5px solid #358f80;
+    color: white;
+    border-radius: 15px;
+    width: 50%;
+    font-size: large;
+    margin-right: auto;
+}
