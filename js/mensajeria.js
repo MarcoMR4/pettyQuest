@@ -1,7 +1,7 @@
 var destinatario;
 
 // Obtener mensajes del remitente con el destinatario
-function cargarMensajes(destinatario) {    
+function cargarMensajes() {    
     $.post("./php/cargarMensajes.php", { destinatario }, function (data) {        
         var contenido = "";
         data = JSON.parse(data);
@@ -32,7 +32,7 @@ function botonClick(clave) {
     $(".enviarMensajeContacto").show();
     let nombre = document.getElementById(destinatario).getElementsByClassName("nombrePerfil").item("p").textContent.trim().toString();
     $("#nombre").text(nombre);
-    cargarMensajes(destinatario);
+    cargarMensajes();
     
 }
 
