@@ -23,8 +23,9 @@ a{
     font-weight: bold;
 }
 .formato-section{
-    background: rgb(199,142,44);
-    background: linear-gradient(90deg, rgba(199,142,44,1) 0%, rgba(212,148,66,1) 54%, rgba(241,194,116,1) 100%);
+   /* background: rgb(222, 220, 215);
+    background: linear-gradient(90deg, rgba(199,142,44,1) 0%, rgba(212,148,66,1) 54%, rgba(241,194,116,1) 100%);*/
+    background-color: azure;
     padding: 45px;
     text-align: justify;
 }
@@ -58,4 +59,9 @@ a{
 .centrar-vertical{
     display: flex;
     align-items: center;
+}
+
+
+.contenidos_letra{
+    font-size: 20px;;
 }
