@@ -133,20 +133,35 @@ class conexion{
         return $datajson;
     }
 
-    function cargarContactos()
+    function cargarContactos($tipo)
     {
         $link = $this->conectar();
-        $sql = "SELECT * FROM asociacionveterinaria";
-        $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
-        $data = [];
-        while ($item = $result->fetch(PDO::FETCH_OBJ)) {
-            $data[] = [
-                'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
-                'nombre' => $item->nombre,                   
-            ];
+        if($tipo == "0"){
+            $sql = "SELECT * FROM asociacionveterinaria";
+            $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
+            $data = [];
+            while ($item = $result->fetch(PDO::FETCH_OBJ)) {
+                $data[] = [
+                    'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
+                    'nombre' => $item->nombre,                   
+                ];
+            }
+            $datajson = json_encode($data);
+            return $datajson;
         }
-        $datajson = json_encode($data);
-        return $datajson;
+        else{
+            $sql = "SELECT * FROM usuario";                        
+            $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
+            $data = [];
+            while ($item = $result->fetch(PDO::FETCH_OBJ)) {
+                $data[] = [
+                    'idUsuario' => $item->idUsuario,
+                    'nombre' => $item->nombre,                   
+                ];
+            }
+            $datajson = json_encode($data);
+            return $datajson;
+        }
     }
 
     function nuevoSeguimiento($fecha,$foto,$comentarios,$fotoCartilla){
@@ -170,6 +185,17 @@ class conexion{
       $data[]=[
         "estatus" => "hecho",
         "numero" => "123"
+      ];
+      $datajson=json_encode($data);
+      return $datajson; 
+    }
+
+    function tipoUsuario(){         
+        $tipo = $_SESSION['tipoUsuario'];  
+
+      /* Si regresa algo*/
+      $data[]=[
+        "tipo" => $tipo        
       ];
       $datajson=json_encode($data);
       return $datajson; 
