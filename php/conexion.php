@@ -5,7 +5,7 @@ session_start();
 class conexion{
     private $server = 'localhost';
     private $username = 'root';
-    private $password = '';
+    private $password = '123';
     private $database = 'pettyquest';
     private $link;
     private $conn;

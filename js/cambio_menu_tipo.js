@@ -13,13 +13,14 @@ function actualizarMenu(){
             if(response[0]['estatus']=='NoUsuario'){
                 /* checamos si es veterinaria */
                 $.ajax({
+                   
                     type: "POST",
                     url: "./php/pruebaSesionVeterinaria.php",
                     data: "",
                     dataType: "JSON",
                     success: function (response) {
                         console.log(response);
-                        
+                       
                         if(response[0]['estatus']=='SiVeterinaria'){
                             usuarioexiste = (Object.keys(response).length);
                             if (usuarioexiste == 1) {
