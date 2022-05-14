@@ -70,27 +70,9 @@
     <div class="row">
       <div class="col-lg-7 informacion">
         <div class="mb-3 row mt-4">
-          <label for="NameUs">Nombre del adoptante:</label>
+          <label for="fecha">Fecha:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="NameUs" required>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="Curp">CURP:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="Curp" required>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="AgeUs">Edad del adoptante:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="AgeUs" required> 
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="telefono">Telefono:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="telefono" required>
+            <input type="date" class="form-control" id="fecha" required>
           </div>
         </div>
         <div class="mb-3 row">
@@ -119,11 +101,11 @@
         </div>
         <div class="mb-3 row">
           <label>Suba un comprobante de domicilio:</label>
-            <input type="file" class="form-control" id="docaddress" required>
+            <input type="file" class="form-control" id="comprobanteDomicilio" required>
         </div>
         <div class="mb-3 row">
           <label>Suba un copia de su INE:</label>
-            <input type="file" class="form-control" id="INE" required>
+            <input type="file" class="form-control" id="ine" required>
         </div>
         <div class="mb-3 row">
             <label>Estoy dispuesto a mantener un seguimiento mensual&nbsp&nbsp&nbsp<input type="checkbox" id="cbox1" required></label><br>
@@ -174,6 +156,8 @@
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/soporte.js"></script>
   <script src="js/cambio_menu_tipo.js"></script>
+  <script src="js/solicitud_adopcion.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>

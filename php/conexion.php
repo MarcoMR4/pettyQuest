@@ -161,5 +161,18 @@ class conexion{
       $datajson=json_encode($data);
       return $datajson; 
     }
+
+    function nuevaSolicitud($comprobanteDomicilio,$fecha,$ine,$razones){
+        $link = $this->conectar();
+        $result = $link->query("INSERT INTO contratoadopcion (comprobanteDomicilio,fecha,ine,razones) VALUES ('$comprobanteDomicilio','$fecha','$ine','$razones')") or die (print("Error")); 
+
+      /* Si regresa algo*/
+      $data[]=[
+        "estatus" => "hecho",
+        "numero" => "123"
+      ];
+      $datajson=json_encode($data);
+      return $datajson; 
+    }
 }
 ?>
