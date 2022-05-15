@@ -63,5 +63,15 @@ a{
 
 
 .contenidos_letra{
-    font-size: 20px;;
+    font-size: 20px;
+}
+.logoV{
+    height: 200px;
+    width: auto;
+    border-radius: 15%;
+    border: solid black 1px;
+    padding: 0;
+}
+.carruselV{
+    padding: 20px;
 }
