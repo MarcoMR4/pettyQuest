@@ -69,3 +69,8 @@
     border: 0px;
     box-shadow: 5px 5px 5px 0 grey;
 }
+
+.card img:hover{
+    border: 1px solid rgb(0, 153, 255);
+    cursor: pointer;
+}

@@ -9,7 +9,31 @@ $(document).ready(function () {
     var ubicacion = "";
     var estatus = "";
     var tipo = "";
-    console.log("Hola mundo")
+    
+    $.ajax({
+        type: "POST",
+        url: "./php/identificarTipoUsuario.php",
+        data: "data",
+        dataType: "JSON",
+        success: function (response) {
+         console.log(response[0]['tipo']);
+          if(response[0]['tipo']=="0"){
+            console.log("Es un usuario normal");
+            $("#espacio2").hide();
+            $("#btn2").hide();
+            $("#espacio1").show();
+            $("#btn1").show();
+          }
+          else{
+            console.log("Es una veterinaria");
+            $("#espacio1").hide();
+            $("#btn1").hide();
+            $("#espacio2").show();
+            $("#btn2").show();
+          }
+        }
+      });
+
     $.ajax({
         type: "POST",
         url: "./php/id_mascota.php",
@@ -59,10 +83,7 @@ $(document).ready(function () {
             });
         }
     });
-
-    $("#espacio2").hide();
-    $("#espacio3").hide();
-    $("#btn2").hide();
+    $("#espacio3").hide();    
     $("#btn3").hide();
     $("#btn4").hide();
 

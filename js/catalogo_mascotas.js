@@ -1,7 +1,20 @@
 $(window).ready(function () {  
-    $("#btnAgregar").show();
-    
-   
+
+   $.ajax({
+     type: "POST",
+     url: "./php/identificarTipoUsuario.php",
+     data: "data",
+     dataType: "JSON",
+     success: function (response) {
+      console.log(response[0]['tipo']);
+       if(response[0]['tipo']=="0"){
+        $("#btnAgregar").hide();
+       }
+       else{
+        $("#btnAgregar").show();
+       }
+     }
+   });
 
         /* conseguimos los datos para llenar el catalogo*/
     $.ajax({
