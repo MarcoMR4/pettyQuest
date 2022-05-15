@@ -12,22 +12,26 @@ function cargarMensajes() {
             direccion = "./php/cargarContactos_veterinaria.php";
         $.post(direccion, { destinatario }, function (data) {
             var contenido = "";
-            // console.log(data)
+            console.log(data)
             data = JSON.parse(data);
             if (tipo == "0")
                 data.map(item => {
                     if ((item.usuario) == "0") {
                         contenido += `
+                    <div class="mensaje">
                     <p id="remitente">
                     ${item.mensaje}
                     </p>
+                    </div>
                     `;
                     }
                     else {
                         contenido += `
+                    <div class="mensaje">
                     <p id="destinatario">
                     ${item.mensaje}
                     </p>
+                    </div>
                     `;
                     }
                 })
@@ -35,29 +39,33 @@ function cargarMensajes() {
                 data.map(item => {
                     if ((item.usuario) == "1") {
                         contenido += `
+                    <div class="mensaje">
                     <p id="remitente">
                     ${item.mensaje}
                     </p>
+                    </div>
                     `;
-                        }
-                        else {
-                            contenido += `
+                    }
+                    else {
+                        contenido += `
+                    <div class="mensaje">
                     <p id="destinatario">
                     ${item.mensaje}
                     </p>
+                    </div>
                     `;
-                        }
+                    }
                 })
             $(".mensajesContacto").html(contenido);
         });
     });
 }
-
 // Seleccionar un contacto de la lista
 function botonClick(clave) {
 
     destinatario = clave;
-    $(".enviarMensajeContacto").show();
+    $("#mensajeContacto").show();
+    $("#btnEnviarMensajeContacto").show();
     let nombre = document.getElementById(destinatario).getElementsByClassName("nombrePerfil").item("p").textContent.trim().toString();
     $("#nombre").text(nombre);
     cargarMensajes();
@@ -115,7 +123,8 @@ function cargarContactos() {
 
 $(document).ready(function () {
     cargarContactos();
-    $(".enviarMensajeContacto").hide();
+    $("#mensajeContacto").hide();
+    $("#btnEnviarMensajeContacto").hide();
 
     $(".enviarMensajeContacto").on('submit', function (e) {
         $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {

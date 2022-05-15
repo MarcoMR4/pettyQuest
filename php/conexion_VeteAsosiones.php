@@ -134,7 +134,7 @@ class conexion_VeteAsosiones{
     {
         $link = $this->conectar();
         $id = $_SESSION['idUsuarioVeterinaria'];
-        $sql = "SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $id . " AND `claveDestinatario` = " . $destinatario . ") UNION SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $destinatario . " AND `claveDestinatario` = " . $id . ")";
+        $sql = "SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $id . " AND `claveDestinatario` = " . $destinatario . ") UNION SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $destinatario . " AND `claveDestinatario` = " . $id . ") ORDER BY claveMensaje ASC";
         
         $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
         $data = [];

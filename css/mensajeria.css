@@ -2,7 +2,7 @@
 
 .contactos {
     position: relative;
-    width: 25%;
+    width: 20%;
     height: 543px;
     margin-left: 0;
     margin-top: 1%;
@@ -19,7 +19,7 @@
     border: none;
     margin-top: 3%;    
     border: 2px solid white;
-    border-radius: 6px;
+    border-radius: 100px;
 }
 
 .contacto{
@@ -104,6 +104,10 @@
 }
 
 /* form enviar mensaje */
+
+.formMensaje{
+    height: 50px;
+}
 
 .enviarMensajeContacto{
     position: relative;
