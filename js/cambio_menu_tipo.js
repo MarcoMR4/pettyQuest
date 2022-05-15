@@ -26,7 +26,7 @@ function actualizarMenu(){
                             if (usuarioexiste == 1) {
                                 var nombre = response[0]['nombre']+ " / " +response[0]['nombreEncargado'];
                                 $("#Cambio").html(nombre).addClass("nav-link color-link-black");
-                                $("#Cambio1").html("Editar Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');
+                                $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./perfil_usuario.html');
                                 $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');
                                 opciones();
                             }
@@ -41,7 +41,7 @@ function actualizarMenu(){
                 if (usuarioexiste == 1) {
                     var nombre = response[0]['nombre']+ " " +response[0]['apellidoPaterno']+ " " +response[0]['apellidoMaterno'];
                     $("#Cambio").html(nombre).addClass("nav-link color-link-black");
-                    $("#Cambio1").html("Editar Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');
+                    $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./perfil_usuario.html');
                     $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');
                 }
             }

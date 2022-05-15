@@ -20,6 +20,7 @@
     border: 2px solid rgba(146, 143, 143, 0.425);
     box-shadow: 5px 5px px 0 grey; 
     font-size: large;
+    font-weight: 500;
 }
 /*
 .informacion input{

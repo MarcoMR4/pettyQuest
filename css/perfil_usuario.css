@@ -2,13 +2,11 @@
     background-color: #FFFFFF;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    font-size: x-large;
+    font-size: large;
     border: 2px solid rgba(146, 143, 143, 0.425); 
 }
 
-.informacion input{
-    border: 1px solid rgba(0, 0, 0, 0.158);
-}
+
 
 .btn1 {
    
