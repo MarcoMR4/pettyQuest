@@ -2,26 +2,54 @@ var destinatario;
 
 // Obtener mensajes del remitente con el destinatario
 function cargarMensajes() {
-    $.post("./php/cargarMensajes.php", { destinatario }, function (data) {
-        var contenido = "";
-        data = JSON.parse(data);
-        data.map(item => {
-            if ((item.usuario) == "0") {
-                contenido += `
+    $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
+        tipo = JSON.parse(tipo);
+        tipo = tipo[0]['tipo'];
+        var direccion = "";
+        if (tipo == 0)
+            direccion = "./php/cargarMensajes.php";
+        else
+            direccion = "./php/cargarContactos_veterinaria.php";
+        $.post(direccion, { destinatario }, function (data) {
+            var contenido = "";
+            // console.log(data)
+            data = JSON.parse(data);
+            if (tipo == "0")
+                data.map(item => {
+                    if ((item.usuario) == "0") {
+                        contenido += `
                     <p id="remitente">
                     ${item.mensaje}
                     </p>
-                `;
-            }
-            else {
-                contenido += `
+                    `;
+                    }
+                    else {
+                        contenido += `
                     <p id="destinatario">
                     ${item.mensaje}
                     </p>
-                `;
-            }
-        })
-        $(".mensajesContacto").html(contenido);
+                    `;
+                    }
+                })
+            else
+                data.map(item => {
+                    if ((item.usuario) == "1") {
+                        contenido += `
+                    <p id="remitente">
+                    ${item.mensaje}
+                    </p>
+                    `;
+                        }
+                        else {
+                            contenido += `
+                    <p id="destinatario">
+                    ${item.mensaje}
+                    </p>
+                    `;
+                        }
+                })
+            $(".mensajesContacto").html(contenido);
+        });
     });
 }
 
@@ -40,13 +68,13 @@ function botonClick(clave) {
 function cargarContactos() {
 
     $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
-        console.log(tipo)
         tipo = JSON.parse(tipo);
         tipo = tipo[0]['tipo'];
-        $.post("./php/cargarContactos.php", {tipo}, function (data) {                   
+        $.post("./php/cargarContactos.php", { tipo }, function (data) {
             data = JSON.parse(data);
             var relleno = "";
-            if(tipo[0]['tipo'] == "0"){
+            if (tipo == "0") {
+                // console.log("prueba")              
                 data.map(item => {
                     relleno += `
                         <button type="button" class="btnContacto" id="${item.claveAsociacionVeterinaria}" value="${item.claveAsociacionVeterinaria}" onclick="botonClick(this.value)">
@@ -62,7 +90,7 @@ function cargarContactos() {
                     `;
                 })
             }
-            else{
+            else {
                 data.map(item => {
                     relleno += `
                         <button type="button" class="btnContacto" id="${item.idUsuario}" value="${item.idUsuario}" onclick="botonClick(this.value)">
@@ -90,10 +118,18 @@ $(document).ready(function () {
     $(".enviarMensajeContacto").hide();
 
     $(".enviarMensajeContacto").on('submit', function (e) {
-
-        let mensaje = $("#mensajeContacto").val();
-        $.post("./php/mensajeria.php", { mensaje, destinatario }, function (data) {
-            data = JSON.parse(data);
+        $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
+            tipo = JSON.parse(tipo);
+            tipo = tipo[0]['tipo'];
+            var direccion = "";
+            if (tipo == "0")
+                direccion = "./php/mensajeria.php";
+            else
+                direccion = "./php/mensajeria_veterinaria.php";
+            let mensaje = $("#mensajeContacto").val();
+            $.post(direccion, { mensaje, destinatario }, function (data) {
+                data = JSON.parse(data);
+            });
         });
     });
 });

@@ -104,7 +104,7 @@ class conexion{
     {
         $link = $this->conectar();
         $id = $_SESSION['idUsuario'];
-        $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario) VALUES ('$mensaje', '$id', '$destinatario')") or die(print("Error"));
+        $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario) VALUES ('$mensaje', '$id', '$destinatario', 0)") or die(print("Error"));
         $datos[]=[
             "remitente" => $id,
             "destinatario" => $destinatario

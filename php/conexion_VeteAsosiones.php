@@ -129,5 +129,39 @@ class conexion_VeteAsosiones{
         $datajson=json_encode($data);
         return $datajson;
     }
+
+    function cargarMensajes($destinatario)
+    {
+        $link = $this->conectar();
+        $id = $_SESSION['idUsuarioVeterinaria'];
+        $sql = "SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $id . " AND `claveDestinatario` = " . $destinatario . ") UNION SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $destinatario . " AND `claveDestinatario` = " . $id . ")";
+        
+        $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
+        $data = [];
+        while ($item = $result->fetch(PDO::FETCH_OBJ)) {            
+            $data[] = [
+                'claveMensaje' => $item->claveMensaje,
+                'mensaje' => $item->mensaje,
+                'claveRemitente' => $item->claveRemitente,
+                'claveDestinatario' => $item->claveDestinatario,
+                'usuario' => $item->usuario                
+            ];
+        }
+        $datajson = json_encode($data);
+        return $datajson;
+    }
+
+    function enviarMensaje($mensaje, $destinatario)
+    {
+        $link = $this->conectar();
+        $id = $_SESSION['idUsuarioVeterinaria'];
+        $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario) VALUES ('$mensaje', '$id', '$destinatario', 1)") or die(print("Error"));
+        $datos[]=[
+            "remitente" => $id,
+            "destinatario" => $destinatario
+        ];
+        $mijson = json_encode($datos);
+        return $mijson;
+    }
 }
 ?>
