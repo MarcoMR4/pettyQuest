@@ -205,7 +205,7 @@ class conexion{
     function editar_usuario($idUsuario,$nombre,$ap,$am,$edad,$ciudad,$calle,$numero,$email,$password,$telefono){
         $link = $this->conectar();
         $result = $link->query("UPDATE usuario SET nombre='$nombre', apellidoPaterno='$ap', apellidoMaterno='$am', edad='$edad', ciudad='$ciudad', calle='$calle', numeroCasa='$numero', email='$email', password='$password', telefono='$telefono' WHERE idUsuario='$idUsuario'") or die (print("Error")); 
-
+        return $result; 
     }
 }
 ?>

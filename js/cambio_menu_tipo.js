@@ -26,7 +26,7 @@ function actualizarMenu(){
                             if (usuarioexiste == 1) {
                                 var nombre = response[0]['nombre']+ " / " +response[0]['nombreEncargado'];
                                 $("#Cambio").html(nombre).addClass("nav-link color-link-black");
-                                $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./perfil_usuario.html');
+                                $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./perfil_asociacionveterianaria.html');
                                 $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href','./index.html');
                                 opciones();
                             }
