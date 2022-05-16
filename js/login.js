@@ -15,6 +15,7 @@ $(window).ready(function() {
                 usuarioexiste = (Object.keys(response).length);
                 if (usuarioexiste == 1) {
                     console.log(response);
+                    $.getScript('./js/cambio_menu_tipo.js', function(){});
                 }
                 else{
                     console.log("No es un usuario puede ser veterinaria");
@@ -25,6 +26,7 @@ $(window).ready(function() {
                         dataType: "JSON",
                         success: function (response) {
                             console.log(response);
+                            $.getScript('./js/cambio_menu_tipo.js', function(){});
                         }
                     });  
                 } 
@@ -32,7 +34,7 @@ $(window).ready(function() {
         });
 
         /* Llamar otro js desde este mismo */
-        $.getScript('./js/cambio_menu_tipo.js', function(){});
+        //$.getScript('./js/cambio_menu_tipo.js', function(){});
 
         /* Dar click al boton de x en el registro desde aqui */
         $("#btnsalirsesion").trigger("click");
