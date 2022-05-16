@@ -9,7 +9,10 @@ $(document).ready(function () {
     var ubicacion = "";
     var estatus = "";
     var tipo = "";
-    
+    $("#espacio2").hide();
+    $("#btn2").hide();
+    $("#espacio1").show();
+    $("#btn1").show();
     $.ajax({
         type: "POST",
         url: "./php/identificarTipoUsuario.php",

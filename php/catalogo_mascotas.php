@@ -1,7 +1,7 @@
 <?php
-require 'conexion_mascotas.php';
+require 'conexion_VeteAsosiones.php';
 
-$nuevacon= new conexion();
+$nuevacon= new conexion_VeteAsosiones();
 $respuestajson=$nuevacon->obtener();
 echo($respuestajson);
 

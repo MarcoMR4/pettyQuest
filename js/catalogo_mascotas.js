@@ -1,5 +1,5 @@
 $(window).ready(function () {  
-
+  $("#btnAgregar").hide();
    $.ajax({
      type: "POST",
      url: "./php/identificarTipoUsuario.php",
