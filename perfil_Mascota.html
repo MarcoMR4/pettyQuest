@@ -66,7 +66,7 @@
 
   <div class="container-fluid">
 
-    <form action="php/conexion_mascotas.php" method="post" autocomplete="off">
+    <form action="php/editar_mascota.php" method="post" autocomplete="off">
     <div class="row justify-content-center">
       <div class="col-lg-4">
         <div class="card foto" style="width: 18rem;">
@@ -75,10 +75,11 @@
         <div class="col btnFoto" id="btn4">
           <button type="button" class="btn btn-outline-primary"  id="btnFoto">Subir foto
           </button>
-          <input type="file" id="nuevaFoto" required>
+          <input type="file" id="nuevaFoto">
         </div>
       </div>
         <div class="col-lg-5 informacion">
+          <input type="text" class="form-control" id="idMascota" style="display: none;" name="idMascota">
           <div class="row mt-3">
             <label class="col-sm-1 col-form-label"></label>
             <label for="idNombre" class="col-sm-3 col-form-label">Nombre:</label>

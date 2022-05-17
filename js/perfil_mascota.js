@@ -71,7 +71,9 @@ $(document).ready(function () {
                         ubicacion = response2[i]['ubicacion'];
                         tipo = response2[i]['tipo'];
                         console.log("Entro al if " + nombre);  
-                         /* Llenamos los datos de la mascota*/   
+                         /* Llenamos los datos de la mascota*/ 
+                        $("#idMascota").val(claveMascota);
+                        //alert(claveMascota); 
                         $("#idNombre").val(nombre);
                         $("#idEstatus").val(estatus);
                         $("#idEdad").val(edad);
