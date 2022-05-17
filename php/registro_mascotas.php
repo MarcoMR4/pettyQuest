@@ -9,8 +9,8 @@ $tamano = isset($_POST['tamano']) ? $_POST['tamano'] : '';
 $idUbicacion = isset($_POST['idUbicacion']) ? $_POST['idUbicacion'] : '';
 $idRazaAnimal = isset($_POST['idRazaAnimal']) ? $_POST['idRazaAnimal'] : '';
 
-  $tmpimg=$_FILES['foto']['tmp_name'];
-  $type=$_FILES['foto']['type'];
+$tmpimg=$_FILES['foto']['tmp_name'];
+$type=$_FILES['foto']['type'];
 
 if(isset($_FILES['foto'])){
 

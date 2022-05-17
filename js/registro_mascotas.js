@@ -1,17 +1,16 @@
 $(window).ready(function() {
-
+    const formulario = document.querySelector('#formMascotas');
     $('#formMascotas').submit(function (e) { 
         e.preventDefault();
-        var datos = $(this).serializeArray();
-        var inputFileImage = document.getElementById("nuevaFoto");
-        var files = inputFileImage.files[0];
-        datos.push({"name":"foto","value":files});
-        console.log(datos);
+        const datos= new FormData(formulario);
+        console.log(datos.get('foto'));
         $.ajax({
             type: "POST",
             url: "./php/registro_mascotas.php",
             data: datos,
-            dataType: "JSON",
+            contentType:false,
+            cache: false,
+            processData: false,
             success: function (response) {
                 console.log(response);
             },

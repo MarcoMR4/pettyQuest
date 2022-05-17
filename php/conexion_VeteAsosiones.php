@@ -65,49 +65,41 @@ class conexion_VeteAsosiones{
       if(move_uploaded_file($tmpimg, $rutaguardarphp)){
         $estatusmascota="En adopcion";
         $result = $link->query("INSERT INTO mascota (nombre,raza,foto,edad,genero,tamaño,ubicacion,estatus,tipoAnimal) VALUES ('$idNombre','$idRaza','$rutarelativa','$edad','$genero','$tamano','$idUbicacion','$estatusmascota','$idRazaAnimal')") or die (print("Error")); 
-
-      }   
-      
-      /* Query para obtener datos
-      $sql="SELECT * FROM `mascota` WHERE (nombre='".$nombreMas."') AND (raza='".$idRaza."') AND (edad='".$edadMas."')";
-      $result2 = $link->query($sql) or die (print("Error"));
-
-      $idmascota;
-      $data=[];
-      while($item = $result2->fetch(PDO::FETCH_OBJ)){
-        $idmascota=$item->claveMascota;
         $data[]=[
-          'claveMascota' => $item->claveMascota
+          'estatus' => 'registrado'
         ];
+        $id=$_SESSION['idUsuarioVeterinaria'];
+        $result3 = $link->query("INSERT INTO `fk_mascota_asociacionveterinaria` (claveAsociacionVeterinaria,claveMascota) VALUES ('$id','$idmascota')") or die (print("Error")); 
       }
-
-      $id=$_SESSION['idUsuarioVeterinaria'];
-      $result3 = $link->query("INSERT INTO `fk_mascota_asociacion/veterinaria` (claveAsociacionVeterinaria,claveMascota) VALUES ('$id','$idmascota')") or die (print("Error")); 
 
       $datajson=json_encode($data);
-      return $datajson;*/
+      return $datajson;
     }
 
-    function registroProductos($nombreP,$TipoP,$Cantidad,$Precio){
+    function registroProductos($nombreP,$TipoP,$Cantidad,$Precio,$type,$tmpimg){
       $link = $this->conectar();
-      $result = $link->query("INSERT INTO producto (nombre,descripcion,cantidad,precio) VALUES ('$nombreP','$TipoP','$Cantidad','$Precio')") or die (print("Error")); 
-
-      $sql="SELECT * FROM `producto` WHERE (nombre='".$nombreP."') AND (descripcion='".$TipoP."') AND (cantidad='".$Cantidad."') AND (precio='".$Precio."')";
-      $result2 = $link->query($sql) or die (print("Error"));
+      $sql="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'pettyquest' AND   TABLE_NAME   = 'producto'";
+      $autoincrement = $link->query($sql) or die (print("Error"));
 
       $idproducto;
-      $data=[];
-      while($item = $result2->fetch(PDO::FETCH_OBJ)){
-        $idproducto=$item->idProducto;
-        $data[]=[
-          'idProducto' => $item->idProducto
-        ];
+      while($item = $autoincrement->fetch(PDO::FETCH_OBJ)){
+        $idproducto=$item->AUTO_INCREMENT;
       }
 
-      $id=$_SESSION['idUsuarioVeterinaria'];
-      $result3 = $link->query("INSERT INTO `fk_producto_asociacionveterinaria` (claveAsociacionVeterinaria,idProducto) VALUES ('$id','$idproducto')") or die (print("Error")); 
+      $name=$nombreP.$idproducto.$type;
+      $rutarelativa="img/uploaded/productos/".$name;
+      $rutaguardarphp="../".$rutarelativa;
+      if(move_uploaded_file($tmpimg, $rutaguardarphp)){
+        $result = $link->query("INSERT INTO producto (nombre,descripcion,cantidad,precio,foto) VALUES ('$nombreP','$TipoP','$Cantidad','$Precio','$rutarelativa')") or die (print("Error")); 
+        $data[]=[
+          'estatus' => 'registrado'
+        ];
+        $id=$_SESSION['idUsuarioVeterinaria'];
+        $result3 = $link->query("INSERT INTO `fk_producto_asociacionveterinaria` (claveAsociacionVeterinaria,idProducto) VALUES ('$id','$idproducto')") or die (print("Error")); 
 
-      $mijson = json_encode($datos);
+      }
+           
+      $mijson = json_encode($data);
       return $mijson;
     }
 
@@ -180,7 +172,7 @@ class conexion_VeteAsosiones{
     function obtener(){
       $link = $this->conectar();
 
-      /* Query para obtener datos de las MASCOTAS */
+      /* Query para obtener datos */
       $sql="SELECT * FROM mascota";
       $result = $link->query($sql) or die (print("Error"));
 
@@ -222,28 +214,6 @@ class conexion_VeteAsosiones{
         $result = $link->query("UPDATE asociacionveterinaria SET nombre='$nombre', apellidoPEncargado='$apellidoPEncargado', apellidoMEncargado='$apellidoMEncargado', nombreEncargado='$nombreEncargado', ciudad='$ciudad', calle='$calle', numero='$numero', email='$email', password='$password', telefono='$telefono' WHERE claveAsociacionVeterinaria='$idClave'") or die (print("Error")); 
         return $result; 
     }
-
-function buscar_mascota($parametro){
-    $link = $this->conectar();
-    $result = $link->query("SELECT * FROM mascota WHERE nombre LIKE '$parametro%'") or die (print("Error")); 
-    
-    $data=[];
-      while($item = $result->fetch(PDO::FETCH_OBJ)){
-          $data[]=[
-              'claveMascota' => $item->claveMascota,
-              'nombre' => $item->nombre,
-              'raza' => $item->raza,
-              
-              'edad' => $item->edad,
-              'genero' => $item->genero,
-              'tamaño' => $item->tamaño,
-              'estatus' => $item->estatus,
-              'ubicacion' => $item->ubicacion,
-              'tipo' => $item->tipoAnimal,
-          ];
-      }
-      $_SESSION['mascotasBuscadas']=json_encode($data);
-}
 
 }
 ?>
