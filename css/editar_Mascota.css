@@ -1,0 +1,40 @@
+
+.foto {
+    display: flex;
+    flex-wrap: unset;
+    height: 18rem;
+    width: 18rem;
+    background-color: white;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-right: 14rem;
+    align-items: center;
+    padding-left: 1%;
+    border: 2px solid rgb(146, 143, 143); 
+}
+
+.btnFoto{
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.informacion { 
+    background-color: #A8C7CA;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    font-size: x-large;
+    border: 2px solid rgb(146, 143, 143); 
+}
+
+
+.btn1 {
+   
+    height: auto;
+    margin-bottom: 2rem;
+   
+}
+
+.btn1 input {
+    font-size: x-large;
+    margin-left: 10px;
+} 

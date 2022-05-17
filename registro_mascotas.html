@@ -66,7 +66,7 @@
 
   <div class="container-fluid">
 
-    <form autocomplete="off" id="formMascotas">
+    <form autocomplete="off" id="formMascotas" enctype="multipart/form-data">
       <div class="row">
         <div class="col-lg-4">
           <div class="col foto">
@@ -75,20 +75,20 @@
           <div class="col btnFoto">
             <button type="button" class="btn btn-outline-primary"  id="btnFoto">Subir foto
             </button>
-            <input type="file" id="nuevaFoto" required>
+            <input type="file" id="nuevaFoto" name="foto" required>
           </div>
         </div>
         <div class="col-lg-7 informacion">
           <div class="mb-3 row mt-4">
             <label for="idNombre" class="col-sm-2 col-form-label">Nombre:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="idNombre">
+              <input type="text" class="form-control" id="idNombre" name="idNombre">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="idEdad" class="col-sm-2 col-form-label">Edad:</label>
             <div class="col-sm-10">
-              <select class="form-select" aria-label="Default select example">
+              <select class="form-select" aria-label="Default select example" name="edad">
                 <option selected>Seleccione una edad aproximada...</option>
                 <option value="Cachorro">Cachorro</option>
                 <option value="Joven">Joven</option>
@@ -100,7 +100,7 @@
           <div class="mb-3 row">
             <label for="idGenero" class="col-sm-2 col-form-label">Genero:</label>
             <div class="col-sm-10">
-              <select class="form-select" aria-label="Default select example">
+              <select class="form-select" aria-label="Default select example" name="genero">
                 <option selected>Seleccione el genero...</option>
                 <option value="Macho">Macho</option>
                 <option value="Hembra">Hembra</option>
@@ -110,13 +110,13 @@
           <div class="mb-3 row">
             <label for="idRaza" class="col-sm-2 col-form-label">Raza:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="idRaza">
+              <input type="text" class="form-control" id="idRaza" name="idRaza">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="idTamaño" class="col-sm-2 col-form-label">Tamaño:</label>
             <div class="col-sm-10">
-              <select class="form-select" aria-label="Default select example">
+              <select class="form-select" aria-label="Default select example" name="tamano">
                 <option selected>Seleccione el tamaño...</option>
                 <option value="Pequeño">Pequeño</option>
                 <option value="Mediano">Mediano</option>
@@ -127,13 +127,13 @@
           <div class="mb-3 row">
             <label for="idUbicacion" class="col-sm-2 col-form-label">Ubicacion:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" placeholder="En que direccion se encuentra esta mascota..." id="idUbicacion">
+              <input type="text" class="form-control" placeholder="En que direccion se encuentra esta mascota..." id="idUbicacion" name="idUbicacion">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="idUbicacion" class="col-sm-2 col-form-label">Raza animal:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" placeholder="La mascota a registrar que tip ode animal es..." id="idUbicacion">
+              <input type="text" class="form-control" placeholder="La mascota a registrar que tip ode animal es..." id="idRazaAnimal" name="idRazaAnimal">
             </div>
           </div>
         </div>

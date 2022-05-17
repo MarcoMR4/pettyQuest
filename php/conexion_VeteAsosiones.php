@@ -49,11 +49,26 @@ class conexion_VeteAsosiones{
         return $datajson; 
     }
 
-    function registroMascotas($nombreMas,$edadMas,$idRaza,$idUbicacion){
+    function registroMascotas($idNombre,$edad,$genero,$idRaza,$tamano,$idUbicacion,$idRazaAnimal,$tmpimg,$type){
       $link = $this->conectar();
-      $result = $link->query("INSERT INTO mascota (nombre,raza,edad) VALUES ('$nombreMas','$idRaza','$edadMas')") or die (print("Error")); 
+      $sql="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'pettyquest' AND   TABLE_NAME   = 'mascota'";
+      $autoincrement = $link->query($sql) or die (print("Error"));
 
-      /* Query para obtener datos */
+      $idmascota;
+      while($item = $autoincrement->fetch(PDO::FETCH_OBJ)){
+        $idmascota=$item->AUTO_INCREMENT;
+      }
+      
+      $name=$idNombre.$idmascota.$type;
+      $rutarelativa="img/uploaded/mascotas/".$name;
+      $rutaguardarphp="../".$rutarelativa;
+      if(move_uploaded_file($tmpimg, $rutaguardarphp)){
+        $estatusmascota="En adopcion";
+        $result = $link->query("INSERT INTO mascota (nombre,raza,foto,edad,genero,tamaño,ubicacion,estatus,tipoAnimal) VALUES ('$idNombre','$idRaza','$rutarelativa','$edad','$genero','$tamano','$idUbicacion','$estatusmascota','$idRazaAnimal')") or die (print("Error")); 
+
+      }   
+      
+      /* Query para obtener datos
       $sql="SELECT * FROM `mascota` WHERE (nombre='".$nombreMas."') AND (raza='".$idRaza."') AND (edad='".$edadMas."')";
       $result2 = $link->query($sql) or die (print("Error"));
 
@@ -70,7 +85,7 @@ class conexion_VeteAsosiones{
       $result3 = $link->query("INSERT INTO `fk_mascota_asociacion/veterinaria` (claveAsociacionVeterinaria,claveMascota) VALUES ('$id','$idmascota')") or die (print("Error")); 
 
       $datajson=json_encode($data);
-      return $datajson; 
+      return $datajson;*/
     }
 
     function registroProductos($nombreP,$TipoP,$Cantidad,$Precio){
@@ -130,8 +145,7 @@ class conexion_VeteAsosiones{
         return $datajson;
     }
 
-    function cargarMensajes($destinatario)
-    {
+    function cargarMensajes($destinatario){
         $link = $this->conectar();
         $id = $_SESSION['idUsuarioVeterinaria'];
         $sql = "SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $id . " AND `claveDestinatario` = " . $destinatario . ") UNION SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $destinatario . " AND `claveDestinatario` = " . $id . ") ORDER BY claveMensaje ASC";
@@ -151,8 +165,7 @@ class conexion_VeteAsosiones{
         return $datajson;
     }
 
-    function enviarMensaje($mensaje, $destinatario)
-    {
+    function enviarMensaje($mensaje, $destinatario){
         $link = $this->conectar();
         $id = $_SESSION['idUsuarioVeterinaria'];
         $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario) VALUES ('$mensaje', '$id', '$destinatario', 1)") or die(print("Error"));
@@ -164,7 +177,6 @@ class conexion_VeteAsosiones{
         return $mijson;
     }
 
-    
     function obtener(){
       $link = $this->conectar();
 
@@ -190,9 +202,9 @@ class conexion_VeteAsosiones{
       }
       $datajson=json_encode($data);
       return $datajson; 
-  }
+    }
 
-  function editar_mascota($nombre,$raza,$foto,$edad,$genero,$tamaño,$estatus){
+    function editar_mascota($nombre,$raza,$foto,$edad,$genero,$tamaño,$estatus){
       $link = $this->conectar();
       $result = $link->query("UPDATE mascota SET nombre='nombre', raza='raza', foto='foto', edad='edad', genero='genero', tamaño='tamaño', estatus='estatus' WHERE id='id'") or die (print("Error")); 
 
@@ -203,13 +215,13 @@ class conexion_VeteAsosiones{
       ];
       $mijson = json_encode($datos);
       return $mijson;
-  }
+    }
 
-  function editar_asociacionveterinaria($idClave,$nombre,$ciudad,$calle,$numero,$nombreEncargado,$apellidoPEncargado,$apellidoMEncargado,$email,$telefono,$password){
-    $link = $this->conectar();
-    $result = $link->query("UPDATE asociacionveterinaria SET nombre='$nombre', apellidoPEncargado='$apellidoPEncargado', apellidoMEncargado='$apellidoMEncargado', nombreEncargado='$nombreEncargado', ciudad='$ciudad', calle='$calle', numero='$numero', email='$email', password='$password', telefono='$telefono' WHERE claveAsociacionVeterinaria='$idClave'") or die (print("Error")); 
-    return $result; 
-}
+    function editar_asociacionveterinaria($idClave,$nombre,$ciudad,$calle,$numero,$nombreEncargado,$apellidoPEncargado,$apellidoMEncargado,$email,$telefono,$password){
+        $link = $this->conectar();
+        $result = $link->query("UPDATE asociacionveterinaria SET nombre='$nombre', apellidoPEncargado='$apellidoPEncargado', apellidoMEncargado='$apellidoMEncargado', nombreEncargado='$nombreEncargado', ciudad='$ciudad', calle='$calle', numero='$numero', email='$email', password='$password', telefono='$telefono' WHERE claveAsociacionVeterinaria='$idClave'") or die (print("Error")); 
+        return $result; 
+    }
 
 }
 ?>
