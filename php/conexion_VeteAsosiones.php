@@ -205,17 +205,11 @@ class conexion_VeteAsosiones{
       return $mijson;
   }
 
-  function editar_asociacionveterinaria($nombre,$raza,$foto,$edad,$genero,$tamaño,$estatus){
+  function editar_asociacionveterinaria($idClave,$nombre,$ciudad,$calle,$numero,$nombreEncargado,$apellidoPEncargado,$apellidoMEncargado,$email,$telefono,$password){
     $link = $this->conectar();
-    $result = $link->query("UPDATE mascota SET nombre='nombre', raza='raza', foto='foto', edad='edad', genero='genero', tamaño='tamaño', estatus='estatus' WHERE id='id'") or die (print("Error")); 
-
-    /* Si regresa datos :v equis de*/
-    $datos[]=[
-        "estatus" => "hola",
-        "numero" => "123"
-    ];
-    $mijson = json_encode($datos);
-    return $mijson;
+    $result = $link->query("UPDATE asociacionveterinaria SET nombre='$nombre', apellidoPEncargado='$apellidoPEncargado', apellidoMEncargado='$apellidoMEncargado', nombreEncargado='$nombreEncargado', ciudad='$ciudad', calle='$calle', numero='$numero', email='$email', password='$password', telefono='$telefono' WHERE claveAsociacionVeterinaria='$idClave'") or die (print("Error")); 
+    return $result; 
 }
+
 }
 ?>

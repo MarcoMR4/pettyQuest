@@ -2,17 +2,18 @@ $(document).ready(function () {
     $("#espacio2").hide();
     $("#btn2").hide();
 
-    var apellidoMaterno;
-    var apellidoPaterno;
+    var claveAsociacionVeterinaria;
+    var nombre;
     var calle;
     var ciudad;
-    var edad;
     var email;
-    var idUsuario;
-    var nombre;
-    var numeroCasa;
+    var nombreEncargado;
+    var apellidoPEncargado;
+    var apellidoMEncargado;
+    var numero;
     var password;
     var telefono;
+
 
     $.ajax({
         type: "POST",
@@ -23,28 +24,28 @@ $(document).ready(function () {
             console.log("Saca los datos de aqui de la veterinaria");
             console.log(response);
 
-            // apellidoMaterno = response[0]['apellidoMaterno'];
-            // apellidoPaterno = response[0]['apellidoPaterno'];
-            // calle = response[0]['calle'];
-            // ciudad = response[0]['ciudad'];
-            // edad = response[0]['edad'];
-            // email = response[0]['email'];
-            // idUsuario = response[0]['idUsuario'];
-            // nombre = response[0]['nombre'];
-            // numeroCasa = response[0]['numeroCasa'];
-            // password = response[0]['password'];
-            // telefono = response[0]['telefono'];
-            // $("#idUsuario").val(idUsuario);
-            // $("#idNombre").val(nombre);
-            // $("#ApellidoP").val(apellidoPaterno);
-            // $("#ApellidoM").val(apellidoMaterno);
-            // $("#idFecha").val(edad);
-            // $("#idCiudad").val(ciudad);
-            // $("#idCalle").val(calle);
-            // $("#idCasa").val(numeroCasa);
-            // $("#idCorreo").val(email);
-            // $("#idContraseña").val(password);
-            // $("#idTelefono").val(telefono);
+            apellidoPEncargado = response[0]['apellidoPEncargado'];
+            apellidoMEncargado = response[0]['apellidoMEncargado'];
+            calle = response[0]['calle'];
+            ciudad = response[0]['ciudad'];
+            nombreEncargado = response[0]['nombreEncargado'];
+            email = response[0]['email'];
+            claveAsociacionVeterinaria = response[0]['claveAsociacionVeterinaria'];
+            nombre = response[0]['nombre'];
+            numero = response[0]['numero'];
+            password = response[0]['password'];
+            telefono = response[0]['telefono'];
+            $("#idClave").val(claveAsociacionVeterinaria);
+            $("#idNombre").val(nombre);
+            $("#ApellidoP").val(apellidoPEncargado);
+            $("#ApellidoM").val(apellidoMEncargado);
+            $("#nombreEncargado").val(nombreEncargado);
+            $("#idCiudad").val(ciudad);
+            $("#idCalle").val(calle);
+            $("#idCasa").val(numero);
+            $("#idCorreo").val(email);
+            $("#idContraseña").val(password);
+            $("#idTelefono").val(telefono);
         }
     });
 
@@ -55,10 +56,11 @@ $(document).ready(function () {
         $("#btn2").show();
         $("#espacio1").hide();
         $("#btn1").hide();
+        $("#idClave").prop('readonly', false).prop('disabled', false).prop('required', true);
         $("#idNombre").prop('readonly', false).prop('disabled', false).prop('required', true);
         $("#ApellidoP").prop('readonly', false).prop('disabled', false).prop('required', true);
         $("#ApellidoM").prop('readonly', false).prop('disabled', false).prop('required', true);
-        $("#idFecha").prop('readonly', false).prop('disabled', false).prop('required', true);
+        $("#nombreEncargado").prop('readonly', false).prop('disabled', false).prop('required', true);
         $("#idCiudad").prop('readonly', false).prop('disabled', false).prop('required', true);
         $("#idCalle").prop('readonly', false).prop('disabled', false).prop('required', true);
         $("#idCasa").prop('readonly', false).prop('disabled', false).prop('required', true);
@@ -74,30 +76,33 @@ $(document).ready(function () {
         $("#btn2").hide();
         $("#espacio1").show();
         $("#btn1").show();
+        $("#idClave").val("");
         $("#idNombre").val("");
         $("#ApellidoP").val("");
         $("#ApellidoM").val("");
-        $("#idFecha").val("");
+        $("#nombreEncargado").val("");
         $("#idCiudad").val("");
         $("#idCalle").val("");
         $("#idCasa").val("");
         $("#idCorreo").val("");
         $("#idContraseña").val("");
         $("#idTelefono").val("");
+        $("#idClave").val(claveAsociacionVeterinaria);
         $("#idNombre").val(nombre);
-        $("#ApellidoP").val(apellidoPaterno);
-        $("#ApellidoM").val(apellidoMaterno);
-        $("#idFecha").val(edad);
+        $("#ApellidoP").val(apellidoPEncargado);
+        $("#ApellidoM").val(apellidoMEncargado);
+        $("#nombreEncargado").val(nombreEncargado);
         $("#idCiudad").val(ciudad);
         $("#idCalle").val(calle);
-        $("#idCasa").val(numeroCasa);
+        $("#idCasa").val(numero);
         $("#idCorreo").val(email);
         $("#idContraseña").val(password);
         $("#idTelefono").val(telefono);
+        $("#idClave").prop('readonly', true).prop('disabled', true).prop('required', false);
         $("#idNombre").prop('readonly', true).prop('disabled', true).prop('required', false);
         $("#ApellidoP").prop('readonly', true).prop('disabled', true).prop('required', false);
         $("#ApellidoM").prop('readonly', true).prop('disabled', true).prop('required', false);
-        $("#idFecha").prop('readonly', true).prop('disabled', true).prop('required', false);
+        $("#nombreEncargado").prop('readonly', true).prop('disabled', true).prop('required', false);
         $("#idCiudad").prop('readonly', true).prop('disabled', true).prop('required', false);
         $("#idCalle").prop('readonly', true).prop('disabled', true).prop('required', false);
         $("#idCasa").prop('readonly', true).prop('disabled', true).prop('required', false);
