@@ -180,7 +180,7 @@ class conexion_VeteAsosiones{
     function obtener(){
       $link = $this->conectar();
 
-      /* Query para obtener datos */
+      /* Query para obtener datos de las MASCOTAS */
       $sql="SELECT * FROM mascota";
       $result = $link->query($sql) or die (print("Error"));
 
@@ -222,6 +222,28 @@ class conexion_VeteAsosiones{
         $result = $link->query("UPDATE asociacionveterinaria SET nombre='$nombre', apellidoPEncargado='$apellidoPEncargado', apellidoMEncargado='$apellidoMEncargado', nombreEncargado='$nombreEncargado', ciudad='$ciudad', calle='$calle', numero='$numero', email='$email', password='$password', telefono='$telefono' WHERE claveAsociacionVeterinaria='$idClave'") or die (print("Error")); 
         return $result; 
     }
+
+function buscar_mascota($parametro){
+    $link = $this->conectar();
+    $result = $link->query("SELECT * FROM mascota WHERE nombre LIKE '$parametro%'") or die (print("Error")); 
+    
+    $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+          $data[]=[
+              'claveMascota' => $item->claveMascota,
+              'nombre' => $item->nombre,
+              'raza' => $item->raza,
+              
+              'edad' => $item->edad,
+              'genero' => $item->genero,
+              'tamaño' => $item->tamaño,
+              'estatus' => $item->estatus,
+              'ubicacion' => $item->ubicacion,
+              'tipo' => $item->tipoAnimal,
+          ];
+      }
+      $_SESSION['mascotasBuscadas']=json_encode($data);
+}
 
 }
 ?>
