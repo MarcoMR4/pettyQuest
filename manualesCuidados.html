@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuales</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="manualesCuidados.css">
+</head>
+
+<body>
+    <!--Menu-->
+
+    <nav class="navbar navbar-expand-lg color-nav sticky-top navbar-light">
+        <div class="container-fluid color-text">
+            <a class="navbar-brand negritas" href="index.html">
+                <img src="img/Logo/Final.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
+                PettyQuest
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav" style="margin-left: auto;">
+                    <li class="nav-item">
+                        <a class="nav-link color-link-black" aria-current="page"
+                            href="catalogo_Productos.html">Productos y
+                            Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link color-link-black" href="catalogo_Mascotas.html">Ver mascotas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link color-link-black" href="#">Foro</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle color-link-black" href="#" id="Cambio" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Iniciar Sesion / Registro
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Cambio">
+                            <div id="agregar">
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion"
+                                        role="button" aria-controls="InicioSesion" id="Cambio1">
+                                        Iniciar Sesion
+                                    </a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button"
+                                        aria-controls="offcanvasExample" id="Cambio2">
+                                        Registrar
+                                    </a></li>
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Manuales de usuario -->
+
+    <div class="manuales container p-md-5">
+        <div class="botones">
+            <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <img src="img/Logo/Final.png" alt="logo" height="200" width="200">
+                <p>Manual de adopcion</p>
+            </button>
+            <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1"
+                aria-expanded="false" aria-controls="collapseExample1">
+                Button with data-bs-target
+            </button>           
+            <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2"
+                aria-expanded="false" aria-controls="collapseExample2">
+                Button with data-bs-target
+            </button>           
+        </div>
+        <div class="contenidoManuales">            
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when
+                    the user activates the relevant trigger.
+                </div>
+            </div>
+            <div class="collapse1" id="collapseExample1">
+                <div class="card card-body">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi et minus officia magnam a recusandae ea
+                    voluptates soluta. Sint odio sed deserunt sit, incidunt dicta consequatur cum. Voluptas, itaque id.
+                </div>
+            </div>
+            <div class="collapse1" id="collapseExample2">
+                <div class="card card-body">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi et minus officia magnam a recusandae ea
+                    voluptates soluta. Sint odio sed deserunt sit, incidunt dicta consequatur cum. Voluptas, itaque id.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbox Soporte -->
+
+    <df-messenger intent="WELCOME" chat-title="Soporte" agent-id="41c2eaf9-c8c0-4058-b57b-62fb4da722ca"
+        language-code="es" chat-icon="img/logo/final.png"></df-messenger>
+
+    <!--Pie de Pagina-->
+
+    <div class="container-fluid PiePag navbar-fixed-bottom">
+        <div class="row color-letra-PiePag">
+            <div class="col border-r">
+                <span>Contactanos!</span><br>
+                <span>Telefono: 443-48-90-12</span><br>
+                <span>Correo: pettyquest@gmail.com.mx</span>
+            </div>
+            <div class="col border-r">
+                <a href="#">Ver mascotas</a><br>
+                <a href="#">Ver productos/servicios</a><br>
+                <a href="#">Ver adopciones</a>
+            </div>
+            <div class="col">
+                <a href="#">Legales</a><br>
+                <a href="#">Terminos y condiciones</a><br>
+                <a href="#">Leyes</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+    <script src="js/cambio_menu_tipo.js"></script>
+</body>
+
+</html>
