@@ -16,6 +16,19 @@ $(window).ready(function () {
      }
    });
 
+   $.ajax({
+     type: "POST",
+     url: "./php/mascotasBuscadas.php",
+     data: "",
+     dataType: "JSON",
+     success: function (response) {
+       
+      console.log("response");
+      console.log(response);
+      
+     }
+   });
+
         /* conseguimos los datos para llenar el catalogo*/
     $.ajax({
         type: "POST",
