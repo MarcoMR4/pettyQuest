@@ -5,7 +5,8 @@ $parametro = isset($_POST['buscar']) ? $_POST['buscar'] : '';
 
 
 $nuevacon= new conexion_VeteAsosiones();
-$respuestajson=$nuevacon->buscar_mascota($parametro);
+$respuestajson=$nuevacon->buscar_perros_por_nombre($parametro);
+echo $respuestajson;
 
-Header("location: http://localhost/pettyQuest/catalogo_Mascotas.html");
+// Header("location: http://localhost/pettyQuest/catalogo_Mascotas.html");
 ?>

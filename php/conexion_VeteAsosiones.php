@@ -238,5 +238,29 @@ class conexion_VeteAsosiones{
         return $result; 
     }
 
+    function buscar_perros_por_nombre($nombre)
+    {
+      # code...
+      $link = $this->conectar();
+        $result = $link->query("SELECT * FROM mascota WHERE nombre LIKE '$nombre%'") or die (print("Error")); 
+        $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+          $data[]=[
+              'claveMascota' => $item->claveMascota,
+              'nombre' => $item->nombre,
+              'raza' => $item->raza,
+              'foto' => $item->foto,
+              'edad' => $item->edad,
+              'genero' => $item->genero,
+              'tamaño' => $item->tamaño,
+              'estatus' => $item->estatus,
+              'ubicacion' => $item->ubicacion,
+              'tipo' => $item->tipoAnimal,
+          ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
 }
 ?>

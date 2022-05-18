@@ -66,9 +66,9 @@
   <!-- Contenido -->
   <div class="container contenido">
     <nav class="navbar">
-      <form class="d-flex" action="php/buscarMascota.php" method="post" autocomplete="off">
+      <form class="d-flex" action="" method="post" autocomplete="off">
         <input class="form-control me-2" type="search" placeholder="Buscar Mascota..." aria-label="Search" name="buscar" id="idBuscar">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
+        <button class="btn btn-outline-success" type="button" onclick="buscarMascotaPorNombre()">Buscar</button>
       </form>
       <a href="registro_mascotas.html"><button class="btn btn-success mt-2" id="btnAgregar" type="button">Agregar mascota</button></a>
     </nav>
@@ -79,7 +79,7 @@
       </div>
     </div>
   </div>
-  </div>
+  
 
   <!--Pie de Pagina-->
   <div class="container-fluid PiePag navbar-fixed-bottom">
