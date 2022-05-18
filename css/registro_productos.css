@@ -1,4 +1,9 @@
-
+.caja {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
 .foto {
     display: flex;
     flex-wrap: unset;
@@ -9,8 +14,12 @@
     margin-top: 2rem;
     margin-right: 14rem;
     align-items: center;
-    padding-left: 1%;
     border: 2px solid rgb(146, 143, 143); 
+    overflow: hidden;
+}
+.foto img {
+    width: 100%;
+    height: auto;
 }
 
 .btnFoto{
