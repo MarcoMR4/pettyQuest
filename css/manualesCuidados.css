@@ -1,24 +1,25 @@
-.botones{
+.botones {
     position: relative;
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
 
-.btnManual{
+.btnManual {
+    position: relative;
     padding: 0;
     text-align: center;
-    width: 182.797px;    
-    background-color: white;   
+    width: 182.797px;
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.btnManual img{
+.btnManual img {
     height: 150px;
     width: 150px;
 }
 
-.btnManual p{
-    border: 2px solid #04A9B4;    
+.btnManual p {
+    border: 2px solid #04A9B4;
     background-color: #04A9B4;
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -26,26 +27,33 @@
     margin-bottom: 0;
 }
 
-.contenidoManuales{
+.btnManual::after{
+    position: absolute;
+    content: '';
+    border-bottom: 5px solid rgb(245, 241, 7);    
+    border-top: 5px solid rgb(245, 241, 7);    
+    top: 0;
+    bottom: 0; 
+    left: 0;
+    right: 100%;
+    transition: all 500ms;
+}
+
+.btnManual:hover:after{
+    right: 0;    
+}
+
+
+.contenidoManuales {
     margin-top: 15px;
 }
 
-.tituloManual{
-    background-color: #04A9B4;
-    display: flex;
-    color: white;    
-    justify-items: center;
-}
-
-.tituloManual p{
-    position: relative;
-    transform: rotate(90deg);
-    height: 40px;    
-    margin: 0;
-    width: 100%;
-}
-
-mark{
+.pagina {
     background-color: gray;
+    color: white;
+}
+
+.boton {
+    background-color: green;
     color: white;
 }
