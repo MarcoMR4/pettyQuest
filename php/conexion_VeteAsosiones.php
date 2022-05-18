@@ -183,7 +183,7 @@ class conexion_VeteAsosiones{
               'claveMascota' => $item->claveMascota,
               'nombre' => $item->nombre,
               'raza' => $item->raza,
-              
+              'foto' => $item->foto,
               'edad' => $item->edad,
               'genero' => $item->genero,
               'tamaño' => $item->tamaño,

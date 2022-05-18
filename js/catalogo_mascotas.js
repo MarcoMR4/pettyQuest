@@ -43,7 +43,7 @@ $(window).ready(function () {
                 relleno += `
                 <div class="col">
                 <div class="card h-100">
-                    <img src="img/Mascotas/p1.jpg" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
+                    <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
                   <div class="card-body">
                   <form action="php/encontrarPerfil.php" method="post" autocomplete="off">
                   <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">

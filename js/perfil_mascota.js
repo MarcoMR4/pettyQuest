@@ -9,6 +9,7 @@ $(document).ready(function () {
     var ubicacion = "";
     var estatus = "";
     var tipo = "";
+    var foto = "";
     $("#espacio2").hide();
     $("#btn2").hide();
     $("#espacio1").show();
@@ -65,13 +66,15 @@ $(document).ready(function () {
                         estatus = response2[i]['estatus'];
                         edad = response2[i]['edad'];
                         raza = response2[i]['raza'];
+                        foto = response2[i]['foto'];
                         genero = response2[i]['genero'];
                         tamaño = response2[i]['tamaño'];
                         estatus = response2[i]['estatus'];
                         ubicacion = response2[i]['ubicacion'];
                         tipo = response2[i]['tipo'];
+                        relleno =  `<img src="${foto}" class="card-img-top" id="idImagen"></img>`;
                         console.log("Entro al if " + nombre);  
-                         /* Llenamos los datos de la mascota*/ 
+                         // Llenamos los datos de la mascota
                         $("#idMascota").val(claveMascota);
                         //alert(claveMascota); 
                         $("#idNombre").val(nombre);
@@ -81,7 +84,9 @@ $(document).ready(function () {
                         $("#idRaza").val(raza);
                         $("#idTamaño").val(tamaño);
                         $("#idUbicacion").val(ubicacion);
-                        $("#idTipo").val(tipo);                    
+                        $("#idTipo").val(tipo);
+                        $(".foto").html(relleno);
+                        console.log(foto);                    
                     }
 
                 }
