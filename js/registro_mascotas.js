@@ -18,7 +18,8 @@ $(window).ready(function() {
                 console.log(response);
             }
         });
-        
+        alert("¡¡¡SE HA REGISTRADO EL PERRO CON EXITO!!!");
+        location.reload();
     });
 
     function readURL(input) {

@@ -66,11 +66,13 @@
   <!-- Contenido -->
   <div class="container contenido">
     <nav class="navbar">
-      <form class="d-flex" action="" method="post" autocomplete="off">
+      <div class="d-flex" action="" method="post" autocomplete="off">
         <input class="form-control me-2" type="search" placeholder="Buscar Mascota..." aria-label="Search" name="buscar" id="idBuscar">
         <button class="btn btn-outline-success" type="button" onclick="buscarMascotaPorNombre()">Buscar</button>
-      </form>
-      <a href="registro_mascotas.html"><button class="btn btn-success mt-2" id="btnAgregar" type="button">Agregar mascota</button></a>
+        <button class="btn btn-outline-danger" type="button" style="margin-left: 1rem;" id="btnCancelar">Cancelar</button>
+      </div>
+      <a href="registro_mascotas.html"><button class="btn btn-success" id="btnAgregar" type="button">Agregar mascota</button></a>
+      <button class="btn btn-success" id="btnMisMascotas" type="button">Mis mascotas</button>
     </nav>
     <!-- Mascotas -->
     <div class="row justify-content-center">
