@@ -1,8 +1,8 @@
 <?php
-require 'conexion.php';
+require 'conexion_VeteAsosiones.php';
 
-$nuevacon= new conexion();
-$respuestajson=$nuevacon->pruebaSesion();
+$nuevacon= new conexion_VeteAsosiones();
+$respuestajson=$nuevacon->obtenerproductos();
 echo($respuestajson);
 
 ?>

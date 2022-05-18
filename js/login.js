@@ -18,7 +18,6 @@ $(window).ready(function() {
                     $.getScript('./js/cambio_menu_tipo.js', function(){});
                 }
                 else{
-                    console.log("No es un usuario puede ser veterinaria");
                     $.ajax({
                         type: "POST",
                         url: "./php/loginVeterinaria.php",

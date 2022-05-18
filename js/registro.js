@@ -19,11 +19,9 @@ $(window).ready(function() {
             dataType: "JSON",
             success: function (response) {
                 console.log(response);
+                $.getScript('./js/cambio_menu_tipo.js', function(){});
             }
-        });
-
-        /* Llamar otro js desde este mismo */
-        $.getScript('./js/cambio_menu_tipo.js', function(){});
+        });        
 
         /* Dar click al boton de x en el registro desde aqui */
         $("#btnsalirregistro").trigger("click");

@@ -196,6 +196,29 @@ class conexion_VeteAsosiones{
       return $datajson; 
     }
 
+    function obtenerproductos(){
+      $link = $this->conectar();
+
+      /* Query para obtener datos */
+      $sql="SELECT * FROM producto";
+      $result = $link->query($sql) or die (print("Error"));
+
+      /* Creacion del JSON */
+      $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+          $data[]=[
+              'idProducto' => $item->idProducto,
+              'nombre' => $item->nombre,
+              'descripcion' => $item->descripcion,
+              'cantidad' => $item->cantidad,
+              'precio' => $item->precio,
+              'foto' => $item->foto
+          ];
+      }
+      $datajson=json_encode($data);
+      return $datajson; 
+    }
+
     function editar_mascota($nombre,$raza,$foto,$edad,$genero,$tamaño,$estatus){
       $link = $this->conectar();
       $result = $link->query("UPDATE mascota SET nombre='nombre', raza='raza', foto='foto', edad='edad', genero='genero', tamaño='tamaño', estatus='estatus' WHERE id='id'") or die (print("Error")); 
