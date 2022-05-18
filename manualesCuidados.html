@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="manualesCuidados.css">
+    <link rel="stylesheet" href="css/manualesCuidados.css">
 </head>
 
 <body>
@@ -64,38 +64,65 @@
     <!-- Manuales de usuario -->
 
     <div class="manuales container p-md-5">
+
+        <!-- Botones de los manuales -->
+
         <div class="botones">
             <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-                <img src="img/Logo/Final.png" alt="logo" height="200" width="200">
-                <p>Manual de adopcion</p>
+                aria-expanded="false" aria-controls="collapseExample" id="1" value="guiaAdopcion">
+                <img src="img/Logo/Final.png" alt="logo">                
+                <p>Guia de adopcion de mascotas</p>
             </button>
-            <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1"
-                aria-expanded="false" aria-controls="collapseExample1">
-                Button with data-bs-target
-            </button>           
-            <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2"
-                aria-expanded="false" aria-controls="collapseExample2">
-                Button with data-bs-target
-            </button>           
+            <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample" id="2" value="manualCuidadosPerro">
+                <img src="img/Logo/Final.png" alt="logo">                
+                <p>Manual de cuidados de perros</p>
+            </button>
+            <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample" id="3" value="manualCuidadosGatos">
+                <img src="img/Logo/Final.png" alt="logo">                
+                <p>Manual de cuidados de gatos</p>
+            </button>
+            <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample" id="4" value="guiaCuidadosAlimentacion">
+                <img src="img/Logo/Final.png" alt="logo">                
+                <p>Guia de cuidados de alimentacion</p>
+            </button>                     
         </div>
+
+        <!-- Contenido de los manuales -->
+
         <div class="contenidoManuales">            
             <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when
-                    the user activates the relevant trigger.
+                <div class="card card-body" id="guiaAdopcion">                    
+                    <ol type="1">
+                        <li>Ingresa a la pagina "PettyQuest".</li>
+                        <li>Ingresa con tu cuenta o en dado caso registrate.</li>
+                        <li>Haz click en nuestras mascotas en <a href="catalogo_Mascotas.html"><mark class="pagina">Ver Mascotas</mark></a>.</li>
+                        <li>Ve y selecciona la mascota que haya llamado tu atencion.</li>
+                        <li>Haz click en la foto de la mascota.</li>
+                        <li>Haz click en el boton de <mark class="boton">adoptar</mark>.</li>
+                        <li>Inicia un proceso de adopcion con la veterinaria/asociacion encargada.</li>
+                        <li>Continua tu proceso a traves del sistema de <a href="mensajeria.html"><mark class="pagina">mensajeria</mark></a> con la veterinaria/asociacion correspondiente.</li>
+                    </ol>
                 </div>
-            </div>
-            <div class="collapse1" id="collapseExample1">
-                <div class="card card-body">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi et minus officia magnam a recusandae ea
-                    voluptates soluta. Sint odio sed deserunt sit, incidunt dicta consequatur cum. Voluptas, itaque id.
+                <div class="card card-body" id="manualCuidadosPerro">                    
+                    <h2>Cuidados de perro</h2>
+                    <ol type="1">
+                        <li></li>
+                    </ol>
                 </div>
-            </div>
-            <div class="collapse1" id="collapseExample2">
-                <div class="card card-body">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi et minus officia magnam a recusandae ea
-                    voluptates soluta. Sint odio sed deserunt sit, incidunt dicta consequatur cum. Voluptas, itaque id.
+                <div class="card card-body" id="manualCuidadosGatos">   
+                    <h2>Cuidados de gatos</h2>                 
+                    <ol type="1">
+                        
+                    </ol>
+                </div>
+                <div class="card card-body" id="guiaCuidadosAlimentacion">        
+                    <h2>Cuidados alimentacion</h2>           
+                    <ol type="1">
+                        
+                    </ol>
                 </div>
             </div>
         </div>
@@ -136,7 +163,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
-
+    <script src="js/manualesCuidados.js"></script>
     <script src="js/cambio_menu_tipo.js"></script>
 </body>
 
