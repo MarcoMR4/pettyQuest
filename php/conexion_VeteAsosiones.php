@@ -219,9 +219,9 @@ class conexion_VeteAsosiones{
       return $datajson; 
     }
 
-    function editar_mascota($nombre,$raza,$foto,$edad,$genero,$tamaño,$estatus){
+    function editar_mascota($idMascota,$nombre,$raza,$foto,$edad,$genero,$tamaño,$estatus){
       $link = $this->conectar();
-      $result = $link->query("UPDATE mascota SET nombre='nombre', raza='raza', foto='foto', edad='edad', genero='genero', tamaño='tamaño', estatus='estatus' WHERE id='id'") or die (print("Error")); 
+      $result = $link->query("UPDATE mascota SET nombre='$nombre', raza='$raza', foto='$foto', edad='$edad', genero='$genero', tamaño='$tamaño', estatus='$estatus' WHERE claveMascota='$idMascota'") or die (print("Error")); 
 
       /* Si regresa datos :v equis de*/
       $datos[]=[
