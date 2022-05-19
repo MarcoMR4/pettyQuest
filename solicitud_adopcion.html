@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solicitud de adopcion</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/solicitud_adopcion.css">
 
@@ -67,58 +67,75 @@
   <div class="container-fluid">
 
     <form id="formSol" autocomplete="off">
-    <div class="row">
-      <div class="col-lg-7 informacion">
-        <div class="mb-3 row mt-4">
-          <label for="fecha">Fecha:</label>
-          <div class="col-sm-10">
-            <input type="date" class="form-control" id="fecha" required>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="lugar">Direccion:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="lugar" required>
-          </div>
-        </div> 
-        <div class="mb-3 row">
-            <label for="Razon">¿Por que desea adoptar?:</label>
+      <div class="row">
+        <div class="col-lg-7 informacion">
+          <div class="mb-3 row mt-4">
+            <label class="col-1"></label>
             <div class="col-sm-10">
+              <label for="fecha">Fecha:</label>
+              <input type="date" class="form-control" id="fecha" required>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-1"></label>
+            <div class="col-sm-10">
+              <label for="lugar">Direccion:</label>
+              <input type="text" class="form-control" id="lugar" required>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-1"></label>
+            <div class="col-sm-10">
+              <label for="Razon">¿Por que desea adoptar?:</label>
               <input type="text" class="form-control" id="Razon" required>
             </div>
           </div>
-        <div class="mb-3 row">
-          <label for="Personas">¿Cuantas personas viven en su casa?:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="Personas" required>
+          <div class="mb-3 row">
+            <label class="col-1"></label>
+            <div class="col-sm-10">
+              <label for="Personas">¿Cuantas personas viven en su casa?:</label>
+              <input type="text" class="form-control" id="Personas" required>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-1"></label>
+            <div class="col-sm-10">
+              <label for="Necesario">¿Con que recursos cuenta para el cuidado de la mascota?:</label>
+              <input type="text" class="form-control" id="Necesario" required>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-1"></label>
+            <div class="mb-3  col-10 row">
+              <label>Suba un comprobante de domicilio:</label>
+              <input type="file" class="form-control" id="comprobanteDomicilio" required>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-1"></label>
+            <div class="mb-3 row col-10">
+              <label>Suba un copia de su INE:</label>
+              <input type="file" class="form-control" id="ine" required>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-1"></label>
+            <div class="mb-3 row col-10">
+              <label>Acepto mantener un seguimiento mensual&nbsp&nbsp&nbsp<input type="checkbox" id="cbox1"
+                  required></label><br>
+            </div>
           </div>
         </div>
-        <div class="mb-3 row">
-          <label for="Necesario" >¿Con que recursos cuenta para el cuidado de la mascota?:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="Necesario" required>
-           </div>
-        </div>
-        <div class="mb-3 row">
-          <label>Suba un comprobante de domicilio:</label>
-            <input type="file" class="form-control" id="comprobanteDomicilio" required>
-        </div>
-        <div class="mb-3 row">
-          <label>Suba un copia de su INE:</label>
-            <input type="file" class="form-control" id="ine" required>
-        </div>
-        <div class="mb-3 row">
-            <label>Estoy dispuesto a mantener un seguimiento mensual&nbsp&nbsp&nbsp<input type="checkbox" id="cbox1" required></label><br>
-        </div> 
       </div>
-    </div>
-    <div class="row">
-      <div class="col-8"></div>
-      <div class="btn1 col-md-4">
-        <input class="btn btn-outline-danger" type="button" value="Cancelar">
-        <input class="btn btn-outline-secondary" type="submit" value="Aceptar">
+      <div class="row">
+        <div class="col-8"></div>
+        <div class="btn1 col-md-4">
+          <a href="perfil_Mascota.html">
+            <input class="btn btn-outline-danger" type="button" value="Cancelar">
+          </a>
+          <input class="btn btn-outline-secondary" type="submit" value="Aceptar">
+        </div>
       </div>
-    </div>
   </div>
   </form>
   </div>
