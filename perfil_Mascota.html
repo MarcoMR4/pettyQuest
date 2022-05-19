@@ -65,16 +65,17 @@
   <!--Contenido-->
 
   <div class="container-fluid">
+    <!-- enctype sirve para trabajar con ficheros -->
 
-    <form action="php/editar_mascota.php" method="post" autocomplete="off">
+    <form action="php/editar_mascota.php" method="post" autocomplete="off" enctype="multipart/form-data"> 
     <div class="row justify-content-center">
       <div class="col-lg-4">
         <div class="card foto" style="width: 18rem;" id="divFoto">
         </div>
+        <input type="file" id="fotoNueva" name="photo">
         <div class="col btnFoto" id="btn4">
           <button type="button" class="btn btn-outline-primary"  id="btnFoto">Subir foto
           </button>
-          <input type="file" id="nuevaFoto">
         </div>
       </div>
         <div class="col-lg-5 informacion">
