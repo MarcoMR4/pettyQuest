@@ -262,5 +262,25 @@ class conexion_VeteAsosiones{
         return $datajson;
     }
 
+    function buscar_productos($nombre)
+    {
+      # code...
+      $link = $this->conectar();
+        $result = $link->query("SELECT * FROM producto WHERE nombre LIKE '$nombre%'") or die (print("Error")); 
+        $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+        $data[]=[
+          'idProducto' => $item->idProducto,
+          'nombre' => $item->nombre,
+          'descripcion' => $item->descripcion,
+          'cantidad' => $item->cantidad,
+          'precio' => $item->precio,
+          'foto' => $item->foto
+      ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
 }
 ?>

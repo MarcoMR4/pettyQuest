@@ -1,6 +1,7 @@
 $(window).ready(function () {  
   $("#btnAgregar").hide();
   $("#btnCancelar").hide();
+    // identificamos el tip ode usuario para saber que mostrar en pantalla
    $.ajax({
      type: "POST",
      url: "./php/identificarTipoUsuario.php",
@@ -10,9 +11,11 @@ $(window).ready(function () {
       console.log(response[0]['tipo']);
        if(response[0]['tipo']=="0"){
         $("#btnAgregar").hide();
+        $("#btnMisMascotas").hide();
        }
        else{
         $("#btnAgregar").show();
+        $("#btnMisMascotas").show();
        }
      }
    });

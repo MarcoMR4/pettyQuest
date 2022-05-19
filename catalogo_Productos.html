@@ -66,11 +66,14 @@
     <!-- Contenido -->
     <div class="container contenido">
       <nav class="navbar">
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Productos..." aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
+        <div class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Productos..." aria-label="Search" name="buscar" id="idBuscar">
+          <button class="btn btn-outline-success" type="button" onclick="buscarProductosPorNombre()">Buscar</button>
+          <button class="btn btn-outline-danger" type="button" style="margin-left: 1rem;" id="btnCancelar">Cancelar</button>
+        </div>
+        <button class="btn btn-success" id="btnMisProductos" type="button">Mis productos</button>
         <a href="registro_productos.html"><button class="btn btn-success mt-2" id="btnAgregar" type="button">Agregar producto</button></a>
+        
       </nav>
       <div class="row justify-content-center">
         <div class="row row-cols-1 row-cols-md-3 g-4 catalogo">

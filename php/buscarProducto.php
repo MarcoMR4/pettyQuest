@@ -5,7 +5,7 @@ $parametro = isset($_POST['buscar']) ? $_POST['buscar'] : '';
 
 
 $nuevacon= new conexion_VeteAsosiones();
-$respuestajson=$nuevacon->buscar_perros_por_nombre($parametro);
+$respuestajson=$nuevacon->buscar_productos($parametro);
 echo $respuestajson;
 
 ?>

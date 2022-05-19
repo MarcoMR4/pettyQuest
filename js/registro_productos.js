@@ -13,8 +13,11 @@ $(window).ready(function() {
           processData: false,
           success: function (response) {
             console.log(response);
+            alert("SE HA REGISTRADO EL PRODUCTO");
+            location.reload();
           }
         });
+       
         
     });
 
