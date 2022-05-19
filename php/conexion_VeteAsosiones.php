@@ -262,6 +262,31 @@ class conexion_VeteAsosiones{
         return $datajson;
     }
 
+    function mis_Mascotas()
+    {
+      # code...
+      $link = $this->conectar();
+        $result = $link->query("SELECT * FROM `fk_mascota_asociacionveterinaria` NATURAL JOIN `mascota`") or die (print("Error")); 
+        $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+          $data[]=[
+              'claveMascota' => $item->claveMascota,
+              'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
+              'nombre' => $item->nombre,
+              'raza' => $item->raza,
+              'foto' => $item->foto,
+              'edad' => $item->edad,
+              'genero' => $item->genero,
+              'tamaño' => $item->tamaño,
+              'estatus' => $item->estatus,
+              'ubicacion' => $item->ubicacion,
+              'tipo' => $item->tipoAnimal,
+          ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
     function buscar_productos($nombre)
     {
       # code...
@@ -271,6 +296,27 @@ class conexion_VeteAsosiones{
       while($item = $result->fetch(PDO::FETCH_OBJ)){
         $data[]=[
           'idProducto' => $item->idProducto,
+          'nombre' => $item->nombre,
+          'descripcion' => $item->descripcion,
+          'cantidad' => $item->cantidad,
+          'precio' => $item->precio,
+          'foto' => $item->foto
+      ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
+    function mis_productos()
+    {
+      # code...
+      $link = $this->conectar();
+        $result = $link->query("SELECT * FROM `fk_producto_asociacionveterinaria` NATURAL JOIN `producto`") or die (print("Error")); 
+        $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+        $data[]=[
+          'idProducto' => $item->idProducto,
+          'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
           'nombre' => $item->nombre,
           'descripcion' => $item->descripcion,
           'cantidad' => $item->cantidad,

@@ -121,19 +121,20 @@ function buscarProductosPorNombre() {
       $("#btnCancelar").show();
     }
   });
+}
 
-  $("#btnCancelar").click(function (e) { 
-    $.ajax({
-      type: "POST",
-      url: "./php/catalogo_Producto.php",
-      data: "",
-      dataType: "JSON",
-      success: function (response) {
-        console.log(response);
-        var relleno = "";
-        /* Imprimimos en pantalla cada producto encontrada*/
-        response.map(item => {
-          relleno += `
+$("#btnCancelar").click(function (e) {
+  $.ajax({
+    type: "POST",
+    url: "./php/catalogo_Producto.php",
+    data: "",
+    dataType: "JSON",
+    success: function (response) {
+      console.log(response);
+      var relleno = "";
+      /* Imprimimos en pantalla cada producto encontrada*/
+      response.map(item => {
+        relleno += `
                   <div class="col">
                   <div class="card h-100">
                       <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.idProducto}')">
@@ -154,17 +155,69 @@ function buscarProductosPorNombre() {
                   </div>
                 </div>
                   `;
-        })
-        $(".catalogo").html(relleno);
-      }
-    });
-    $("#btnCancelar").hide();
+      })
+      $(".catalogo").html(relleno);
+    }
   });
+  $("#btnCancelar").hide();
+});
 
-  $('#idBuscar').keypress(function(event){
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if(keycode == '13'){
-      buscarProductosPorNombre();  
+$('#idBuscar').keypress(function (event) {
+  var keycode = (event.keyCode ? event.keyCode : event.which);
+  if (keycode == '13') {
+    buscarProductosPorNombre();
+  }
+});
+
+function misProductos() {
+  var claveAsociacionVeterinaria;
+  //Conseguimos el ID de la veterinaria
+  $.ajax({
+    type: "POST",
+    url: "./php/pruebaSesionVeterinaria.php",
+    data: "",
+    dataType: "JSON",
+    success: function (response2) {
+      claveAsociacionVeterinaria = response2[0]['claveAsociacionVeterinaria'];
+    }
+  });
+  $.ajax({
+    type: "post",
+    url: "php/misProductos.php",
+    data:"",
+    dataType: "JSON",
+    success: function (response) {
+      console.log(response);
+      var relleno = "";
+      /* Imprimimos en pantalla cada producto encontrada*/
+      response.map(item => {
+        if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria) {
+        relleno += `
+          <div class="col">
+          <div class="card h-100">
+              <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.idProducto}')">
+            <div class="card-body">
+            <form action="php/encontrarPerfil.php" method="post" autocomplete="off">
+            <input type="text" name="idProducto" value="${item.idProducto}" style="display: none;">
+            <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.idProducto}" style="display: none;">
+            </form>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <h5 class="card-title">${item.nombre}</h5>
+                </li>
+                <li class="list-group-item">${item.descripcion}</li>
+                <li class="list-group-item">${item.precio}</li>
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+          `;
+        }
+      })
+      $(".catalogo").html(relleno);
+      $("#btnCancelar").show();
     }
   });
 }
+
