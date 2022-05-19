@@ -57,7 +57,7 @@ $(window).ready(function () {
                         <h5 class="card-title">${item.nombre}</h5>
                       </li>
                       <li class="list-group-item">${item.descripcion}</li>
-                      <li class="list-group-item">${item.precio}</li>
+                      <li class="list-group-item">Precio: $${item.precio}</li>
                     </ul>
                     
                   </div>
@@ -109,7 +109,7 @@ function buscarProductosPorNombre() {
                   <h5 class="card-title">${item.nombre}</h5>
                 </li>
                 <li class="list-group-item">${item.descripcion}</li>
-                <li class="list-group-item">${item.precio}</li>
+                <li class="list-group-item">Precio: $${item.precio}</li>
               </ul>
               
             </div>
@@ -148,7 +148,7 @@ $("#btnCancelar").click(function (e) {
                           <h5 class="card-title">${item.nombre}</h5>
                         </li>
                         <li class="list-group-item">${item.descripcion}</li>
-                        <li class="list-group-item">${item.precio}</li>
+                        <li class="list-group-item">Precio: $${item.precio}</li>
                       </ul>
                       
                     </div>
@@ -206,7 +206,7 @@ function misProductos() {
                   <h5 class="card-title">${item.nombre}</h5>
                 </li>
                 <li class="list-group-item">${item.descripcion}</li>
-                <li class="list-group-item">${item.precio}</li>
+                <li class="list-group-item">Precio: $${item.precio}</li>
               </ul>
               
             </div>
