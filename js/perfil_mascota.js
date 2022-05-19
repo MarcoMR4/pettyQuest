@@ -14,30 +14,11 @@ $(document).ready(function () {
     $("#btn2").hide();
     $("#espacio1").show();
     $("#btn1").show();
-    $.ajax({
-        type: "POST",
-        url: "./php/identificarTipoUsuario.php",
-        data: "data",
-        dataType: "JSON",
-        success: function (response) {
-         console.log(response[0]['tipo']);
-          if(response[0]['tipo']=="0"){
-            console.log("Es un usuario normal");
-            $("#espacio2").hide();
-            $("#btn2").hide();
-            $("#espacio1").show();
-            $("#btn1").show();
-          }
-          else{
-            console.log("Es una veterinaria");
-            $("#espacio1").hide();
-            $("#btn1").hide();
-            $("#espacio2").show();
-            $("#btn2").show();
-          }
-        }
-      });
+    $("#espacio3").hide();
+    $("#btn3").hide();
+    $("#btn4").hide();
 
+    //llenar el perfil
     $.ajax({
         type: "POST",
         url: "./php/id_mascota.php",
@@ -72,9 +53,9 @@ $(document).ready(function () {
                         estatus = response2[i]['estatus'];
                         ubicacion = response2[i]['ubicacion'];
                         tipo = response2[i]['tipo'];
-                        relleno =  `<img src="${foto}" class="card-img-top" id="idImagen"></img>`;
-                        console.log("Entro al if " + nombre);  
-                         // Llenamos los datos de la mascota
+                        relleno = `<img src="${foto}" class="card-img-top" id="idImagen"></img>`;
+                        console.log("Entro al if " + nombre);
+                        // Llenamos los datos de la mascota
                         $("#idMascota").val(claveMascota);
                         //alert(claveMascota); 
                         $("#idNombre").val(nombre);
@@ -86,19 +67,72 @@ $(document).ready(function () {
                         $("#idUbicacion").val(ubicacion);
                         $("#idTipo").val(tipo);
                         $(".foto").html(relleno);
-                        console.log(foto);                    
+                        console.log(foto);
                     }
 
                 }
             });
         }
     });
-    $("#espacio3").hide();    
-    $("#btn3").hide();
-    $("#btn4").hide();
 
+    //identificar el tip ode usuario y si es que puede editar la mascota
+    $.ajax({
+        type: "POST",
+        url: "./php/identificarTipoUsuario.php",
+        data: "data",
+        dataType: "JSON",
+        success: function (response) {
+            console.log(response[0]['tipo']);
+            if (response[0]['tipo'] == "0") {
+                console.log("Es un usuario normal");
+                $("#espacio2").hide();
+                $("#btn2").hide();
+                $("#espacio1").show();
+                $("#btn1").show();
+            }
+            else {
+                console.log("Es una veterinaria");
+                var claveAsociacionVeterinaria;
+                //Conseguimos el ID de la veterinaria
+                $.ajax({
+                    type: "POST",
+                    url: "./php/pruebaSesionVeterinaria.php",
+                    data: "",
+                    dataType: "JSON",
+                    success: function (response2) {
+                        claveAsociacionVeterinaria = response2[0]['claveAsociacionVeterinaria'];
+                    }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "php/misMascotas.php",
+                    data: "",
+                    dataType: "JSON",
+                    success: function (response) {
+                        console.log(response);
 
-    /* Lo importante es ocultar y mostrar botones*/ 
+                        /* Imprimimos en pantalla cada mascota encontrada*/
+                        response.map(item => {
+                            if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria && `${item.claveMascota}` == claveMascota) {
+                                $("#espacio1").hide();
+                                $("#btn1").hide();
+                                $("#espacio2").show();
+                                $("#btn2").show();
+                            }
+                            else{
+                                $("#espacio1").hide();
+                                $("#btn1").hide();
+                            }
+                        })
+
+                    }
+                });
+
+            }
+        }
+    });
+
+    /* Lo importante es ocultar y mostrar botones*/
     $("#btnEditar").click(function (e) {
         e.preventDefault();
         $("#espacio3").show();
@@ -117,7 +151,7 @@ $(document).ready(function () {
 
     });
 
-     /* Lo importante es ocultar y mostrar botones mas volver a poner la informacion correcta*/ 
+    /* Lo importante es ocultar y mostrar botones mas volver a poner la informacion correcta*/
     $("#btnCancelar").click(function (e) {
         e.preventDefault();
         $("#espacio3").hide();
