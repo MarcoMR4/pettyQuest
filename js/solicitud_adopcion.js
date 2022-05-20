@@ -51,6 +51,7 @@ $(document).ready(function() {
                     processData: false,
                     success: function (response) {
                         console.log(response);
+                        location.href = "./catalogo_Mascotas.html";
                     },
                     error: function(response) {
                         console.log(response);
