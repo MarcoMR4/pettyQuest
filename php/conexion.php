@@ -177,15 +177,52 @@ class conexion{
       return $datajson; 
     }
 
-    function nuevaSolicitud($comprobanteDomicilio,$fecha,$ine,$razones){
+    function nuevaSolicitud($fecha,$razones, $claveMascota,$tmpimg,$type,$tmpimg2,$type2){
         $link = $this->conectar();
-        $result = $link->query("INSERT INTO contratoadopcion (comprobanteDomicilio,fecha,ine,razones) VALUES ('$comprobanteDomicilio','$fecha','$ine','$razones')") or die (print("Error")); 
-
+        $id = $_SESSION['idUsuario'];
+        $sql="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'pettyquest' AND   TABLE_NAME   = 'contratoadopcion'";
+        $autoincrement = $link->query($sql) or die (print("Error"));
+        $idSolicitud = "";
+        while($item = $autoincrement->fetch(PDO::FETCH_OBJ)){
+            $idSolicitud=$item->AUTO_INCREMENT;
+        }
+        $name=$idSolicitud.$claveMascota.$type;
+        $rutarelativa="img/uploaded/Solicitudes/".$name;
+        $rutaguardarphp="../".$rutarelativa;
+        if(move_uploaded_file($tmpimg, $rutaguardarphp)){
+            $name=$idSolicitud.$claveMascota.$type2;
+            $rutarelativa2="img/uploaded/Solicitudes/".$name;
+            $rutaguardarphp="../".$rutarelativa2;
+            if(move_uploaded_file($tmpimg2, $rutaguardarphp)){
+                
+                $result = $link->query("SELECT `claveAsociacionVeterinaria` FROM fk_mascota_asociacionveterinaria WHERE `claveMascota` =$claveMascota")or die (print("Error"));
+                $data = [];
+                while ($item = $result->fetch(PDO::FETCH_OBJ)) {
+                    $data[] = [
+                        'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,                  
+                    ];
+                }
+                $claveAsociacion = $data[0]['claveAsociacionVeterinaria'];
+                echo("Fecha:".$fecha
+                   ." Razones:".$razones
+                   ." ClaveMascota:".$claveMascota
+                   ." ClaveUsuario".$id
+                   ." ruta1:".$rutarelativa
+                   ." ruta2:".$rutarelativa2
+                   ." Asociacion:".$data[0]['claveAsociacionVeterinaria']
+                   );
+                
+                // echo("ClaveAsociacion = ".$claveAsociacion);
+                $link->query("INSERT INTO contratoadopcion (comprobanteDomicilio, fecha, idUsuario, idMascota, idAsociacion, ine, razones) VALUES ('$rutarelativa','$fecha','$id','$claveMascota','$claveAsociacion','$rutarelativa2','$razones')")or die (print("Error"));
+                $link->query("INSERT INTO fk_contrato_asociacionveterinaria (claveContrato,claveAsociacionVeterinaria) VALUES ('$idSolicitud', '$claveAsociacion')")or die (print("Error"));                                
+                $link->query("INSERT INTO fk_contrato_mascota (claveContrato,claveMascota) VALUES ('$idSolicitud', '$claveMascota')")or die (print("Error"));                                
+            }
+        }
+        
+        $data[]=[
+          "estatus" => "registrado",                  
+        ];
       /* Si regresa algo*/
-      $data[]=[
-        "estatus" => "hecho",
-        "numero" => "123"
-      ];
       $datajson=json_encode($data);
       return $datajson; 
     }

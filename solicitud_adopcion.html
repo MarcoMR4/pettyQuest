@@ -66,80 +66,63 @@
 
   <div class="container-fluid">
 
-    <form id="formSol" autocomplete="off">
+    <form action="index.html" id="formSol" autocomplete="off">
       <div class="row">
-        <div class="col-lg-7 informacion">
-          <div class="mb-3 row mt-4">
-            <label class="col-1"></label>
+        <div class="col-lg-6 informacion">
+          <div class="mb-3 row">
+            <label for="lugar">Fecha:</label>
             <div class="col-sm-10">
-              <label for="fecha">Fecha:</label>
-              <input type="date" class="form-control" id="fecha" required>
+              <input type="date" class="form-control" id="fecha" name="fecha" required>
             </div>
           </div>
           <div class="mb-3 row">
-            <label class="col-1"></label>
+            <label for="lugar">Direccion:</label>
             <div class="col-sm-10">
-              <label for="lugar">Direccion:</label>
-              <input type="text" class="form-control" id="lugar" required>
+              <input type="text" class="form-control" id="lugar" name="lugar" required>
             </div>
           </div>
           <div class="mb-3 row">
-            <label class="col-1"></label>
+            <label for="Razon">¿Por que desea adoptar?:</label>
             <div class="col-sm-10">
-              <label for="Razon">¿Por que desea adoptar?:</label>
-              <input type="text" class="form-control" id="Razon" required>
+              <input type="text" class="form-control" id="Razon" name="Razon" required>
             </div>
           </div>
           <div class="mb-3 row">
-            <label class="col-1"></label>
+            <label for="Personas">¿Cuantas personas viven en su casa?:</label>
             <div class="col-sm-10">
-              <label for="Personas">¿Cuantas personas viven en su casa?:</label>
-              <input type="text" class="form-control" id="Personas" required>
+              <input type="number" class="form-control" id="Personas" name="Personas" min="1" required>
             </div>
           </div>
           <div class="mb-3 row">
-            <label class="col-1"></label>
+            <label for="Necesario">¿Con que recursos cuenta para el cuidado de la mascota?:</label>
             <div class="col-sm-10">
-              <label for="Necesario">¿Con que recursos cuenta para el cuidado de la mascota?:</label>
-              <input type="text" class="form-control" id="Necesario" required>
+              <input type="text" class="form-control" id="Necesario" name="Necesario" required>
             </div>
           </div>
           <div class="mb-3 row">
-            <label class="col-1"></label>
-            <div class="mb-3  col-10 row">
-              <label>Suba un comprobante de domicilio:</label>
-              <input type="file" class="form-control" id="comprobanteDomicilio" required>
-            </div>
+            <label>Suba un comprobante de domicilio:</label>
+            <input type="file" class="form-control" id="comprobanteDomicilio" name="comprobanteDomicilio" required>
           </div>
           <div class="mb-3 row">
-            <label class="col-1"></label>
-            <div class="mb-3 row col-10">
-              <label>Suba un copia de su INE:</label>
-              <input type="file" class="form-control" id="ine" required>
-            </div>
+            <label>Suba un copia de su INE:</label>
+            <input type="file" class="form-control" id="ine" name="ine" required>
           </div>
           <div class="mb-3 row">
-            <label class="col-1"></label>
-            <div class="mb-3 row col-10">
-              <label>Acepto mantener un seguimiento mensual&nbsp&nbsp&nbsp<input type="checkbox" id="cbox1"
-                  required></label><br>
-            </div>
+            <label>Estoy dispuesto a mantener un seguimiento mensual&nbsp&nbsp&nbsp<input type="checkbox" id="cbox1"
+                required></label><br>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-8"></div>
         <div class="btn1 col-md-4">
-          <a href="perfil_Mascota.html">
-            <input class="btn btn-outline-danger" type="button" value="Cancelar">
-          </a>
+          <a class="btn btn-outline-danger" href="catalogo_Mascotas.html" role="button">Cancelar</a>
           <input class="btn btn-outline-secondary" type="submit" value="Aceptar">
         </div>
       </div>
+    </form>
+    
   </div>
-  </form>
-  </div>
-
 
   <!--Pie de Pagina-->
   <div class="container-fluid PiePag navbar-fixed-bottom">
