@@ -52,6 +52,7 @@ if(isset($_FILES['comprobanteDomicilio'])){
         $nuevacon= new conexion();
         $respuestajson=$nuevacon->nuevaSolicitud($fecha,$razones, $claveMascota,$tmpimg,$type,$tmpimg2,$type2);
         echo($respuestajson);
+        // Hola
     }
     }
 ?>
