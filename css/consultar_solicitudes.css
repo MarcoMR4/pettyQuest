@@ -1,0 +1,28 @@
+.solicitud{
+    position: relative;
+    width: 70%;
+    height: auto;      
+    top: 20px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    /* border: 2px solid white; */
+    background-color: white;
+}
+
+.nombreSolicitante{
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #04A9B4;
+    color: white;
+    width: 100%;
+}
+
+.nombreSolicitante h2{
+    margin: 0;
+}
+
+.datosMascota{
+    background-color: #05D3E2;
+    border-end-end-radius: 10px;
+}

@@ -328,5 +328,52 @@ class conexion_VeteAsosiones{
         return $datajson;
     }
 
+    function consultar_solicitudes()
+    {
+      $link = $this->conectar();
+      $id=$_SESSION['idUsuarioVeterinaria'];
+      $result = $link->query("SELECT * FROM `contratoadopcion` NATURAL JOIN `mascota` WHERE idAsociacion = '$id' AND contratoadopcion.idMascota = mascota.claveMascota") or die (print("Error")); 
+      $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+        $data[]=[
+          'claveContrato' => $item->claveContrato,
+          'comprobanteDomicilio' => $item->comprobanteDomicilio,
+          'fecha' => $item->fecha,
+          'idUsuario' => $item->idUsuario,
+          'idAsociacion' => $item->idAsociacion,
+          'ine' => $item->ine,
+          'razones' => $item->razones,
+          'nombre' => $item->nombre,
+          'raza' => $item->raza,
+          'foto' => $item->foto,
+          'edad' => $item->edad,
+          'genero' => $item->genero,
+          'tamaño' => $item->tamaño
+      ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
+    function buscar_usuario_por_id($idUsuario)
+    {
+      $link = $this->conectar();      
+      $result = $link->query("SELECT * FROM usuario WHERE idUsuario = '$idUsuario'") or die (print("Error")); 
+      $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+        $data[]=[
+          'nombre' => $item->nombre,
+          'apellidoPaterno' => $item->apellidoPaterno,
+          'apellidoMaterno' => $item->apellidoMaterno,
+          'ciudad' => $item->ciudad,
+          'calle' => $item->calle,
+          'numeroCasa' => $item->numeroCasa,
+          'edad' => $item->edad
+      ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
 }
 ?>
