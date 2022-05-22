@@ -332,7 +332,7 @@ class conexion_VeteAsosiones{
     {
       $link = $this->conectar();
       $id=$_SESSION['idUsuarioVeterinaria'];
-      $result = $link->query("SELECT * FROM `contratoadopcion` NATURAL JOIN `mascota` WHERE idAsociacion = '$id' AND contratoadopcion.idMascota = mascota.claveMascota") or die (print("Error")); 
+      $result = $link->query("SELECT * FROM `contratoadopcion` NATURAL JOIN `mascota` WHERE idAsociacion = '$id' AND contratoadopcion.idMascota = mascota.claveMascota AND contratoadopcion.estado = 0") or die (print("Error")); 
       $data=[];
       while($item = $result->fetch(PDO::FETCH_OBJ)){
         $data[]=[
@@ -341,6 +341,7 @@ class conexion_VeteAsosiones{
           'fecha' => $item->fecha,
           'idUsuario' => $item->idUsuario,
           'idAsociacion' => $item->idAsociacion,
+          'idMascota' => $item->idMascota,
           'ine' => $item->ine,
           'razones' => $item->razones,
           'nombre' => $item->nombre,
@@ -373,6 +374,33 @@ class conexion_VeteAsosiones{
       }
       $datajson=json_encode($data);
         return $datajson;
+    }
+
+    function aceptar_solicitud($claveContrato, $claveUsuario, $claveMascota)
+    {
+      $link = $this->conectar();     
+      $id=$_SESSION['idUsuarioVeterinaria']; 
+      $link->query("UPDATE contratoadopcion SET estado = 1 WHERE claveContrato = '$claveContrato'") or die (print("Error")); 
+      $link->query("UPDATE mascota SET estatus = 'En proceso' WHERE claveMascota = '$claveMascota'") or die (print("Error")); 
+      $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario) VALUES ('Tu solicitud para adoptar ha sido aprobada, en breve nos comunicaremos con usted.','$id','$claveUsuario', 1)") or die (print("Error")); 
+      $data[]=[
+        "estatus" => "aceptado"
+      ];   
+      $datajson=json_encode($data);
+      return $datajson;
+    }
+
+    function rechazar_solicitud($claveContrato, $claveUsuario)
+    {
+      $link = $this->conectar();  
+      $id=$_SESSION['idUsuarioVeterinaria'];    
+      $link->query("UPDATE contratoadopcion SET estado = 2 WHERE claveContrato = '$claveContrato'") or die (print("Error"));      
+      $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario) VALUES ('Gracias por enviar tu solicitud, desafortunadamente no fue aceptada por ciertos motivos.','$id','$claveUsuario', 1)") or die (print("Error"));  
+      $data[]=[
+        "estatus" => "rechazado"
+      ];   
+      $datajson=json_encode($data);
+      return $datajson;
     }
 
 }
