@@ -5,14 +5,20 @@ $idMascota = isset($_POST['idMascota']) ? $_POST['idMascota'] : '';
 $nombre = isset($_POST['idNombre']) ? $_POST['idNombre'] : '';
 $raza = isset($_POST['idRaza']) ? $_POST['idRaza'] : '';
 //$foto = isset($_FILES['fotoN']) ? $_FILES['fotoN'] : '';                 //obtener direccion de la foto 
-$foto = $_FILES['photo'];
+//$foto = $_FILES['photo'];
 $edad = isset($_POST['idEdad']) ? $_POST['idEdad'] : '';
 $genero = isset($_POST['idGenero']) ? $_POST['idGenero'] : '';
 $tamaño = isset($_POST['idTamaño']) ? $_POST['idTamaño'] : '';
 $estatus = isset($_POST['idEstatus']) ? $_POST['idEstatus'] : '';
 $tipo = isset($_POST['idTipo']) ? $_POST['idTipo'] : '';
+$ubicacion = isset($_POST['idUbicacion']) ? $_POST['idUbicacion'] : '';
 
-var_dump($_FILES["photo"]);
+
+$nuevacon= new conexion_VeteAsosiones(); 
+$respuestajson=$nuevacon->editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$ubicacion);
+Header("location: http://localhost/pettyQuest/perfil_Mascota.html");
+
+/*var_dump($_FILES["photo"]);
 
 echo "funciona aqui <br><br>";
 $hola = isset($_FILES['fotoNueva']['name']);
@@ -38,13 +44,13 @@ if((strpos($img_type, "jpg")) || (strpos($img_type, "jpeg")) || (strpos($img_typ
        if(move_uploaded_file($tmp_name,$destino)){          //Poder mover el fichero a la carpeta de pryecto
         //mandar id de mascota 
         $nuevacon= new conexion_VeteAsosiones(); 
-        $respuestajson=$nuevacon->editar_mascota($idMascota,$nombre,$raza,$destino,$edad,$genero,$tamaño,$estatus);
+        $respuestajson=$nuevacon->editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus);
         Header("location: http://localhost/pettyQuest/perfil_Mascota.html");
     }
    }else{
     echo "<br><br>No se movio el archivo";
    }
-}
+}*/
 
 
 
