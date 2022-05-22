@@ -103,6 +103,22 @@ class conexion_VeteAsosiones{
       return $mijson;
     }
 
+    //registrar veterinarias o asosiaciones
+    function registroAV($nombre,$ciudad,$calle,$numero,$email,$nombreE,$apE,$amE,$telefono,$password){
+      $link = $this->conectar();
+  
+        $result = $link->query("INSERT INTO  asociacionveterinaria (nombre,ciudad,calle,numero,email,nombreEncargado,apellidoPEncargado
+        ,apellidoMEncargado,telefono,password) VALUES ('$nombre','$ciudad','$numero','$email','$nombreE','$apE','$amE','$telefono','$password')") or die (print("Error")); 
+        $data[]=[
+          'estatus' => 'registrado'
+        ];
+        //$id=$_SESSION['idUsuarioVeterinaria'];
+         
+      $mijson = json_encode($data);
+      return $mijson;
+    }
+ 
+
     function pruebaSesion(){
         $link = $this->conectar();
         if(!isset($_SESSION['idUsuarioVeterinaria'])){

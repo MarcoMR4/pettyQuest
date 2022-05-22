@@ -1,0 +1,53 @@
+.caja {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+.foto {
+    display: flex;
+    flex-wrap: unset;
+    height: 18rem;
+    width: 18rem;
+    background-color: white;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-right: 14rem;
+    align-items: center;
+    border: 2px solid rgb(146, 143, 143); 
+    overflow: hidden;
+}
+.foto img {
+    width: 100%;
+    height: auto;
+}
+
+.btnFoto{
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.informacion { 
+    background-color: #FFFFFF;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    margin-left: 2rem;
+    font-size: x-large;
+    border: 2px solid rgba(146, 143, 143, 0.425);
+    box-shadow: 5px 5px 5px 0 grey; 
+    width: 60%;
+}
+
+.btn1 {
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.btn1 input {
+    font-size: x-large;
+    margin-left: 30px;
+} 
+
+input[type=checkbox] {
+    transform: scale(1.4);
+}
