@@ -166,7 +166,9 @@ class conexion_VeteAsosiones{
                 'mensaje' => $item->mensaje,
                 'claveRemitente' => $item->claveRemitente,
                 'claveDestinatario' => $item->claveDestinatario,
-                'usuario' => $item->usuario                
+                'usuario' => $item->usuario,
+                'cartilla' => $item->cartilla,                
+                'mascota' => $item->mascota                 
             ];
         }
         $datajson = json_encode($data);

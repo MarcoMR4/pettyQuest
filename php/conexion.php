@@ -126,7 +126,9 @@ class conexion{
                 'mensaje' => $item->mensaje,
                 'claveRemitente' => $item->claveRemitente,
                 'claveDestinatario' => $item->claveDestinatario,
-                'usuario' => $item->usuario                
+                'usuario' => $item->usuario,
+                'cartilla' => $item->cartilla,                
+                'mascota' => $item->mascota                 
             ];
         }
         $datajson = json_encode($data);
@@ -164,17 +166,49 @@ class conexion{
         }
     }
 
-    function nuevoSeguimiento($fecha,$foto,$comentarios,$fotoCartilla){
+    function nuevoSeguimiento($claveMascota,$fecha,$comentarios,$tmpimg,$type,$tmpimg2,$type2){
         $link = $this->conectar();
-        $result = $link->query("INSERT INTO seguimiento (fecha,foto,comentarios,fotoCartilla) VALUES ('$fecha','$foto','$comentarios','$fotoCartilla')") or die (print("Error")); 
-
-      /* Si regresa algo*/
-      $data[]=[
-        "estatus" => "hecho",
-        "numero" => "123"
-      ];
-      $datajson=json_encode($data);
-      return $datajson; 
+        $id = $_SESSION['idUsuario'];
+        $sql="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'pettyquest' AND   TABLE_NAME   = 'mensajes'";
+        $autoincrement = $link->query($sql) or die (print("Error"));
+        $idMensaje = "";
+        while($item = $autoincrement->fetch(PDO::FETCH_OBJ)){
+            $idMensaje=$item->AUTO_INCREMENT;
+        }
+        $name="cartilla".$idMensaje.$claveMascota.$type;
+        $rutarelativa="img/uploaded/seguimiento/".$name;
+        $rutaguardarphp="../".$rutarelativa;
+        if(move_uploaded_file($tmpimg, $rutaguardarphp)){
+            $name="mascota".$idMensaje.$claveMascota.$type2;
+            $rutarelativa2="img/uploaded/seguimiento/".$name;
+            $rutaguardarphp="../".$rutarelativa2;
+            if(move_uploaded_file($tmpimg2, $rutaguardarphp)){
+                $result = $link->query("SELECT `claveAsociacionVeterinaria` FROM fk_mascota_asociacionveterinaria WHERE `claveMascota` =$claveMascota")or die (print("Error"));
+                $data = [];
+                while ($item = $result->fetch(PDO::FETCH_OBJ)) {
+                    $data[] = [
+                        'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,                  
+                    ];
+                }
+                $claveAsociacion = $data[0]['claveAsociacionVeterinaria'];
+                $result = $link->query("SELECT `nombre` FROM mascota WHERE `claveMascota` =$claveMascota")or die (print("Error"));
+                $data = [];
+                while ($item = $result->fetch(PDO::FETCH_OBJ)) {
+                    $data[] = [
+                        'nombre' => $item->nombre,                  
+                    ];
+                }
+                $nombreMascota = $data[0]['nombre'];
+                $comentarios = "Seguimiento mensual para ".$nombreMascota.": ".$comentarios;
+                $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario, cartilla, mascota) VALUES ('$comentarios','$id','$claveAsociacion',0,'$rutarelativa','$rutarelativa2')")or die (print("Error"));                                
+            }
+        }    
+        $data[]=[
+            "estatus" => "nueva Solicitud",                  
+          ];
+        /* Si regresa algo*/
+        $datajson=json_encode($data);
+        return $datajson; 
     }
 
     function nuevaSolicitud($fecha,$razones, $claveMascota,$tmpimg,$type,$tmpimg2,$type2){
@@ -243,6 +277,23 @@ class conexion{
         $link = $this->conectar();
         $result = $link->query("UPDATE usuario SET nombre='$nombre', apellidoPaterno='$ap', apellidoMaterno='$am', edad='$edad', ciudad='$ciudad', calle='$calle', numeroCasa='$numero', email='$email', password='$password', telefono='$telefono' WHERE idUsuario='$idUsuario'") or die (print("Error")); 
         return $result; 
+    }
+
+    function buscarAdopciones()
+    {
+        $link = $this->conectar();
+        $id = $_SESSION['idUsuario'];
+        $result = $link->query("SELECT idMascota, idAsociacion, nombre FROM contratoadopcion NATURAL JOIN mascota WHERE idUsuario = '$id' AND estado = 1 AND contratoadopcion.idMascota = mascota.claveMascota") or die (print("Error")); 
+        while ($item = $result->fetch(PDO::FETCH_OBJ)) {            
+            $data[] = [
+                'idMascota' => $item->idMascota,
+                'idAsociacion' => $item->idAsociacion,
+                'nombre' => $item->nombre
+            ];
+        }
+        /* Si regresa algo*/
+        $datajson=json_encode($data);
+        return $datajson; 
     }
 }
 ?>

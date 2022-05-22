@@ -14,52 +14,128 @@
 
 <body>
     <!--Menu-->
-
-    <nav class="navbar navbar-expand-lg color-nav sticky-top navbar-light">
-        <div class="container-fluid color-text">
-            <a class="navbar-brand negritas" href="index.html">
-                <img src="img/Logo/Final.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
-                PettyQuest
+  <nav class="navbar navbar-expand-lg color-nav sticky-top navbar-light">
+    <div class="container-fluid color-text">
+      <a class="navbar-brand negritas" href="index.html">
+        <img src="img/Logo/Final.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
+        PettyQuest
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: auto;">
+          <li class="nav-item">
+            <a class="nav-link color-link-black" aria-current="page" href="catalogo_Productos.html">Productos y Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link color-link-black" href="catalogo_Mascotas.html">Ver mascotas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link color-link-black" href="manualesCuidados.html">Guias</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle color-link-black" href="#" id="Cambio" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Iniciar Sesion / Registro
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav" style="margin-left: auto;">
-                    <li class="nav-item">
-                        <a class="nav-link color-link-black" aria-current="page"
-                            href="catalogo_Productos.html">Productos y
-                            Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link color-link-black" href="catalogo_Mascotas.html">Ver mascotas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link color-link-black" href="#">Foro</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle color-link-black" href="#" id="Cambio" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Iniciar Sesion / Registro
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Cambio">
-                            <div id="agregar">
-                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion"
-                                        role="button" aria-controls="InicioSesion" id="Cambio1">
-                                        Iniciar Sesion
-                                    </a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button"
-                                        aria-controls="offcanvasExample" id="Cambio2">
-                                        Registrar
-                                    </a></li>
-                            </div>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Cambio">
+              <div id="agregar">
+                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion" role="button" aria-controls="InicioSesion"
+                    id="Cambio1">
+                    Iniciar Sesion
+                  </a></li>
+                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button" aria-controls="offcanvasExample"
+                    id="Cambio2">
+                    Registrar
+                  </a></li>
+              </div>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--Inicio de Sesion-->
+  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="InicioSesion" aria-labelledby="InicioSesionLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="InicioSesionLabel">Inicio de Sesion</h5>
+      <button type="button" id="btnsalirsesion" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="formato-ini">
+        <form id="formini" aria-labelledby="navbarDropdown">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Correo" name="email" id="emaili" required aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <span class="input-group-text" id="basic-addon2">@example.com</span>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordi" required aria-label="Recipient's username" aria-describedby="basic-addon2">
+          </div>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <input type="submit" class="btn btn-primary me-md-2" value="Iniciar Sesion"></input>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--Registro-->
+  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="Registrar" aria-labelledby="RegistrarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="RegistrarLabel">Registro</h5>
+      <button type="button" id="btnsalirregistro" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        <form id="formregistro" aria-labelledby="navbarDropdown">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" required>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Apellido Paterno" name="ap" id="ap" required>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Apellido Materno" name="am" id="am" required>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Ciudad" name="ciudad" id="ciudad" require>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Calle" name="calle" id="calle" required>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Numero" name="numero" id="numero" required>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Correo" name="email" id="emailr" required>
+            <span class="input-group-text" id="basic-addon2">@example.com</span>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Contraseña"  name="password" id="passwordr" required>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="password2" id="password2" required>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Telefono" name="telefono" id="telefono" required>
+          </div>
+          <div class="input-group mb-3">
+            <input type="date" class="form-control" placeholder="Fecha Nacimiento" name="edad" id="edad" required>
+          </div>
+          <div>
+            <label class="form-check-label">
+              Acepto terminos y condiciones:
+            </label>
+            <input class="form-check-input" type="checkbox" value="" id="condiciones" name="condiciones" required>
+          </div>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <input type="submit" class="btn btn-primary me-md-2" value="Registrar"></input>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
     <!-- Manuales de usuario -->
 

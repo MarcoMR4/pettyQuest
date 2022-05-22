@@ -12,18 +12,34 @@ function cargarMensajes() {
             direccion = "./php/cargarContactos_veterinaria.php";
         $.post(direccion, { destinatario }, function (data) {
             var contenido = "";
-            console.log(data)
+            // console.log(data)
             data = JSON.parse(data);
             if (tipo == "0")
                 data.map(item => {
                     if ((item.usuario) == "0") {
-                        contenido += `
-                    <div class="mensaje">
-                    <p id="remitente">
-                    ${item.mensaje}
-                    </p>
-                    </div>
-                    `;
+                        if((item.cartilla) != null){
+                            console.log("Entre")
+                            contenido += `
+                                <div class="mensaje">
+                                <p id="remitente">
+                                ${item.mensaje}                    
+                                <img src="${item.cartilla}" alt="cartilla" width="290" height="290">
+                                <img src="${item.mascota}" alt="mascota" width="290" height="290">
+                                </p>
+            
+                                </div>
+                            `;
+                        }
+                        else{
+                            contenido += `
+                                <div class="mensaje">
+                                <p id="remitente">
+                                ${item.mensaje}                    
+                                </p>
+            
+                                </div>
+                            `;
+                        }
                     }
                     else {
                         contenido += `
@@ -47,13 +63,26 @@ function cargarMensajes() {
                     `;
                     }
                     else {
-                        contenido += `
-                    <div class="mensaje">
-                    <p id="destinatario">
-                    ${item.mensaje}
-                    </p>
-                    </div>
-                    `;
+                        if((item.cartilla) != null){
+                            contenido += `
+                                <div class="mensaje">
+                                <p id="destinatario">
+                                ${item.mensaje}
+                                <img src="${item.cartilla}" alt="cartilla" width="290" height="290">
+                                <img src="${item.mascota}" alt="mascota" width="290" height="290">
+                                </p>
+                                </div>
+                            `;                            
+                        }
+                        else{
+                            contenido += `
+                                <div class="mensaje">
+                                <p id="destinatario">
+                                ${item.mensaje}                                
+                                </p>
+                                </div>
+                            `;
+                        }
                     }
                 })
             $(".mensajesContacto").html(contenido);
