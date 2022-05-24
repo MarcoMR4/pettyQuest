@@ -17,7 +17,7 @@ function cargarMensajes() {
             if (tipo == "0")
                 data.map(item => {
                     if ((item.usuario) == "0") {
-                        if((item.cartilla) != null){
+                        if ((item.cartilla) != null) {
                             console.log("Entre")
                             contenido += `
                                 <div class="mensaje">
@@ -30,7 +30,7 @@ function cargarMensajes() {
                                 </div>
                             `;
                         }
-                        else{
+                        else {
                             contenido += `
                                 <div class="mensaje">
                                 <p id="remitente">
@@ -63,7 +63,7 @@ function cargarMensajes() {
                     `;
                     }
                     else {
-                        if((item.cartilla) != null){
+                        if ((item.cartilla) != null) {
                             contenido += `
                                 <div class="mensaje">
                                 <p id="destinatario">
@@ -72,9 +72,9 @@ function cargarMensajes() {
                                 <img src="${item.mascota}" alt="mascota" width="290" height="290">
                                 </p>
                                 </div>
-                            `;                            
+                            `;
                         }
-                        else{
+                        else {
                             contenido += `
                                 <div class="mensaje">
                                 <p id="destinatario">
@@ -155,21 +155,32 @@ $(document).ready(function () {
     $("#mensajeContacto").hide();
     $("#btnEnviarMensajeContacto").hide();
 
-    $(".enviarMensajeContacto").on('submit', function (e) {
-        $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
-            tipo = JSON.parse(tipo);
-            tipo = tipo[0]['tipo'];
-            var direccion = "";
-            if (tipo == "0")
-                direccion = "./php/mensajeria.php";
-            else
-                direccion = "./php/mensajeria_veterinaria.php";
-            let mensaje = $("#mensajeContacto").val();
-            $.post(direccion, { mensaje, destinatario }, function (data) {
-                data = JSON.parse(data);
-                $(".mensajeContacto").text("");
-                cargarMensajes();
+
+
+    $("#btnEnviarMensajeContacto").click(function (e) {
+        // e.preventDefault();
+        
+        if ($("#mensajeContacto").val() != "")
+            $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
+                tipo = JSON.parse(tipo);
+                tipo = tipo[0]['tipo'];
+                var direccion = "";
+                if (tipo == "0")
+                    direccion = "./php/mensajeria.php";
+                else
+                    direccion = "./php/mensajeria_veterinaria.php";
+                let mensaje = $("#mensajeContacto").val();
+                $.post(direccion, { mensaje, destinatario }, function (data) {
+                    data = JSON.parse(data);
+                    $("#mensajeContacto").val("");
+                    cargarMensajes();
+                });
             });
-        });
+        else{
+            alert("Esta vacio el mensaje")
+        }
     });
+
+    // $(".enviarMensajeContacto").on('submit', function (e) {
+    // });
 });
