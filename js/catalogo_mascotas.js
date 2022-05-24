@@ -201,7 +201,21 @@ function misMascotas() {
 $("#btnMisMascotas").click(function (e) {
   e.preventDefault();
   misMascotas();
-  
+  var content = '<option value="genero">Genero</option>'
+  $("#selectFiltro").append(content);
+  if ($("#selectFiltro").val() == "tamaño"){
+    var content2= `
+    <option selected value="0">Cualquier edad</option>
+    <option value="Cachorro">Cachorro</option>
+    <option value="Joven">Joven</option>
+    <option value="Adulto">Adulto</option>
+    <option value="Anciano">Anciano</option>
+    `;
+    $("#selectOpcionFiltro").append(content2);
+  }
+
+ 
+
 });
 
 $("#selectFiltro").change(function (e) {
@@ -243,6 +257,7 @@ $("#selectFiltro").change(function (e) {
     var opciones = ``;
     $("#selectOpcionFiltro").html(opciones);
     $("#selectOpcionFiltro").prop('disabled', true);
+    $("#btnCancelar").click();
     $("#btnCancelar").hide();
   }
 });
