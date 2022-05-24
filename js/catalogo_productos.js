@@ -71,11 +71,6 @@ $(window).ready(function () {
 
 });
 
-function clickearPerro(idPerro) {
-  console.log(idPerro);
-  $(`#btnSubmit${idPerro} `).click();
-}
-
 function buscarProductosPorNombre() {
   var nombre = $("#idBuscar").val();
   if (nombre == "" || nombre == null) {
@@ -195,21 +190,22 @@ function misProductos() {
         relleno += `
           <div class="col">
           <div class="card h-100">
-              <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.idProducto}')">
+              <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." >
             <div class="card-body">
-            <form action="php/encontrarPerfil.php" method="post" autocomplete="off">
             <input type="text" name="idProducto" value="${item.idProducto}" style="display: none;">
             <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.idProducto}" style="display: none;">
-            </form>
+            <form action="php/editarProducto.php" method="post" autocomplete="off">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  <h5 class="card-title">${item.nombre}</h5>
+                  <h5 class="card-title"><input type="text" readonly class="form-control-plaintext" id="idUbicacion" name="idUbicacion" value="${item.nombre}" disabled></h5>
                 </li>
-                <li class="list-group-item">${item.descripcion}</li>
-                <li class="list-group-item">Precio: $${item.precio}</li>
+                <li class="list-group-item"><input type="text" readonly class="form-control-plaintext clase${item.idProducto}" id="idUbicacion" name="idUbicacion" value="${item.descripcion}" disabled></li>
+                <li class="list-group-item">Precio: $<input type="text" readonly class="form-control-plaintext clase${item.idProducto}" id="idUbicacion" name="idUbicacion" value="${item.precio}" disabled></li>
               </ul>
-              
+              </form>
             </div>
+            <button class="btn btn-success" id="btnMisProductos" type="button" onclick="editarProducto('${item.idProducto}', 'clase${item.idProducto}')">Editar</button>
+            <button class="btn btn-danger" id="btnMisProductos" type="button">Eliminar</button>
           </div>
         </div>
           `;
@@ -221,3 +217,7 @@ function misProductos() {
   });
 }
 
+function editarProducto(idProducto, claseInput) {
+  console.log(idProducto);
+  
+}

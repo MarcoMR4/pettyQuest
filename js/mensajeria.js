@@ -158,29 +158,40 @@ $(document).ready(function () {
 
 
     $("#btnEnviarMensajeContacto").click(function (e) {
-        // e.preventDefault();
-        
-        if ($("#mensajeContacto").val() != "")
-            $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
-                tipo = JSON.parse(tipo);
-                tipo = tipo[0]['tipo'];
-                var direccion = "";
-                if (tipo == "0")
-                    direccion = "./php/mensajeria.php";
-                else
-                    direccion = "./php/mensajeria_veterinaria.php";
-                let mensaje = $("#mensajeContacto").val();
-                $.post(direccion, { mensaje, destinatario }, function (data) {
-                    data = JSON.parse(data);
-                    $("#mensajeContacto").val("");
-                    cargarMensajes();
-                });
-            });
-        else{
-            alert("Esta vacio el mensaje")
-        }
+        EnviarMensaje()
     });
+
+    $('#mensajeContacto').keypress(function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            EnviarMensaje()();
+        }
+      });
 
     // $(".enviarMensajeContacto").on('submit', function (e) {
     // });
 });
+
+function EnviarMensaje(){
+ // e.preventDefault();
+        
+ if ($("#mensajeContacto").val() != "")
+ $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
+     tipo = JSON.parse(tipo);
+     tipo = tipo[0]['tipo'];
+     var direccion = "";
+     if (tipo == "0")
+         direccion = "./php/mensajeria.php";
+     else
+         direccion = "./php/mensajeria_veterinaria.php";
+     let mensaje = $("#mensajeContacto").val();
+     $.post(direccion, { mensaje, destinatario }, function (data) {
+         data = JSON.parse(data);
+         $("#mensajeContacto").val("");
+         cargarMensajes();
+     });
+ });
+else{
+ alert("Esta vacio el mensaje")
+}   
+}
