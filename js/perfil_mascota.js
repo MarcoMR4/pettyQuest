@@ -17,6 +17,7 @@ $(document).ready(function () {
     $("#espacio3").hide();
     $("#btn3").hide();
     $("#btn4").hide();
+    $("#btnAdoptado").hide();
 
     //llenar el perfil
     $.ajax({
@@ -26,9 +27,7 @@ $(document).ready(function () {
         dataType: "text",
         success: function (response) {
             claveMascota = response;
-            console.log("La clave de la mascota es: " + claveMascota)
 
-            console.log("Segundo Ajax")
             $.ajax({
                 type: "POST",
                 url: "./php/catalogo_mascotas.php",
@@ -40,7 +39,7 @@ $(document).ready(function () {
                     var i = 0;
                     while (response2[i]['claveMascota'] != claveMascota) {
                         i++;
-                        console.log("Entro al while " + response2[i]['claveMascota']);
+
                     }
                     if (claveMascota == response2[i]['claveMascota']) {
                         nombre = response2[i]['nombre'];
@@ -54,7 +53,6 @@ $(document).ready(function () {
                         ubicacion = response2[i]['ubicacion'];
                         tipo = response2[i]['tipo'];
                         relleno = `<img src="${foto}" class="card-img-top" id="idImagen"></img>`;
-                        console.log("Entro al if " + nombre);
                         // Llenamos los datos de la mascota
                         $("#idMascota").val(claveMascota);
                         //alert(claveMascota); 
@@ -67,7 +65,6 @@ $(document).ready(function () {
                         $("#idUbicacion").val(ubicacion);
                         $("#idTipo").val(tipo);
                         $(".foto").html(relleno);
-                        console.log(foto);
                     }
 
                 }
@@ -89,11 +86,12 @@ $(document).ready(function () {
                 $("#btn2").hide();
                 $("#espacio1").show();
                 $("#btn1").show();
+                $("#btnAdoptado").hide();
             }
             else {
                 console.log("Es una veterinaria");
                 var claveAsociacionVeterinaria;
-                //Conseguimos el ID de la veterinaria
+                //Conseguimos el ID de la veterinaria para ver si esta mascota puede ser editada por ellos
                 $.ajax({
                     type: "POST",
                     url: "./php/pruebaSesionVeterinaria.php",
@@ -118,8 +116,14 @@ $(document).ready(function () {
                                 $("#btn1").hide();
                                 $("#espacio2").show();
                                 $("#btn2").show();
+                                if (estatus == "Adoptado") {
+                                    $("#btnAdoptado").hide();
+                                }
+                                else {
+                                    $("#btnAdoptado").show();
+                                }
                             }
-                            else{
+                            else {
                                 $("#espacio1").hide();
                                 $("#btn1").hide();
                             }
@@ -168,15 +172,33 @@ $(document).ready(function () {
         $("#idUbicacion").prop('readonly', true).prop('disabled', true).prop('required', false);
         $("#idTipo").prop('readonly', true).prop('disabled', true).prop('required', false);
     });
-
+    /*
     $("#btnFoto").click(function (e) {
         e.preventDefault();
         $("#nuevaFoto").click();
+    });*/
+
+    $("#btnAdoptado").click(function (e) {
+        e.preventDefault();
+        var nuevoEstatus = "Adoptado";
+        $.ajax({
+            type: "post",
+            url: "php/editarMascotaEstatus.php",
+            data: {
+                idMascota: idMascota,
+                nuevoEstatus: nuevoEstatus
+            },
+            dataType: "JSON",
+            success: function (response) {
+                console.log("ADOPTADO");
+            }
+        });
     });
-
-
-
 });
+
+
+
+
 
 
 

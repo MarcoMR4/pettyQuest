@@ -144,13 +144,25 @@
   <!-- Contenido -->
   <div class="container contenido">
     <nav class="navbar">
-      <div class="d-flex" action="" method="post" autocomplete="off">
+      <div class="d-flex" style="margin-top: 1rem;">
         <input class="form-control me-2" type="search" placeholder="Buscar Mascota..." aria-label="Search" name="buscar" id="idBuscar">
-        <button class="btn btn-outline-success" type="button" onclick="buscarMascotaPorNombre()">Buscar</button>
-        <button class="btn btn-outline-danger" type="button" style="margin-left: 1rem;" id="btnCancelar">Cancelar</button>
+        <button class="btn btn-success" type="button" onclick="buscarMascotaPorNombre()">Buscar</button>
+        <button class="btn btn-danger" type="button" style="margin-left: 1rem;" id="btnCancelar">Cancelar</button>
       </div>
-      <button class="btn btn-success" id="btnMisMascotas" type="button">Mis mascotas</button>
-      <a href="registro_mascotas.html"><button class="btn btn-success" id="btnAgregar" type="button">Agregar mascota</button></a>
+      <div class="btn-group" role="group" aria-label="Basic mixed styles example" style="margin-top: 1rem;">
+        <button class="btn btn-success" id="btnMisMascotas" type="button">Mis mascotas</button>
+        <a href="registro_mascotas.html"><button class="btn btn-success" id="btnAgregar" type="button">Agregar mascota</button></a>
+      </div>
+      <div class="row d-flex" style="margin-top: 1rem;">
+        <select class="form-select" aria-label="Default select example" id="selectFiltro">
+          <option selected value="0">Filtrar mascotas por...</option>
+          <option value="tamaño">Tamaño</option>
+          <option value="edad">Edad</option>
+          <option value="genero">Genero</option>
+        </select>
+        <select class="form-select" aria-label="Default select example" id="selectOpcionFiltro">  
+        </select>
+      </div>    
     </nav>
     <!-- Mascotas -->
     <div class="row justify-content-center">
@@ -159,6 +171,23 @@
       </div>
     </div>
   </div>
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnExito" style="display:none"></button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">El nombre esta vacio.</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>   
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="btnCerrarModal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
   
 
   <!--Pie de Pagina-->

@@ -250,6 +250,19 @@ class conexion_VeteAsosiones{
       return $mijson;
     }
 
+    function editar_mascota_adoptada($idMascota,$nuevoEstatus){
+      $link = $this->conectar();
+      $result = $link->query("UPDATE mascota SET estatus='$nuevoEstatus' WHERE claveMascota='$idMascota'") or die (print("Error")); 
+
+      /* Si regresa datos :v equis de*/
+      $datos[]=[
+          "estatus" => "hola",
+          "numero" => "123"
+      ];
+      $mijson = json_encode($datos);
+      return $mijson;
+    }
+
     function editar_asociacionveterinaria($idClave,$nombre,$ciudad,$calle,$numero,$nombreEncargado,$apellidoPEncargado,$apellidoMEncargado,$email,$telefono,$password){
         $link = $this->conectar();
         $result = $link->query("UPDATE asociacionveterinaria SET nombre='$nombre', apellidoPEncargado='$apellidoPEncargado', apellidoMEncargado='$apellidoMEncargado', nombreEncargado='$nombreEncargado', ciudad='$ciudad', calle='$calle', numero='$numero', email='$email', password='$password', telefono='$telefono' WHERE claveAsociacionVeterinaria='$idClave'") or die (print("Error")); 
@@ -261,6 +274,30 @@ class conexion_VeteAsosiones{
       # code...
       $link = $this->conectar();
         $result = $link->query("SELECT * FROM mascota WHERE nombre LIKE '$nombre%'") or die (print("Error")); 
+        $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+          $data[]=[
+              'claveMascota' => $item->claveMascota,
+              'nombre' => $item->nombre,
+              'raza' => $item->raza,
+              'foto' => $item->foto,
+              'edad' => $item->edad,
+              'genero' => $item->genero,
+              'tamaño' => $item->tamaño,
+              'estatus' => $item->estatus,
+              'ubicacion' => $item->ubicacion,
+              'tipo' => $item->tipoAnimal,
+          ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
+    function buscar_perros_por_atributo($atributo, $atributoEspec)
+    {
+      # code...
+      $link = $this->conectar();
+        $result = $link->query("SELECT * FROM mascota WHERE $atributo = '$atributoEspec'") or die (print("Error")); 
         $data=[];
       while($item = $result->fetch(PDO::FETCH_OBJ)){
           $data[]=[

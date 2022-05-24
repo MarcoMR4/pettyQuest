@@ -17,7 +17,7 @@ $(window).ready(function() {
             location.reload();
           }
         });
-       
+        $("#btnExito").click();
         
     });
 
@@ -43,5 +43,10 @@ $(window).ready(function() {
     $("#btnFoto").click(function (e) { 
         e.preventDefault();
         $("#nuevaFoto").click();
+    });
+
+    $("#btnCerrarModal").click(function () { 
+        location.reload();
+        
     });
 });
