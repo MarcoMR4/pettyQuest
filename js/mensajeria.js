@@ -96,7 +96,7 @@ function botonClick(clave) {
     $("#mensajeContacto").show();
     $("#btnEnviarMensajeContacto").show();
     let nombre = document.getElementById(destinatario).getElementsByClassName("nombrePerfil").item("p").textContent.trim().toString();
-    $("#nombre").text(nombre);
+    $("#nombreContactoUp").text(nombre);
     cargarMensajes();
 
 }
@@ -167,6 +167,8 @@ $(document).ready(function () {
             let mensaje = $("#mensajeContacto").val();
             $.post(direccion, { mensaje, destinatario }, function (data) {
                 data = JSON.parse(data);
+                $(".mensajeContacto").text("");
+                cargarMensajes();
             });
         });
     });
