@@ -297,11 +297,12 @@ class conexion_VeteAsosiones{
     {
       # code...
       $link = $this->conectar();
-        $result = $link->query("SELECT * FROM mascota WHERE $atributo = '$atributoEspec'") or die (print("Error")); 
+        $result = $link->query("SELECT * FROM mascota NATURAL JOIN fk_mascota_asociacionveterinaria WHERE $atributo = '$atributoEspec'") or die (print("Error")); 
         $data=[];
       while($item = $result->fetch(PDO::FETCH_OBJ)){
           $data[]=[
               'claveMascota' => $item->claveMascota,
+              'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
               'nombre' => $item->nombre,
               'raza' => $item->raza,
               'foto' => $item->foto,

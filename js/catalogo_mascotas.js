@@ -1,4 +1,5 @@
 $(window).ready(function () {
+ 
   $("#selectOpcionFiltro").prop('disabled', true);
   $("#btnAgregar").hide();
   $("#btnCancelar").hide();
@@ -29,6 +30,9 @@ $(window).ready(function () {
   catalogo();
 
 });
+//Variables Globales
+var misMas=0;
+var claveAsociacionVeterinaria;
 
 function catalogo(){
   $.ajax({
@@ -37,7 +41,7 @@ function catalogo(){
     data: "",
     dataType: "JSON",
     success: function (response) {
-      console.log(response);
+     
       var relleno = "";
       /* Imprimimos en pantalla cada mascota encontrada*/
       response.map(item => {
@@ -72,7 +76,6 @@ function catalogo(){
 }
 
 function clickearPerro(idPerro) {
-  console.log(idPerro);
   $(`#btnSubmit${idPerro} `).click();
 }
 
@@ -133,7 +136,8 @@ $("#btnCancelar").click(function (e) {
   var opciones = ``;
   $("#selectOpcionFiltro").html(opciones);
   $("#selectOpcionFiltro").prop('disabled', true);
-
+  misMas=0;
+  console.log("Concelar: "+misMas)
 });
 
 $('#idBuscar').keypress(function (event) {
@@ -144,7 +148,7 @@ $('#idBuscar').keypress(function (event) {
 });
 
 function misMascotas() {
-  var claveAsociacionVeterinaria;
+  
   //Conseguimos el ID de la veterinaria
   $.ajax({
     type: "POST",
@@ -161,7 +165,6 @@ function misMascotas() {
     data: "",
     dataType: "JSON",
     success: function (response) {
-      console.log(response);
       var relleno = "";
       /* Imprimimos en pantalla cada mascota encontrada*/
       response.map(item => {
@@ -201,21 +204,12 @@ function misMascotas() {
 $("#btnMisMascotas").click(function (e) {
   e.preventDefault();
   misMascotas();
-  var content = '<option value="genero">Genero</option>'
-  $("#selectFiltro").append(content);
-  if ($("#selectFiltro").val() == "tamaño"){
-    var content2= `
-    <option selected value="0">Cualquier edad</option>
-    <option value="Cachorro">Cachorro</option>
-    <option value="Joven">Joven</option>
-    <option value="Adulto">Adulto</option>
-    <option value="Anciano">Anciano</option>
-    `;
-    $("#selectOpcionFiltro").append(content2);
-  }
-
- 
-
+  misMas=1;
+  console.log("Click Mis mascotas: "+misMas);
+  $("#selectFiltro").val(0);
+  var opciones = ``;
+  $("#selectOpcionFiltro").html(opciones);
+  $("#selectOpcionFiltro").prop('disabled', true);
 });
 
 $("#selectFiltro").change(function (e) {
@@ -253,11 +247,26 @@ $("#selectFiltro").change(function (e) {
     $("#selectOpcionFiltro").html(opciones);
     $("#btnCancelar").show();
   }
-  else{
+  else if ($("#selectFiltro").val() == "estatus") {
+    var opciones = `
+    <option selected value="0">Cualquier estado</option>
+    <option value="En adopcion">En adopcion</option>
+    <option value="Adoptado">Adoptado</option>
+    `;
+    $("#selectOpcionFiltro").prop('disabled', false);
+    $("#selectOpcionFiltro").html(opciones);
+    $("#btnCancelar").show();
+  }
+  else if ($("#selectFiltro").val() == 0){
     var opciones = ``;
     $("#selectOpcionFiltro").html(opciones);
     $("#selectOpcionFiltro").prop('disabled', true);
-    $("#btnCancelar").click();
+    if(misMas==0){
+      $("#btnCancelar").click();
+    }
+    else{
+      misMascotas();
+    }
     $("#btnCancelar").hide();
   }
 });
@@ -276,9 +285,42 @@ $("#selectOpcionFiltro").change(function (e) {
     },
     dataType: "JSON",
     success: function (response) {
-      console.log(response);
       var relleno = "";
-      /* Imprimimos en pantalla cada mascota encontrada*/
+      //Si mis mascotas esta activado busca solamente con sus mascotas
+      console.log("El valor de misMas es: "+misMas);
+      if (misMas==1){
+        response.map(item => {
+          if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria) {
+            relleno += `
+                    <div class="col">
+                    <div class="card h-100">
+                        <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
+                      <div class="card-body">
+                      <form action="php/encontrarPerfil.php" method="post" autocomplete="off">
+                      <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">
+                      <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.claveMascota}" style="display: none;">
+                      </form>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
+                            <h5 class="card-title">${item.nombre}</h5>
+                          </li>
+                          <li class="list-group-item">${item.edad}</li>
+                          <li class="list-group-item">${item.genero}</li>
+                        </ul>
+                        <div class="card-footer">
+                        ${item.estatus}
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                    `;
+          }
+        })
+      }
+    
+      // Imprimimos en pantalla cada mascota encontrada con esos atributos
+      else{
       response.map(item => {
         relleno += `
                   <div class="col">
@@ -304,7 +346,9 @@ $("#selectOpcionFiltro").change(function (e) {
                   </div>
                 </div>
                   `;
+                  console.log(`${item.claveAsociacionVeterinaria}`);
       })
+    }
       $(".catalogo").html(relleno);
       $("#btnCancelar").show();
     }
@@ -312,5 +356,6 @@ $("#selectOpcionFiltro").change(function (e) {
 
   if($("#selectOpcionFiltro").val()==0){
     catalogo();
+    
   }
 });
