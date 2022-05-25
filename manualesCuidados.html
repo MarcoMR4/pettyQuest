@@ -150,52 +150,70 @@
                 <p>Guia de adopcion de mascotas</p>
             </button>
             <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample" id="2" value="manualCuidadosPerro">
+                aria-expanded="false" aria-controls="collapseExample" id="2" value="guiaLoguin">
                 <img src="img/Logo/Final.png" alt="logo">                
-                <p>Manual de cuidados de perros</p>
+                <p>Manual de inicio de sesion/registro</p>
             </button>
             <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample" id="3" value="manualCuidadosGatos">
+                aria-expanded="false" aria-controls="collapseExample" id="3" value="guiaSeguimientoAdopcion">
                 <img src="img/Logo/Final.png" alt="logo">                
-                <p>Manual de cuidados de gatos</p>
+                <p>Guia de seguimiento mensual</p>
             </button>
             <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample" id="4" value="guiaCuidadosAlimentacion">
+                aria-expanded="false" aria-controls="collapseExample" id="4" value="manualProductos">
                 <img src="img/Logo/Final.png" alt="logo">                
-                <p>Guia de cuidados de alimentacion</p>
+                <p>Manual de productos</p>
             </button>                     
         </div>
 
         <!-- Contenido de los manuales -->
 
-        <div class="contenidoManuales">            
+        <div class="contenidoManuales shadow-lg">            
             <div class="collapse" id="collapseExample">
-                <div class="card card-body" id="guiaAdopcion">                    
+                <div class="card card-body" id="guiaAdopcion">     
+                  <h2>Guia adopcion de mascota</h2>               
                     <ol type="1">
                         <li>Ingresa a la pagina "PettyQuest".</li>
                         <li>Ingresa con tu cuenta o en dado caso registrate.</li>
-                        <li>Haz click en nuestras mascotas en <a href="catalogo_Mascotas.html"><mark class="pagina">Ver Mascotas</mark></a>.</li>
-                        <li>Ve y selecciona la mascota que haya llamado tu atencion.</li>
+                        <li>Haz click en <a href="catalogo_Mascotas.html"><mark class="pagina">Ver Mascotas</mark></a>.</li>
+                        <li>Ve y selecciona la mascota que haya llamado tu atencion (puedes usar los filtros para ser mas selectivo en tu busqueda).</li>
                         <li>Haz click en la foto de la mascota.</li>
-                        <li>Haz click en el boton de <mark class="boton">adoptar</mark>.</li>
-                        <li>Inicia un proceso de adopcion con la veterinaria/asociacion encargada.</li>
-                        <li>Continua tu proceso a traves del sistema de <a href="mensajeria.html"><mark class="pagina">mensajeria</mark></a> con la veterinaria/asociacion correspondiente.</li>
+                        <li>Haz click en el boton de <mark style="background-color: green;" class="boton">adoptar</mark>.</li>
+                        <li>Rellena y envia la solicitud de adopcion con los datos correspondientes.</li>                        
+                        <li>Espera una respuesta por parte de la asociacion/veterinaria correspondientes. en <a href="mensajeria.html"><mark class="pagina">mensajeria</mark></a>.</li>                        
                     </ol>
                 </div>
-                <div class="card card-body" id="manualCuidadosPerro">                    
-                    <h2>Cuidados de perro</h2>
+                <div class="card card-body" id="guiaLoguin">                    
+                    <h2>Registro</h2>
                     <ol type="1">
-                        <li></li>
+                        <li>Pulsa el boton que dice <mark style="background-color: #04A9B4;" class="boton">Iniciar Sesion/Registro</mark> arriba a la derecha.</li>
+                        <li>Pulsa el boton que dice <mark style="background-color: wheat; color: black; font-weight: bold;" class="boton">Registrar</mark>.</li>
+                        <li>Rellena los campos que se solicitan.</li>
+                        <li>Pulsa el boton <mark style="background-color: blue;" class="boton">Registrar</mark>.</li>
+                        <li>Ya estas registrado correctamente.</li>
                     </ol>
-                </div>
-                <div class="card card-body" id="manualCuidadosGatos">   
-                    <h2>Cuidados de gatos</h2>                 
+                    <h2>Inicio de sesion</h2>
                     <ol type="1">
-                        
+                      <li>Pulsa el boton que dice <mark style="background-color: #04A9B4;" class="boton">Iniciar Sesion/Registro</mark> arriba a la derecha.</li>
+                      <li>Pulsa el boton que dice <mark style="background-color: wheat; color: black; font-weight: bold;" class="boton">Iniciar Sesion</mark>.</li>
+                      <li>Ingresa los datos de una cuenta registrada.</li>
+                      <li>Pulsa el boton <mark style="background-color: blue;" class="boton">Iniciar Sesion</mark>.</li>
+                      <li>Has ingresado a tu cuenta.</li>
                     </ol>
                 </div>
-                <div class="card card-body" id="guiaCuidadosAlimentacion">        
-                    <h2>Cuidados alimentacion</h2>           
+                <div class="card card-body" id="guiaSeguimientoAdopcion">   
+                    <h2>Generar nuevo seguimiento de mascota mensual</h2>                 
+                    <ol type="1">
+                        <li>Inicia sesion en una cuenta (Checa <mark style="font-weight: bold; background-color: white;">Manual de inicio de sesion/registro</mark>).</li>
+                        <li>Inicia un proceso de adopcion(Checa <mark style="font-weight: bold; background-color: white;">Guia de adopcion de mascotas</mark>).</li>
+                        <li>Haz click en tu nombre de perfil, arriba a la derecha.</li>
+                        <li>Ingresa a la pagina de <a href="seguimiento_adopcion.html"><mark class="pagina">Seguimiento de adopcion</mark></a> haciendo click en la opcion <mark style="font-weight: bold; background-color: wheat;">Generar nuevo seguimiento de adopcion</mark>.</li>
+                        <li>Rellena los campos que se solicitan.</li>
+                        <li>Puedes checar el seguimiento generado a traves de la <a href="mensajeria.html"><mark class="pagina">Mensajeria</mark></a> de la asociacion/veterinaria correspondiente.</li>
+                    </ol>
+                </div>
+                <div class="card card-body" id="manualProductos">        
+                    <h2>Registrar un producto</h2>           
                     <ol type="1">
                         
                     </ol>

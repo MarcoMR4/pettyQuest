@@ -1,5 +1,5 @@
 function mostrar(valor, activo) {
-    console.log("valor:"+valor+", activo:"+activo)
+    // console.log("valor:"+valor+", activo:"+activo)
     if (activo == "") {
         $("#"+valor+"").show();
     }    
@@ -7,16 +7,16 @@ function mostrar(valor, activo) {
         $("#"+$("#"+activo+"").attr('value')+"").hide();
         $("#"+valor+"").show();
     }
-    console.log($("[value=" + valor + "]").attr("id"))
+    // console.log($("[value=" + valor + "]").attr("id"))
     return $("[value=" + valor + "]").attr("id");
 }
 
 $(document).ready(function () {
     let activo = "";
     $("#guiaAdopcion").hide();
-    $("#manualCuidadosPerro").hide();
-    $("#manualCuidadosGatos").hide();
-    $("#guiaCuidadosAlimentacion").hide();
+    $("#guiaLoguin").hide();
+    $("#guiaSeguimientoAdopcion").hide();
+    $("#manualProductos").hide();
     $("#1").click(function (e) {        
         e.preventDefault();
         activo = mostrar(this.value, activo);
