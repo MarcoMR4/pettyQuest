@@ -237,17 +237,23 @@ class conexion_VeteAsosiones{
       return $datajson; 
     }
 
-    function editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$ubicacion){
+    function editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$ubicacion,$tmpimg,$type){
       $link = $this->conectar();
-      $result = $link->query("UPDATE mascota SET nombre='$nombre', raza='$raza', edad='$edad', genero='$genero', tamaño='$tamaño', estatus='$estatus', ubicacion='$ubicacion' WHERE claveMascota='$idMascota'") or die (print("Error")); 
+      $resultbus = $link->query("SELECT * FROM mascota WHERE claveMascota='$idMascota'") or die (print("Error")); 
 
-      /* Si regresa datos :v equis de*/
-      $datos[]=[
-          "estatus" => "hola",
-          "numero" => "123"
-      ];
-      $mijson = json_encode($datos);
-      return $mijson;
+      $rutaimg;
+      while($item = $resultbus->fetch(PDO::FETCH_OBJ)){
+        $rutaimg = $item->foto;
+      }
+
+      if(unlink('../'.$rutaimg)) {
+        $name=$nombre.$idMascota.$type;
+        $rutarelativa="img/uploaded/mascotas/".$name;
+        $rutaguardarphp="../".$rutarelativa;
+        if(move_uploaded_file($tmpimg, $rutaguardarphp)){
+          $result = $link->query("UPDATE mascota SET nombre='$nombre', raza='$raza', edad='$edad', genero='$genero', tamaño='$tamaño', estatus='$estatus', ubicacion='$ubicacion', foto='$rutarelativa' WHERE claveMascota='$idMascota'") or die (print("Error")); 
+        }
+      }
     }
 
     function editar_mascota_adoptada($idMascota,$nuevoEstatus){
