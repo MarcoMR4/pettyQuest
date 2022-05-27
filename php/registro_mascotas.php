@@ -6,7 +6,6 @@ $edad = isset($_POST['edad']) ? $_POST['edad'] : '';
 $genero = isset($_POST['genero']) ? $_POST['genero'] : '';
 $idRaza = isset($_POST['idRaza']) ? $_POST['idRaza'] : '';
 $tamano = isset($_POST['tamano']) ? $_POST['tamano'] : '';
-$idUbicacion = isset($_POST['idUbicacion']) ? $_POST['idUbicacion'] : '';
 $idRazaAnimal = isset($_POST['idRazaAnimal']) ? $_POST['idRazaAnimal'] : '';
 
 $tmpimg=$_FILES['foto']['tmp_name'];
@@ -31,7 +30,7 @@ if(isset($_FILES['foto'])){
   }
 
   $nuevacon= new conexion_VeteAsosiones();
-  $respuestajson=$nuevacon->registroMascotas($idNombre,$edad,$genero,$idRaza,$tamano,$idUbicacion,$idRazaAnimal,$tmpimg,$type);
+  $respuestajson=$nuevacon->registroMascotas($idNombre,$edad,$genero,$idRaza,$tamano,$idRazaAnimal,$tmpimg,$type);
   echo($respuestajson);
 }
 

@@ -251,6 +251,7 @@ $("#selectFiltro").change(function (e) {
     var opciones = `
     <option selected value="0">Cualquier estado</option>
     <option value="En adopcion">En adopcion</option>
+    <option value="En proceso">En proceso</option>
     <option value="Adoptado">Adoptado</option>
     `;
     $("#selectOpcionFiltro").prop('disabled', false);

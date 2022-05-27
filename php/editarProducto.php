@@ -1,7 +1,7 @@
 <?php
 require 'conexion_VeteAsosiones.php';
 
-$idProducto  = isset($_POST['idProducto ']) ? $_POST['idProducto '] : '';
+$idProducto  = isset($_POST['idProducto']) ? $_POST['idProducto'] : '';
 $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
 $precio = isset($_POST['precio']) ? $_POST['precio'] : '';

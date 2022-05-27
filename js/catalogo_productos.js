@@ -181,8 +181,8 @@ function misProductos() {
                 <img src="${item.foto}" class="card-img-top imagenMascota" alt="...">
                 <div class="card-body">
                   <form action="php/editarProducto.php" method="post" autocomplete="off">
-                    <input type="text" name="idProducto " value="${item.idProducto}" style="display: none;">
                     <ul class="list-group list-group-flush">
+                    <input type="text" name="idProducto" value="${item.idProducto}" style="display: none;">
                       <li class="list-group-item">
                         <h5 class="card-title"><input type="text" readonly class="form-control-plaintext" id="id1${item.idProducto}"
                             name="nombre" value="${item.nombre}" disabled></h5>
@@ -256,13 +256,14 @@ function aceptar(idProducto){
 
 function eliminarProductos(idProducto){
   $.ajax({
-    type: "post",
+    type: "POST",
     url: "php/eliminarProducto.php",
     data: {
-      idProducto: idProducto
+      'idProducto': idProducto
     },
-    dataType: "JSON",
+    dataType: "text",
     success: function (response) {
+      console.log("Si llego al php "+ response);
       $("#btnModal").click();
     }
   });

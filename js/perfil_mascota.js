@@ -10,6 +10,7 @@ $(document).ready(function () {
     var estatus = "";
     var tipo = "";
     var foto = "";
+    var informacion = "";
     $("#espacio2").hide();
     $("#btn2").hide();
     $("#espacio1").show();
@@ -50,8 +51,9 @@ $(document).ready(function () {
                         genero = response2[i]['genero'];
                         tamaño = response2[i]['tamaño'];
                         estatus = response2[i]['estatus'];
-                        ubicacion = response2[i]['ubicacion'];
                         tipo = response2[i]['tipo'];
+                        informacion = response2[i]['informacion'];
+                        console.log("Informacion de la mascota: "+ informacion);
                         relleno = `<img src="${foto}" class="card-img-top" id="idImagen"></img>`;
                         // Llenamos los datos de la mascota
                         $("#idMascota").val(claveMascota);
@@ -65,6 +67,7 @@ $(document).ready(function () {
                         $("#idUbicacion").val(ubicacion);
                         $("#idTipo").val(tipo);
                         $(".foto").html(relleno);
+                        $("idInformacion").html(informacion);
                     }
 
                 }

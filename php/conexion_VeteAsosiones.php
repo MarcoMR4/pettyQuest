@@ -49,7 +49,7 @@ class conexion_VeteAsosiones{
         return $datajson; 
     }
 
-    function registroMascotas($idNombre,$edad,$genero,$idRaza,$tamano,$idUbicacion,$idRazaAnimal,$tmpimg,$type){
+    function registroMascotas($idNombre,$edad,$genero,$idRaza,$tamano,$idRazaAnimal,$tmpimg,$type){
       $link = $this->conectar();
       $sql="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'pettyquest' AND   TABLE_NAME   = 'mascota'";
       $autoincrement = $link->query($sql) or die (print("Error"));
@@ -64,7 +64,7 @@ class conexion_VeteAsosiones{
       $rutaguardarphp="../".$rutarelativa;
       if(move_uploaded_file($tmpimg, $rutaguardarphp)){
         $estatusmascota="En adopcion";
-        $result = $link->query("INSERT INTO mascota (nombre,raza,foto,edad,genero,tamaño,ubicacion,estatus,tipoAnimal) VALUES ('$idNombre','$idRaza','$rutarelativa','$edad','$genero','$tamano','$idUbicacion','$estatusmascota','$idRazaAnimal')") or die (print("Error")); 
+        $result = $link->query("INSERT INTO mascota (nombre,raza,foto,edad,genero,tamaño,estatus,tipoAnimal) VALUES ('$idNombre','$idRaza','$rutarelativa','$edad','$genero','$tamano','$estatusmascota','$idRazaAnimal')") or die (print("Error")); 
         $data[]=[
           'estatus' => 'registrado'
         ];
@@ -76,7 +76,7 @@ class conexion_VeteAsosiones{
       return $datajson;
     }
 
-    function registroProductos($nombreP,$TipoP,$Cantidad,$Precio,$type,$tmpimg){
+    function registroProductos($nombreP,$TipoP,$Precio,$type,$tmpimg){
       $link = $this->conectar();
       $sql="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'pettyquest' AND   TABLE_NAME   = 'producto'";
       $autoincrement = $link->query($sql) or die (print("Error"));
@@ -90,7 +90,7 @@ class conexion_VeteAsosiones{
       $rutarelativa="img/uploaded/productos/".$name;
       $rutaguardarphp="../".$rutarelativa;
       if(move_uploaded_file($tmpimg, $rutaguardarphp)){
-        $result = $link->query("INSERT INTO producto (nombre,descripcion,cantidad,precio,foto) VALUES ('$nombreP','$TipoP','$Cantidad','$Precio','$rutarelativa')") or die (print("Error")); 
+        $result = $link->query("INSERT INTO producto (nombre,descripcion,precio,foto) VALUES ('$nombreP','$TipoP','$Precio','$rutarelativa')") or die (print("Error")); 
         $data[]=[
           'estatus' => 'registrado'
         ];
@@ -206,8 +206,8 @@ class conexion_VeteAsosiones{
               'genero' => $item->genero,
               'tamaño' => $item->tamaño,
               'estatus' => $item->estatus,
-              'ubicacion' => $item->ubicacion,
               'tipo' => $item->tipoAnimal,
+              'informacion' => $item->informacion
           ];
       }
       $datajson=json_encode($data);
@@ -228,7 +228,6 @@ class conexion_VeteAsosiones{
               'idProducto' => $item->idProducto,
               'nombre' => $item->nombre,
               'descripcion' => $item->descripcion,
-              'cantidad' => $item->cantidad,
               'precio' => $item->precio,
               'foto' => $item->foto
           ];
@@ -237,7 +236,7 @@ class conexion_VeteAsosiones{
       return $datajson; 
     }
 
-    function editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$ubicacion,$tmpimg,$type){
+    function editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$tmpimg,$type){
       $link = $this->conectar();
       $resultbus = $link->query("SELECT * FROM mascota WHERE claveMascota='$idMascota'") or die (print("Error")); 
 
@@ -251,7 +250,7 @@ class conexion_VeteAsosiones{
         $rutarelativa="img/uploaded/mascotas/".$name;
         $rutaguardarphp="../".$rutarelativa;
         if(move_uploaded_file($tmpimg, $rutaguardarphp)){
-          $result = $link->query("UPDATE mascota SET nombre='$nombre', raza='$raza', edad='$edad', genero='$genero', tamaño='$tamaño', estatus='$estatus', ubicacion='$ubicacion', foto='$rutarelativa' WHERE claveMascota='$idMascota'") or die (print("Error")); 
+          $result = $link->query("UPDATE mascota SET nombre='$nombre', raza='$raza', edad='$edad', genero='$genero', tamaño='$tamaño', estatus='$estatus', foto='$rutarelativa' WHERE claveMascota='$idMascota'") or die (print("Error")); 
         }
       }
     }
@@ -291,7 +290,6 @@ class conexion_VeteAsosiones{
               'genero' => $item->genero,
               'tamaño' => $item->tamaño,
               'estatus' => $item->estatus,
-              'ubicacion' => $item->ubicacion,
               'tipo' => $item->tipoAnimal,
           ];
       }
@@ -316,7 +314,6 @@ class conexion_VeteAsosiones{
               'genero' => $item->genero,
               'tamaño' => $item->tamaño,
               'estatus' => $item->estatus,
-              'ubicacion' => $item->ubicacion,
               'tipo' => $item->tipoAnimal,
           ];
       }
@@ -341,7 +338,6 @@ class conexion_VeteAsosiones{
               'genero' => $item->genero,
               'tamaño' => $item->tamaño,
               'estatus' => $item->estatus,
-              'ubicacion' => $item->ubicacion,
               'tipo' => $item->tipoAnimal,
           ];
       }
@@ -360,7 +356,6 @@ class conexion_VeteAsosiones{
           'idProducto' => $item->idProducto,
           'nombre' => $item->nombre,
           'descripcion' => $item->descripcion,
-          'cantidad' => $item->cantidad,
           'precio' => $item->precio,
           'foto' => $item->foto
       ];
@@ -381,7 +376,6 @@ class conexion_VeteAsosiones{
           'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
           'nombre' => $item->nombre,
           'descripcion' => $item->descripcion,
-          'cantidad' => $item->cantidad,
           'precio' => $item->precio,
           'foto' => $item->foto
       ];
@@ -393,13 +387,14 @@ class conexion_VeteAsosiones{
     function editar_producto($idProducto ,$descripcion,$nombre,$precio){
       $link = $this->conectar();
       $result = $link->query("UPDATE producto SET descripcion='$descripcion', nombre='$nombre',precio='$precio' WHERE idProducto ='$idProducto'") or die (print("Error")); 
-
+      
+        return $result;
     }
 
     function eliminar_producto($idProducto){
       $link = $this->conectar();
-      $result = $link->query("DELETE producto WHERE idProducto='$idProducto'") or die (print("Error")); 
-
+      $result = $link->query("DELETE FROM producto WHERE idProducto='$idProducto'") or die (print("Error")); 
+        return $idProducto;
     }
 
     function consultar_solicitudes()
