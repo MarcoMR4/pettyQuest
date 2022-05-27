@@ -42,7 +42,8 @@ $(window).ready(function() {
 
     $("#btnFoto").click(function (e) { 
         e.preventDefault();
-        $("#nuevaFoto").click();
+        var nombrebtn= `#nuevaFoto`;
+        $(nombrebtn).click();
     });
 
     $("#btnCerrarModal").click(function () { 

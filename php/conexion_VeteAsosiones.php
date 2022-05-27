@@ -390,6 +390,18 @@ class conexion_VeteAsosiones{
         return $datajson;
     }
 
+    function editar_producto($idProducto ,$descripcion,$nombre,$precio){
+      $link = $this->conectar();
+      $result = $link->query("UPDATE producto SET descripcion='$descripcion', nombre='$nombre',precio='$precio' WHERE idProducto ='$idProducto'") or die (print("Error")); 
+
+    }
+
+    function eliminar_producto($idProducto){
+      $link = $this->conectar();
+      $result = $link->query("DELETE producto WHERE idProducto='$idProducto'") or die (print("Error")); 
+
+    }
+
     function consultar_solicitudes()
     {
       $link = $this->conectar();
