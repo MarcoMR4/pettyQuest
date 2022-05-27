@@ -7,74 +7,134 @@ body {
     min-height: 100vh;
     grid-template-rows: auto 1fr auto;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.color-nav{
+
+.color-nav {
     background-color: #04A9B4;
 }
-.color-link-black{
+
+.color-link-black {
     color: black !important;
 }
-.color-text a:visited, a:active, a:link{
+
+.color-text a:visited,
+a:active,
+a:link {
     color: black;
 }
-.color-link-black:hover{
+
+.color-link-black:hover {
     font-weight: 500 !important;
 }
-.negritas{
+
+.negritas {
     font-weight: bold;
 }
-.formato-section{
-   /* background: rgb(222, 220, 215);
+
+.formato-section {
+    /* background: rgb(222, 220, 215);
     background: linear-gradient(90deg, rgba(199,142,44,1) 0%, rgba(212,148,66,1) 54%, rgba(241,194,116,1) 100%);*/
     background-color: azure;
     padding: 45px;
     text-align: justify;
 }
-.formato-offcanvas{
+
+.formato-offcanvas {
     width: 35%;
     background-color: grey;
 }
-.formato-ini{
+
+.formato-ini {
     background-color: rgb(179, 179, 179);
     margin-top: 20%;
     border: 2px solid rgb(179, 179, 179);
     border-radius: 10px;
     padding: 30px 15px;
 }
-.PiePag{
+
+.PiePag {
     background-color: gray;
 }
-.color-letra-PiePag{
+
+.color-letra-PiePag {
     padding: 15px 0;
     color: white !important;
 }
-.color-letra-PiePag a:visited,.color-letra-PiePag a:active,.color-letra-PiePag a:link{
+
+.color-letra-PiePag a:visited,
+.color-letra-PiePag a:active,
+.color-letra-PiePag a:link {
     color: white !important;
 }
-.border-r{
+
+/* .border-r{
     border-right: 1px solid black;
+} */
+
+.color-letra-PiePag hr {
+    display: block;
+    background-color: white;
+    margin-top: 2%;
+    width: 60px;
+    border: 2px solid white;
+    transform: rotate(90deg);
 }
-.ver-border{
+
+.color-letra-PiePag i{
+    font-size: 43px;
+    /* background-color: white; */
+    border-radius: 50%;
+}
+
+
+.ver-border {
     border: 2px solid black;
 }
-.centrar-vertical{
+
+.centrar-vertical {
     display: flex;
     align-items: center;
 }
 
 
-.contenidos_letra{
+.contenidos_letra {
     font-size: 20px;
 }
-.logoV{
+
+.logoV {
     height: 200px;
     width: auto;
     border-radius: 15%;
     border: solid black 1px;
     padding: 0;
 }
-.carruselV{
+
+.carruselV {
     padding: 20px;
+}
+
+.redes{
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 991px) {
+    .color-letra-PiePag hr {
+        display: block;
+        background-color: white;
+        width: 90%;
+        border: 2px solid white;
+        transform: rotate(180deg);
+    }
+
+    .redes{
+        text-align: left;
+    }
+
+    .redes div{
+        width: 50%;
+    }
 }
