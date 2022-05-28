@@ -10,18 +10,23 @@ var tipo = "";
 var foto = "";
 var informacion = "";
 var nombreVeteAso = "";
+var tipousuario="1";
 $(document).ready(function () {
     $("#espacio1").hide();
     $("#btn1").hide();
     $("#espacio2").hide();
     $("#btn2").hide();
-    $("#espacio1").show();
     $("#espacio3").hide();
     $("#btn3").hide();
     $("#btn4").hide();
-    $("#btnAdoptado").hide();
 
     //llenar el perfil
+    llenar_datos();
+
+    //identificar el tipo de usuario y si es que puede editar la mascota
+});
+
+function llenar_datos(){
     $.ajax({
         type: "POST",
         url: "./php/id_mascota.php",
@@ -89,14 +94,7 @@ $(document).ready(function () {
                                         $(".foto").html(relleno);
                                         $("idInformacion").html(informacion);
                                         console.log("Estatus: " + estatus);
-                                        if (estatus == "En adopcion") {
-                                            $("#btn1").show();
-                                            $("#espacio1").show();
-                                        }
-                                        else {
-                                            $("#btn1").hide();
-                                            $("#espacio1").hide();
-                                        }
+                                        identificar_usuario();
                                     },
                                 });
                             }
@@ -106,8 +104,9 @@ $(document).ready(function () {
             });
         }
     });
+}
 
-    //identificar el tip ode usuario y si es que puede editar la mascota
+function identificar_usuario(){
     $.ajax({
         type: "POST",
         url: "./php/identificarTipoUsuario.php",
@@ -115,10 +114,18 @@ $(document).ready(function () {
         dataType: "JSON",
         success: function (response) {
             if (response[0]['tipo'] == "0") {
+                tipousuario="0";
                 console.log("Es un usuario normal");
                 $("#espacio2").hide();
                 $("#btn2").hide();
-                $("#btnAdoptado").hide();
+                if (estatus == "En adopcion") {
+                    $("#btn1").show();
+                    $("#espacio1").show();
+                }
+                else {
+                    $("#btn1").hide();
+                    $("#espacio1").hide();
+                }
             }
             else {
                 var claveAsociacionVeterinaria;
@@ -164,11 +171,7 @@ $(document).ready(function () {
             }
         }
     });
-
-    
-
-
-});
+}
 
 /* Lo importante es ocultar y mostrar botones*/
 $("#btnEditar").click(function (e) {
@@ -210,7 +213,6 @@ $("#btnCancelar").click(function (e) {
 function adoptar() {
     var nuevoEstatus = "Adoptado";
     console.log(claveMascota);
-    console.log("Adoptado");
     $.ajax({
         type: "post",
         url: "./php/editarMascotaEstatus.php",
@@ -220,11 +222,12 @@ function adoptar() {
         },
         dataType: "JSON",
         success: function (response) {
-            alert("prueba")
+            location.reload();
             console.log(response)
-            console.log("ADOPTADO");
+          
         }
     });
+    location.reload();
 };
 
 function readURL(input) {

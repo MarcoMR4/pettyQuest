@@ -2,6 +2,7 @@ $(window).ready(function () {
  
   $("#selectOpcionFiltro").prop('disabled', true);
   $("#btnAgregar").hide();
+  $("#btnMisMascotas").hide();
   $("#btnCancelar").hide();
   $("#selectFiltro").val(0);
   var opciones = ``;
