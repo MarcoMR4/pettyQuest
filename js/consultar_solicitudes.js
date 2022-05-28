@@ -58,7 +58,7 @@ $(document).ready(function () {
                             <div class="datosSolicitante col-lg-8">
                               <div class="nombre row mt-3">
                                 <div class="campo col-sm-5">
-                                  <p>Nombre:</p>
+                                  <p>Nombre completo:</p>
                                 </div>
                                 <div class="nombreCompleto col-sm-7">
                                   <p>${response2[0]['nombre']} ${response2[0]['apellidoPaterno']} ${response2[0]['apellidoMaterno']}</p>
@@ -114,6 +114,7 @@ $(document).ready(function () {
                                       <p>${item.nombre}</p>
                                     </div>
                                   </div>
+                                  <hr>
                                   <div class="espacioEdadMascota row">
                                     <div class="campo col-sm-6">
                                       <p>Edad:</p>
@@ -122,6 +123,7 @@ $(document).ready(function () {
                                       <p>${item.edad}</p>
                                     </div>
                                   </div>
+                                  <hr>
                                   <div class="espacioGeneroMascota row">
                                     <div class="campo col-sm-6">
                                       <p>Genero:</p>
@@ -130,6 +132,7 @@ $(document).ready(function () {
                                       <p>${item.genero}</p>
                                     </div>
                                   </div>
+                                  <hr>
                                   <div class="espacioRazaMascota row">
                                     <div class="campo col-sm-6">
                                       <p>Raza:</p>

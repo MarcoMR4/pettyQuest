@@ -6,7 +6,7 @@ $claveMascota = isset($_POST['claveMascota']) ? $_POST['claveMascota'] : '';
 $Razon1 = isset($_POST['Razon']) ? $_POST['Razon'] : '';
 $Razon2 = isset($_POST['Personas']) ? $_POST['Personas'] : '';
 $Razon3 = isset($_POST['Necesario']) ? $_POST['Necesario'] : '';
-$razones = ' se quiere adoptar por: ' .$Razon1 . ' viven en la casa: ' . $Razon2. ' se tiene: ' . $Razon3;
+$razones = 'Razones para adoptar: ' .$Razon1 . '<br>No. de personas que viven en la casa: ' . $Razon2. '<br>Cuenta con: ' . $Razon3;
 
 $tmpimg=$_FILES['comprobanteDomicilio']['tmp_name'];
 $type=$_FILES['comprobanteDomicilio']['type'];
