@@ -17,14 +17,15 @@
 
 <body>
 
-   <!--Menu-->
-   <nav class="navbar navbar-expand-lg color-nav sticky-top navbar-light">
+  <!--Menu-->
+  <nav class="navbar navbar-expand-lg color-nav sticky-top navbar-light">
     <div class="container-fluid color-text">
       <a class="navbar-brand negritas" href="index.html">
         <img src="img/Logo/Final.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
         PettyQuest
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -34,24 +35,26 @@
               <a class="nav-link color-link-black" href="catalogo_Mascotas.html">Ver mascotas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link color-link-black" aria-current="page" href="catalogo_Productos.html">Productos y Servicios</a>
+              <a class="nav-link color-link-black" aria-current="page" href="catalogo_Productos.html">Productos y
+                Servicios</a>
             </li>
             <li class="nav-item">
               <a class="nav-link color-link-black" href="manualesCuidados.html">Guias</a>
             </li>
           </div>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle color-link-black" href="#" id="Cambio" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle color-link-black" href="#" id="Cambio" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
               Iniciar Sesion / Registro
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Cambio">
               <div id="agregar">
-                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion" role="button" aria-controls="InicioSesion"
-                    id="Cambio1">
+                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion" role="button"
+                    aria-controls="InicioSesion" id="Cambio1">
                     Iniciar Sesion
                   </a></li>
-                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button" aria-controls="offcanvasExample"
-                    id="Cambio2">
+                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button"
+                    aria-controls="offcanvasExample" id="Cambio2">
                     Registrar
                   </a></li>
               </div>
@@ -63,20 +66,24 @@
   </nav>
 
   <!--Inicio de Sesion-->
-  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="InicioSesion" aria-labelledby="InicioSesionLabel">
+  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="InicioSesion"
+    aria-labelledby="InicioSesionLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="InicioSesionLabel">Inicio de Sesion</h5>
-      <button type="button" id="btnsalirsesion" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button type="button" id="btnsalirsesion" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+        aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
       <div class="formato-ini">
         <form id="formini" aria-labelledby="navbarDropdown">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Correo" name="email" id="emaili" required aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" placeholder="Correo" name="email" id="emaili" required
+              aria-label="Recipient's username" aria-describedby="basic-addon2">
             <span class="input-group-text" id="basic-addon2">@example.com</span>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordi" required aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordi" required
+              aria-label="Recipient's username" aria-describedby="basic-addon2">
           </div>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <input type="submit" class="btn btn-primary me-md-2" value="Iniciar Sesion"></input>
@@ -87,10 +94,12 @@
   </div>
 
   <!--Registro-->
-  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="Registrar" aria-labelledby="RegistrarLabel">
+  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="Registrar"
+    aria-labelledby="RegistrarLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="RegistrarLabel">Registro</h5>
-      <button type="button" id="btnsalirregistro" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button type="button" id="btnsalirregistro" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+        aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
       <div>
@@ -118,10 +127,12 @@
             <span class="input-group-text" id="basic-addon2">@example.com</span>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Contraseña"  name="password" id="passwordr" required>
+            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordr"
+              required>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="password2" id="password2" required>
+            <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="password2"
+              id="password2" required>
           </div>
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Telefono" name="telefono" id="telefono" required>
@@ -148,18 +159,18 @@
   <div class="container-fluid">
     <!-- enctype sirve para trabajar con ficheros -->
 
-    <form action="php/editar_mascota.php" method="post" autocomplete="off" enctype="multipart/form-data"> 
-    <div class="row justify-content-center">
-      <div class="col-lg-4">
-        <div class="card foto" style="width: 18rem;" id="divFoto">
-          <img src="" alt="" id="idFotoMas">
-        </div>       
-        <div class="col btnFoto" id="btn4">
-          <button type="button" class="btn btn-outline-primary"  id="btnFoto">Subir foto
-          </button>
-          <input type="file" id="fotoNueva" name="photo">
+    <form action="php/editar_mascota.php" method="post" autocomplete="off" enctype="multipart/form-data">
+      <div class="row justify-content-center">
+        <div class="col-lg-4">
+          <div class="card foto" style="width: 18rem;" id="divFoto">
+            <img src="" alt="" id="idFotoMas">
+          </div>
+          <div class="col btnFoto" id="btn4">
+            <button type="button" class="btn btn-primary" id="btnFoto">Subir foto
+            </button>
+            <input type="file" id="fotoNueva" name="photo" style="display: none;">
+          </div>
         </div>
-      </div>
         <div class="col-lg-5 informacion">
           <input type="text" class="form-control" id="idMascota" style="display: none;" name="idMascota">
           <div class="row mt-3">
@@ -206,15 +217,23 @@
             <label class="col-sm-1 col-form-label"></label>
             <label for="idTamaño" class="col-sm-3 col-form-label">Tamaño:</label>
             <div class="col-sm-8">
-              <input type="text" readonly class="form-control-plaintext" id="idTamaño" name="idTamaño"  disabled>
+              <input type="text" readonly class="form-control-plaintext" id="idTamaño" name="idTamaño" disabled>
+            </div>
+          </div>
+          <hr>
+          <div class="mb-1 row">
+            <label class="col-sm-1 col-form-label"></label>
+            <label for="idUbicacion" class="col-sm-3 col-form-label">Ubicacion:</label>
+            <div class="col-sm-8">
+              <input type="text" readonly class="form-control-plaintext" id="idUbicacion" name="idUbicacion" disabled>
             </div>
           </div>
           <hr>
           <div class="mb-3 row">
             <label class="col-sm-1 col-form-label"></label>
-            <label for="idUbicacion" class="col-sm-3 col-form-label">Ubicacion:</label>
+            <label for="idUbicacion" class="col-sm-3 col-form-label">Veterinaria o Asociacion:</label>
             <div class="col-sm-8">
-              <input type="text" readonly class="form-control-plaintext" id="idUbicacion" name="idUbicacion" disabled>
+              <input type="text" readonly class="form-control-plaintext" id="nombreVeteAso" disabled>
             </div>
           </div>
           <hr>
@@ -227,37 +246,39 @@
           </div>
           <hr>
           <p>
-            <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+            <button class="btn btn-success" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
               Informacion medica
             </button>
           </p>
           <div>
             <div class="collapse collapse-vertical" id="collapseWidthExample">
               <div class="card card-body" id="idInformacion">
-               
+
               </div>
             </div>
           </div>
         </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-9" id="espacio1"></div>
-      <div class="btn1 col-md-2" id="btn1">
-        <a href="solicitud_adopcion.html">
-        <input class="btn btn-outline-success" type="button" value="Adoptar" id="btnAdoptar">
-      </a>
       </div>
-      <div class="col-8" id="espacio2"></div>
-      <div class="btn1 col-md-3" id="btn2">
-        <input class="btn btn-success" type="button" value="Editar" id="btnEditar">
-        <input class="btn btn-warning" type="button" value="ADOPTADO" id="btnAdoptado" style="color: rgb(78, 20, 20);">
+      <div class="row mt-2">
+        <div class="col-9" id="espacio1"></div>
+        <div class="btn1 col-md-2" id="btn1">
+          <a href="solicitud_adopcion.html">
+            <input class="btn btn-success" type="button" value="Adoptar" id="btnAdoptar">
+          </a>
+        </div>
+        <div class="col-8" id="espacio2"></div>
+        <div class="btn1 col-md-3" id="btn2">
+          <input class="btn btn-success" type="button" value="Editar" id="btnEditar">
+          <input class="btn btn-warning" type="button" value="ADOPTADO" onclick="adoptar()" id="btnAdoptado"
+            style="color: rgb(78, 20, 20);">
+        </div>
+        <div class="col-8" id="espacio3"></div>
+        <div class="btn1 col-lg-4" id="btn3">
+          <input class="btn btn-primary" type="submit" value="Aceptar" id="btnAceptar">
+          <input class="btn btn-danger" type="button" value="Cancelar" id="btnCancelar">
+        </div>
       </div>
-      <div class="col-8" id="espacio3"></div>
-      <div class="btn1 col-lg-4" id="btn3">
-        <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnAceptar">
-        <input class="btn btn-outline-primary" type="button" value="Cancelar" id="btnCancelar">
-      </div>
-    </div>
     </form>
   </div>
   </div>
@@ -281,9 +302,12 @@
       <div class="col redes">
         <p>Siguenos!!</p>
         <div class="d-flex justify-content-around">
-          <a href="https://www.facebook.com/"><i class='bx bxl-facebook-circle' style='color:#2d77d2; background-color: white;'></i></a>
-          <a href="https://twitter.com/"><i class='bx bxl-twitter' style='color:white; background-color: #55aef5;'></i></a>
-          <a href="https://instagram.com/"><i class='bx bxl-instagram' style='color:white; background-color: #b326a7;'  ></i></a>
+          <a href="https://www.facebook.com/"><i class='bx bxl-facebook-circle'
+              style='color:#2d77d2; background-color: white;'></i></a>
+          <a href="https://twitter.com/"><i class='bx bxl-twitter'
+              style='color:white; background-color: #55aef5;'></i></a>
+          <a href="https://instagram.com/"><i class='bx bxl-instagram'
+              style='color:white; background-color: #b326a7;'></i></a>
         </div>
       </div>
     </div>

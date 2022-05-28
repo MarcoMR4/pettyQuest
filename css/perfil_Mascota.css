@@ -8,6 +8,7 @@
 }
 
 .foto img{
+    display: fixed;
     height: auto;
     width: 20rem;
     border: 2px solid rgb(146, 143, 143);

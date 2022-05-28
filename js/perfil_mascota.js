@@ -1,20 +1,21 @@
-
+var claveMascota;
+var nombre = "";
+var raza = "";
+var edad = "";
+var genero = "";
+var tamaño = "";
+var ubicacion = "";
+var estatus = "";
+var tipo = "";
+var foto = "";
+var informacion = "";
+var nombreVeteAso = "";
 $(document).ready(function () {
-    var claveMascota;
-    var nombre = "";
-    var raza = "";
-    var edad = "";
-    var genero = "";
-    var tamaño = "";
-    var ubicacion = "";
-    var estatus = "";
-    var tipo = "";
-    var foto = "";
-    var informacion = "";
+    $("#espacio1").hide();
+    $("#btn1").hide();
     $("#espacio2").hide();
     $("#btn2").hide();
     $("#espacio1").show();
-    $("#btn1").show();
     $("#espacio3").hide();
     $("#btn3").hide();
     $("#btn4").hide();
@@ -63,16 +64,17 @@ $(document).ready(function () {
                             dataType: "JSON",
                             success: function (response2) {
                                 claveAsociacionVeterinaria2 = response2[0]['claveAsociacionVeterinaria'];
-                                datos={claveMascota,claveAsociacionVeterinaria2};
+                                datos = { claveMascota, claveAsociacionVeterinaria2 };
 
                                 $.ajax({
                                     type: "POST",
                                     url: "./php/buscarUbicacionVeteFkMas.php",
                                     data: datos,
                                     success: function (response) {
-                                        response=JSON.parse(response);
+                                        response = JSON.parse(response);
                                         console.log(response);
-                                        ubicacion=response[0]["calle"]+" #"+response[0]["numero"]+", "+response[0]["ciudad"];
+                                        ubicacion = response[0]["calle"] + " #" + response[0]["numero"] + ", " + response[0]["ciudad"];
+                                        nombreVeteAso = response[0]["nombre"];
                                         // Llenamos los datos de la mascota
                                         $("#idMascota").val(claveMascota);
                                         $("#idNombre").val(nombre);
@@ -82,9 +84,19 @@ $(document).ready(function () {
                                         $("#idRaza").val(raza);
                                         $("#idTamaño").val(tamaño);
                                         $("#idUbicacion").val(ubicacion);
+                                        $("#nombreVeteAso").val(nombreVeteAso);
                                         $("#idTipo").val(tipo);
                                         $(".foto").html(relleno);
                                         $("idInformacion").html(informacion);
+                                        console.log("Estatus: " + estatus);
+                                        if (estatus == "En adopcion") {
+                                            $("#btn1").show();
+                                            $("#espacio1").show();
+                                        }
+                                        else {
+                                            $("#btn1").hide();
+                                            $("#espacio1").hide();
+                                        }
                                     },
                                 });
                             }
@@ -106,8 +118,6 @@ $(document).ready(function () {
                 console.log("Es un usuario normal");
                 $("#espacio2").hide();
                 $("#btn2").hide();
-                $("#espacio1").show();
-                $("#btn1").show();
                 $("#btnAdoptado").hide();
             }
             else {
@@ -128,7 +138,7 @@ $(document).ready(function () {
                     data: "",
                     dataType: "JSON",
                     success: function (response) {
-                        /* Imprimimos en pantalla cada mascota encontrada*/
+                        /* Ver si la mascota es de la veterinaria correcta para editar*/
                         response.map(item => {
                             if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria && `${item.claveMascota}` == claveMascota) {
                                 $("#espacio1").hide();
@@ -155,84 +165,90 @@ $(document).ready(function () {
         }
     });
 
-    /* Lo importante es ocultar y mostrar botones*/
-    $("#btnEditar").click(function (e) {
-        e.preventDefault();
-        $("#espacio3").show();
-        $("#btn3").show();
-        $("#btn4").show();
-        $("#espacio2").hide();
-        $("#btn2").hide();
-        $("#idNombre").prop('readonly', false).prop('disabled', false).prop('required', true);
-        $("#idEstatus").prop('readonly', false).prop('disabled', false).prop('required', true);
-        $("#idEdad").prop('readonly', false).prop('disabled', false).prop('required', true);
-        $("#idGenero").prop('readonly', false).prop('disabled', false).prop('required', true);
-        $("#idRaza").prop('readonly', false).prop('disabled', false).prop('required', true);
-        $("#idTamaño").prop('readonly', false).prop('disabled', false).prop('required', true);
-        $("#idUbicacion").prop('readonly', false).prop('disabled', false).prop('required', true);
-        $("#idTipo").prop('readonly', false).prop('disabled', false).prop('required', true);
+    
 
-    });
 
-    /* Lo importante es ocultar y mostrar botones mas volver a poner la informacion correcta*/
-    $("#btnCancelar").click(function (e) {
-        e.preventDefault();
-        $("#espacio3").hide();
-        $("#btn3").hide();
-        $("#btn4").hide();
-        $("#espacio2").show();
-        $("#btn2").show();
-        $("#idNombre").prop('readonly', true).prop('disabled', true).prop('required', false);
-        $("#idEstatus").prop('readonly', true).prop('disabled', true).prop('required', false);
-        $("#idEdad").prop('readonly', true).prop('disabled', true).prop('required', false);
-        $("#idGenero").prop('readonly', true).prop('disabled', true).prop('required', false);
-        $("#idRaza").prop('readonly', true).prop('disabled', true).prop('required', false);
-        $("#idTamaño").prop('readonly', true).prop('disabled', true).prop('required', false);
-        $("#idUbicacion").prop('readonly', true).prop('disabled', true).prop('required', false);
-        $("#idTipo").prop('readonly', true).prop('disabled', true).prop('required', false);
-    });
-
-    function readURL(input) {
-        if (input.files && input.files[0]) { //Revisamos que el input tenga contenido
-            var reader = new FileReader(); //Leemos el contenido
-            $('#contenedordefoto').attr({'class':'caja'});
-            reader.onload = function(e) { //Al cargar el contenido lo pasamos como atributo de la imagen de arriba
-                $('#idImagen').attr({'src':e.target.result});
-            }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-        else{
-            
-        }
-    }
-
-    $("#fotoNueva").change(function() { //Cuando el input cambie (se cargue un nuevo archivo) se va a ejecutar de nuevo el cambio de imagen y se verá reflejado.
-        readURL(this);
-    });
-
-    $("#btnFoto").click(function (e) { 
-        e.preventDefault();
-        $("#fotoNueva").click();
-    });
-
-    $("#btnAdoptado").click(function (e) {
-        e.preventDefault();
-        var nuevoEstatus = "Adoptado";
-        $.ajax({
-            type: "post",
-            url: "php/editarMascotaEstatus.php",
-            data: {
-                idMascota: idMascota,
-                nuevoEstatus: nuevoEstatus
-            },
-            dataType: "JSON",
-            success: function (response) {
-                console.log("ADOPTADO");
-            }
-        });
-    });
 });
+
+/* Lo importante es ocultar y mostrar botones*/
+$("#btnEditar").click(function (e) {
+    e.preventDefault();
+    $("#espacio3").show();
+    $("#btn3").show();
+    $("#btn4").show();
+    $("#espacio2").hide();
+    $("#btn2").hide();
+    $("#idNombre").prop('readonly', false).prop('disabled', false).prop('required', true);
+    $("#idEstatus").prop('readonly', false).prop('disabled', false).prop('required', true);
+    $("#idEdad").prop('readonly', false).prop('disabled', false).prop('required', true);
+    $("#idGenero").prop('readonly', false).prop('disabled', false).prop('required', true);
+    $("#idRaza").prop('readonly', false).prop('disabled', false).prop('required', true);
+    $("#idTamaño").prop('readonly', false).prop('disabled', false).prop('required', true);
+    //$("#idUbicacion").prop('readonly', false).prop('disabled', false).prop('required', true);
+    $("#idTipo").prop('readonly', false).prop('disabled', false).prop('required', true);
+
+});
+
+/* Lo importante es ocultar y mostrar botones mas volver a poner la informacion correcta*/
+$("#btnCancelar").click(function (e) {
+    e.preventDefault();
+    $("#espacio3").hide();
+    $("#btn3").hide();
+    $("#btn4").hide();
+    $("#espacio2").show();
+    $("#btn2").show();
+    $("#idNombre").prop('readonly', true).prop('disabled', true).prop('required', false);
+    $("#idEstatus").prop('readonly', true).prop('disabled', true).prop('required', false);
+    $("#idEdad").prop('readonly', true).prop('disabled', true).prop('required', false);
+    $("#idGenero").prop('readonly', true).prop('disabled', true).prop('required', false);
+    $("#idRaza").prop('readonly', true).prop('disabled', true).prop('required', false);
+    $("#idTamaño").prop('readonly', true).prop('disabled', true).prop('required', false);
+    //$("#idUbicacion").prop('readonly', true).prop('disabled', true).prop('required', false);
+    $("#idTipo").prop('readonly', true).prop('disabled', true).prop('required', false);
+});
+
+function adoptar() {
+    var nuevoEstatus = "Adoptado";
+    console.log(idMascota);
+    console.log("Adoptado");
+    $.ajax({
+        type: "post",
+        url: "php/editarMascotaEstatus.php",
+        data: {
+            'idMascota': idMascota,
+            'nuevoEstatus': nuevoEstatus
+        },
+        dataType: "",
+        success: function (response) {
+            console.log("ADOPTADO");
+        }
+    });
+};
+
+function readURL(input) {
+    if (input.files && input.files[0]) { //Revisamos que el input tenga contenido
+        var reader = new FileReader(); //Leemos el contenido
+        $('#contenedordefoto').attr({ 'class': 'caja' });
+        reader.onload = function (e) { //Al cargar el contenido lo pasamos como atributo de la imagen de arriba
+            $('#idImagen').attr({ 'src': e.target.result });
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+    else {
+
+    }
+}
+
+$("#fotoNueva").change(function () { //Cuando el input cambie (se cargue un nuevo archivo) se va a ejecutar de nuevo el cambio de imagen y se verá reflejado.
+    readURL(this);
+});
+
+$("#btnFoto").click(function () {
+    $("#fotoNueva").click();
+});
+
+
 
 
 
