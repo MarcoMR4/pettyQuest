@@ -15,6 +15,9 @@ $(window).ready(function() {
             console.log(response);
             alert("SE HA REGISTRADO CON ÉXITO");
             location.reload();
+          },
+          error: function(response){
+            console.log(response);
           }
         });
        

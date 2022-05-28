@@ -106,16 +106,14 @@ class conexion_VeteAsosiones{
     //registrar veterinarias o asosiaciones
     function registroAV($nombre,$ciudad,$calle,$numero,$email,$nombreE,$apE,$amE,$telefono,$password){
       $link = $this->conectar();
-  
-        $result = $link->query("INSERT INTO  asociacionveterinaria (nombre,ciudad,calle,numero,email,nombreEncargado,apellidoPEncargado
-        ,apellidoMEncargado,telefono,password) VALUES ('$nombre','$ciudad','$numero','$email','$nombreE','$apE','$amE','$telefono','$password')") or die (print("Error")); 
-        $data[]=[
-          'estatus' => 'registrado'
-        ];
-        //$id=$_SESSION['idUsuarioVeterinaria'];
+      $result = $link->query("INSERT INTO `asociacionveterinaria` (`claveAsociacionVeterinaria`, `nombre`, `ciudad`, `calle`, `numero`, `nombreEncargado`, `apellidoPEncargado`, `apellidoMEncargado`, `email`, `telefono`, `password`) VALUES (NULL, '$nombre','$ciudad','$calle','$numero','$nombreE','$apE','$amE','$email','$telefono','$password')") or die (print("Error")); 
+    //     $data[]=[
+    //       'estatus' => 'registrado'
+    //     ];
+    //     //$id=$_SESSION['idUsuarioVeterinaria'];
          
-      $mijson = json_encode($data);
-      return $mijson;
+    //   $mijson = json_encode($data);
+    //   return $mijson;
     }
  
 

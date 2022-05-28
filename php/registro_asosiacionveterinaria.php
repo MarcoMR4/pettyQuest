@@ -1,4 +1,6 @@
 <?php
+  require 'conexion_VeteAsosiones.php';
+
   $nombre = isset($_POST['nombreA']) ? $_POST['nombreA'] : '';
   $ciudad = isset($_POST['ciudad']) ? $_POST['ciudad'] : '';
   $calle = isset($_POST['calle']) ? $_POST['calle'] : '';
