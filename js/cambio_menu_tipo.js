@@ -2,7 +2,7 @@ $(window).ready(actualizarMenu);
 
 function actualizarMenu() {
     var usuarioexiste = 0;
-
+    $("#oculto").hide();
     $.ajax({
         type: "POST",
         url: "./php/pruebaSesionUsuario.php",
@@ -28,6 +28,7 @@ function actualizarMenu() {
                                 $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                                 $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_asociacionveterinaria.html');
                                 $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
+                                $("#oculto").show();
                                 opciones(1);
                             }
                         }
@@ -43,6 +44,7 @@ function actualizarMenu() {
                     $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                     $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_usuario.html');
                     $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
+                    $("#oculto").show();
                     opciones(0);
                 }
             }
