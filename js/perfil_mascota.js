@@ -209,17 +209,19 @@ $("#btnCancelar").click(function (e) {
 
 function adoptar() {
     var nuevoEstatus = "Adoptado";
-    console.log(idMascota);
+    console.log(claveMascota);
     console.log("Adoptado");
     $.ajax({
         type: "post",
-        url: "php/editarMascotaEstatus.php",
+        url: "./php/editarMascotaEstatus.php",
         data: {
-            'idMascota': idMascota,
+            'idMascota': claveMascota,
             'nuevoEstatus': nuevoEstatus
         },
-        dataType: "",
+        dataType: "JSON",
         success: function (response) {
+            alert("prueba")
+            console.log(response)
             console.log("ADOPTADO");
         }
     });
