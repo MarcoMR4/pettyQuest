@@ -92,7 +92,7 @@ function llenar_datos(){
                                         $("#nombreVeteAso").val(nombreVeteAso);
                                         $("#idTipo").val(tipo);
                                         $(".foto").html(relleno);
-                                        $("idInformacion").html(informacion);
+                                        $("#idInformacion").val(informacion);
                                         console.log("Estatus: " + estatus);
                                         identificar_usuario();
                                     },
@@ -189,6 +189,7 @@ $("#btnEditar").click(function (e) {
     $("#idTamaño").prop('readonly', false).prop('disabled', false).prop('required', true);
     //$("#idUbicacion").prop('readonly', false).prop('disabled', false).prop('required', true);
     $("#idTipo").prop('readonly', false).prop('disabled', false).prop('required', true);
+    $("#idInformacion").prop('readonly', false).prop('disabled', false).prop('required', true);
 
 });
 
@@ -208,6 +209,7 @@ $("#btnCancelar").click(function (e) {
     $("#idTamaño").prop('readonly', true).prop('disabled', true).prop('required', false);
     //$("#idUbicacion").prop('readonly', true).prop('disabled', true).prop('required', false);
     $("#idTipo").prop('readonly', true).prop('disabled', true).prop('required', false);
+    $("#idInformacion").prop('readonly', true).prop('disabled', true).prop('required', false);
 });
 
 function adoptar() {

@@ -49,7 +49,7 @@ class conexion_VeteAsosiones{
         return $datajson; 
     }
 
-    function registroMascotas($idNombre,$edad,$genero,$idRaza,$tamano,$idRazaAnimal,$tmpimg,$type){
+    function registroMascotas($idNombre,$edad,$genero,$idRaza,$tamano,$idRazaAnimal,$tmpimg,$type,$informacion){
       $link = $this->conectar();
       $sql="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'pettyquest' AND   TABLE_NAME   = 'mascota'";
       $autoincrement = $link->query($sql) or die (print("Error"));
@@ -64,7 +64,7 @@ class conexion_VeteAsosiones{
       $rutaguardarphp="../".$rutarelativa;
       if(move_uploaded_file($tmpimg, $rutaguardarphp)){
         $estatusmascota="En adopcion";
-        $result = $link->query("INSERT INTO mascota (nombre,raza,foto,edad,genero,tamaño,estatus,tipoAnimal) VALUES ('$idNombre','$idRaza','$rutarelativa','$edad','$genero','$tamano','$estatusmascota','$idRazaAnimal')") or die (print("Error")); 
+        $result = $link->query("INSERT INTO mascota (nombre,raza,foto,edad,genero,tamaño,estatus,tipoAnimal,informacion) VALUES ('$idNombre','$idRaza','$rutarelativa','$edad','$genero','$tamano','$estatusmascota','$idRazaAnimal','$informacion')") or die (print("Error")); 
         $data[]=[
           'estatus' => 'registrado'
         ];
@@ -234,7 +234,7 @@ class conexion_VeteAsosiones{
       return $datajson; 
     }
 
-    function editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$tmpimg,$type){
+    function editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$tmpimg,$type, $informacion){
       $link = $this->conectar();
       $resultbus = $link->query("SELECT * FROM mascota WHERE claveMascota='$idMascota'") or die (print("Error")); 
 
@@ -248,7 +248,7 @@ class conexion_VeteAsosiones{
         $rutarelativa="img/uploaded/mascotas/".$name;
         $rutaguardarphp="../".$rutarelativa;
         if(move_uploaded_file($tmpimg, $rutaguardarphp)){
-          $result = $link->query("UPDATE mascota SET nombre='$nombre', raza='$raza', edad='$edad', genero='$genero', tamaño='$tamaño', estatus='$estatus', foto='$rutarelativa' WHERE claveMascota='$idMascota'") or die (print("Error")); 
+          $result = $link->query("UPDATE mascota SET nombre='$nombre', raza='$raza', edad='$edad', genero='$genero', tamaño='$tamaño', estatus='$estatus', foto='$rutarelativa', informacion='$informacion' WHERE claveMascota='$idMascota'") or die (print("Error")); 
         }
       }
     }

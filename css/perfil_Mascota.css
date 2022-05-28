@@ -49,3 +49,7 @@
 .btnFoto input{
     display: none;
 }
+
+#idInformacion{
+    width: 100%;
+}
