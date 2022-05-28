@@ -191,7 +191,4 @@ function EnviarMensaje(){
          cargarMensajes();
      });
  });
-else{
- alert("Esta vacio el mensaje")
-}   
 }
