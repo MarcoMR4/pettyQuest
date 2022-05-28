@@ -472,5 +472,21 @@ class conexion_VeteAsosiones{
       return $datajson;
     }
 
+    function obtenerUbicacion($idmascota,$idveterinaria){
+      $link = $this->conectar();
+      $result = $link->query("SELECT * FROM `asociacionveterinaria` WHERE `claveAsociacionVeterinaria` IN (SELECT `claveAsociacionVeterinaria` FROM `fk_mascota_asociacionveterinaria` WHERE `claveMascota` IN (SELECT `claveMascota` FROM `mascota` WHERE `claveMascota` = '$idmascota' ))") or die (print("Error")); 
+      $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+        $data[]=[
+          'nombre' => $item->nombre,
+          'ciudad' => $item->ciudad,
+          'calle' => $item->calle,
+          'numero' => $item->numero
+        ];
+      }
+      $datajson=json_encode($data);
+      return $datajson;
+    }
+
 }
 ?>

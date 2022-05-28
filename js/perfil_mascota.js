@@ -35,7 +35,6 @@ $(document).ready(function () {
                 data: "",
                 dataType: "JSON",
                 success: function (response2) {
-                    console.log(response2);
                     /* Buscamos la mascota correcta*/
                     var i = 0;
                     while (response2[i]['claveMascota'] != claveMascota) {
@@ -43,6 +42,8 @@ $(document).ready(function () {
 
                     }
                     if (claveMascota == response2[i]['claveMascota']) {
+                        var claveAsociacionVeterinaria2;
+                        //Conseguimos el ID de la veterinaria para ver si esta mascota puede ser editada por ellos
                         nombre = response2[i]['nombre'];
                         estatus = response2[i]['estatus'];
                         edad = response2[i]['edad'];
@@ -53,23 +54,42 @@ $(document).ready(function () {
                         estatus = response2[i]['estatus'];
                         tipo = response2[i]['tipo'];
                         informacion = response2[i]['informacion'];
-                        console.log("Informacion de la mascota: "+ informacion);
                         relleno = `<img src="${foto}" class="card-img-top" id="idImagen"></img>`;
-                        // Llenamos los datos de la mascota
-                        $("#idMascota").val(claveMascota);
-                        //alert(claveMascota); 
-                        $("#idNombre").val(nombre);
-                        $("#idEstatus").val(estatus);
-                        $("#idEdad").val(edad);
-                        $("#idGenero").val(genero);
-                        $("#idRaza").val(raza);
-                        $("#idTamaño").val(tamaño);
-                        $("#idUbicacion").val(ubicacion);
-                        $("#idTipo").val(tipo);
-                        $(".foto").html(relleno);
-                        $("idInformacion").html(informacion);
-                    }
+                        // Hacemos un natural Join para obtener la ubicacion de la veterinaria y el nombre
+                        $.ajax({
+                            type: "POST",
+                            url: "./php/pruebaSesionVeterinaria.php",
+                            data: "",
+                            dataType: "JSON",
+                            success: function (response2) {
+                                claveAsociacionVeterinaria2 = response2[0]['claveAsociacionVeterinaria'];
+                                datos={claveMascota,claveAsociacionVeterinaria2};
 
+                                $.ajax({
+                                    type: "POST",
+                                    url: "./php/buscarUbicacionVeteFkMas.php",
+                                    data: datos,
+                                    success: function (response) {
+                                        response=JSON.parse(response);
+                                        console.log(response);
+                                        ubicacion=response[0]["calle"]+" #"+response[0]["numero"]+", "+response[0]["ciudad"];
+                                        // Llenamos los datos de la mascota
+                                        $("#idMascota").val(claveMascota);
+                                        $("#idNombre").val(nombre);
+                                        $("#idEstatus").val(estatus);
+                                        $("#idEdad").val(edad);
+                                        $("#idGenero").val(genero);
+                                        $("#idRaza").val(raza);
+                                        $("#idTamaño").val(tamaño);
+                                        $("#idUbicacion").val(ubicacion);
+                                        $("#idTipo").val(tipo);
+                                        $(".foto").html(relleno);
+                                        $("idInformacion").html(informacion);
+                                    },
+                                });
+                            }
+                        });
+                    }
                 }
             });
         }
@@ -82,7 +102,6 @@ $(document).ready(function () {
         data: "data",
         dataType: "JSON",
         success: function (response) {
-            console.log(response[0]['tipo']);
             if (response[0]['tipo'] == "0") {
                 console.log("Es un usuario normal");
                 $("#espacio2").hide();
@@ -92,7 +111,6 @@ $(document).ready(function () {
                 $("#btnAdoptado").hide();
             }
             else {
-                console.log("Es una veterinaria");
                 var claveAsociacionVeterinaria;
                 //Conseguimos el ID de la veterinaria para ver si esta mascota puede ser editada por ellos
                 $.ajax({
@@ -110,8 +128,6 @@ $(document).ready(function () {
                     data: "",
                     dataType: "JSON",
                     success: function (response) {
-                        console.log(response);
-
                         /* Imprimimos en pantalla cada mascota encontrada*/
                         response.map(item => {
                             if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria && `${item.claveMascota}` == claveMascota) {
