@@ -17,6 +17,7 @@ $(document).ready(function () {
     $("#guiaLoguin").hide();
     $("#guiaSeguimientoAdopcion").hide();
     $("#manualProductos").hide();
+    $("#manualMascotas").hide();
     $("#1").click(function (e) {        
         e.preventDefault();
         activo = mostrar(this.value, activo);
@@ -30,6 +31,10 @@ $(document).ready(function () {
         activo = mostrar(this.value, activo);
     });
     $("#4").click(function (e) {        
+        e.preventDefault();
+        activo = mostrar(this.value, activo);
+    });
+    $("#5").click(function (e) {        
         e.preventDefault();
         activo = mostrar(this.value, activo);
     });
