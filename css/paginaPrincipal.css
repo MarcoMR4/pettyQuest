@@ -1,3 +1,28 @@
-.centrar-vertical img{
+.triangulo {
+    position: absolute;
+    width: 50.1%;
+    height: auto;
+    /* border-left: 50px solid #d9534f; */
+    border-right: 200px solid transparent;
+    border-bottom: 225px solid #ff7f00;
+    border-top: 225px solid #ff7f00;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    /* box-shadow: rgba(255, 127, 0, 0.4) 0px 5px, rgba(255, 127, 0, 0.3) 0px 10px, rgba(255, 127, 0, 0.2) 0px 15px, rgba(255, 127, 0, 0.1) 0px 20px, rgba(255, 127, 0, 0.05) 0px 25px; */
+     
+}
+
+.trianguloDerecha {
+    position: absolute;
+    margin-top: 2%;    
+    /* top: 110%; */
+    width: 50%;
+    height: auto;
+    right: 0;
+    /* border-left: 50px solid #d9534f; */
+    border-left: 200px solid transparent;
+    border-bottom: 180px solid #560000;
+    border-top: 180px solid #560000;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    /* box-shadow: rgba(255, 127, 0, 0.4) 0px 5px, rgba(255, 127, 0, 0.3) 0px 10px, rgba(255, 127, 0, 0.2) 0px 15px, rgba(255, 127, 0, 0.1) 0px 20px, rgba(255, 127, 0, 0.05) 0px 25px; */
+     
 }
