@@ -83,7 +83,7 @@ a:link {
     transform: rotate(90deg);
 }
 
-.color-letra-PiePag i{
+.color-letra-PiePag i {
     font-size: 43px;
     /* background-color: white; */
     border-radius: 50%;
@@ -96,12 +96,14 @@ a:link {
 
 .centrar-vertical {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    flex-direction: column;
 }
 
 
 .contenidos_letra {
     font-size: 20px;
+    text-align: justify;
 }
 
 .logoV {
@@ -116,7 +118,7 @@ a:link {
     padding: 20px;
 }
 
-.redes{
+.redes {
     text-align: center;
 }
 
@@ -130,11 +132,11 @@ a:link {
         transform: rotate(180deg);
     }
 
-    .redes{
+    .redes {
         text-align: left;
     }
 
-    .redes div{
+    .redes div {
         width: 50%;
     }
 }
