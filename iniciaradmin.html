@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina Principal</title>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/paginaPrincipal.css">
+</head>
+
+<body>
+
+  <!--Menu-->
+  <nav class="navbar navbar-expand-lg color-nav sticky-top navbar-light">
+    <div class="container-fluid color-text">
+      <a class="navbar-brand negritas" href="index.html">
+        <img src="img/Logo/Final.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
+        PettyQuest
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: auto;">
+          <li class="nav-item">
+            <a class="nav-link color-link-black" href="catalogo_Mascotas.html">Ver mascotas</a>
+          </li>
+          <div id="oculto" class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link color-link-black" aria-current="page" href="catalogo_Productos.html">Productos y
+                Servicios</a>
+            </li>
+          </div>
+          <li class="nav-item">
+            <a class="nav-link color-link-black" href="manualesCuidados.html">Guias</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle color-link-black" href="#" id="Cambio" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Iniciar Sesion / Registro
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Cambio">
+              <div id="agregar">
+                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion" role="button"
+                    aria-controls="InicioSesion" id="Cambio1">
+                    Iniciar Sesion
+                  </a></li>
+                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button"
+                    aria-controls="offcanvasExample" id="Cambio2">
+                    Registrar
+                  </a></li>
+              </div>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <form id="formadmin" autocomplete="off">
+          <h2 class="text-center mb-5">Administrador</h2>
+          <div class="mb-3">
+            <label class="form-label">Correo</label>
+            <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingresa tu correo">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña">
+          </div>
+          <input type="submit" class="btn btn-success" value="Ingresar"></input>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--Pie de Pagina-->
+  <div class="container-fluid PiePag navbar-fixed-bottom">
+    <div class="row color-letra-PiePag">
+      <div class="col">
+        <span>Contactanos!</span><br>
+        <span>Telefono: 443-48-90-12</span><br>
+        <span>Correo: pettyquest@gmail.com.mx</span>
+      </div>
+      <hr>
+      <div class="col">
+        <a href="#">Legales</a><br>
+        <a href="#">Terminos y condiciones</a><br>
+        <a href="#">Leyes</a>
+      </div>
+      <hr>
+      <div class="col redes">
+        <p>Siguenos!!</p>
+        <div class="d-flex justify-content-around">
+          <a href="https://www.facebook.com/"><i class='bx bxl-facebook-circle'
+              style='color:#2d77d2; background-color: white;'></i></a>
+          <a href="https://twitter.com/"><i class='bx bxl-twitter'
+              style='color:white; background-color: #55aef5;'></i></a>
+          <a href="https://instagram.com/"><i class='bx bxl-instagram'
+              style='color:white; background-color: #b326a7;'></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/cambio_menu_tipo.js"></script>
+  <script src="js/iniciaradmin.js"></script>
+</body>
+
+</html>

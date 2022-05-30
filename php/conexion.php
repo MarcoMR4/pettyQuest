@@ -64,9 +64,6 @@ class conexion{
 
     function pruebaSesion(){
         $link = $this->conectar();
-        /*$id=$_SESSION['idUsuario'];
-        $sql="SELECT * FROM USUARIO WHERE (idUsuario='".$id."')";
-        $result = $link->query($sql) or die (print("Error")) or die (print("Error"));*/
 
         if(!isset($_SESSION['idUsuario'])){
             $data[]=[
