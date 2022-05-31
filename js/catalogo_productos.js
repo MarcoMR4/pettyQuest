@@ -46,6 +46,11 @@ $(window).ready(function () {
                       </li>
                       <li class="list-group-item">${item.descripcion}</li>
                       <li class="list-group-item">Precio: $${item.precio}</li>
+                      <li class="list-group-item">Ubicacion: ${item.asociacion}<br>
+                      ${item.calle} #${item.numero}, ${item.ciudad}
+                      </li>
+                      <li class="list-group-item">Teléfono: ${item.telefono}</li>
+                      
                     </ul>
                     
                   </div>
@@ -132,6 +137,10 @@ $("#btnCancelar").click(function (e) {
                         </li>
                         <li class="list-group-item">${item.descripcion}</li>
                         <li class="list-group-item">Precio: $${item.precio}</li>
+                        <li class="list-group-item">Ubicacion: ${item.asociacion}<br>
+                      ${item.calle} #${item.numero}, ${item.ciudad}
+                      </li>
+                      <li class="list-group-item">Teléfono: ${item.telefono}</li>
                       </ul>
                       
                     </div>

@@ -216,7 +216,8 @@ class conexion_VeteAsosiones{
       $link = $this->conectar();
 
       /* Query para obtener datos */
-      $sql="SELECT * FROM producto";
+      $sql="SELECT producto.nombre, producto.idProducto, producto.descripcion, producto.precio, producto.foto, producto.precio, asociacionveterinaria.ciudad, asociacionveterinaria.calle, asociacionveterinaria.numero, asociacionveterinaria.telefono,asociacionveterinaria.nombre AS nombreAsociacion FROM producto INNER JOIN fk_producto_asociacionveterinaria ON producto.idProducto = fk_producto_asociacionveterinaria.idProducto INNER JOIN asociacionveterinaria ON fk_producto_asociacionveterinaria.claveAsociacionVeterinaria = asociacionveterinaria.claveAsociacionVeterinaria;";
+      
       $result = $link->query($sql) or die (print("Error"));
 
       /* Creacion del JSON */
@@ -227,7 +228,12 @@ class conexion_VeteAsosiones{
               'nombre' => $item->nombre,
               'descripcion' => $item->descripcion,
               'precio' => $item->precio,
-              'foto' => $item->foto
+              'foto' => $item->foto,
+              'asociacion' => $item->nombreAsociacion,              
+              'ciudad' => $item->ciudad,              
+              'calle' => $item->calle,              
+              'numero' => $item->numero,              
+              'telefono' => $item->telefono              
           ];
       }
       $datajson=json_encode($data);
