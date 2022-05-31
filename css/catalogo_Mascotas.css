@@ -74,3 +74,8 @@
     border: 1px solid rgb(0, 153, 255);
     cursor: pointer;
 }
+
+.imagenMascota{
+    height: 50%;
+    width: 100;
+}
