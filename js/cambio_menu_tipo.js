@@ -25,11 +25,35 @@ function actualizarMenu() {
                             usuarioexiste = (Object.keys(response).length);
                             if (usuarioexiste == 1) {
                                 var nombre = response[0]['nombre'] + " / " + response[0]['nombreEncargado'];
-                                $("#Cambio").html(nombre).addClass("nav-link color-link-black");
-                                $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_asociacionveterinaria.html');
-                                $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
-                                $("#oculto").show();
-                                opciones(1);
+                                var solicitudes = "";
+                                $.ajax({
+                                    type: "POST",
+                                    url: "./php/notificacion_Solicitudes.php",
+                                    data: "",
+                                    dataType: "JSON",
+                                    success: function (response) {
+                                        if(response[0]['cantidad'] == 0 ){
+                                            solicitudes+=`
+                                            <li class="nav-item">
+                                                <a class="nav-link color-link-black" href="consultar_solicitudes.html">Solicitudes de adopción</a>
+                                            </li>
+                                            `;
+                                        }
+                                        else{
+                                            solicitudes+=`
+                                            <li class="nav-item">
+                                                <a class="nav-link color-link-black" href="consultar_solicitudes.html">Solicitudes de adopción<i class='bx bxs-bell-ring bx-tada' style='color:#ff0000'  ></i></a>
+                                            </li>
+                                            `;
+                                        }
+                                        $(".menuHeader").prepend(solicitudes);
+                                        $("#Cambio").html(nombre).addClass("nav-link color-link-black");                                
+                                        $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_asociacionveterinaria.html');
+                                        $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
+                                        $("#oculto").show();
+                                        opciones(1);                                        
+                                    }
+                                });
                             }
                         }
                         else{
@@ -95,11 +119,7 @@ function opciones($usuario) {
             </a></li>
             <li><a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
                 Mensajeria
-            </a></li>
-            <li><a class="dropdown-item" href="consultar_solicitudes.html"  role="button" aria-controls="InicioSesion">
-                Solicitudes de</br>adopcion
-            </a></li>
-            
+            </a></li>            
         `;
     else
         relleno += `
@@ -107,7 +127,7 @@ function opciones($usuario) {
                 Mensajeria
             </a></li>
             <li><a class="dropdown-item" href="seguimiento_adopcion.html"  role="button" aria-controls="InicioSesion">
-                Generar nuevo </br>seguimiento de adopcion
+                Generar nuevo</br>seguimiento de adopcion
             </a></li>
         `;
     $("#agregar").append(relleno);

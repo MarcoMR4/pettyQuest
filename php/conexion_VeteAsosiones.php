@@ -486,5 +486,19 @@ class conexion_VeteAsosiones{
       return $datajson;
     }
 
+    function notificacionSolicitudes(){
+      $link = $this->conectar();
+      $id=$_SESSION['idUsuarioVeterinaria']; 
+      $result = $link->query("SELECT COUNT(claveContrato) AS existentes FROM contratoadopcion WHERE idAsociacion = '$id' AND estado = 0") or die (print("Error")); 
+      $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+        $data[]=[
+          'cantidad' => $item->existentes
+        ];
+      }
+      $datajson=json_encode($data);
+      return $datajson;
+    }
+
 }
 ?>
