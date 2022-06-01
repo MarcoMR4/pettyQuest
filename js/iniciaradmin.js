@@ -10,7 +10,7 @@ $(window).ready(function() {
             dataType: "JSON",
             success: function (response) {
               console.log(response);
-              window.location.href = "./registro_asosiacionveterinaria.html";
+              window.location.href = "./catalogo_veterinarias.html";
             },
             error: function(response){
               console.log(response);

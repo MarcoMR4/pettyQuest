@@ -69,5 +69,47 @@ class conexionadmin{
         $datajson=json_encode($data);
         return $datajson;
     }
+
+    function buscarvete(){
+        $link = $this->conectar();
+
+        /* Query para obtener datos */
+        $sql="SELECT * FROM asociacionveterinaria";
+        $result = $link->query($sql) or die (print("Error"));
+
+        $data=[];
+        while($item = $result->fetch(PDO::FETCH_OBJ)){
+            $data[]=[
+                'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
+                'nombre' => $item->nombre,
+                'ciudad' => $item->ciudad,
+                'calle' => $item->calle,
+                'numero' => $item->numero,
+                'nombreEncargado' => $item->nombreEncargado,
+                'apellidoPEncargado' => $item->apellidoPEncargado,
+                'apellidoMEncargado' => $item->apellidoMEncargado,
+                'email' => $item->email,
+                'telefono' => $item->telefono,
+                'password' => $item->password,
+            ];
+        }
+        $datajson=json_encode($data);
+        return $datajson; 
+    }
+
+    function elimiarVete($id){
+        $link = $this->conectar();
+
+        /* Query para obtener datos */
+        $sql="DELETE FROM asociacionveterinaria WHERE claveAsociacionVeterinaria = '$id'";
+        $result = $link->query($sql) or die (print("Error"));
+
+        $data=[
+            'estatus' => "eliminado"
+        ];
+
+        $datajson=json_encode($data);
+        return $datajson; 
+    }
 }
 ?>
