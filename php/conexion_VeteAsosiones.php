@@ -240,23 +240,9 @@ class conexion_VeteAsosiones{
       return $datajson; 
     }
 
-    function editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$tmpimg,$type, $informacion){
+    function editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$informacion){
       $link = $this->conectar();
-      $resultbus = $link->query("SELECT * FROM mascota WHERE claveMascota='$idMascota'") or die (print("Error")); 
-
-      $rutaimg;
-      while($item = $resultbus->fetch(PDO::FETCH_OBJ)){
-        $rutaimg = $item->foto;
-      }
-
-      if(unlink('../'.$rutaimg)) {
-        $name=$nombre.$idMascota.$type;
-        $rutarelativa="img/uploaded/mascotas/".$name;
-        $rutaguardarphp="../".$rutarelativa;
-        if(move_uploaded_file($tmpimg, $rutaguardarphp)){
-          $result = $link->query("UPDATE mascota SET nombre='$nombre', raza='$raza', edad='$edad', genero='$genero', tamaño='$tamaño', estatus='$estatus', foto='$rutarelativa', informacion='$informacion' WHERE claveMascota='$idMascota'") or die (print("Error")); 
-        }
-      }
+       $result = $link->query("UPDATE mascota SET nombre='$nombre', raza='$raza', edad='$edad', genero='$genero', tamaño='$tamaño', estatus='$estatus', informacion='$informacion' WHERE claveMascota='$idMascota'") or die (print("Error")); 
     }
 
     function editar_mascota_adoptada($idMascota,$nuevoEstatus){

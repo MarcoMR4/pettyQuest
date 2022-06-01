@@ -190,6 +190,9 @@ $("#btnEditar").click(function (e) {
     //$("#idUbicacion").prop('readonly', false).prop('disabled', false).prop('required', true);
     $("#idTipo").prop('readonly', false).prop('disabled', false).prop('required', true);
     $("#idInformacion").prop('readonly', false).prop('disabled', false).prop('required', true);
+    $("#btnFoto").hide();
+    $("#eliminar").remove();
+    
 
 });
 
@@ -253,6 +256,10 @@ $("#fotoNueva").change(function () { //Cuando el input cambie (se cargue un nuev
 
 $("#btnFoto").click(function () {
     $("#fotoNueva").click();
+});
+
+$("#btnAceptar").click(function () {
+    $("#formeditar").submit();
 });
 
 
