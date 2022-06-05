@@ -3,6 +3,7 @@ $(window).ready(actualizarMenu);
 function actualizarMenu() {
     var usuarioexiste = 0;
     $("#oculto").hide();
+    $("#oculto2").hide();
     $.ajax({
         type: "POST",
         url: "./php/pruebaSesionUsuario.php",
@@ -19,13 +20,12 @@ function actualizarMenu() {
                     data: "",
                     dataType: "JSON",
                     success: function (response) {
-                        console.log(response);
-
                         if (response[0]['estatus'] == 'SiVeterinaria') {
                             usuarioexiste = (Object.keys(response).length);
                             if (usuarioexiste == 1) {
                                 var nombre = response[0]['nombre'] + " / " + response[0]['nombreEncargado'];
                                 var solicitudes = "";
+                                console.log(response);
                                 $.ajax({
                                     type: "POST",
                                     url: "./php/notificacion_Solicitudes.php",
@@ -46,12 +46,16 @@ function actualizarMenu() {
                                             </li>
                                             `;
                                         }
+                                        console.log(response);
                                         $(".menuHeader").prepend(solicitudes);
                                         $("#Cambio").html(nombre).addClass("nav-link color-link-black");                                
                                         $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_asociacionveterinaria.html');
                                         $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                                         $("#oculto").show();
                                         opciones(1);                                        
+                                    },
+                                    error: function(response){
+                                        console.log(response);
                                     }
                                 });
                             }
@@ -68,7 +72,8 @@ function actualizarMenu() {
                                         var nombre = response[0]['nombre'] + " / " + response[0]['apellidoPaterno'];
                                         $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                                         $("#Cambio1").html("Registrar Veterinarias").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './registro_asosiacionveterinaria.html');
-                                        $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './iniciaradmin.html');
+                                        $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
+                                        $("#oculto2").show();
                                     }
                                     
                                 }
