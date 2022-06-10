@@ -23,6 +23,10 @@
     margin-left: 10px;
 } 
 
+.btn1 a{
+    font-size: x-large;
+}
+
 input[type=checkbox] {
     transform: scale(1.4);
 }

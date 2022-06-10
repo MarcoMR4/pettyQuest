@@ -76,8 +76,8 @@ function llenar_datos(){
                                     url: "./php/buscarUbicacionVeteFkMas.php",
                                     data: datos,
                                     success: function (response) {
-                                        response = JSON.parse(response);
                                         console.log(response);
+                                        response = JSON.parse(response);
                                         ubicacion = response[0]["calle"] + " #" + response[0]["numero"] + ", " + response[0]["ciudad"];
                                         nombreVeteAso = response[0]["nombre"];
                                         // Llenamos los datos de la mascota
@@ -96,12 +96,18 @@ function llenar_datos(){
                                         console.log("Estatus: " + estatus);
                                         identificar_usuario();
                                     },
+                                    error: function (response){
+                                        console.log(response);
+                                    }
                                 });
                             }
                         });
                     }
                 }
             });
+        },
+        error: function (response){
+            console.log(response);
         }
     });
 }
@@ -118,7 +124,7 @@ function identificar_usuario(){
                 console.log("Es un usuario normal");
                 $("#espacio2").hide();
                 $("#btn2").hide();
-                if (estatus == "En adopcion") {
+                if (estatus == "En adopción") {
                     $("#btn1").show();
                     $("#espacio1").show();
                 }

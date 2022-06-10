@@ -26,7 +26,7 @@ $(window).ready(function () {
                       <p class="card-text">Ubicacion: ${Ubicacion}</p>
                       <p class="card-text">Telefono: ${item.telefono}</p>
                       <p class="card-text">Correo: ${item.email}</p>
-                      <button type="button" class="btn btn-danger" id="btnEliminar" onclick="clickearVete('${item.claveAsociacionVeterinaria}')">Elimiar</button>
+                      <button type="button" class="btn btn-danger" id="btnEliminar" onclick="clickearVete('${item.claveAsociacionVeterinaria}')">Eliminar</button>
                     </div>
                   </div>
                 </div>

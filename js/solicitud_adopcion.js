@@ -18,20 +18,17 @@ $(document).ready(function() {
                     var i = 0;
                     while (response2[i]['claveMascota'] != response) {
                         i++;
-                        // console.log("Entro al while " + response2[i]['claveMascota']);
+                        
                     }
-                    if (response == response2[i]['claveMascota']) {
-                        // console.log("Lo encontre") 
-                        // console.log("ClaveMascota="+response)
-                    }
-                    
                 }
             });
+        },
+        error: function (response){
+            console.log(response);
         }
     });
     
     $('#formSol').submit(function (e) { 
-        
         e.preventDefault();
         $.ajax({
             type: "POST",
@@ -51,14 +48,16 @@ $(document).ready(function() {
                     processData: false,
                     success: function (response) {
                         console.log(response);
-                        location.href = "./catalogo_Mascotas.html";
+                        
+                        // location.href = "./catalogo_Mascotas.html";
                     },
                     error: function(response) {
                         console.log(response);
+                        
                     }
                 });
             }
         });
-
+        $("#btnEnviado").click();
     });
 });

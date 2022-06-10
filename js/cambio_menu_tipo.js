@@ -1,6 +1,7 @@
 $(window).ready(actualizarMenu);
 
 function actualizarMenu() {
+    $(".disclaimer").hide();
     var usuarioexiste = 0;
     $("#oculto").hide();
     $("#oculto2").hide();

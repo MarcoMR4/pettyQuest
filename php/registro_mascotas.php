@@ -9,7 +9,7 @@ $tamano = isset($_POST['tamano']) ? $_POST['tamano'] : '';
 $idRazaAnimal = isset($_POST['idRazaAnimal']) ? $_POST['idRazaAnimal'] : '';
 $idVacunas = isset($_POST['idVacunas']) ? $_POST['idVacunas'] : '';
 $idEnfermedad = isset($_POST['idEnfermedad']) ? $_POST['idEnfermedad'] : '';
-$informacion = "Vacunas: ".$idVacunas."<br>Enfermedad/Discapacidad: ".$idEnfermedad;
+$informacion = "Vacunas: ".$idVacunas."\nEnfermedad/Discapacidad: ".$idEnfermedad;
 
 $tmpimg=$_FILES['foto']['tmp_name'];
 $type=$_FILES['foto']['type'];

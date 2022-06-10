@@ -4,6 +4,6 @@
         session_start();
         $_SESSION['claveMascota'] = $claveMascota;
         
-        Header("location: http://localhost/pettyQuest/perfil_Mascota.html");
+        Header("location: ../perfil_Mascota.html");
 
     ?>

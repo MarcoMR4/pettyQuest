@@ -14,5 +14,5 @@ $informacion = isset($_POST['idInformacion']) ? $_POST['idInformacion'] : '';
 
   $nuevacon= new conexion_VeteAsosiones(); 
   $respuestajson=$nuevacon->editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$ubicacion,$informacion);
-  Header("location: http://localhost/pettyQuest/perfil_Mascota.html");
+  Header("location: ../perfil_Mascota.html");
 ?>

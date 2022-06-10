@@ -40,13 +40,14 @@ $(window).ready(function () {
             processData: false,
             success: function (response) {
                 console.log(response);
+                // location.reload();
                 
             },
             error: function(response) {
                 console.log(response);
             }
         });
-        location.reload();
+        $("#btnEnviado").click();
     });
 
 });

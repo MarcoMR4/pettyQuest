@@ -6,6 +6,7 @@ $password = isset($_POST['password']) ? $_POST['password'] : '';
 
 $nuevacon= new conexion();
 $respuestajson=$nuevacon->login($email,$password);
+
 echo($respuestajson);
 
 ?>

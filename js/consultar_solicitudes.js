@@ -67,7 +67,7 @@ $(document).ready(function () {
                               <hr>
                               <div class="edad row mt-3">
                                 <div class="campo col-sm-5">
-                                  <p>Edad:</p>
+                                  <p>Fecha de nacimiento:</p>
                                 </div>
                                 <div class="edad-Solicitante col-sm-7">
                                   <p>${response2[0]['edad']}</p>

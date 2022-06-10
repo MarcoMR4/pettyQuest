@@ -4,9 +4,9 @@ session_start();
 
 class conexionadmin{
     private $server = 'localhost';
-    private $username = 'root';
-    private $password = '';
-    private $database = 'pettyquest';
+    private $username = 'id19026854_usuario_ingeniero';
+    private $password = '#PettyQuest123';
+    private $database = 'id19026854_pettyquest';
     private $link;
     private $conn;
 

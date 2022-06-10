@@ -205,6 +205,26 @@
   </form>
   </div>
 
+    <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnEnviado"
+    style="display:none"></button>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Se ha enviado el seguimiento con exito.</h5>
+          <a href="mensajeria.html"><button type="button" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button></a>
+        </div>
+        <div class="modal-footer">
+          <a href="mensajeria.html"><button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+              id="btnCerrarModal">Aceptar</button></a>
+        </div>
+      </div>
+    </div>
+  </div>  
+
   <!-- Chatbox Soporte -->
   <df-messenger intent="WELCOME" chat-title="Soporte" agent-id="41c2eaf9-c8c0-4058-b57b-62fb4da722ca" language-code="es"
     chat-icon="img/logo/final.png"></df-messenger>
@@ -238,7 +258,8 @@
     </div>
   </div>
 
-
+    
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"

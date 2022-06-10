@@ -75,7 +75,7 @@ function buscarProductosPorNombre() {
     type: "post",
     url: "php/buscarProducto.php",
     data: {
-      buscar: nombre
+      'buscar': nombre
     },
     dataType: "JSON",
     success: function (response) {

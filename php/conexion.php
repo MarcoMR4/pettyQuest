@@ -4,9 +4,9 @@ session_start();
 
 class conexion{
     private $server = 'localhost';
-    private $username = 'root';
-    private $password = '';
-    private $database = 'pettyquest';
+    private $username = 'id19026854_usuario_ingeniero';
+    private $password = '#PettyQuest123';
+    private $database = 'id19026854_pettyquest';
     private $link;
     private $conn;
 
@@ -23,9 +23,8 @@ class conexion{
         $link = $this->conectar();
 
         /* Query para obtener datos */
-        $sql="SELECT * FROM USUARIO WHERE (email='".$email."') AND (password='".$password."')";
+        $sql="SELECT * FROM usuario WHERE (email='".$email."') AND (password='".$password."')";
         $result = $link->query($sql) or die (print("Error"));
-
         /* Creacion del JSON */
         $data=[];
         while($item = $result->fetch(PDO::FETCH_OBJ)){
@@ -72,8 +71,8 @@ class conexion{
         }
         else{
             $id=$_SESSION['idUsuario'];
-            $sql="SELECT * FROM USUARIO WHERE (idUsuario='".$id."')";
-            $result = $link->query($sql) or die (print("Error")) or die (print("Error"));
+            $sql="SELECT * FROM usuario WHERE idUsuario='".$id."'";
+            $result = $link->query($sql) or die (print("Error"));
             $data=[];
             while($item = $result->fetch(PDO::FETCH_OBJ)){
                 $data[]=[
@@ -114,7 +113,7 @@ class conexion{
     {
         $link = $this->conectar();
         $id = $_SESSION['idUsuario'];
-        $sql = "SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $id . " AND `claveDestinatario` = " . $destinatario . ") UNION SELECT * FROM `mensajes` WHERE (`claveRemitente` = " . $destinatario . " AND `claveDestinatario` = " . $id . ") ORDER BY claveMensaje ASC";
+        $sql = "SELECT * FROM mensajes WHERE (claveRemitente = " . $id . " AND claveDestinatario = " . $destinatario . ") UNION SELECT * FROM mensajes WHERE (claveRemitente = " . $destinatario . " AND claveDestinatario = " . $id . ") ORDER BY claveMensaje ASC";
         $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
         $data = [];
         while ($item = $result->fetch(PDO::FETCH_OBJ)) {            
@@ -166,38 +165,38 @@ class conexion{
     function nuevoSeguimiento($claveMascota,$fecha,$comentarios,$tmpimg,$type,$tmpimg2,$type2){
         $link = $this->conectar();
         $id = $_SESSION['idUsuario'];
-        $sql="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'pettyquest' AND   TABLE_NAME   = 'mensajes'";
-        $autoincrement = $link->query($sql) or die (print("Error"));
+        $sql="SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'id19026854_pettyquest' AND   TABLE_NAME = 'mensajes'";
+        $autoincrement = $link->query($sql) or die (print("Error0"));
         $idMensaje = "";
         while($item = $autoincrement->fetch(PDO::FETCH_OBJ)){
             $idMensaje=$item->AUTO_INCREMENT;
         }
         $name="cartilla".$idMensaje.$claveMascota.$type;
-        $rutarelativa="img/uploaded/seguimiento/".$name;
+        $rutarelativa="img/uploaded/seguimientos/".$name;
         $rutaguardarphp="../".$rutarelativa;
         if(move_uploaded_file($tmpimg, $rutaguardarphp)){
             $name="mascota".$idMensaje.$claveMascota.$type2;
-            $rutarelativa2="img/uploaded/seguimiento/".$name;
+            $rutarelativa2="img/uploaded/seguimientos/".$name;
             $rutaguardarphp="../".$rutarelativa2;
             if(move_uploaded_file($tmpimg2, $rutaguardarphp)){
-                $result = $link->query("SELECT `claveAsociacionVeterinaria` FROM fk_mascota_asociacionveterinaria WHERE `claveMascota` =$claveMascota")or die (print("Error"));
+                $result = $link->query("SELECT claveAsociacionVeterinaria FROM fk_mascota_asociacionveterinaria WHERE claveMascota ='$claveMascota'") or die (print("Error1"));
                 $data = [];
                 while ($item = $result->fetch(PDO::FETCH_OBJ)) {
                     $data[] = [
-                        'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,                  
+                        'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria                  
                     ];
                 }
                 $claveAsociacion = $data[0]['claveAsociacionVeterinaria'];
-                $result = $link->query("SELECT `nombre` FROM mascota WHERE `claveMascota` =$claveMascota")or die (print("Error"));
+                $result = $link->query("SELECT nombre FROM mascota WHERE claveMascota ='$claveMascota'") or die (print("Error2"));
                 $data = [];
                 while ($item = $result->fetch(PDO::FETCH_OBJ)) {
                     $data[] = [
-                        'nombre' => $item->nombre,                  
+                        'nombre' => $item->nombre                  
                     ];
                 }
                 $nombreMascota = $data[0]['nombre'];
                 $comentarios = "Seguimiento mensual para ".$nombreMascota.": ".$comentarios;
-                $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario, cartilla, mascota) VALUES ('$comentarios','$id','$claveAsociacion',0,'$rutarelativa','$rutarelativa2')")or die (print("Error"));                                
+                $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario, cartilla, mascota) VALUES ('$comentarios','$id','$claveAsociacion',0,'$rutarelativa','$rutarelativa2')") or die (print("Error3"));                                
             }
         }    
         $data[]=[
@@ -211,8 +210,8 @@ class conexion{
     function nuevaSolicitud($fecha,$razones, $claveMascota,$tmpimg,$type,$tmpimg2,$type2){
         $link = $this->conectar();
         $id = $_SESSION['idUsuario'];
-        $sql="SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'pettyquest' AND   TABLE_NAME   = 'contratoadopcion'";
-        $autoincrement = $link->query($sql) or die (print("Error"));
+        $sql="SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'id19026854_pettyquest' AND   TABLE_NAME   = 'contratoadopcion'";
+        $autoincrement = $link->query($sql) or die (print("Error10"));
         $idSolicitud = "";
         while($item = $autoincrement->fetch(PDO::FETCH_OBJ)){
             $idSolicitud=$item->AUTO_INCREMENT;
@@ -226,27 +225,27 @@ class conexion{
             $rutaguardarphp="../".$rutarelativa2;
             if(move_uploaded_file($tmpimg2, $rutaguardarphp)){
                 
-                $result = $link->query("SELECT `claveAsociacionVeterinaria` FROM fk_mascota_asociacionveterinaria WHERE `claveMascota` =$claveMascota")or die (print("Error"));
+                $result = $link->query("SELECT claveAsociacionVeterinaria FROM fk_mascota_asociacionveterinaria WHERE claveMascota =$claveMascota") or die (print("Error0"));
                 $data = [];
                 while ($item = $result->fetch(PDO::FETCH_OBJ)) {
                     $data[] = [
-                        'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,                  
+                        'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria                  
                     ];
                 }
                 $claveAsociacion = $data[0]['claveAsociacionVeterinaria'];
-                echo("Fecha:".$fecha
-                   ." Razones:".$razones
-                   ." ClaveMascota:".$claveMascota
-                   ." ClaveUsuario".$id
-                   ." ruta1:".$rutarelativa
-                   ." ruta2:".$rutarelativa2
-                   ." Asociacion:".$data[0]['claveAsociacionVeterinaria']
-                   );
+                // echo("Fecha:".$fecha
+                //   ." Razones:".$razones
+                //   ." ClaveMascota:".$claveMascota
+                //   ." ClaveUsuario".$id
+                //   ." ruta1:".$rutarelativa
+                //   ." ruta2:".$rutarelativa2
+                //   ." Asociacion:".$data[0]['claveAsociacionVeterinaria']
+                //   );
                 
                 // echo("ClaveAsociacion = ".$claveAsociacion);
-                $link->query("INSERT INTO contratoadopcion (comprobanteDomicilio, fecha, idUsuario, idMascota, idAsociacion, ine, razones) VALUES ('$rutarelativa','$fecha','$id','$claveMascota','$claveAsociacion','$rutarelativa2','$razones')")or die (print("Error"));
-                $link->query("INSERT INTO fk_contrato_asociacionveterinaria (claveContrato,claveAsociacionVeterinaria) VALUES ('$idSolicitud', '$claveAsociacion')")or die (print("Error"));                                
-                $link->query("INSERT INTO fk_contrato_mascota (claveContrato,claveMascota) VALUES ('$idSolicitud', '$claveMascota')")or die (print("Error"));                                
+                $link->query("INSERT INTO contratoadopcion (comprobanteDomicilio, fecha, idUsuario, idMascota, idAsociacion, ine, razones, estado) VALUES ('$rutarelativa','$fecha','$id','$claveMascota','$claveAsociacion','$rutarelativa2','$razones', 0)") or die (print("Error1"));
+                $link->query("INSERT INTO fk_contrato_asociacionveterinaria (claveContrato,claveAsociacionVeterinaria) VALUES ('$idSolicitud', '$claveAsociacion')") or die (print("Error2"));                                
+                $link->query("INSERT INTO fk_contrato_mascota (claveContrato,claveMascota) VALUES ('$idSolicitud', '$claveMascota')") or die (print("Error3"));                                
             }
         }
         

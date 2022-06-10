@@ -9,5 +9,5 @@ $precio = isset($_POST['precio']) ? $_POST['precio'] : '';
 $nuevacon= new conexion_VeteAsosiones();
 $respuestajson=$nuevacon->editar_producto($idProducto ,$descripcion,$nombre,$precio);
 
-Header("location: http://localhost/pettyQuest/catalogo_Productos.html");
+Header("location: ../catalogo_Productos.html");
 ?>

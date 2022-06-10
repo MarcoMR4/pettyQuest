@@ -251,7 +251,7 @@ $("#selectFiltro").change(function (e) {
   else if ($("#selectFiltro").val() == "estatus") {
     var opciones = `
     <option selected value="0">Cualquier estado</option>
-    <option value="En adopcion">En adopcion</option>
+    <option value="En adopcion">En adopción</option>
     <option value="En proceso">En proceso</option>
     <option value="Adoptado">Adoptado</option>
     `;
