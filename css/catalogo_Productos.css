@@ -1,4 +1,4 @@
-.contenido {
+.contenido {  
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -15,7 +15,6 @@
     text-align: center;
     border: 2px solid rgb(146, 143, 143); 
     background-color: #b1b4b4;
-    
 }
 
 .produc h5 {
@@ -28,9 +27,6 @@
     width: 17rem;
 }
 
-.produc img:hover {
-    border: 2px solid rgb(62, 20, 211);
-}
 
 .cardsRenglon {
     display: flex;
@@ -38,13 +34,10 @@
     align-content: center;
 }
 
-.info{
-    margin-left: 1rem;
-    justify-content: left;
-    text-align: left;
-    margin-right: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+.nombre{
+    text-align: center;
+    background-color: #FFFFFF;
+    color: rgb(0, 0, 0); 
 }
 
 .barra{
@@ -62,18 +55,16 @@
 }
 
 .separar{
-    padding: 10px 5px !important;
+    padding: 10px 10px !important;
 }
 
 .card{
     height: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 0px;
     box-shadow: 5px 5px 5px 0 grey;
 }
 
-.card img {
-    width: 100%;
-    height: 20rem;
-}
 
 .imagenMascota{
     height: 50%;

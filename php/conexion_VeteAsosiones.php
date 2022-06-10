@@ -4,8 +4,8 @@ session_start();
 
 class conexion_VeteAsosiones{
     private $server = 'localhost';
-    private $username = 'id19026854_usuario_ingeniero';
-    private $password = '#PettyQuest123';
+    private $username = 'root';
+    private $password = '';
     private $database = 'id19026854_pettyquest';
     private $link;
     private $conn;
@@ -443,6 +443,20 @@ class conexion_VeteAsosiones{
       $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario) VALUES ('Tu solicitud para adoptar ha sido aprobada, en breve nos comunicaremos con usted.','$id','$claveUsuario', 1)") or die (print("Error")); 
       $data[]=[
         "estatus" => "aceptado"
+      ];   
+      $datajson=json_encode($data);
+      return $datajson;
+    }
+
+    function procesando_solicitud($claveContrato, $claveUsuario, $claveMascota)
+    {
+      $link = $this->conectar();     
+      $id=$_SESSION['idUsuarioVeterinaria']; 
+      $link->query("UPDATE contratoadopcion SET estado = 3 WHERE claveContrato = '$claveContrato'") or die (print("Error")); 
+      $link->query("UPDATE mascota SET estatus = 'En proceso' WHERE claveMascota = '$claveMascota'") or die (print("Error")); 
+      $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario) VALUES ('Tu solicitud para adoptar esta siendo procesada, cuando el proceso termine nos comunicaremos con usted.','$id','$claveUsuario', 1)") or die (print("Error")); 
+      $data[]=[
+        "estatus" => "en proceso"
       ];   
       $datajson=json_encode($data);
       return $datajson;

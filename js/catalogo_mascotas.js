@@ -248,6 +248,17 @@ $("#selectFiltro").change(function (e) {
     $("#selectOpcionFiltro").html(opciones);
     $("#btnCancelar").show();
   }
+  else if ($("#selectFiltro").val() == "tipoAnimal") {
+    var opciones = `
+    <option selected value="0">Cualquier raza</option>
+    <option value="Perro">Perro</option>
+    <option value="Gato">Gato</option>
+    <option value="Otro">Otro</option>
+    `;
+    $("#selectOpcionFiltro").prop('disabled', false);
+    $("#selectOpcionFiltro").html(opciones);
+    $("#btnCancelar").show();
+  }
   else if ($("#selectFiltro").val() == "estatus") {
     var opciones = `
     <option selected value="0">Cualquier estado</option>

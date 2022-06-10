@@ -11,6 +11,19 @@ function aceptarSolicitud($claveContrato,$claveUsuario,$claveMascota) {
   });
 }
 
+function procesandoSolicitud($claveContrato,$claveUsuario,$claveMascota) {
+  $.ajax({
+    type: "POST",
+    url: "./php/procesando_solicitud.php",
+    data: { "claveContrato": $claveContrato, "claveUsuario": $claveUsuario, "claveMascota": $claveMascota },
+    dataType: "text",
+    success: function (response) {
+      console.log(response);
+      document.location.reload(true);
+    }
+  });
+}
+
 function rechazarSolicitud($claveContrato,$claveUsuario) {
   $.ajax({
     type: "POST",
@@ -50,7 +63,7 @@ $(document).ready(function () {
               // console.log(response2)        
               response2 = JSON.parse(response2);
               contenido += `
-                          <div class="solicitud mx-auto shadow-lg p-1" id="${item.claveContrato}">
+                          <div class="solicitud mx-auto shadow-lg p-1 mb-3" id="${item.claveContrato}">
                           <div class="nombreSolicitante text-center">
                             <h2>${response2[0]['nombre']}</h2>
                           </div>
@@ -144,8 +157,12 @@ $(document).ready(function () {
                                 </div>
                               </div>
                               <div class="card-footer bg-secondary botones">
-                                <button type="button" class="btn btn-danger rechazar" value="${item.claveContrato}" onclick="rechazarSolicitud(this.value,${item.idUsuario})">Rechazar</button>
+                              <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-success aceptar" value="${item.claveContrato}" onclick="aceptarSolicitud(this.value,${item.idUsuario},${item.idMascota})">Aceptar</button>
+                                <button type="button" class="btn btn-primary aceptar" value="${item.claveContrato}" onclick="procesandoSolicitud(this.value,${item.idUsuario},${item.idMascota})">En proseso</button>
+                                <button type="button" class="btn btn-danger rechazar" value="${item.claveContrato}" onclick="rechazarSolicitud(this.value,${item.idUsuario})">Rechazar</button>                             
+                              </div>
+                                
                               </div>
                             </div>
                           </div>
