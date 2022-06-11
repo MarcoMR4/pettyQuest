@@ -291,5 +291,19 @@ class conexion{
         $datajson=json_encode($data);
         return $datajson; 
     }
+
+    function notificarMensajes(){
+        $link = $this->conectar();
+        $id = $_SESSION['idUsuario'];
+        $result = $link->query("SELECT COUNT(claveMensaje) AS sinLeer FROM mensajes WHERE claveDestinatario = '$id' AND visto = 0 AND usuario = 1") or die (print("Error")); 
+        while ($item = $result->fetch(PDO::FETCH_OBJ)) {            
+            $data[] = [
+                'sinLeer' => $item->sinLeer
+            ];
+        }
+        /* Si regresa algo*/
+        $datajson=json_encode($data);
+        return $datajson; 
+    }
 }
 ?>

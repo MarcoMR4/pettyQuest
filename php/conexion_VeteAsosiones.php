@@ -390,7 +390,7 @@ class conexion_VeteAsosiones{
     {
       $link = $this->conectar();
       $id=$_SESSION['idUsuarioVeterinaria'];
-      $result = $link->query("SELECT * FROM contratoadopcion NATURAL JOIN mascota WHERE idAsociacion = '$id' AND contratoadopcion.idMascota = mascota.claveMascota AND contratoadopcion.estado = 0") or die (print("Error")); 
+      $result = $link->query("SELECT * FROM contratoadopcion NATURAL JOIN mascota WHERE idAsociacion = '$id' AND contratoadopcion.idMascota = mascota.claveMascota AND (contratoadopcion.estado = 0 OR contratoadopcion.estado = 3)") or die (print("Error")); 
       $data=[];
       while($item = $result->fetch(PDO::FETCH_OBJ)){
         $data[]=[
@@ -494,7 +494,7 @@ class conexion_VeteAsosiones{
     function notificacionSolicitudes(){
       $link = $this->conectar();
       $id=$_SESSION['idUsuarioVeterinaria']; 
-      $result = $link->query("SELECT COUNT(claveContrato) AS existentes FROM contratoadopcion WHERE idAsociacion = '$id' AND estado = 0") or die (print("Error")); 
+      $result = $link->query("SELECT COUNT(claveContrato) AS existentes FROM contratoadopcion WHERE idAsociacion = '$id' AND (estado = 0 OR estado = 3)") or die (print("Error")); 
       $data=[];
       while($item = $result->fetch(PDO::FETCH_OBJ)){
         $data[]=[
@@ -504,6 +504,20 @@ class conexion_VeteAsosiones{
       $datajson=json_encode($data);
       return $datajson;
     }
+
+    function notificarMensajes(){
+      $link = $this->conectar();
+      $id=$_SESSION['idUsuarioVeterinaria']; 
+      $result = $link->query("SELECT COUNT(claveMensaje) AS sinLeer FROM mensajes WHERE claveDestinatario = '$id' AND visto = 0 AND usuario = 0") or die (print("Error")); 
+      while ($item = $result->fetch(PDO::FETCH_OBJ)) {            
+          $data[] = [
+              'sinLeer' => $item->sinLeer
+          ];
+      }
+      /* Si regresa algo*/
+      $datajson=json_encode($data);
+      return $datajson; 
+  }
 
 }
 ?>

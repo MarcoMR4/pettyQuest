@@ -127,32 +127,84 @@ function cerrarSesion() {
 
 function opciones($usuario) {
     var relleno = "";
-    if ($usuario == 1)
-        relleno += `
-           <a class="dropdown-item" href="registro_mascotas.html"  role="button" aria-controls="InicioSesion">
-                Registar mascota
-            </a>
-            <a class="dropdown-item" href="registro_productos.html"  role="button" aria-controls="InicioSesion">
-                Registar producto
-            </a>
-            <a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
-                Mensajeria
-            </a>          
-            <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
-            Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#ff0000; font-size:20px;' ></i>
-            </a>             
-        `;
-    else
-        relleno += `
-           <a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
-                Mensajeria
-            </a>
-            <a class="dropdown-item" href="seguimiento_adopcion.html"  role="button" aria-controls="InicioSesion">
-                Generar nuevo</br>seguimiento de<br>adopción
-            </a>
-            <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
-            Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#ff0000; font-size:20px;' ></i>
-            </a>    
-        `;
+    if ($usuario == 1) {
+        $.ajax({
+            type: "POST",
+            url: "./php/notificacion_Mensajes_Vete.php",
+            data: "",
+            dataType: "JSON",
+            success: function (response) {
+                if (response[0]['sinLeer'] == 0)
+                    relleno += `
+                    <a class="dropdown-item" href="registro_mascotas.html"  role="button" aria-controls="InicioSesion">
+                            Registar mascota
+                        </a>
+                        <a class="dropdown-item" href="registro_productos.html"  role="button" aria-controls="InicioSesion">
+                            Registar producto
+                        </a>
+                        <a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
+                            Mensajeria
+                        </a>          
+                        <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
+                        Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>
+                        </a>             
+                    `;
+                else
+                    relleno += `
+                        <a class="dropdown-item" href="registro_mascotas.html"  role="button" aria-controls="InicioSesion">
+                                Registar mascota
+                            </a>
+                            <a class="dropdown-item" href="registro_productos.html"  role="button" aria-controls="InicioSesion">
+                                Registar producto
+                            </a>
+                            <a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
+                                Mensajeria  <i class='bx bxs-message-alt-error bx-tada' style='color:#ff0000' ></i>
+                            </a>          
+                            <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
+                            Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>
+                            </a>             
+                        `;
+                $("#agregar").append(relleno);
+            }
+        });
+    }
+    else {
+        $.ajax({
+            type: "POST",
+            url: "./php/notificacion_Mensajes.php",
+            data: "",
+            dataType: "JSON",
+            success: function (response) {
+                if (response[0]['sinLeer'] == 0)
+                    relleno += `
+                    <a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
+                            Mensajeria  
+                        </a>
+                        <a class="dropdown-item" href="seguimiento_adopcion.html"  role="button" aria-controls="InicioSesion">
+                            Generar nuevo</br>seguimiento de<br>adopción
+                        </a>
+                        <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
+                        Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>
+                        </a>    
+                    `;
+                else
+                    relleno += `
+                    <a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
+                            Mensajeria  <i class='bx bxs-message-alt-error bx-tada' style='color:#ff0000' ></i>
+                        </a>
+                        <a class="dropdown-item" href="seguimiento_adopcion.html"  role="button" aria-controls="InicioSesion">
+                            Generar nuevo</br>seguimiento de<br>adopción
+                        </a>
+                        <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
+                        Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>
+                        </a>    
+                    `;
+                $("#agregar").append(relleno);
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        });
+    }
     $("#agregar").append(relleno);
 }
