@@ -117,10 +117,10 @@ function cargarContactos() {
                         <button type="button" class="btnContacto" id="${item.claveAsociacionVeterinaria}" value="${item.claveAsociacionVeterinaria}" onclick="botonClick(this.value)">
                             <div class="contacto">
                             <div class="imagenPerfil">
-                                <i class='bx bxs-user-circle'></i>
+                                <p>5</p>
                             </div>
                             <div class="nombrePerfil">
-                                <p>${item.nombre}</p>
+                                <p>${item.nombre}</p>                                
                             </div>
                             </div>
                         </button>
@@ -133,7 +133,7 @@ function cargarContactos() {
                         <button type="button" class="btnContacto" id="${item.idUsuario}" value="${item.idUsuario}" onclick="botonClick(this.value)">
                             <div class="contacto">
                             <div class="imagenPerfil">
-                                <i class='bx bxs-user-circle'></i>
+                                <p>5</p>
                             </div>
                             <div class="nombrePerfil">
                                 <p>${item.nombre}</p>

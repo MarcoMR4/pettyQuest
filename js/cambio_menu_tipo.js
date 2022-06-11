@@ -205,6 +205,5 @@ function opciones($usuario) {
                 console.log(response)
             }
         });
-    }
-    $("#agregar").append(relleno);
+    }    
 }
