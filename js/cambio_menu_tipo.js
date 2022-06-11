@@ -33,15 +33,15 @@ function actualizarMenu() {
                                     data: "",
                                     dataType: "JSON",
                                     success: function (response) {
-                                        if(response[0]['cantidad'] == 0 ){
-                                            solicitudes+=`
+                                        if (response[0]['cantidad'] == 0) {
+                                            solicitudes += `
                                             <li class="nav-item">
                                                 <a class="nav-link color-link-black" href="consultar_solicitudes.html">Solicitudes de adopción</a>
                                             </li>
                                             `;
                                         }
-                                        else{
-                                            solicitudes+=`
+                                        else {
+                                            solicitudes += `
                                             <li class="nav-item">
                                                 <a class="nav-link color-link-black" href="consultar_solicitudes.html">Solicitudes de adopción<i class='bx bxs-bell-ring bx-tada' style='color:#ff0000'  ></i></a>
                                             </li>
@@ -49,19 +49,19 @@ function actualizarMenu() {
                                         }
                                         console.log(response);
                                         $(".menuHeader").prepend(solicitudes);
-                                        $("#Cambio").html(nombre).addClass("nav-link color-link-black");                                
+                                        $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                                         $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_asociacionveterinaria.html');
                                         $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                                         $("#oculto").show();
-                                        opciones(1);                                        
+                                        opciones(1);
                                     },
-                                    error: function(response){
+                                    error: function (response) {
                                         console.log(response);
                                     }
                                 });
                             }
                         }
-                        else{
+                        else {
                             $.ajax({
                                 type: "POST",
                                 url: "./php/pruebaSesionadmin.php",
@@ -69,14 +69,14 @@ function actualizarMenu() {
                                 dataType: "JSON",
                                 success: function (response) {
                                     console.log(response);
-                                    if(response[0]['estatus'] == 'SiAdmin'){
+                                    if (response[0]['estatus'] == 'SiAdmin') {
                                         var nombre = response[0]['nombre'] + " / " + response[0]['apellidoPaterno'];
                                         $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                                         $("#Cambio1").html("Registrar Veterinarias").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './registro_asosiacionveterinaria.html');
                                         $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                                         $("#oculto2").show();
                                     }
-                                    
+
                                 }
                             });
                         }
@@ -113,28 +113,46 @@ function actualizarMenu() {
     });
 }
 
+function cerrarSesion() {
+    $.ajax({
+        type: "POST",
+        url: "./php/cerrarSesionUsuario.php",
+        data: "",
+        dataType: "JSON",
+        success: function (response) {
+            window.location.replace("index.html");
+        }
+    });
+}
+
 function opciones($usuario) {
     var relleno = "";
     if ($usuario == 1)
         relleno += `
-           <li><a class="dropdown-item" href="registro_mascotas.html"  role="button" aria-controls="InicioSesion">
+           <a class="dropdown-item" href="registro_mascotas.html"  role="button" aria-controls="InicioSesion">
                 Registar mascota
-            </a></li>
-            <li><a class="dropdown-item" href="registro_productos.html"  role="button" aria-controls="InicioSesion">
+            </a>
+            <a class="dropdown-item" href="registro_productos.html"  role="button" aria-controls="InicioSesion">
                 Registar producto
-            </a></li>
-            <li><a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
+            </a>
+            <a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
                 Mensajeria
-            </a></li>            
+            </a>          
+            <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
+            Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#ff0000; font-size:20px;' ></i>
+            </a>             
         `;
     else
         relleno += `
-           <li><a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
+           <a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
                 Mensajeria
-            </a></li>
-            <li><a class="dropdown-item" href="seguimiento_adopcion.html"  role="button" aria-controls="InicioSesion">
-                Generar nuevo</br>seguimiento de adopcion
-            </a></li>
+            </a>
+            <a class="dropdown-item" href="seguimiento_adopcion.html"  role="button" aria-controls="InicioSesion">
+                Generar nuevo</br>seguimiento de<br>adopción
+            </a>
+            <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
+            Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#ff0000; font-size:20px;' ></i>
+            </a>    
         `;
     $("#agregar").append(relleno);
 }
