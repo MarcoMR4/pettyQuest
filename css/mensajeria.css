@@ -44,16 +44,25 @@
     height: 60px;
     background-color: white;
     border-radius: 50%;
-    border: 1px solid red;
+    border: 2px solid white;
     margin-left: 0;
 }
 
-.imagenPerfil p{
+#mensajeSinLeer{
     margin: 0;
     color: red;
     font-weight: bold;
     font-size: 20px;
 }
+
+#sinMensajes{
+    margin: 0;
+    color: red;
+    font-weight: bold;
+    font-size: 5px;
+}
+
+
 
 .imagenPerfil i{
     font-size: 60px;    

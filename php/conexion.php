@@ -305,5 +305,19 @@ class conexion{
         $datajson=json_encode($data);
         return $datajson; 
     }
+
+    function totalMensajesContacto($contacto){
+        $link = $this->conectar();
+        $id = $_SESSION['idUsuario'];
+        $result = $link->query("SELECT COUNT(claveDestinatario) AS totalMensajes FROM usuario NATURAL JOIN mensajes WHERE (idUsuario = '$id' AND claveDestinatario = '$id' AND claveRemitente = '$contacto' AND usuario = 1 AND visto = 0);") or die (print("Error")); 
+        while ($item = $result->fetch(PDO::FETCH_OBJ)) {            
+            $data[] = [
+                'totalMensajes' => $item->totalMensajes
+            ];
+        }
+        /* Si regresa algo*/
+        $datajson=json_encode($data);
+        return $datajson; 
+    }
 }
 ?>

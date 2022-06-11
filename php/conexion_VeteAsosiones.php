@@ -519,5 +519,19 @@ class conexion_VeteAsosiones{
       return $datajson; 
   }
 
+  function totalMensajesContacto($contacto){
+    $link = $this->conectar();
+    $id=$_SESSION['idUsuarioVeterinaria']; 
+    $result = $link->query("SELECT COUNT(claveDestinatario) AS totalMensajes FROM asociacionveterinaria NATURAL JOIN mensajes WHERE (claveAsociacionVeterinaria = '$id' AND claveDestinatario = '$id' AND claveRemitente = '$contacto' AND usuario = 0 AND visto = 0);") or die (print("Error")); 
+    while ($item = $result->fetch(PDO::FETCH_OBJ)) {            
+        $data[] = [
+            'totalMensajes' => $item->totalMensajes
+        ];
+    }
+    /* Si regresa algo*/
+    $datajson=json_encode($data);
+    return $datajson; 
+}
+
 }
 ?>

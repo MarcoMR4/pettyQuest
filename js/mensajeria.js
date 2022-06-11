@@ -110,37 +110,101 @@ function cargarContactos() {
         $.post("./php/cargarContactos.php", { tipo }, function (data) {
             data = JSON.parse(data);
             var relleno = "";
+            // Cargar contactos para usuario
             if (tipo == "0") {
-                // console.log("prueba")              
+
                 data.map(item => {
-                    relleno += `
-                        <button type="button" class="btnContacto" id="${item.claveAsociacionVeterinaria}" value="${item.claveAsociacionVeterinaria}" onclick="botonClick(this.value)">
-                            <div class="contacto">
-                            <div class="imagenPerfil">
-                                <p>5</p>
-                            </div>
-                            <div class="nombrePerfil">
-                                <p>${item.nombre}</p>                                
-                            </div>
-                            </div>
-                        </button>
-                    `;
+
+                    $.ajax({
+                        type: "POST",
+                        url: "./php/notificacion_Mensajes_Contacto.php",
+                        data: { 'contacto': item.claveAsociacionVeterinaria },
+                        dataType: "JSON",
+                        success: function (response) {
+                            console.log(response)
+                            // Hay mensajes sin leer
+                            if (response[0]['totalMensajes'] != 0)
+                                relleno += `
+                                    <button type="button" class="btnContacto" id="${item.claveAsociacionVeterinaria}" value="${item.claveAsociacionVeterinaria}" onclick="botonClick(this.value)">
+                                        <div class="contacto">
+                                        <div class="imagenPerfil">
+                                            <p id="mensajeSinLeer">${response[0]['totalMensajes']}</p>
+                                        </div>
+                                        <div class="nombrePerfil">
+                                            <p>${item.nombre}</p>                                
+                                        </div>
+                                        </div>
+                                    </button>
+                                `;
+                            // No hay mensajes sin leer
+                            else
+                                relleno += `
+                                <button type="button" class="btnContacto" id="${item.claveAsociacionVeterinaria}" value="${item.claveAsociacionVeterinaria}" onclick="botonClick(this.value)">
+                                    <div class="contacto">
+                                    <div class="imagenPerfil">
+                                        <p id="sinMensajes"><i class='bx bx-check' style='color:#25f706' ></i></p>
+                                    </div>
+                                    <div class="nombrePerfil">
+                                        <p>${item.nombre}</p>                                
+                                    </div>
+                                    </div>
+                                </button>
+                                `;
+                            $(".contactos").html(relleno);
+                        },
+                        error: function (response) {
+                            console.log(response)
+                        }
+                    });
+
                 })
             }
+            // Cargar contactos para veterinaria 
             else {
+
                 data.map(item => {
-                    relleno += `
-                        <button type="button" class="btnContacto" id="${item.idUsuario}" value="${item.idUsuario}" onclick="botonClick(this.value)">
-                            <div class="contacto">
-                            <div class="imagenPerfil">
-                                <p>5</p>
-                            </div>
-                            <div class="nombrePerfil">
-                                <p>${item.nombre}</p>
-                            </div>
-                            </div>
-                        </button>
-                    `;
+                    $.ajax({
+                        type: "POST",
+                        url: "./php/notificacion_Mensajes_Contacto_Vete.php",
+                        data: { 'contacto': item.idUsuario },
+                        dataType: "JSON",
+                        success: function (response) {
+                            console.log(response)
+                            // Hay mensajes sin leer
+                            if (response[0]['totalMensajes'] != 0)
+                                relleno += `
+                                    <button type="button" class="btnContacto" id="${item.idUsuario}" value="${item.idUsuario}" onclick="botonClick(this.value)">
+                                        <div class="contacto">
+                                        <div class="imagenPerfil">
+                                            <p id="mensajeSinLeer">${response[0]['totalMensajes']}</p>
+                                        </div>
+                                        <div class="nombrePerfil">
+                                            <p>${item.nombre}</p>
+                                        </div>
+                                        </div>
+                                    </button>
+                                `;
+                            // No hay mensajes sin leer
+                            else
+                                relleno += `
+                                    <button type="button" class="btnContacto" id="${item.idUsuario}" value="${item.idUsuario}" onclick="botonClick(this.value)">
+                                        <div class="contacto">
+                                        <div class="imagenPerfil">
+                                            <p id="sinMensajes"><i class='bx bx-check' style='color:#25f706' ></i></p>
+                                        </div>
+                                        <div class="nombrePerfil">
+                                            <p>${item.nombre}</p>
+                                        </div>
+                                        </div>
+                                    </button>
+                                `;
+                            $(".contactos").html(relleno);
+                        },
+                        error: function (response) {
+                            console.log(response)
+                        }
+                    });
+
                 })
             }
             $(".contactos").html(relleno);
@@ -166,29 +230,29 @@ $(document).ready(function () {
         if (keycode == '13') {
             EnviarMensaje()();
         }
-      });
+    });
 
     // $(".enviarMensajeContacto").on('submit', function (e) {
     // });
 });
 
-function EnviarMensaje(){
- // e.preventDefault();
-        
- if ($("#mensajeContacto").val() != "")
- $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
-     tipo = JSON.parse(tipo);
-     tipo = tipo[0]['tipo'];
-     var direccion = "";
-     if (tipo == "0")
-         direccion = "./php/mensajeria.php";
-     else
-         direccion = "./php/mensajeria_veterinaria.php";
-     let mensaje = $("#mensajeContacto").val();
-     $.post(direccion, { mensaje, destinatario }, function (data) {
-         data = JSON.parse(data);
-         $("#mensajeContacto").val("");
-         cargarMensajes();
-     });
- });
+function EnviarMensaje() {
+    // e.preventDefault();
+
+    if ($("#mensajeContacto").val() != "")
+        $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
+            tipo = JSON.parse(tipo);
+            tipo = tipo[0]['tipo'];
+            var direccion = "";
+            if (tipo == "0")
+                direccion = "./php/mensajeria.php";
+            else
+                direccion = "./php/mensajeria_veterinaria.php";
+            let mensaje = $("#mensajeContacto").val();
+            $.post(direccion, { mensaje, destinatario }, function (data) {
+                data = JSON.parse(data);
+                $("#mensajeContacto").val("");
+                cargarMensajes();
+            });
+        });
 }
