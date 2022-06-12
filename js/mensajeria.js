@@ -1,5 +1,40 @@
 var destinatario;
 
+// Marcar mensajes como vistos
+function mensajesVistos() {
+    $.ajax({
+        type: "POST",
+        url: "./php/identificarTipoUsuario.php",
+        data: "",
+        dataType: "JSON",
+        success: function (response) {
+            if(response[0]['tipo'] != 0){
+                $.ajax({
+                    type: "POST",
+                    url: "./php/mensajesVistos_Vete.php",
+                    data: {"contacto": destinatario},
+                    dataType: "JSON",
+                    success: function (response) {
+                        // console.log(response)
+                    }
+                });
+            }
+            else{
+                $.ajax({
+                    type: "POST",
+                    url: "./php/mensajesVistos.php",
+                    data: {"contacto": destinatario},
+                    dataType: "JSON",
+                    success: function (response) {
+                        // console.log(response)
+                    }
+                });
+                
+            }
+        }
+    });
+}
+
 // Obtener mensajes del remitente con el destinatario
 function cargarMensajes() {
     $.post("./php/identificarTipoUsuario.php", {}, function (tipo) {
@@ -17,8 +52,7 @@ function cargarMensajes() {
             if (tipo == "0")
                 data.map(item => {
                     if ((item.usuario) == "0") {
-                        if ((item.cartilla) != null) {
-                            console.log("Entre")
+                        if ((item.cartilla) != null) {                            
                             contenido += `
                                 <div class="mensaje">
                                 <p id="remitente">
@@ -89,10 +123,13 @@ function cargarMensajes() {
         });
     });
 }
+
 // Seleccionar un contacto de la lista
 function botonClick(clave) {
 
     destinatario = clave;
+    mensajesVistos();
+    cargarContactos();
     $("#mensajeContacto").show();
     $("#btnEnviarMensajeContacto").show();
     let nombre = document.getElementById(destinatario).getElementsByClassName("nombrePerfil").item("p").textContent.trim().toString();
@@ -121,7 +158,7 @@ function cargarContactos() {
                         data: { 'contacto': item.claveAsociacionVeterinaria },
                         dataType: "JSON",
                         success: function (response) {
-                            console.log(response)
+                            // console.log(response)
                             // Hay mensajes sin leer
                             if (response[0]['totalMensajes'] != 0)
                                 relleno += `
@@ -169,7 +206,7 @@ function cargarContactos() {
                         data: { 'contacto': item.idUsuario },
                         dataType: "JSON",
                         success: function (response) {
-                            console.log(response)
+                            // console.log(response)
                             // Hay mensajes sin leer
                             if (response[0]['totalMensajes'] != 0)
                                 relleno += `
@@ -236,6 +273,7 @@ $(document).ready(function () {
     // });
 });
 
+// Enviar un mensaje
 function EnviarMensaje() {
     // e.preventDefault();
 

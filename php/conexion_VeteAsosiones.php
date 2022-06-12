@@ -531,7 +531,19 @@ class conexion_VeteAsosiones{
     /* Si regresa algo*/
     $datajson=json_encode($data);
     return $datajson; 
-}
+  }
+
+  function marcarMensajesVistos($contacto){
+    $link = $this->conectar();
+    $id=$_SESSION['idUsuarioVeterinaria']; 
+    $link->query("UPDATE mensajes SET visto = 1 WHERE (claveDestinatario = '$id' AND claveRemitente = '$contacto' AND usuario = 0 AND visto = 0)") or die (print("Error")); 
+    $data[]=[
+        "estatus" => "visto"                  
+      ];
+    /* Si regresa algo*/
+    $datajson=json_encode($data);
+    return $datajson; 
+  }
 
 }
 ?>

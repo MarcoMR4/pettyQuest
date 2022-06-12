@@ -2,7 +2,7 @@
 require 'conexion_VeteAsosiones.php';
 
 $nuevacon= new conexion_VeteAsosiones(); 
-$respuestajson=$nuevacon->notificacionSolicitudes();
+$respuestajson=$nuevacon->notificarMensajes();
 echo $respuestajson;
 
 ?>

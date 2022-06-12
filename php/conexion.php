@@ -135,26 +135,26 @@ class conexion{
     {
         $link = $this->conectar();
         if($tipo == "0"){
-            $sql = "SELECT * FROM asociacionveterinaria";
+            $sql = "SELECT * FROM asociacionveterinaria ORDER BY claveAsociacionVeterinaria ASC";
             $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
             $data = [];
             while ($item = $result->fetch(PDO::FETCH_OBJ)) {
                 $data[] = [
                     'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
-                    'nombre' => $item->nombre,                   
+                    'nombre' => $item->nombre                   
                 ];
             }
             $datajson = json_encode($data);
             return $datajson;
         }
         else{
-            $sql = "SELECT * FROM usuario";                        
+            $sql = "SELECT * FROM usuario ORDER BY idUsuario ASC";                        
             $result = $link->query($sql) or die(print("Error")) or die(print("Error"));
             $data = [];
             while ($item = $result->fetch(PDO::FETCH_OBJ)) {
                 $data[] = [
                     'idUsuario' => $item->idUsuario,
-                    'nombre' => $item->nombre,                   
+                    'nombre' => $item->nombre                   
                 ];
             }
             $datajson = json_encode($data);
@@ -315,6 +315,18 @@ class conexion{
                 'totalMensajes' => $item->totalMensajes
             ];
         }
+        /* Si regresa algo*/
+        $datajson=json_encode($data);
+        return $datajson; 
+    }
+
+    function marcarMensajesVistos($contacto){
+        $link = $this->conectar();
+        $id = $_SESSION['idUsuario'];
+        $link->query("UPDATE mensajes SET visto = 1 WHERE (claveDestinatario = '$id' AND claveRemitente = '$contacto' AND usuario = 1 AND visto = 0)") or die (print("Error")); 
+        $data[]=[
+            "estatus" => "visto"                  
+          ];
         /* Si regresa algo*/
         $datajson=json_encode($data);
         return $datajson; 
