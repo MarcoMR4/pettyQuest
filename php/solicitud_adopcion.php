@@ -1,7 +1,6 @@
 <?php
 require 'conexion.php';
 
-$fecha = isset($_POST['fecha']) ? $_POST['fecha'] : '';
 $claveMascota = isset($_POST['claveMascota']) ? $_POST['claveMascota'] : '';
 $Razon1 = isset($_POST['Razon']) ? $_POST['Razon'] : '';
 $Razon2 = isset($_POST['Personas']) ? $_POST['Personas'] : '';
@@ -50,7 +49,7 @@ if(isset($_FILES['comprobanteDomicilio'])){
         }
     
         $nuevacon= new conexion();
-        $respuestajson=$nuevacon->nuevaSolicitud($fecha,$razones, $claveMascota,$tmpimg,$type,$tmpimg2,$type2);
+        $respuestajson=$nuevacon->nuevaSolicitud($razones, $claveMascota,$tmpimg,$type,$tmpimg2,$type2);
         echo($respuestajson);
     }
     }

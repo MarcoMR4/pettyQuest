@@ -1,7 +1,6 @@
 <?php
 require 'conexion.php';
 
-$fecha = isset($_POST['fecha']) ? $_POST['fecha'] : '';
 $comentarios = isset($_POST['comentarios']) ? $_POST['comentarios'] : '';
 $claveMascota = isset($_POST['claveMascota']) ? $_POST['claveMascota'] : '';
 
@@ -47,7 +46,7 @@ if(isset($_FILES['fotoCartilla'])){
         }
     
         $nuevacon= new conexion();
-        $respuestajson=$nuevacon->nuevoSeguimiento($claveMascota,$fecha,$comentarios,$tmpimg,$type,$tmpimg2,$type2);
+        $respuestajson=$nuevacon->nuevoSeguimiento($claveMascota,$comentarios,$tmpimg,$type,$tmpimg2,$type2);
         echo($respuestajson);
         // Hola
     }

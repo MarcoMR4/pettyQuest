@@ -1,0 +1,33 @@
+.informacion { 
+    background-color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    margin-left: 2rem;
+    font-size: x-large;
+    border: 2px solid rgb(146, 143, 143); 
+    width: 95%;   
+    height: 600px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#comentarios{
+    resize: none;
+}
+
+.btn1 {
+   
+    height: auto;
+    margin-bottom: 2rem;
+   
+}
+
+.btn1 input {
+    font-size: x-large;
+    margin-left: 10px;
+} 
+
+.btn1 a{
+    font-size: x-large;
+}

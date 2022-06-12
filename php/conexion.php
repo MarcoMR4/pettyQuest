@@ -162,7 +162,7 @@ class conexion{
         }
     }
 
-    function nuevoSeguimiento($claveMascota,$fecha,$comentarios,$tmpimg,$type,$tmpimg2,$type2){
+    function nuevoSeguimiento($claveMascota,$comentarios,$tmpimg,$type,$tmpimg2,$type2){
         $link = $this->conectar();
         $id = $_SESSION['idUsuario'];
         $sql="SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'id19026854_pettyquest' AND   TABLE_NAME = 'mensajes'";
@@ -207,7 +207,7 @@ class conexion{
         return $datajson; 
     }
 
-    function nuevaSolicitud($fecha,$razones, $claveMascota,$tmpimg,$type,$tmpimg2,$type2){
+    function nuevaSolicitud($razones, $claveMascota,$tmpimg,$type,$tmpimg2,$type2){
         $link = $this->conectar();
         $id = $_SESSION['idUsuario'];
         $sql="SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'id19026854_pettyquest' AND   TABLE_NAME   = 'contratoadopcion'";
@@ -243,7 +243,7 @@ class conexion{
                 //   );
                 
                 // echo("ClaveAsociacion = ".$claveAsociacion);
-                $link->query("INSERT INTO contratoadopcion (comprobanteDomicilio, fecha, idUsuario, idMascota, idAsociacion, ine, razones, estado) VALUES ('$rutarelativa','$fecha','$id','$claveMascota','$claveAsociacion','$rutarelativa2','$razones', 0)") or die (print("Error1"));
+                $link->query("INSERT INTO contratoadopcion (comprobanteDomicilio, fecha, idUsuario, idMascota, idAsociacion, ine, razones, estado) VALUES ('$rutarelativa',CURDATE(),'$id','$claveMascota','$claveAsociacion','$rutarelativa2','$razones', 0)") or die (print("Error1"));
                 $link->query("INSERT INTO fk_contrato_asociacionveterinaria (claveContrato,claveAsociacionVeterinaria) VALUES ('$idSolicitud', '$claveAsociacion')") or die (print("Error2"));                                
                 $link->query("INSERT INTO fk_contrato_mascota (claveContrato,claveMascota) VALUES ('$idSolicitud', '$claveMascota')") or die (print("Error3"));                                
             }
