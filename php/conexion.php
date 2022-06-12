@@ -331,5 +331,19 @@ class conexion{
         $datajson=json_encode($data);
         return $datajson; 
     }
+
+    function validarSolicitudAdopcion($mascota){
+        $link = $this->conectar();
+        $id = $_SESSION['idUsuario'];
+        $result = $link->query("SELECT COUNT(claveContrato) AS contrato FROM contratoadopcion WHERE idUsuario = '$id' AND idMascota = '$mascota'") or die (print("Error")); 
+        while ($item = $result->fetch(PDO::FETCH_OBJ)) {            
+            $data[] = [
+                'totalContratos' => $item->contrato
+            ];
+        }
+        /* Si regresa algo*/
+        $datajson=json_encode($data);
+        return $datajson; 
+    }
 }
 ?>
