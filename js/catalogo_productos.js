@@ -67,7 +67,7 @@ $(window).ready(function () {
 function buscarProductosPorNombre() {
   var nombre = $("#idBuscar").val();
   if (nombre == "" || nombre == null) {
-    alert("Nombre de producto vacio");
+    $("#btnExito1").click();
     return;
   }
 
