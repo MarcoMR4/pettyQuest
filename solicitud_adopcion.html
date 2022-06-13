@@ -160,7 +160,7 @@
 
     <form id="formSol" autocomplete="off">
       <div class="row">
-        <div class="col-lg-6 informacion">
+        <div class="col-lg-9 informacion">
           <div class="mb-3 row">
             <label for="lugar">Dirección:</label>
             <div class="col-sm-10">
@@ -198,6 +198,66 @@
                 required></label><br>
           </div>
         </div>
+        <div class="col-lg-2 informacionMascota">
+          <div class="card cardMascota bg-light">
+            <img src="" class="card-img-top imagenMascota" alt="...">
+            <div class="card-body">
+              <div class="espacioNombreMascota row">
+                <div class="campo col-sm-6">
+                  <p>Nombre:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="nombreMascota">Nombre</p>
+                </div>
+              </div>
+              <hr>
+              <div class="espacioEdadMascota row">
+                <div class="campo col-sm-6">
+                  <p>Edad:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="edadMascota">Edad</p>
+                </div>
+              </div>
+              <hr>
+              <div class="espacioGeneroMascota row">
+                <div class="campo col-sm-6">
+                  <p>Género:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="generoMascota">Género</p>
+                </div>
+              </div>
+              <hr>
+              <div class="espacioRazaMascota row">
+                <div class="campo col-sm-6">
+                  <p>Raza:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="tipoRaza">Raza</p>
+                </div>
+              </div>
+              <hr>
+              <div class="espacioSizeMascota row">
+                <div class="campo col-sm-6">
+                  <p>Tamaño:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="sizeMascota">Tamaño</p>
+                </div>
+              </div>
+              <hr>
+              <div class="espacioTipoMascota row">
+                <div class="campo col-sm-6">
+                  <p>Mascota:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="tipoMascota">Mascota</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-8"></div>
@@ -207,7 +267,6 @@
         </div>
       </div>
     </form>
-
   </div>
 
   <!-- Button trigger modal enviado -->
@@ -218,9 +277,12 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Se ha enviado la solicitud.</h5>
           <a href="catalogo_Mascotas.html"><button type="button" class="btn-close" data-bs-dismiss="modal"
               aria-label="Close"></button></a>
+        </div>
+        <div class="modal-body">
+
+          <h5 id="exampleModalLabel">Se ha enviado la solicitud.</h5>
         </div>
         <div class="modal-footer">
           <a href="catalogo_Mascotas.html"><button type="button" class="btn btn-primary" data-bs-dismiss="modal"
@@ -234,13 +296,16 @@
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="btnError"
     style="display:none"></button>
   <!-- Modal error -->
-  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title text-center" id="exampleModalLabel">Ya has enviado una solicitud a esta mascota, espera una respuesta de la asociación/veterinaria correspondiente.</h5>
           <a href="catalogo_Mascotas.html"><button type="button" class="btn-close" data-bs-dismiss="modal"
               aria-label="Close"></button></a>
+        </div>
+        <div class="modal-body">
+          <h5 id="exampleModalLabel2">Ya has enviado una solicitud a esta mascota, espera
+            una respuesta de la asociación/veterinaria correspondiente.</h5>
         </div>
         <div class="modal-footer">
           <a href="catalogo_Mascotas.html"><button type="button" class="btn btn-primary" data-bs-dismiss="modal"

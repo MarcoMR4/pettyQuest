@@ -18,8 +18,15 @@ $(document).ready(function () {
                     var i = 0;
                     while (response2[i]['claveMascota'] != response) {
                         i++;
-
                     }
+                    console.log(response2[i])
+                    $(".imagenMascota").attr("src", response2[i]["foto"]);
+                    $(".nombreMascota").text(response2[i]['nombre']);
+                    $(".edadMascota").text(response2[i]['edad']);
+                    $(".generoMascota").text(response2[i]['genero']);
+                    $(".tipoRaza").text(response2[i]['raza']);
+                    $(".sizeMascota").text(response2[i]['tamaño']);
+                    $(".tipoMascota").text(response2[i]['tipo']);
                 }
             });
         },
