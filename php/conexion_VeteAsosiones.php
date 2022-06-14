@@ -447,7 +447,7 @@ class conexion_VeteAsosiones{
     function consultar_solicitudes_propias()
     {
       $link = $this->conectar();
-      $id=$_SESSION['idUsuarioVeterinaria'];
+      $id=$_SESSION['idUsuario'];
       $result = $link->query("SELECT * FROM contratoadopcion NATURAL JOIN mascota WHERE idUsuario = '$id' AND contratoadopcion.idMascota = mascota.claveMascota AND (contratoadopcion.estado = 0 OR contratoadopcion.estado = 3)") or die (print("Error")); 
       $data=[];
       while($item = $result->fetch(PDO::FETCH_OBJ)){
