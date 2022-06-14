@@ -466,7 +466,7 @@ class conexion_VeteAsosiones{
           'edad' => $item->edad,
           'genero' => $item->genero,
           'tamaño' => $item->tamaño
-      ];
+        ];
       }
       $datajson=json_encode($data);
         return $datajson;
@@ -486,22 +486,28 @@ class conexion_VeteAsosiones{
           'calle' => $item->calle,
           'numeroCasa' => $item->numeroCasa,
           'edad' => $item->edad
-      ];
+        ];
       }
       $datajson=json_encode($data);
         return $datajson;
     }
 
-    function aceptar_solicitud($claveContrato, $claveUsuario, $claveMascota)
+    function aceptar_solicitud($claveContrato, $claveUsuario, $claveMascota, $claveAsociacion)
     {
       $link = $this->conectar();     
       $id=$_SESSION['idUsuarioVeterinaria']; 
       $link->query("UPDATE contratoadopcion SET estado = 1 WHERE claveContrato = '$claveContrato'") or die (print("Error")); 
       $link->query("UPDATE mascota SET estatus = 'En proceso' WHERE claveMascota = '$claveMascota'") or die (print("Error")); 
       $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario) VALUES ('Tu solicitud para adoptar ha sido aprobada, en breve nos comunicaremos con usted.','$id','$claveUsuario', 1)") or die (print("Error")); 
-      $data[]=[
-        "estatus" => "aceptado"
-      ];   
+      $result = $link->query("SELECT * FROM contratoadopcion WHERE idMascota = '$claveMascota' AND idAsociacion = '$claveAsociacion' AND estado = 0") or die (print("Error"));       
+      $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+        $data[]=[
+          'idUsuario' => $item->nombre,
+          'idAsociacion' => $item->apellidoPaterno,
+          'idMascota' => $item->idMascota
+        ];
+      }
       $datajson=json_encode($data);
       return $datajson;
     }
