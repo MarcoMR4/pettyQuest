@@ -1,19 +1,35 @@
+/* General */
+
 .solicitud{
-    position: relative;
-    width: 70%;
-    height: auto;      
-    top: 5px;
+    position: relative;    
+    height: auto;             
     margin-bottom: 5px;
     border-radius: 10px;
     /* border: 2px solid white; */
     background-color: white;
 }
 
+/* Nuevas solicitudes */
+
+.nuevasSolicitudes{
+    margin-top: 3px;
+    width: 80%;   
+    border-radius: 10px;    
+    background-color: white; 
+}
+
+.nuevasSolicitudes h1{
+    text-align: center;
+    background-color: #144167;
+    color: white;
+}
+
 .nombreSolicitante{
     position: relative;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: #04A9B4;
+    border-bottom-left-radius: 10px;
+    background-color: #2272B2;
     color: white;
     width: 100%;
 }
@@ -23,6 +39,37 @@
 }
 
 .datosMascota{
-    background-color: #05D3E2;
+    background-color: #83BAE7;
     border-end-end-radius: 10px;
 }
+
+/* En proceso solicitudes */
+
+.procesoSolicitudes{
+    margin-top: 3px;
+    width: 80%;   
+    border-radius: 10px;    
+    background-color: white; 
+}
+
+.procesoSolicitudes h1{
+    text-align: center;
+    background-color: #186614;
+    color: white;
+}
+
+.nombreSolicitanteProceso{
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #23941D;
+    color: white;
+    width: 100%;
+}
+
+.datosMascotaProceso{
+    background-color: #BCF1BA;
+    border-end-end-radius: 10px;
+}
+

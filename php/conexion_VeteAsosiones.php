@@ -390,7 +390,7 @@ class conexion_VeteAsosiones{
     {
       $link = $this->conectar();
       $id=$_SESSION['idUsuarioVeterinaria'];
-      $result = $link->query("SELECT * FROM contratoadopcion NATURAL JOIN mascota WHERE idAsociacion = '$id' AND contratoadopcion.idMascota = mascota.claveMascota AND (contratoadopcion.estado = 0 OR contratoadopcion.estado = 3)") or die (print("Error")); 
+      $result = $link->query("SELECT * FROM contratoadopcion NATURAL JOIN mascota WHERE idAsociacion = '$id' AND contratoadopcion.idMascota = mascota.claveMascota AND (contratoadopcion.estado = 0)") or die (print("Error")); 
       $data=[];
       while($item = $result->fetch(PDO::FETCH_OBJ)){
         $data[]=[
@@ -407,7 +407,37 @@ class conexion_VeteAsosiones{
           'foto' => $item->foto,
           'edad' => $item->edad,
           'genero' => $item->genero,
-          'tamaño' => $item->tamaño
+          'tamaño' => $item->tamaño,
+          'estado' => $item->estado
+      ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
+    function consultar_solicitudes_proceso()
+    {
+      $link = $this->conectar();
+      $id=$_SESSION['idUsuarioVeterinaria'];
+      $result = $link->query("SELECT * FROM contratoadopcion NATURAL JOIN mascota WHERE idAsociacion = '$id' AND contratoadopcion.idMascota = mascota.claveMascota AND (contratoadopcion.estado = 3)") or die (print("Error")); 
+      $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+        $data[]=[
+          'claveContrato' => $item->claveContrato,
+          'comprobanteDomicilio' => $item->comprobanteDomicilio,
+          'fecha' => $item->fecha,
+          'idUsuario' => $item->idUsuario,
+          'idAsociacion' => $item->idAsociacion,
+          'idMascota' => $item->idMascota,
+          'ine' => $item->ine,
+          'razones' => $item->razones,
+          'nombre' => $item->nombre,
+          'raza' => $item->raza,
+          'foto' => $item->foto,
+          'edad' => $item->edad,
+          'genero' => $item->genero,
+          'tamaño' => $item->tamaño,
+          'estado' => $item->estado
       ];
       }
       $datajson=json_encode($data);
@@ -522,7 +552,7 @@ class conexion_VeteAsosiones{
     function notificacionSolicitudes(){
       $link = $this->conectar();
       $id=$_SESSION['idUsuarioVeterinaria']; 
-      $result = $link->query("SELECT COUNT(claveContrato) AS existentes FROM contratoadopcion WHERE idAsociacion = '$id' AND (estado = 0 OR estado = 3)") or die (print("Error")); 
+      $result = $link->query("SELECT COUNT(claveContrato) AS existentes FROM contratoadopcion WHERE idAsociacion = '$id' AND (estado = 0)") or die (print("Error")); 
       $data=[];
       while($item = $result->fetch(PDO::FETCH_OBJ)){
         $data[]=[
