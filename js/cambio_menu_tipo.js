@@ -51,9 +51,9 @@ function actualizarMenu() {
                                         $(".menuHeader").prepend(solicitudes);
                                         $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                                         $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_asociacionveterinaria.html');
-                                        $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
+                                        // $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                                         $("#oculto").show();
-                                        opciones(1);
+                                        opciones(1, nombre);
                                     },
                                     error: function (response) {
                                         console.log(response);
@@ -91,9 +91,9 @@ function actualizarMenu() {
                     var nombre = response[0]['nombre'] + " " + response[0]['apellidoPaterno'] + " " + response[0]['apellidoMaterno'];
                     $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                     $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_usuario.html');
-                    $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
+                    // $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                     $("#oculto").show();
-                    opciones(0);
+                    opciones(0, nombre);
                 }
             }
         }
@@ -125,7 +125,7 @@ function cerrarSesion() {
     });
 }
 
-function opciones($usuario) {
+function opciones($usuario, $nombre) {
     var relleno = "";
     if ($usuario == 1) {
         $.ajax({
@@ -149,7 +149,8 @@ function opciones($usuario) {
                         Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>
                         </a>             
                     `;
-                else
+                else{
+                    $("#Cambio").html($nombre+" <i class='bx bxs-message-rounded-error' style='color:#e80d0d'  ></i>").addClass("nav-link color-link-black");
                     relleno += `
                         <a class="dropdown-item" href="registro_mascotas.html"  role="button" aria-controls="InicioSesion">
                                 Registar mascota
@@ -164,6 +165,7 @@ function opciones($usuario) {
                             Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>
                             </a>             
                         `;
+                }
                 $("#agregar").append(relleno);
             }
         });
@@ -187,7 +189,8 @@ function opciones($usuario) {
                         Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>
                         </a>    
                     `;
-                else
+                else{
+                    $("#Cambio").html($nombre+" <i class='bx bxs-message-rounded-error' style='color:#e80d0d'  ></i>").addClass("nav-link color-link-black");
                     relleno += `
                     <a class="dropdown-item" href="mensajeria.html"  role="button" aria-controls="InicioSesion">
                             Mensajeria  <i class='bx bxs-message-alt-error bx-tada' style='color:#ff0000' ></i>
@@ -199,6 +202,7 @@ function opciones($usuario) {
                         Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>
                         </a>    
                     `;
+                }
                 $("#agregar").append(relleno);
             },
             error: function (response) {

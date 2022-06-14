@@ -3,10 +3,10 @@
     margin-top: 2rem;
     margin-bottom: 3rem;
     margin-left: 2rem;
-    font-size: x-large;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
+    font-size: x-large;    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;    
 }
 
 .informacionMascota {

@@ -30,7 +30,7 @@ function mensajesVistos() {
                     }
                 });
                 
-            }
+            }            
         }
     });
 }
@@ -149,8 +149,8 @@ function cargarContactos() {
             var relleno = "";
             // Cargar contactos para usuario
             if (tipo == "0") {
-
-                data.map(item => {
+                
+                data.map(item => {                    
 
                     $.ajax({
                         type: "POST",
@@ -197,17 +197,18 @@ function cargarContactos() {
                 })
             }
             // Cargar contactos para veterinaria 
-            else {
-
+            else {                
                 data.map(item => {
+                    // console.log(item)
                     $.ajax({
                         type: "POST",
                         url: "./php/notificacion_Mensajes_Contacto_Vete.php",
                         data: { 'contacto': item.idUsuario },
                         dataType: "JSON",
                         success: function (response) {
-                            // console.log(response)
+                            console.log(response)
                             // Hay mensajes sin leer
+                            console.log(item)
                             if (response[0]['totalMensajes'] != 0)
                                 relleno += `
                                     <button type="button" class="btnContacto" id="${item.idUsuario}" value="${item.idUsuario}" onclick="botonClick(this.value)">

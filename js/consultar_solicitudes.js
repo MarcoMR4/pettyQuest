@@ -60,7 +60,7 @@ $(document).ready(function () {
             data: { "idUsuario": item.idUsuario },
             dataType: "text",
             success: function (response2) {
-              // console.log(response2)        
+              console.log(response2)        
               response2 = JSON.parse(response2);
               contenido += `
                           <div class="solicitud mx-auto shadow-lg p-1 mb-3" id="${item.claveContrato}">
@@ -159,7 +159,7 @@ $(document).ready(function () {
                               <div class="card-footer bg-secondary botones">
                               <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-success aceptar" value="${item.claveContrato}" onclick="aceptarSolicitud(this.value,${item.idUsuario},${item.idMascota})">Aceptar</button>
-                                <button type="button" class="btn btn-primary aceptar" value="${item.claveContrato}" onclick="procesandoSolicitud(this.value,${item.idUsuario},${item.idMascota})">En proseso</button>
+                                <button type="button" class="btn btn-primary aceptar" value="${item.claveContrato}" onclick="procesandoSolicitud(this.value,${item.idUsuario},${item.idMascota})">En proceso</button>
                                 <button type="button" class="btn btn-danger rechazar" value="${item.claveContrato}" onclick="rechazarSolicitud(this.value,${item.idUsuario})">Rechazar</button>                             
                               </div>
                                 
