@@ -414,6 +414,34 @@ class conexion_VeteAsosiones{
         return $datajson;
     }
 
+    function consultar_solicitudes_propias()
+    {
+      $link = $this->conectar();
+      $id=$_SESSION['idUsuarioVeterinaria'];
+      $result = $link->query("SELECT * FROM contratoadopcion NATURAL JOIN mascota WHERE idUsuario = '$id' AND contratoadopcion.idMascota = mascota.claveMascota AND (contratoadopcion.estado = 0 OR contratoadopcion.estado = 3)") or die (print("Error")); 
+      $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+        $data[]=[
+          'claveContrato' => $item->claveContrato,
+          'comprobanteDomicilio' => $item->comprobanteDomicilio,
+          'fecha' => $item->fecha,
+          'idUsuario' => $item->idUsuario,
+          'idAsociacion' => $item->idAsociacion,
+          'idMascota' => $item->idMascota,
+          'ine' => $item->ine,
+          'razones' => $item->razones,
+          'nombre' => $item->nombre,
+          'raza' => $item->raza,
+          'foto' => $item->foto,
+          'edad' => $item->edad,
+          'genero' => $item->genero,
+          'tamaño' => $item->tamaño
+      ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
     function buscar_usuario_por_id($idUsuario)
     {
       $link = $this->conectar();      
