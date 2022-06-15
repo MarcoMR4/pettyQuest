@@ -1,13 +1,17 @@
-function aceptarSolicitud($claveContrato,$claveUsuario,$claveMascota,$claveAsociacion) {
+function aceptarSolicitud($claveContrato,$claveUsuario,$claveMascota) {  
   $.ajax({
     type: "POST",
     url: "./php/aceptar_solicitud.php",
-    data: { "claveContrato": $claveContrato, "claveUsuario": $claveUsuario, "claveMascota": $claveMascota, "claveAsociacion": $claveAsociacion },
+    data: { "claveContrato": $claveContrato, "claveUsuario": $claveUsuario, "claveMascota": $claveMascota},
     dataType: "JSON",
     success: function (response) {
-      console.log(response);
-      alert("hola")
+      console.log($claveContrato+", "+$claveUsuario+", "+$claveMascota);      
+      console.log(response);      
       document.location.reload(true);
+    },
+    error: function (response){
+      console.log(response);      
+
     }
   });
 }
@@ -314,7 +318,7 @@ $(document).ready(function () {
                               </div>
                               <div class="card-footer bg-secondary botones">
                               <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-success aceptar" value="${item.claveContrato}" onclick="aceptarSolicitud(this.value,${item.idUsuario},${item.idMascota},${item.idAsociacion})">Aceptar</button>                                
+                                <button type="button" class="btn btn-success aceptar" value="${item.claveContrato}" onclick="aceptarSolicitud(this.value,${item.idUsuario},${item.idMascota})">Aceptar</button>                                
                                 <button type="button" class="btn btn-danger rechazar" value="${item.claveContrato}" onclick="rechazarSolicitud(this.value,${item.idUsuario})">Rechazar</button>                             
                               </div>
                                 
