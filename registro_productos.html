@@ -92,8 +92,12 @@
           <div class="mb-3 row">
             <label for="TipoP" class="col-sm-2 col-form-label">Tipo:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="TipoP" id="TipoP" required>
-            </div>
+              <select class="form-select" aria-label="Default select example" name="TipoP" id="TipoP" required>
+                <option selected>...</option>
+                <option value="Cachorro">Servicio</option>
+                <option value="Joven">Producto</option>
+              </select>
+            </div>      
           </div>
           <div class="mb-3 row">
             <label for="Precio" class="col-sm-2 col-form-label">Precio:</label>
@@ -107,7 +111,7 @@
         <div class="col-md-8"></div>
         <div class="btn1 col-md-4">
           <input class="btn btn-success" type="submit" value="Agregar">
-          <input class="btn btn-danger" type="button" value="Cancelar">          
+          <a href="catalogo_Productos.html"><input class="btn btn-danger" type="button" value="Cancelar"></a>        
         </div>
       </div>
     </form>
@@ -119,7 +123,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Se ha registrado el produto/servicio.</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Se ha registrado el producto/servicio.</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
@@ -130,10 +134,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Chatbox Soporte -->
-  <df-messenger intent="WELCOME" chat-title="Soporte" agent-id="41c2eaf9-c8c0-4058-b57b-62fb4da722ca" language-code="es"
-    chat-icon="img/logo/final.png"></df-messenger>
 
   <!--Pie de Pagina-->
   <div class="container-fluid PiePag navbar-fixed-bottom">

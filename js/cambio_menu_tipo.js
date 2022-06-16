@@ -51,6 +51,7 @@ function actualizarMenu() {
                                         $(".menuHeader").prepend(solicitudes);
                                         $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                                         $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_asociacionveterinaria.html');
+                                        $("#Cambio2").hide();
                                         // $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                                         $("#oculto").show();
                                         opciones(1, nombre);
@@ -91,6 +92,7 @@ function actualizarMenu() {
                     var nombre = response[0]['nombre'] + " " + response[0]['apellidoPaterno'] + " " + response[0]['apellidoMaterno'];
                     $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                     $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_usuario.html');
+                    $("#Cambio2").hide();
                     // $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                     $("#oculto").show();
                     opciones(0, nombre);
@@ -185,6 +187,9 @@ function opciones($usuario, $nombre) {
                         <a class="dropdown-item" href="seguimiento_adopcion.html"  role="button" aria-controls="InicioSesion">
                             Generar nuevo</br>seguimiento de<br>adopción
                         </a>
+                        <a class="dropdown-item" href="consultar_solicitudes_propias.html"  role="button" aria-controls="InicioSesion">
+                            Mis solicitudes
+                        </a>
                         <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
                         Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>
                         </a>    
@@ -197,6 +202,9 @@ function opciones($usuario, $nombre) {
                         </a>
                         <a class="dropdown-item" href="seguimiento_adopcion.html"  role="button" aria-controls="InicioSesion">
                             Generar nuevo</br>seguimiento de<br>adopción
+                        </a>
+                        <a class="dropdown-item" href="consultar_solicitudes_propias.html"  role="button" aria-controls="InicioSesion">
+                            Mis solicitudes
                         </a>
                         <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
                         Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>

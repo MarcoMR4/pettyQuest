@@ -1,12 +1,17 @@
-function aceptarSolicitud($claveContrato,$claveUsuario,$claveMascota) {
+function aceptarSolicitud($claveContrato,$claveUsuario,$claveMascota) {  
   $.ajax({
     type: "POST",
     url: "./php/aceptar_solicitud.php",
-    data: { "claveContrato": $claveContrato, "claveUsuario": $claveUsuario, "claveMascota": $claveMascota },
-    dataType: "text",
+    data: { "claveContrato": $claveContrato, "claveUsuario": $claveUsuario, "claveMascota": $claveMascota},
+    dataType: "JSON",
     success: function (response) {
-      console.log(response);
+      console.log($claveContrato+", "+$claveUsuario+", "+$claveMascota);      
+      console.log(response);      
       document.location.reload(true);
+    },
+    error: function (response){
+      console.log(response);      
+
     }
   });
 }
