@@ -51,6 +51,7 @@ function actualizarMenu() {
                                         $(".menuHeader").prepend(solicitudes);
                                         $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                                         $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_asociacionveterinaria.html');
+                                        $("#Cambio2").hide();
                                         // $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                                         $("#oculto").show();
                                         opciones(1, nombre);
@@ -91,6 +92,7 @@ function actualizarMenu() {
                     var nombre = response[0]['nombre'] + " " + response[0]['apellidoPaterno'] + " " + response[0]['apellidoMaterno'];
                     $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                     $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_usuario.html');
+                    $("#Cambio2").hide();
                     // $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                     $("#oculto").show();
                     opciones(0, nombre);
