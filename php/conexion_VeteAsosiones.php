@@ -239,9 +239,12 @@ class conexion_VeteAsosiones{
       return $datajson; 
     }
 
-    function editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$informacion){
+    function editar_mascota($idMascota,$nombre,$raza,$edad,$genero,$tamaño,$estatus,$tipo,$info){
       $link = $this->conectar();
-       $result = $link->query("UPDATE mascota SET nombre='$nombre', raza='$raza', edad='$edad', genero='$genero', tamaño='$tamaño', estatus='$estatus', informacion='$informacion' WHERE claveMascota='$idMascota'") or die (print("Error")); 
+      $edicion = "UPDATE mascota SET nombre='$nombre', raza='$raza', edad='$edad', genero='$genero', 
+      tamaño='$tamaño', estatus='$estatus', informacion='$info', tipoAnimal='$tipo' WHERE claveMascota='$idMascota'";
+      echo $edicion;
+       $result = $link->query($edicion) or die (print("Error")); 
     }
 
     function editar_mascota_adoptada($idMascota,$nuevoEstatus){
