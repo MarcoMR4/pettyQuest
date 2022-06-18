@@ -98,73 +98,82 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="RegistrarLabel">Registro</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            id="btnsalirregistro"></button>
         </div>
         <div class="modal-body">
           <form id="formregistro" aria-labelledby="navbarDropdown">
             <div class="row">
               <div class="col-md-4">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" required>
+                <div class="mb-3">
+                  <label for="nombre" class="col-form-label">Nombre</label>
+                  <input type="text" class="form-control" name="nombre" id="nombre" required>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Apellido Paterno" name="ap" id="ap" required>
+                <div class="mb-3">
+                  <label for="ap" class="col-form-label">Apellido Paterno</label>
+                  <input type="text" class="form-control" name="ap" id="ap" required>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Apellido Materno" name="am" id="am" required>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Ciudad" name="ciudad" id="ciudad" require>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Calle" name="calle" id="calle" required>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Numero" name="numero" id="numero" required>
+                <div class="mb-3">
+                  <label for="am" class="col-form-label">Apellido Materno</label>
+                  <input type="text" class="form-control" name="am" id="am" required>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-4">
-                <div class="input-group mb-3">
-                  <input type="email" class="form-control" placeholder="Correo" name="email" id="emailr" required>
-                  <span class="input-group-text" id="basic-addon2">@example.com</span>
+                <div class="mb-3">
+                  <label for="ciudad" class="col-form-label">Ciudad</label>
+                  <input type="text" class="form-control" name="ciudad" id="ciudad" require>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="input-group mb-3">
-                  <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordr"
-                    required>
+                <div class="mb-3">
+                  <label for="calle" class="col-form-label">Calle</label>
+                  <input type="text" class="form-control" name="calle" id="calle" required>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="input-group mb-3">
-                  <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="password2"
-                    id="password2" required>
+                <div class="mb-3">
+                  <label for="numero" class="col-form-label">Numero</label>
+                  <input type="text" class="form-control" name="numero" id="numero" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="emailr" class="col-form-label">Correo</label>
+                  <input type="email" class="form-control" name="email" id="emailr" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="passwordr" class="col-form-label">Contraseña</label>
+                  <input type="password" class="form-control" name="password" id="passwordr" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="password2" class="col-form-label">Confirmar Contraseña</label>
+                  <input type="password" class="form-control" name="password2" id="password2" required>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Telefono" name="telefono" id="telefono" required>
+                <div class="mb-3">
+                  <label for="telefono" class="col-form-label">Telefono</label>
+                  <input type="text" class="form-control" name="telefono" id="telefono" required>
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="input-group mb-3">
-                  <input type="date" class="form-control" placeholder="Fecha Nacimiento" name="edad" id="edad" required>
+                <div class="mb-3">
+                  <label for="edad" class="col-form-label">Fecha de Nacimiento</label>
+                  <input type="date" class="form-control" name="edad" id="edad" required>
                 </div>
               </div>
             </div>
@@ -516,6 +525,8 @@
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/manualesCuidados.js"></script>
   <script src="js/cambio_menu_tipo.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/registro.js"></script>
 </body>
 
 </html>

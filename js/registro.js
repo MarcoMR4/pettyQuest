@@ -1,5 +1,11 @@
 $(window).ready(function() {
 
+    var fecha = new Date();
+    fecha.setFullYear(fecha.getFullYear() - 18);
+    fecha.setMonth(11);
+    fecha.setDate(31);
+    $("#edad").attr("max", fecha.toISOString().split('T')[0]);
+
     $('#formregistro').submit(function (e) { 
         e.preventDefault();
         var datos = $(this).serializeArray();
