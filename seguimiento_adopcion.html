@@ -65,102 +65,13 @@
     </div>
   </nav>
 
-  <!--Inicio de Sesion-->
-  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="InicioSesion"
-    aria-labelledby="InicioSesionLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="InicioSesionLabel">Inicio de Sesión</h5>
-      <button type="button" id="btnsalirsesion" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-        aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="formato-ini">
-        <form id="formini" aria-labelledby="navbarDropdown">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Correo" name="email" id="emaili" required
-              aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <span class="input-group-text" id="basic-addon2">@example.com</span>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordi" required
-              aria-label="Recipient's username" aria-describedby="basic-addon2">
-          </div>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <input type="submit" class="btn btn-primary me-md-2" value="Iniciar Sesion"></input>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!--Registro-->
-  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="Registrar"
-    aria-labelledby="RegistrarLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="RegistrarLabel">Registro</h5>
-      <button type="button" id="btnsalirregistro" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-        aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div>
-        <form id="formregistro" aria-labelledby="navbarDropdown">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Apellido Paterno" name="ap" id="ap" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Apellido Materno" name="am" id="am" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Ciudad" name="ciudad" id="ciudad" require>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Calle" name="calle" id="calle" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Numero" name="numero" id="numero" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Correo" name="email" id="emailr" required>
-            <span class="input-group-text" id="basic-addon2">@example.com</span>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordr"
-              required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="password2"
-              id="password2" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Telefono" name="telefono" id="telefono" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="date" class="form-control" placeholder="Fecha Nacimiento" name="edad" id="edad" required>
-          </div>
-          <div>
-            <label class="form-check-label">
-              Acepto términos y condiciones:
-            </label>
-            <input class="form-check-input" type="checkbox" value="" id="condiciones" name="condiciones" required>
-          </div>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <input type="submit" class="btn btn-primary me-md-2" value="Registrar"></input>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
   <!--Contenido-->
 
   <div class="container-fluid">
 
     <form id="formSeg" autocomplete="off">
-      <div class="row">
-        <div class="col-lg-7 informacion">
+      <div class="row">        
+        <div class="col-lg-8 informacion">
           <div class="mb-3 row mt-4">
             <div class="col-sm-10">
               <select name="mascota" id="mascota" onChange="selectTypeOption()" required>
@@ -185,6 +96,66 @@
           <div class="mb-3 row">
             <label>Suba una foto de como se encuentra con la mascota:</label>
             <input type="file" class="form-control" id="foto" name="foto" required>
+          </div>
+        </div>
+        <div class="col-lg-3 informacionMascota">
+          <div class="card cardMascota bg-light">
+            <img src="" class="card-img-top imagenMascota" alt="..." width="100" height="300">
+            <div class="card-body">
+              <div class="espacioNombreMascota row">
+                <div class="campo col-sm-6">
+                  <p>Nombre:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="nombreMascota">Nombre</p>
+                </div>
+              </div>
+              <hr>
+              <div class="espacioEdadMascota row">
+                <div class="campo col-sm-6">
+                  <p>Edad:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="edadMascota">Edad</p>
+                </div>
+              </div>
+              <hr>
+              <div class="espacioGeneroMascota row">
+                <div class="campo col-sm-6">
+                  <p>Género:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="generoMascota">Género</p>
+                </div>
+              </div>
+              <hr>
+              <div class="espacioRazaMascota row">
+                <div class="campo col-sm-6">
+                  <p>Raza:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="tipoRaza">Raza</p>
+                </div>
+              </div>
+              <hr>
+              <div class="espacioSizeMascota row">
+                <div class="campo col-sm-6">
+                  <p>Tamaño:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="sizeMascota">Tamaño</p>
+                </div>
+              </div>
+              <hr>
+              <div class="espacioTipoMascota row">
+                <div class="campo col-sm-6">
+                  <p>Mascota:</p>
+                </div>
+                <div class="campo2 col-sm-6">
+                  <p class="tipoMascota">Mascota</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

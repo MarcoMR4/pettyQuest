@@ -255,12 +255,15 @@ function cargarContactos() {
 $(document).ready(function () {
     cargarContactos();
     $("#mensajeContacto").hide();
-    $("#btnEnviarMensajeContacto").hide();
-
-
+    $("#btnEnviarMensajeContacto").hide();    
+    $(".cardInfoContacto").hide();
 
     $("#btnEnviarMensajeContacto").click(function (e) {
         EnviarMensaje()
+    });
+
+    $("#btnContactoInfo").click(function (e) {
+        // $(".cardInfoContacto").show(500);
     });
 
     $('#mensajeContacto').keypress(function (event) {
@@ -295,3 +298,4 @@ function EnviarMensaje() {
             });
         });
 }
+

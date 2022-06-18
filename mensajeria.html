@@ -65,95 +65,7 @@
     </div>
   </nav>
 
-  <!--Inicio de Sesion-->
-  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="InicioSesion"
-    aria-labelledby="InicioSesionLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="InicioSesionLabel">Inicio de Sesión</h5>
-      <button type="button" id="btnsalirsesion" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-        aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="formato-ini">
-        <form id="formini" aria-labelledby="navbarDropdown">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Correo" name="email" id="emaili" required
-              aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <span class="input-group-text" id="basic-addon2">@example.com</span>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordi" required
-              aria-label="Recipient's username" aria-describedby="basic-addon2">
-          </div>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <input type="submit" class="btn btn-primary me-md-2" value="Iniciar Sesion"></input>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!--Registro-->
-  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="Registrar"
-    aria-labelledby="RegistrarLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="RegistrarLabel">Registro</h5>
-      <button type="button" id="btnsalirregistro" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-        aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div>
-        <form id="formregistro" aria-labelledby="navbarDropdown">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Apellido Paterno" name="ap" id="ap" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Apellido Materno" name="am" id="am" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Ciudad" name="ciudad" id="ciudad" require>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Calle" name="calle" id="calle" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Numero" name="numero" id="numero" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Correo" name="email" id="emailr" required>
-            <span class="input-group-text" id="basic-addon2">@example.com</span>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordr"
-              required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="password2"
-              id="password2" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Telefono" name="telefono" id="telefono" required>
-          </div>
-          <div class="input-group mb-3">
-            <input type="date" class="form-control" placeholder="Fecha Nacimiento" name="edad" id="edad" required>
-          </div>
-          <div>
-            <label class="form-check-label">
-              Acepto términos y condiciones:
-            </label>
-            <input class="form-check-input" type="checkbox" value="" id="condiciones" name="condiciones" required>
-          </div>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <input type="submit" class="btn btn-primary me-md-2" value="Registrar"></input>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
+  <!-- Contenido -->
   <main class="container-fluid d-flex">
 
     <!-- Lista contactos -->
@@ -173,7 +85,7 @@
     <!-- Conversacion -->
     <div class="conversacionContacto card">
       <div class="nombreContacto card-header">
-        <button>
+        <button type="button" id="btnContactoInfo">
           <div class="imagenPerfilConversacion">
             <i class='bx bxs-user-circle'></i>
           </div>
@@ -193,6 +105,16 @@
       </div>
     </div>
     
+    <!-- Informacion de contacto -->
+    <div class="card cardInfoContacto" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+
   </main>
 
   <!--Pie de Pagina-->

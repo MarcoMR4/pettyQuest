@@ -2,6 +2,28 @@ var mascotaSelect;
 
 function selectTypeOption(){
     mascotaSelect = document.getElementById("mascota").value;
+    console.log(mascotaSelect)
+    $.ajax({
+        type: "POST",
+        url: "./php/catalogo_mascotas.php",
+        data: "",
+        dataType: "JSON",
+        success: function (response) {
+            /* Buscamos la mascota correcta*/
+            var i = 0;
+            while (response[i]['claveMascota'] != mascotaSelect) {
+                i++;
+            }
+            console.log(response[i])
+            $(".imagenMascota").attr("src", response[i]["foto"]);
+            $(".nombreMascota").text(response[i]['nombre']);
+            $(".edadMascota").text(response[i]['edad']);
+            $(".generoMascota").text(response[i]['genero']);
+            $(".tipoRaza").text(response[i]['raza']);
+            $(".sizeMascota").text(response[i]['tamaño']);
+            $(".tipoMascota").text(response[i]['tipo']);
+        }
+    });
 }
 
 $(window).ready(function () {

@@ -4,12 +4,33 @@
     margin-bottom: 3rem;
     margin-left: 2rem;
     font-size: x-large;
-    border: 2px solid rgb(146, 143, 143); 
-    width: 95%;   
-    height: 600px; 
+    /* border: 2px solid rgb(146, 143, 143);  */
+    /* width: 95%;    */
+    height: 770px; 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.informacionMascota {
+    background-color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+
+}
+
+/* .imagenMascota{
+    height: 200;
+    width: 100;
+} */
+
+.cardMascota {
+    margin-top: 5%;
+    height: 95%;
+}
+
+.cardMascota p {
+    font-size: 100%;
 }
 
 #comentarios{
@@ -30,4 +51,37 @@
 
 .btn1 a{
     font-size: x-large;
+}
+
+@media only screen and (max-width: 991px) {
+    .informacionMascota {
+        margin-left: 2rem;
+        width: 90%; 
+        margin-top: 0;       
+    }
+    .informacion{
+        margin-bottom: 0;
+        width: 90%;        
+        border-right: none;
+    }
+    .cardMascota{
+        margin-top: 1%;
+        height: 97%;
+    }
+    .cardMascota p {
+        font-size: larger;
+    }
+    .imagenMascota{
+        height: 50;
+        width: 50;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .campo{
+        width: 50%;        
+    }
+    .campo2{
+        width: 50%;
+    }
 }
