@@ -196,7 +196,8 @@ class conexion{
                 }
                 $nombreMascota = $data[0]['nombre'];
                 $comentarios = "Seguimiento mensual para ".$nombreMascota.": ".$comentarios;
-                $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario, cartilla, mascota) VALUES ('$comentarios','$id','$claveAsociacion',0,'$rutarelativa','$rutarelativa2')") or die (print("Error3"));                                
+                $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario) VALUES ('$comentarios<br>Evidencia:','$id','$claveAsociacion',0)") or die (print("Error3"));                                
+                $link->query("INSERT INTO mensajes (mensaje, claveRemitente, claveDestinatario, usuario, cartilla, mascota) VALUES ('','$id','$claveAsociacion',0,'$rutarelativa','$rutarelativa2')") or die (print("Error3"));                                
             }
         }    
         $data[]=[
