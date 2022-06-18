@@ -258,28 +258,28 @@
 
     <!-- Botones de los manuales -->
     <div class="botones">
-      <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-        aria-expanded="false" aria-controls="collapseExample" id="1" value="guiaAdopcion">
+      <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#guiaAdopcion"
+        aria-expanded="false" aria-controls="guiaAdopcion" id="1" value="guiaAdopcion">
         <img src="img/Logo/Final.png" alt="logo">
         <p>Guía de adopción de mascotas</p>
       </button>
-      <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-        aria-expanded="false" aria-controls="collapseExample" id="2" value="guiaLoguin">
+      <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#guiaLogin"
+        aria-expanded="false" aria-controls="guiaLogin" id="2" value="guiaLogin">
         <img src="img/Logo/Final.png" alt="logo">
         <p>Manual de inicio de sesión/registro</p>
       </button>
-      <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-        aria-expanded="false" aria-controls="collapseExample" id="3" value="guiaSeguimientoAdopcion">
+      <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#guiaSeguimientoAdopcion"
+        aria-expanded="false" aria-controls="guiaSeguimientoAdopcion" id="3" value="guiaSeguimientoAdopcion">
         <img src="img/Logo/Final.png" alt="logo">
         <p>Guía de seguimiento mensual</p>
       </button>
-      <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-        aria-expanded="false" aria-controls="collapseExample" id="4" value="manualProductos">
+      <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#manualProductos"
+        aria-expanded="false" aria-controls="manualProductos" id="4" value="manualProductos">
         <img src="img/Logo/Final.png" alt="logo">
         <p>Manual de productos</p>
       </button>
-      <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-        aria-expanded="false" aria-controls="collapseExample" id="5" value="manualMascotas">
+      <button class="btn btnManual" type="button" data-bs-toggle="collapse" data-bs-target="#manualMascotas"
+        aria-expanded="false" aria-controls="manualMascotas" id="5" value="manualMascotas">
         <img src="img/Logo/Final.png" alt="logo">
         <p>Manual para las mascotas</p>
       </button>
@@ -287,7 +287,7 @@
 
     <!-- Contenido de los manuales -->
 
-    <div class="contenidoManuales shadow-lg">
+    <!-- <div class="contenidoManuales shadow-lg">
       <div class="collapse" id="collapseExample">
         <div class="card card-body guia" id="guiaAdopcion">
           <h2>Guía adopción de mascota</h2>
@@ -314,7 +314,7 @@
             <li>Espera una respuesta de la asociación/veterinaria a cargo.</li>
           </ol>
         </div>
-        <div class="card card-body guia" id="guiaLoguin">
+        <div class="card card-body guia" id="guiaLogin">
           <h2>Registro (Usuario)</h2>
           <ol type="1">
             <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Iniciar
@@ -472,9 +472,206 @@
           </ol>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="contenidoManuales shadow-lg" id="nuevoContenido">
+
+      <div class="collapse multi-collapse" id="guiaAdopcion" data-bs-parent="#nuevoContenido">
+        <div class="card card-body guia">
+          <h2>Guía adopción de mascota</h2>
+          <ol type="1">
+            <li>Ingresa a la página "PettyQuest".</li>
+            <li>Ingresa con tu cuenta o en dado caso registrate (Checa <mark
+                style="font-weight: bold; background-color: white;">Manual de
+                inicio de sesión/registro</mark>).</li>
+            <li>Haz clic en <a href="catalogo_Mascotas.html"><mark class="pagina">Ver Mascotas</mark></a>.</li>
+            <li>Observa y selecciona la mascota que haya llamado tu atención (puedes usar los filtros para ser más
+              selectivo en tu búsqueda).
+            </li>
+            <li>Haz clic en la foto de la mascota.</li>
+            <li>Haz clic en el botón de <mark style="background-color: green;" class="boton">adoptar</mark>.</li>
+            <li>Rellena y envía la solicitud de adopción con los datos correspondientes.</li>
+            <li>Espera una respuesta por parte de la asociación/veterinarias correspondientes en <mark
+                class="pagina">mensajería</mark>.</li>
+          </ol>
+          <h2>Guía devolución de mascota</h2>
+          <ol type="1">
+            <li>Ingresa a la <mark class="pagina">mensajería</mark>.</li>
+            <li>Selecciona el chat de la asociación/veterinaria de donde adoptaste a tu mascota.</li>
+            <li>Expresa tus motivos de devolución en un mensaje, indicando el nombre de la mascota.</li>
+            <li>Espera una respuesta de la asociación/veterinaria a cargo.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="collapse multi-collapse" id="guiaLogin" data-bs-parent="#nuevoContenido">
+        <div class="card card-body guia">
+          <h2>Registro (Usuario)</h2>
+          <ol type="1">
+            <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Iniciar
+                Sesión/Registro</mark> arriba a la derecha.</li>
+            <li>Pulsa el botón que dice <mark style="background-color: wheat; color: black; font-weight: bold;"
+                class="boton">Registrar</mark>.</li>
+            <li>Rellena los campos que se solicitan.</li>
+            <li>Pulsa el botón <mark style="background-color: blue;" class="boton">Registrar</mark>.</li>
+            <li>Ya estas registrado correctamente.</li>
+          </ol>
+          <h2>Inicio de sesión</h2>
+          <ol type="1">
+            <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Iniciar
+                Sesión/Registro</mark> arriba a la derecha.</li>
+            <li>Pulsa el botón que dice <mark style="background-color: wheat; color: black; font-weight: bold;"
+                class="boton">Iniciar Sesión</mark>.</li>
+            <li>Ingresa los datos de una cuenta registrada.</li>
+            <li>Pulsa el botón <mark style="background-color: blue;" class="boton">Iniciar Sesión</mark>.</li>
+            <li>Has ingresado a tu cuenta.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="collapse multi-collapse" id="guiaSeguimientoAdopcion" data-bs-parent="#nuevoContenido">
+        <div class="card card-body guia">
+          <h2>Generar nuevo seguimiento mensual de una mascota</h2>
+          <ol type="1">
+            <li>Inicia sesión en una cuenta (Checa <mark style="font-weight: bold; background-color: white;">Manual de
+                inicio de sesión/registro</mark>).</li>
+            <li>Inicia un proceso de adopción (Checa <mark style="font-weight: bold; background-color: white;">Guía de
+                adopción de mascotas</mark>) en caso de no tener alguno, en caso contrario omite este paso.</li>
+            <li>Haz clic en tu nombre de perfil, arriba a la derecha.</li>
+            <li>Ingresa a la página de <a href="seguimiento_adopcion.html"><mark class="pagina">Seguimiento de
+                  adopción </mark></a> haciendo clic en la opción <mark
+                style="font-weight: bold; background-color: wheat;">Generar nuevo seguimiento de adopción </mark>.</li>
+            <li>Rellena los campos que se solicitan.</li>
+            <li>Puedes checar el seguimiento generado a través de la <a href="mensajeria.html"><mark
+                  class="pagina">mensajería</mark></a> de la asociación/veterinaria correspondiente.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="collapse multi-collapse" id="manualProductos" data-bs-parent="#nuevoContenido">
+        <div class="card card-body guia">
+          <h2>Ver un producto</h2>
+          <ol type="1">
+            <li>Inicia sesión en una cuenta (Checa <mark style="font-weight: bold; background-color: white;">Manual de
+                inicio de sesión/registro</mark>).</li>
+            <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Productos y
+                Servicios</mark> en la parte de arriba.</li>
+          </ol>
+          <h2>Registrar un producto (Asociación/Veterinaria)</h2>
+          <ol type="1">
+            <li>Inicia sesión en una cuenta de asociación/veterinaria (Checa <mark
+                style="font-weight: bold; background-color: white;">Manual de
+                inicio de sesión/registro</mark>).</li>
+            <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Productos y
+                Servicios</mark> en la parte de arriba.</li>
+            <li>
+              Haz clic en el botón <mark style="background-color: green; color: white;">Agregar producto</mark>.
+            </li>
+            <li>Rellene los campos solicitados y presione el botón <mark
+                style="background-color: gray; color: white;">Agregar</mark>.</li>
+          </ol>
+          <h2>Editar un producto (Asociación/Veterinaria)</h2>
+          <ol type="1">
+            <li>Inicia sesión en una cuenta de asociación/veterinaria (Checa <mark
+                style="font-weight: bold; background-color: white;">Manual de
+                inicio de sesión/registro</mark>).</li>
+            <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Productos y
+                Servicios</mark> en la parte de arriba.</li>
+            <li>
+              Selecciona un producto agregado por su asociación/veterinaria, puede apoyarse dando clic en el botón
+              <mark class="boton" style="background-color: green;">Mis productos</mark>.
+            </li>
+            <li>
+              Pulsa el botón <mark class="boton" style="background-color: green;">Editar</mark>.
+            </li>
+            <li>Cambie los datos que necesite, seleccionando el campo y escribiendo la nueva información.</li>
+            <li>Presione el botón <mark class="boton" style="background-color: #55aef5;">Aceptar</mark> o <mark
+                class="boton" style="background-color: orange;">Cancelar</mark> segun sea el caso.</li>
+          </ol>
+          <h2>Eliminar producto (Asociación/Veterinaria)</h2>
+          <ol type="1">
+            <li>Inicia sesión en una cuenta de asociación/veterinaria (Checa <mark
+                style="font-weight: bold; background-color: white;">Manual de
+                inicio de sesión/registro</mark>).</li>
+            <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Productos y
+                Servicios</mark> en la parte de arriba.</li>
+            <li>
+              Selecciona un producto agregado por su asociación/veterinaria, puede apoyarse dando clic en el botón
+              <mark class="boton" style="background-color: green;">Mis productos</mark>.
+            </li>
+            <li>
+              Pulsa el botón <mark class="boton" style="background-color: red;">Eliminar</mark>.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="collapse multi-collapse" id="manualMascotas" data-bs-parent="#nuevoContenido">
+        <div class="card card-body guia">
+          <h2>Ver una mascota</h2>
+          <ol type="1">
+            <li>Inicia sesión en una cuenta (Checa <mark style="font-weight: bold; background-color: white;">Manual de
+                inicio de sesión/registro</mark>).</li>
+            <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Ver mascotas</mark> en
+              la parte de arriba.</li>
+            <li>Observa y selecciona la mascota que haya llamado tu atención (puedes usar los filtros para ser más
+              selectivo
+              en tu búsqueda).</li>
+            <li>Haz clic en la foto de la mascota.</li>
+            <li>Si quieres hacer un proceso de adopción, consulta <mark
+                style="font-weight: bold; background-color: white;">Guía de
+                adopción de mascotas</mark>.</li>
+          </ol>
+          <h2>Agregar una mascota (Asociación/Veterinaria)</h2>
+          <ol type="1">
+            <li>Inicia sesión en una cuenta de asociación/veterinaria (Checa <mark
+                style="font-weight: bold; background-color: white;">Manual de
+                inicio de sesión/registro</mark>).</li>
+            <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Ver mascotas</mark> en la
+              parte de arriba.</li>
+            <li>
+              Haz clic en el botón <mark style="background-color: green; color: white;">Agregar mascota</mark>.
+            </li>
+            <li>Rellene los campos solicitados y presione el botón <mark
+                style="background-color: gray; color: white;">Aceptar</mark>.</li>
+          </ol>
+          <h2>Editar una mascota (Asociación/Veterinaria)</h2>
+          <ol type="1">
+            <li>Inicia sesión en una cuenta de asociación/veterinaria (Checa <mark
+                style="font-weight: bold; background-color: white;">Manual de
+                inicio de sesión/registro</mark>).</li>
+            <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Ver mascotas</mark> en la
+              parte de arriba.</li>
+            <li>
+              Selecciona una mascota agregada por su asociación/veterinaria, puede apoyarse dando clic en el botón
+              <mark class="boton" style="background-color: green;">Mis mascotas</mark>.
+            </li>
+            <li>Haga clic en la foto de la mascota que desea editar su información.</li>
+            <li>
+              Pulsa el botón <mark class="boton" style="background-color: green;">Editar</mark>.
+            </li>
+            <li>Cambie los datos que necesite, seleccionando el campo y escribiendo la nueva información.</li>
+            <li>Presione el botón <mark class="boton" style="background-color: green;">Aceptar</mark> o <mark
+                class="boton" style="background-color: red;">Cancelar</mark> segun sea el caso.</li>
+          </ol>
+          <h2>Cambiar estatus a una mascota (Asociación/Veterinaria)</h2>
+          <ol type="1">
+            <li>Inicia sesión en una cuenta de asociación/veterinaria (Checa <mark
+                style="font-weight: bold; background-color: white;">Manual de
+                inicio de sesión/registro</mark>).</li>
+            <li>Pulsa el botón que dice <mark style="background-color: #04A9B4;" class="boton">Ver mascotas</mark> en la
+              parte de arriba.</li>
+            <li>
+              Selecciona una mascota agregada por su asociación/veterinaria, puede apoyarse dando clic en el botón
+              <mark class="boton" style="background-color: green;">Mis mascotas</mark>.
+            </li>
+            <li>Haga clic en la foto de la mascota que desea editar su información.</li>
+            <li>
+              Pulsa el botón <mark class="boton" style="background-color: orange;">Adoptado</mark>.
+            </li>
+          </ol>
+        </div>
+      </div>
 
     </div>
 
