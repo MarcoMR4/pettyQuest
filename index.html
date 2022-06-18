@@ -52,13 +52,12 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Cambio">
               <div id="agregar">
                 <a class="dropdown-item" data-bs-toggle="modal" href="#InicioSesion" role="button"
-                    aria-controls="InicioSesion" id="Cambio1">
-                    Iniciar Sesión
-                  </a>
-                <a class="dropdown-item" data-bs-toggle="offcanvas" href="#Registrar" role="button"
-                    aria-controls="offcanvasExample" id="Cambio2">
-                    Registrar
-                  </a>
+                  aria-controls="InicioSesion" id="Cambio1">
+                  Iniciar Sesión
+                </a>
+                <a class="dropdown-item" data-bs-toggle="modal" href="#Registrar" role="button" id="Cambio2">
+                  Registrar
+                </a>
               </div>
             </ul>
           </li>
@@ -73,19 +72,23 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Iniciar Sesion </h5>
-          <button type="button" class="btn-close" id="btnsalirsesion" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" id="btnsalirsesion" data-bs-dismiss="modal"
+            aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="formini" aria-labelledby="navbarDropdown">
             <div class="row mb-5">
               <div class="col-12">
-                <div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic radio toggle button group">
-                  <input type="radio" class="btn-check" value="1" name="btnradio" id="btnUsuario" autocomplete="off" checked>
+                <div class="btn-group d-flex justify-content-center" role="group"
+                  aria-label="Basic radio toggle button group">
+                  <input type="radio" class="btn-check" value="1" name="btnradio" id="btnUsuario" autocomplete="off"
+                    checked>
                   <label class="btn btn-outline-primary" for="btnUsuario">Usuario</label>
-                
-                  <input type="radio" class="btn-check" value="2" name="btnradio" id="btnVeterinaria" autocomplete="off">
+
+                  <input type="radio" class="btn-check" value="2" name="btnradio" id="btnVeterinaria"
+                    autocomplete="off">
                   <label class="btn btn-outline-primary" for="btnVeterinaria">Asociación / Veterinaria</label>
-                
+
                   <input type="radio" class="btn-check" value="3" name="btnradio" id="btnAdmin" autocomplete="off">
                   <label class="btn btn-outline-primary" for="btnAdmin">Administrador</label>
                 </div>
@@ -97,8 +100,8 @@
               <span class="input-group-text" id="basic-addon2">@example.com</span>
             </div>
             <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordi" required
-                aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordi"
+                required aria-label="Recipient's username" aria-describedby="basic-addon2">
             </div>
             <div class="text-danger" id="feedback-1">
             </div>
@@ -112,7 +115,98 @@
   </div>
 
   <!--Registro-->
-  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="Registrar"
+
+  <div class="modal fade" id="Registrar" tabindex="-1" aria-labelledby="RegistrarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="RegistrarLabel">Registro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formregistro" aria-labelledby="navbarDropdown">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Apellido Paterno" name="ap" id="ap" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Apellido Materno" name="am" id="am" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Ciudad" name="ciudad" id="ciudad" require>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Calle" name="calle" id="calle" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Numero" name="numero" id="numero" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <input type="email" class="form-control" placeholder="Correo" name="email" id="emailr" required>
+                  <span class="input-group-text" id="basic-addon2">@example.com</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordr"
+                    required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="password2"
+                    id="password2" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Telefono" name="telefono" id="telefono" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <input type="date" class="form-control" placeholder="Fecha Nacimiento" name="edad" id="edad" required>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="form-check-label mb-3">
+                Acepto terminos y condiciones:
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="condiciones" name="condiciones" required>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <input type="submit" class="btn btn-primary me-md-2" value="Registrar"></input>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="Registrar"
     aria-labelledby="RegistrarLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="RegistrarLabel">Registro</h5>
@@ -170,10 +264,10 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!--Carousel Arriba-->
-  <div id="carouselExampleInterval" class="carousel slide w-100" data-bs-ride="carousel">
+  <div id="carouselExampleInterval" class="carousel slide w-100 bg-dark" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="1500">
         <img src="img/CarruselMascotas/pet5.jpeg" class="d-block w-100" alt="..." height="500px">
@@ -246,7 +340,7 @@
               que no disponen de un hogar, el nùmero de estos es considerable y a ido creciendo</span>
             <span>Estamos comprometidos a otorgar el servicio de adopción de mascotas de las diferentes veterinarias
               locales, automatizando y agilizando las mismas.</span>
-            
+
           </p>
           <div class="huellas d-flex justify-content-between img-fluid">
             <img src="img/Logo/huella.png" alt="" height="30px" width="30px">
