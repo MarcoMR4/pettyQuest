@@ -193,7 +193,9 @@
         <div class="col-md-6">
           <label for="passwordE" class="col-form-label">Contraseña</label>
           <input type="text" class="form-control" name="passwordE" id="passwordE" placeholder="Contraseña para cuenta"
-            required>
+          required
+          minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo" 
+              pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
         </div>
       </div>
 

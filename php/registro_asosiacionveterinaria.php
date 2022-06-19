@@ -10,9 +10,9 @@
   $apE = isset($_POST['apE']) ? $_POST['apE'] : '';
   $amE = isset($_POST['amE']) ? $_POST['amE'] : '';
   $telefono = isset($_POST['telE']) ? $_POST['telE'] : '';
-  $password = isset($_POST['passwordE']) ? $_POST['passwordE'] : '';
+  $passwordd = isset($_POST['passwordE']) ? $_POST['passwordE'] : '';
 
-
+  $password = sha1($passwordd);
 
 
   $nuevacon= new conexion_VeteAsosiones();

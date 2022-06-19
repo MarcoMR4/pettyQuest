@@ -10,9 +10,10 @@ $nombreEncargado = isset($_POST['nombreEncargado']) ? $_POST['nombreEncargado'] 
 $apellidoPEncargado = isset($_POST['ap']) ? $_POST['ap'] : '';
 $apellidoMEncargado = isset($_POST['am']) ? $_POST['am'] : ''; 
 $email = isset($_POST['email']) ? $_POST['email'] : '';
-$password = isset($_POST['password']) ? $_POST['password'] : '';
+$passwordd = isset($_POST['password']) ? $_POST['password'] : '';
 $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : '';
 
+$password = sha1($passwordd);
 $nuevacon= new conexion_VeteAsosiones();
 $respuestajson=$nuevacon->editar_asociacionveterinaria($idClave,$nombre,$ciudad,$calle,$numero,$nombreEncargado,$apellidoPEncargado,$apellidoMEncargado,$email,$telefono,$password);
 

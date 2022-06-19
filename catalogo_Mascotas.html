@@ -185,14 +185,18 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="passwordr" class="col-form-label">Contraseña</label>
-                                    <input type="password" class="form-control" name="password" id="passwordr" required>
+                                    <input type="password" class="form-control" name="password" id="passwordr" required
+                                    minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo" 
+                                    pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="password2" class="col-form-label">Confirmar Contraseña</label>
                                     <input type="password" class="form-control" name="password2" id="password2"
-                                        required>
+                                        required
+                                        minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo" 
+                                        pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
                                 </div>
                             </div>
                         </div>

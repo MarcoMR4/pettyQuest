@@ -139,7 +139,9 @@
                         <label for="idContraseña" class="col-sm-2 col-form-label">Contraseña:</label>
                         <div class="col-sm-8">
                             <input type="password" readonly class="form-control" id="idContraseña" disabled
-                                name="password">
+                                name="password" required
+                                minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo" 
+                                    pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
                         </div>
                     </div>
                     <div class="mb-4 row">
