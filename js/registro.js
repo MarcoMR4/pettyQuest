@@ -11,26 +11,49 @@ $(window).ready(function() {
         var datos = $(this).serializeArray();
         let password = $("#passwordr").val();
         let password2 = $("#password2").val();
-
-        if (password == password2) {
-            console.log("Son iguales"); 
-        } else {
-            console.log("la contraseña no es la misma");
-        }
+        let correo = $("#emailr").val();
 
         $.ajax({
             type: "POST",
-            url: "./php/registro.php",
+            url: "./php/correoexistente.php",
             data: datos,
             dataType: "JSON",
             success: function (response) {
                 console.log(response);
-                $.getScript('./js/cambio_menu_tipo.js', function(){});
+                usuarioexiste = (Object.keys(response).length);
+                if(usuarioexiste>=1){
+                    $("#feedback-correo").text("El correo ya esta en uso")
+                }
+                else{
+
+                    if (password == password2) {
+                        console.log("Son iguales"); 
+                    } else {
+                        console.log("la contraseña no es la misma");
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "./php/registro.php",
+                        data: datos,
+                        dataType: "JSON",
+                        success: function (response) {
+                            console.log(response);
+                            $.getScript('./js/cambio_menu_tipo.js', function(){});
+                            $("#btnsalirregistro").trigger("click");
+                        }
+                    }); 
+                }
+            },
+            error: function (response) {
+                console.log(response);
             }
-        });        
+        });
+
+               
 
         /* Dar click al boton de x en el registro desde aqui */
-        $("#btnsalirregistro").trigger("click");
+        
         
     });
 });

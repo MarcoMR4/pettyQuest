@@ -61,6 +61,21 @@ class conexion{
         return $mijson;
     }
 
+    function validarcorreo($email){
+        $link = $this->conectar();
+        $sql="SELECT * FROM usuario WHERE email='".$email."'";
+        $result = $link->query($sql) or die (print("Error"));
+        $data=[];
+        while($item = $result->fetch(PDO::FETCH_OBJ)){
+            $data[]=[
+                'correoexiste' => 'si',
+            ];
+        }
+
+        $datajson=json_encode($data);
+        return $datajson;
+    }
+
     function pruebaSesion(){
         $link = $this->conectar();
 

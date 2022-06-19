@@ -30,11 +30,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav menuHeader" style="margin-left: auto;">
-                    <li class="nav-item" id="oculto2">
-                      <a class="nav-link color-link-black" href="catalogo_veterinarias.html">Ver veterinarias</a>
-                    </li>
           <li class="nav-item">
             <a class="nav-link color-link-black" href="catalogo_Mascotas.html">Ver mascotas</a>
+          </li>
+          <li class="nav-item" id="oculto2">
+            <a class="nav-link color-link-black" href="catalogo_veterinarias.html">Ver veterinarias</a>
           </li>
           <div id="oculto" class="navbar-nav">
             <li class="nav-item">
@@ -52,13 +52,13 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Cambio">
               <div id="agregar">
-                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#InicioSesion" role="button"
-                    aria-controls="InicioSesion" id="Cambio1">
-                    Iniciar Sesión
-                  </a></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" href="#Registrar" role="button" id="Cambio2">
-                    Registrar
-                  </a></li>
+                <a class="dropdown-item" data-bs-toggle="modal" href="#InicioSesion" role="button"
+                  aria-controls="InicioSesion" id="Cambio1">
+                  Iniciar Sesión
+                </a>
+                <a class="dropdown-item" data-bs-toggle="modal" href="#Registrar" role="button" id="Cambio2">
+                  Registrar
+                </a>
               </div>
             </ul>
           </li>
@@ -68,35 +68,53 @@
   </nav>
 
   <!--Inicio de Sesion-->
-  <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="InicioSesion"
-    aria-labelledby="InicioSesionLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="InicioSesionLabel">Inicio de Sesion</h5>
-      <button type="button" id="btnsalirsesion" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-        aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="formato-ini">
-        <form id="formini" aria-labelledby="navbarDropdown">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Correo" name="email" id="emaili" required
-              aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <span class="input-group-text" id="basic-addon2">@example.com</span>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordi" required
-              aria-label="Recipient's username" aria-describedby="basic-addon2">
-          </div>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <input type="submit" class="btn btn-primary me-md-2" value="Iniciar Sesion"></input>
-          </div>
-        </form>
+  <div class="modal" tabindex="-1" id="InicioSesion">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Iniciar Sesion </h5>
+          <button type="button" class="btn-close" id="btnsalirsesion" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formini" aria-labelledby="navbarDropdown">
+            <div class="row mb-5">
+              <div class="col-12">
+                <div class="btn-group d-flex justify-content-center" role="group"
+                  aria-label="Basic radio toggle button group">
+                  <input type="radio" class="btn-check" value="1" name="btnradio" id="btnUsuario" autocomplete="off"
+                    checked>
+                  <label class="btn btn-outline-primary" for="btnUsuario">Usuario</label>
+  
+                  <input type="radio" class="btn-check" value="2" name="btnradio" id="btnVeterinaria" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="btnVeterinaria">Asociación / Veterinaria</label>
+  
+                  <input type="radio" class="btn-check" value="3" name="btnradio" id="btnAdmin" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="btnAdmin">Administrador</label>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Correo" name="email" id="emaili" required
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <span class="input-group-text" id="basic-addon2">@example.com</span>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" placeholder="Contraseña" name="password" id="passwordi" required
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
+            <div class="text-danger" id="feedback-1">
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <input type="submit" class="btn btn-primary me-md-2" value="Iniciar Sesion"></input>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 
   <!--Registro-->
-
+  
   <div class="modal fade" id="Registrar" tabindex="-1" aria-labelledby="RegistrarLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
@@ -152,6 +170,8 @@
                 <div class="mb-3">
                   <label for="emailr" class="col-form-label">Correo</label>
                   <input type="email" class="form-control" name="email" id="emailr" required>
+                </div>
+                <div class="text-danger" id="feedback-correo">
                 </div>
               </div>
               <div class="col-md-4">

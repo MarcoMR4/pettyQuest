@@ -25,7 +25,11 @@ $(window).ready(function() {
                     else{
                         $("#feedback-1").text("Usuario o Contraseña incorrectos")
                     }
+                },
+                error: function (response) {
+                    console.log(response);
                 }
+                
             });
         }
         if(opcion=='2'){
