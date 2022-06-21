@@ -41,6 +41,7 @@ $(window).ready(function() {
                             console.log(response);
                             $.getScript('./js/cambio_menu_tipo.js', function(){});
                             $("#btnsalirregistro").trigger("click");
+                            $("#abrirRegistroExitoso").trigger("click");
                         }
                     }); 
                 }

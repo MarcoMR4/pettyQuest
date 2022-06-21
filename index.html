@@ -183,19 +183,19 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label for="passwordr" class="col-form-label">Contraseña (1 mayúscula, 1 minúscula y 1 número mínimo):</label>
+                                    <label for="passwordr" class="col-form-label">Contraseña (1 mayúscula, 1 minúscula y
+                                        1 número mínimo):</label>
                                     <input type="password" class="form-control" name="password" id="passwordr" required
-                                    minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo" 
-                                    pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$" >
+                                        minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
+                                        pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="password2" class="col-form-label">Confirmar Contraseña</label>
-                                    <input type="password" class="form-control" name="password2" id="password2"
-                                    required
-                                    minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo" 
-                                    pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$" >
+                                    <input type="password" class="form-control" name="password2" id="password2" required
+                                        minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
+                                        pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
                                 </div>
                             </div>
                         </div>
@@ -228,6 +228,28 @@
             </div>
         </div>
     </div>
+
+    <button type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#modRegExito" id="abrirRegistroExitoso">
+        Abrir registro exitoso
+      </button>
+
+    <div class="modal fade fw-light" id="modRegExito" tabindex="-1" aria-labelledby="modRegExitoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fw-light" id="modRegExitoLabel">Bienvenido</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Muchas gracias por registrarte!!!</p>
+                <p>Por favor inicia sesion para comenzar</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="Registrar"
     aria-labelledby="RegistrarLabel">
@@ -479,7 +501,9 @@
                     </section>
                 </div>
             </div>
-            <div class="row"><hr></div>
+            <div class="row">
+                <hr>
+            </div>
             <div class="row fw-light">
                 <div class="col-md-2">
                     <p class="text-white-50">©2022 PettyQuest - Todos los derechos reservados</p>
