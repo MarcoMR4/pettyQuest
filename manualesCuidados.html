@@ -226,6 +226,30 @@
         </div>
     </div>
 
+    <button type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#modRegExito"
+        id="abrirRegistroExitoso">
+        Abrir registro exitoso
+    </button>
+
+    <div class="modal fade fw-light" id="modRegExito" tabindex="-1" aria-labelledby="modRegExitoLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fw-light" id="modRegExitoLabel">Bienvenido</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Muchas gracias por registrarte!!!</p>
+                    <p>Por favor inicia sesion para comenzar</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- <div class="offcanvas offcanvas-start formato-offcanvas" tabindex="-1" id="Registrar"
     aria-labelledby="RegistrarLabel">
     <div class="offcanvas-header">
@@ -713,7 +737,8 @@
                         <li>Cambie los datos que necesite, seleccionando el campo y escribiendo la nueva información.
                         </li>
                         <li>Presione el botón <mark class="boton" style="background-color: green;">Aceptar</mark> o
-                            <mark class="boton" style="background-color: red;">Cancelar</mark> segun sea el caso.</li>
+                            <mark class="boton" style="background-color: red;">Cancelar</mark> segun sea el caso.
+                        </li>
                     </ol>
                     <h2>Cambiar estatus a una mascota (Asociación/Veterinaria)</h2>
                     <ol type="1">
