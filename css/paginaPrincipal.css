@@ -44,8 +44,8 @@
         height: auto;
         right: 0;
         border-left: 200px solid transparent;
-        border-bottom: 180px solid #560000;
-        border-top: 180px solid #560000;
+        border-bottom: 220px solid #560000;
+        border-top: 220px solid #560000;
         box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;        
          
     }
@@ -74,4 +74,13 @@
         box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;        
          
     }
+}
+
+@media only screen and ( max-width: 767px) {
+    .triangulo {
+        position: absolute;
+        background-color: transparent;
+        box-shadow: none;   
+    }
+    
 }

@@ -263,7 +263,7 @@ $(document).ready(function () {
     });
 
     $("#btnContactoInfo").click(function (e) {
-        // $(".cardInfoContacto").show(500);
+        $(".cardInfoContacto").show(500);
     });
 
     $('#mensajeContacto').keypress(function (event) {
