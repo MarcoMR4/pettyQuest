@@ -62,8 +62,6 @@
     font-size: 5px;
 }
 
-
-
 .imagenPerfil i{
     font-size: 60px;    
     color: white;
@@ -133,6 +131,16 @@
     position: relative;
     overflow: auto;
     height: 415px;
+}
+
+/* Informacion de contacto */
+
+.cardInfoContacto{
+    position: absolute;
+    margin-top: 1%;
+    height: 54.5%;
+    width: 17%;
+    right: 0;
 }
 
 /* form enviar mensaje */

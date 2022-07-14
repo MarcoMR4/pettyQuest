@@ -488,7 +488,8 @@ class conexion_VeteAsosiones{
           'ciudad' => $item->ciudad,
           'calle' => $item->calle,
           'numeroCasa' => $item->numeroCasa,
-          'edad' => $item->edad
+          'edad' => $item->edad,
+          'telefono' => $item->telefono
         ];
       }
       $datajson=json_encode($data);

@@ -106,6 +106,15 @@ $(document).ready(function () {
                                 </div>
                               </div>
                               <hr>
+                              <div class="telefono row mt-3">
+                                <div class="campo col-sm-5">
+                                  <p>Télefono:</p>
+                                </div>
+                                <div class="telefonoCompleto col-sm-7">
+                                  <p>${response2[0]['telefono']}</p>
+                                </div>
+                              </div>
+                              <hr>
                               <div class="razones row mt-3">
                                 <div class="campo col-sm-5">
                                   <p>Razones:</p>

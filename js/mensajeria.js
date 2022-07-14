@@ -252,31 +252,6 @@ function cargarContactos() {
 
 }
 
-$(document).ready(function () {
-    cargarContactos();
-    $("#mensajeContacto").hide();
-    $("#btnEnviarMensajeContacto").hide();    
-    $(".cardInfoContacto").hide();
-
-    $("#btnEnviarMensajeContacto").click(function (e) {
-        EnviarMensaje()
-    });
-
-    $("#btnContactoInfo").click(function (e) {
-        $(".cardInfoContacto").show(500);
-    });
-
-    $('#mensajeContacto').keypress(function (event) {
-        var keycode = (event.keyCode ? event.keyCode : event.which);
-        if (keycode == '13') {
-            EnviarMensaje()();
-        }
-    });
-
-    // $(".enviarMensajeContacto").on('submit', function (e) {
-    // });
-});
-
 // Enviar un mensaje
 function EnviarMensaje() {
     // e.preventDefault();
@@ -299,3 +274,36 @@ function EnviarMensaje() {
         });
 }
 
+$(document).ready(function () {
+    cargarContactos();
+    $("#mensajeContacto").hide();
+    $("#btnEnviarMensajeContacto").hide();    
+    $(".cardInfoContacto").hide();
+
+    $("#btnEnviarMensajeContacto").click(function (e) {
+        EnviarMensaje()
+    });
+
+    $("#btnContactoInfo").click(function (e) {
+        $(".cardInfoContacto").show(500);
+    });
+
+    $('#mensajeContacto').keypress(function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            EnviarMensaje()();
+        }
+    });
+
+    $(".btn-close").click(function (e) { 
+        $(".cardInfoContacto").hide(500);
+        
+    });
+    
+    // $(".enviarMensajeContacto").on('submit', function (e) {
+        // });
+    });
+    
+    
+    
+    
