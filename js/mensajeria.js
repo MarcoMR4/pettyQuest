@@ -135,7 +135,18 @@ function botonClick(clave) {
     let nombre = document.getElementById(destinatario).getElementsByClassName("nombrePerfil").item("p").textContent.trim().toString();
     $("#nombreContactoUp").text(nombre);
     cargarMensajes();
+    $.ajax({
+        type: "POST",
+        url: "./php/identificarTipoUsuario.php",
+        data: "",
+        dataType: "JSON",
+        success: function (response) {
+            console.log(response[0]['tipo'])
+            if(response[0]["tipo"]){
 
+            }
+        }
+    });
 }
 
 // Cargar todos los contactos disponibles en la base de datos
