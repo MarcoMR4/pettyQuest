@@ -190,6 +190,9 @@ function opciones($usuario, $nombre) {
                         <a class="dropdown-item" href="consultar_solicitudes_propias.html"  role="button" aria-controls="InicioSesion">
                             Mis solicitudes
                         </a>
+                        <a class="dropdown-item" href="registro_mascotaPerdida.html"  role="button" aria-controls="InicioSesion">
+                            Resgistrar mascota perdida
+                        </a>            
                         <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
                         Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>
                         </a>    
@@ -205,6 +208,9 @@ function opciones($usuario, $nombre) {
                         </a>
                         <a class="dropdown-item" href="consultar_solicitudes_propias.html"  role="button" aria-controls="InicioSesion">
                             Mis solicitudes
+                        </a>
+                        <a class="dropdown-item" href="registro_mascotaPerdida.html"  role="button" aria-controls="InicioSesion">
+                            Resgistrar mascota perdida
                         </a>
                         <a class="dropdown-item" href="index.html" role="button" aria-controls="InicioSesion" id="Cambio2" onclick="cerrarSesion()">
                         Cerrar Sesión  <i class='bx bx-log-out bx-flashing' style='color:#000000; font-size:20px;' ></i>

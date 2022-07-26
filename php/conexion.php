@@ -177,6 +177,87 @@ class conexion{
         }
     }
 
+    function registroMascotasPerdidas($idNombre,$idDireccion,$idTelefono,$idRaza,$genero,$tamano,$idInfo,$idRazaAnimal,$tmpimg,$type){
+        $link = $this->conectar();
+        $sql="SELECT AUTO_INCREMENT FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'id19026854_pettyquest' AND   TABLE_NAME   = 'mascota_perdida'";
+        $autoincrement = $link->query($sql) or die (print("Error"));
+  
+        $idmascota = "";
+        while($item = $autoincrement->fetch(PDO::FETCH_OBJ)){
+          $idmascota=$item->AUTO_INCREMENT;
+        }
+        
+        $name=$idNombre.$idmascota.$type;
+        $rutarelativa="img/uploaded/mascotasPerdidas/".$name;
+        $rutaguardarphp="../".$rutarelativa;
+        $estatus="Perdido";
+        if(move_uploaded_file($tmpimg, $rutaguardarphp)){
+          $result = $link->query("INSERT INTO mascota_perdida (nombre,ultimaLocalizacion,telefono,foto,raza,informacion,tipoAnimal,genero,tamaño,estatus) VALUES ('$idNombre','$idDireccion','$idTelefono','$rutarelativa','$idRaza','$idInfo','$idRazaAnimal','$genero','$tamano','$estatus')") or die (print("Error")); 
+          $data[]=[
+            'estatus' => 'registrado'
+          ];
+          $id=$_SESSION['idUsuario'];
+          $result3 = $link->query("INSERT INTO fk_mascota_usuario (claveMascota,idUsuario) VALUES ('$idmascota','$id')") or die (print("Error")); 
+        }
+  
+        $datajson=json_encode($data);
+        return $datajson;
+      }
+
+      function obtenerMascotasPerdidas(){
+        $link = $this->conectar();
+  
+        /* Query para obtener datos */
+        $sql="SELECT * FROM mascota_perdida";
+        $result = $link->query($sql) or die (print("Error"));
+  
+        /* Creacion del JSON */
+        $data=[];
+        while($item = $result->fetch(PDO::FETCH_OBJ)){
+            $data[]=[
+                'claveMascota' => $item->claveMascota,
+                'nombre' => $item->nombre,
+                'ultimaLocalizacion' => $item->ultimaLocalizacion,
+                'telefono' => $item->telefono,
+                'foto' => $item->foto,
+                'raza' => $item->raza,
+                'informacion' => $item->informacion,
+                'tipoAnimal' => $item->tipoAnimal,
+                'genero' => $item->genero,
+                'tamaño' => $item->tamaño,
+                'estatus' => $item->estatus
+            ];
+        }
+        $datajson=json_encode($data);
+        return $datajson; 
+      }
+
+      function mis_MascotasPerdidas()
+    {
+      # code...
+      $link = $this->conectar();
+        $result = $link->query("SELECT * FROM fk_mascota_usuario NATURAL JOIN mascota_perdida") or die (print("Error")); 
+        $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+          $data[]=[
+              'claveMascota' => $item->claveMascota,
+              'idUsuario' => $item->idUsuario,
+              'nombre' => $item->nombre,
+              'ultimaLocalizacion' => $item->ultimaLocalizacion,
+              'telefono' => $item->telefono,
+              'foto' => $item->foto,
+              'raza' => $item->raza,
+              'informacion' => $item->informacion,
+              'tipoAnimal' => $item->tipoAnimal,
+              'genero' => $item->genero,
+              'tamaño' => $item->tamaño,
+              'estatus' => $item->estatus
+          ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
     function nuevoSeguimiento($claveMascota,$comentarios,$tmpimg,$type,$tmpimg2,$type2){
         $link = $this->conectar();
         $id = $_SESSION['idUsuario'];
