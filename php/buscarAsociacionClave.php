@@ -1,9 +1,9 @@
 <?php
-    require 'conexion.php';
+require 'conexion_VeteAsosiones.php';
 
-    $claveAsociacion = isset($_POST['claveAsociacion']) ? $_POST['claveAsociacion'] : '';
+$idAsociacion = isset($_POST['idAsociacion']) ? $_POST['idAsociacion'] : '';
+$nuevacon= new conexion_VeteAsosiones();
+$respuestajson=$nuevacon->buscar_asociacion_por_id($idAsociacion);
+echo $respuestajson;
 
-    $nuevacon= new conexion();
-    $respuestajson=$nuevacon->buscarAsociacionClave($claveAsociacion);
-    echo($respuestajson);
 ?>

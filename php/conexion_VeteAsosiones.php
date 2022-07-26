@@ -489,7 +489,8 @@ class conexion_VeteAsosiones{
           'calle' => $item->calle,
           'numeroCasa' => $item->numeroCasa,
           'edad' => $item->edad,
-          'telefono' => $item->telefono
+          'telefono' => $item->telefono,
+          'geolocalizacion' => $item->geolocalizacion
         ];
       }
       $datajson=json_encode($data);
@@ -610,5 +611,28 @@ class conexion_VeteAsosiones{
     return $datajson; 
   }
 
+  function buscar_asociacion_por_id($idAsociacion){
+    $link = $this->conectar();    
+    $result = $link->query("SELECT * FROM asociacionveterinaria WHERE claveAsociacionVeterinaria = '$idAsociacion'") or die (print("Error")); 
+
+    while ($item = $result->fetch(PDO::FETCH_OBJ)) {            
+        $data[] = [
+            'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
+            'nombre' => $item->nombre,
+            'ciudad' => $item->ciudad,
+            'calle' => $item->calle,
+            'numero' => $item->	numero,
+            'email' => $item->email,
+            'nombreEncargado' => $item->nombreEncargado,
+            'apellidoPEncargado' => $item->apellidoPEncargado,
+            'apellidoMEncargado' => $item->apellidoMEncargado,
+            'telefono' => $item->telefono,
+            'geolocalizacion' => $item->geolocalizacion            
+        ];
+    }
+    /* Si regresa algo*/
+    $datajson=json_encode($data);
+    return $datajson; 
+  }
+
 }
-?>
