@@ -301,6 +301,7 @@ class conexion_VeteAsosiones{
         return $datajson;
     }
 
+
     function buscar_perros_por_atributo($atributo, $atributoEspec)
     {
       # code...
@@ -396,6 +397,56 @@ class conexion_VeteAsosiones{
               'genero' => $item->genero,
               'tamaño' => $item->tamaño,
               'estatus' => $item->estatus
+          ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
+    function buscarMascotaPerdidaNombre($nombre)
+    {
+      # code...
+      $link = $this->conectar();
+        $result = $link->query("SELECT * FROM mascota_perdida WHERE nombre LIKE '$nombre%'") or die (print("Error")); 
+        $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+          $data[]=[
+            'claveMascota' => $item->claveMascota,
+            'nombre' => $item->nombre,
+            'ultimaLocalizacion' => $item->ultimaLocalizacion,
+            'telefono' => $item->telefono,
+            'foto' => $item->foto,
+            'raza' => $item->raza,
+            'informacion' => $item->informacion,
+            'tipoAnimal' => $item->tipoAnimal,
+            'genero' => $item->genero,
+            'tamaño' => $item->tamaño,
+            'estatus' => $item->estatus
+          ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
+    function buscar_MascotaPerdidaAtributo($atributo, $atributoEspec)
+    {
+      # code...
+      $link = $this->conectar();
+        $result = $link->query("SELECT * FROM mascota_perdida WHERE $atributo = '$atributoEspec'") or die (print("Error")); 
+        $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+          $data[]=[
+            'claveMascota' => $item->claveMascota,
+            'nombre' => $item->nombre,
+            'ultimaLocalizacion' => $item->ultimaLocalizacion,
+            'telefono' => $item->telefono,
+            'foto' => $item->foto,
+            'raza' => $item->raza,
+            'informacion' => $item->informacion,
+            'tipoAnimal' => $item->tipoAnimal,
+            'genero' => $item->genero,
+            'tamaño' => $item->tamaño,
+            'estatus' => $item->estatus
           ];
       }
       $datajson=json_encode($data);

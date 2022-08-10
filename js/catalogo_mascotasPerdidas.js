@@ -123,7 +123,7 @@ function buscarMascotaPorNombre() {
 
   $.ajax({
     type: "post",
-    url: "php/buscarMascota.php",
+    url: "php/buscarMascotaPerdida.php",
     data: {
       buscar: nombre
     },
@@ -221,27 +221,27 @@ function misMascotas() {
 
   if (tipoUsuario == 0) {
     //Conseguimos el ID de la veterinaria
-  $.ajax({
-    type: "POST",
-    url: "./php/pruebaSesionUsuario.php",
-    data: "",
-    dataType: "JSON",
-    success: function (response2) {
-      idUsuario = response2[0]['idUsuario'];
-    }
-  });
-  $.ajax({
-    type: "post",
-    url: "php/misMascotasPerdidas.php",
-    data: "",
-    dataType: "JSON",
-    success: function (response) {
-      var relleno = "";
-      /* Imprimimos en pantalla cada mascota encontrada PERDIDO*/
-      response.map(item => {
-        if (`${item.idUsuario}` == idUsuario) {
-          if (`${item.estatus}` == "Perdido") {
-            relleno += `
+    $.ajax({
+      type: "POST",
+      url: "./php/pruebaSesionUsuario.php",
+      data: "",
+      dataType: "JSON",
+      success: function (response2) {
+        idUsuario = response2[0]['idUsuario'];
+      }
+    });
+    $.ajax({
+      type: "post",
+      url: "php/misMascotasPerdidas.php",
+      data: "",
+      dataType: "JSON",
+      success: function (response) {
+        var relleno = "";
+        /* Imprimimos en pantalla cada mascota encontrada PERDIDO*/
+        response.map(item => {
+          if (`${item.idUsuario}` == idUsuario) {
+            if (`${item.estatus}` == "Perdido") {
+              relleno += `
                     <div class="col">
                     <div class="card h-100">
                         <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
@@ -266,16 +266,16 @@ function misMascotas() {
                     </div>
                   </div>
                     `;
+            }
           }
-        }
-      })
-      $(".catalogo").html(relleno);
-      relleno = "";
-      /*Encontrado  */
-      response.map(item => {
-        if (`${item.idUsuario}` == idUsuario) {
-          if (`${item.estatus}` == "Encontrado") {
-            relleno += `
+        })
+        $(".catalogo").html(relleno);
+        relleno = "";
+        /*Encontrado  */
+        response.map(item => {
+          if (`${item.idUsuario}` == idUsuario) {
+            if (`${item.estatus}` == "Encontrado") {
+              relleno += `
                   <div class="col">
                   <div class="card h-100">
                       <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
@@ -300,38 +300,38 @@ function misMascotas() {
                   </div>
               </div>
                   `;
+            }
           }
-        }
-      })
-      $(".catalogo").append(relleno);
-      relleno = "";
-      $("#btnCancelar").show();
-    }
-  });
+        })
+        $(".catalogo").append(relleno);
+        relleno = "";
+        $("#btnCancelar").show();
+      }
+    });
   }
   else {
     //Conseguimos el ID de la veterinaria
-  $.ajax({
-    type: "POST",
-    url: "./php/pruebaSesionVeterinaria.php",
-    data: "",
-    dataType: "JSON",
-    success: function (response2) {
-      claveAsociacionVeterinaria = response2[0]['claveAsociacionVeterinaria'];
-    }
-  });
-  $.ajax({
-    type: "post",
-    url: "php/misMascotasPerdidas2.php",
-    data: "",
-    dataType: "JSON",
-    success: function (response) {
-      var relleno = "";
-      /* Imprimimos en pantalla cada mascota encontrada PERDIDO*/
-      response.map(item => {
-        if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria) {
-          if (`${item.estatus}` == "Perdido") {
-            relleno += `
+    $.ajax({
+      type: "POST",
+      url: "./php/pruebaSesionVeterinaria.php",
+      data: "",
+      dataType: "JSON",
+      success: function (response2) {
+        claveAsociacionVeterinaria = response2[0]['claveAsociacionVeterinaria'];
+      }
+    });
+    $.ajax({
+      type: "post",
+      url: "php/misMascotasPerdidas2.php",
+      data: "",
+      dataType: "JSON",
+      success: function (response) {
+        var relleno = "";
+        /* Imprimimos en pantalla cada mascota encontrada PERDIDO*/
+        response.map(item => {
+          if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria) {
+            if (`${item.estatus}` == "Perdido") {
+              relleno += `
                     <div class="col">
                     <div class="card h-100">
                         <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
@@ -356,16 +356,16 @@ function misMascotas() {
                     </div>
                   </div>
                     `;
+            }
           }
-        }
-      })
-      $(".catalogo").html(relleno);
-      relleno = "";
-      /*Encontrado  */
-      response.map(item => {
-        if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria) {
-          if (`${item.estatus}` == "Encontrado") {
-            relleno += `
+        })
+        $(".catalogo").html(relleno);
+        relleno = "";
+        /*Encontrado  */
+        response.map(item => {
+          if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria) {
+            if (`${item.estatus}` == "Encontrado") {
+              relleno += `
                   <div class="col">
                   <div class="card h-100">
                       <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
@@ -390,16 +390,16 @@ function misMascotas() {
                   </div>
               </div>
                   `;
+            }
           }
-        }
-      })
-      $(".catalogo").append(relleno);
-      relleno = "";
-      $("#btnCancelar").show();
-    }
-  });
+        })
+        $(".catalogo").append(relleno);
+        relleno = "";
+        $("#btnCancelar").show();
+      }
+    });
   }
-  
+
 }
 
 $("#btnMisMascotas").click(function (e) {
@@ -462,9 +462,8 @@ $("#selectFiltro").change(function (e) {
   else if ($("#selectFiltro").val() == "estatus") {
     var opciones = `
       <option selected value="0">Cualquier estado</option>
-      <option value="En adopcion">En adopción</option>
-      <option value="En proceso">En proceso</option>
-      <option value="Adoptado">Adoptado</option>
+      <option value="Perdido">Perdido</option>
+      <option value="Encontrado">Encontrado</option>
       `;
     $("#selectOpcionFiltro").prop('disabled', false);
     $("#selectOpcionFiltro").html(opciones);
@@ -491,7 +490,7 @@ $("#selectOpcionFiltro").change(function (e) {
 
   $.ajax({
     type: "post",
-    url: "php/buscarMascotaAtributo.php",
+    url: "php/buscarMascotaPerdidaAtributo.php",
     data: {
       atributo: atributo,
       atributoEspec: atributoEspec
@@ -502,15 +501,16 @@ $("#selectOpcionFiltro").change(function (e) {
       //Si mis mascotas esta activado busca solamente con sus mascotas
 
       if (misMas == 1) {
+        //PERDIDO
         response.map(item => {
           if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria) {
-            if (`${item.estatus}` == "En adopción") {
+            if (`${item.estatus}` == "Perdido") {
               relleno += `
                       <div class="col">
                       <div class="card h-100">
                           <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
                         <div class="card-body">
-                        <form action="php/encontrarPerfil.php" method="post" autocomplete="off">
+                        <form action="php/encontrarPerfilPerdido.php" method="post" autocomplete="off">
                         <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">
                         <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.claveMascota}" style="display: none;">
                         </form>
@@ -518,10 +518,11 @@ $("#selectOpcionFiltro").change(function (e) {
                             <li class="list-group-item">
                               <h5 class="card-title">${item.nombre}</h5>
                             </li>
-                            <li class="list-group-item">${item.edad}</li>
                             <li class="list-group-item">${item.genero}</li>
+                            <li class="list-group-item">Ultima vez visto por: "${item.ultimaLocalizacion}"</li>
+                            <li class="list-group-item">${item.telefono}</li>
                           </ul>
-                          <div class="card-footer">
+                          <div class="card-footer" style="color: rgb(197, 10, 10);">
                           ${item.estatus}
                           </div>
                           
@@ -532,156 +533,99 @@ $("#selectOpcionFiltro").change(function (e) {
             }
           }
         })
-        /*EN PROCESO*/
+        /*Encontrado*/
         response.map(item => {
           if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria) {
-            if (`${item.estatus}` == "En proceso") {
+            if (`${item.estatus}` == "Encontrado") {
               relleno += `
-                      <div class="col">
-                      <div class="card h-100">
-                          <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
-                        <div class="card-body">
-                        <form action="php/encontrarPerfil.php" method="post" autocomplete="off">
-                        <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">
-                        <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.claveMascota}" style="display: none;">
-                        </form>
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                              <h5 class="card-title">${item.nombre}</h5>
-                            </li>
-                            <li class="list-group-item">${item.edad}</li>
-                            <li class="list-group-item">${item.genero}</li>
-                          </ul>
-                          <div class="card-footer">
-                          ${item.estatus}
-                          </div>
-                          
+                    <div class="col">
+                    <div class="card h-100">
+                        <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
+                    <div class="card-body">
+                    <form action="php/encontrarPerfilPerdido.php" method="post" autocomplete="off">
+                    <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">
+                    <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.claveMascota}" style="display: none;">
+                    </form>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <h5 class="card-title">${item.nombre}</h5>
+                        </li>
+                        <li class="list-group-item">${item.genero}</li>
+                        <li class="list-group-item">Ultima vez visto por: "${item.ultimaLocalizacion}"</li>
+                        <li class="list-group-item">${item.telefono}</li>
+                        </ul>
+                        <div class="card-footer" style="color: rgb(10, 197, 26);">
+                        ${item.estatus}
                         </div>
-                      </div>
+                        
                     </div>
-                      `;
-            }
-          }
-        })
-        /*ADOPTADO*/
-        response.map(item => {
-          if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria) {
-            if (`${item.estatus}` == "Adoptado") {
-              relleno += `
-                      <div class="col">
-                      <div class="card h-100">
-                          <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
-                        <div class="card-body">
-                        <form action="php/encontrarPerfil.php" method="post" autocomplete="off">
-                        <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">
-                        <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.claveMascota}" style="display: none;">
-                        </form>
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                              <h5 class="card-title">${item.nombre}</h5>
-                            </li>
-                            <li class="list-group-item">${item.edad}</li>
-                            <li class="list-group-item">${item.genero}</li>
-                          </ul>
-                          <div class="card-footer">
-                          ${item.estatus}
-                          </div>
-                          
-                        </div>
-                      </div>
                     </div>
-                      `;
+                </div>
+                    `;
             }
           }
         })
       }
       // Imprimimos en pantalla cada mascota encontrada con esos atributos
       else {
-        /*ADOPCION*/
+        /*PERDIDO*/
         response.map(item => {
-          if (`${item.estatus}` == "En adopción") {
+          if (`${item.estatus}` == "Perdido") {
             relleno += `
-                  <div class="col">
-                  <div class="card h-100">
-                      <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
-                    <div class="card-body">
-                    <form action="php/encontrarPerfil.php" method="post" autocomplete="off">
-                    <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">
-                    <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.claveMascota}" style="display: none;">
-                    </form>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                          <h5 class="card-title">${item.nombre}</h5>
-                        </li>
-                        <li class="list-group-item">${item.edad}</li>
-                        <li class="list-group-item">${item.genero}</li>
-                      </ul>
-                      <div class="card-footer">
-                      ${item.estatus}
+                    <div class="col">
+                    <div class="card h-100">
+                        <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
+                      <div class="card-body">
+                      <form action="php/encontrarPerfilPerdido.php" method="post" autocomplete="off">
+                      <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">
+                      <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.claveMascota}" style="display: none;">
+                      </form>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
+                            <h5 class="card-title">${item.nombre}</h5>
+                          </li>
+                          <li class="list-group-item">${item.genero}</li>
+                          <li class="list-group-item">Ultima vez visto por: "${item.ultimaLocalizacion}"</li>
+                          <li class="list-group-item">${item.telefono}</li>
+                        </ul>
+                        <div class="card-footer" style="color: rgb(197, 10, 10);">
+                        ${item.estatus}
+                        </div>
+                        
                       </div>
-                      
                     </div>
                   </div>
-                </div>
-                  `;
-          }
-        })
-        /*EN PROCESO  */
-        response.map(item => {
-          if (`${item.estatus}` == "En proceso") {
-            relleno += `
-                  <div class="col">
-                  <div class="card h-100">
-                      <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
-                    <div class="card-body">
-                    <form action="php/encontrarPerfil.php" method="post" autocomplete="off">
-                    <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">
-                    <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.claveMascota}" style="display: none;">
-                    </form>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                          <h5 class="card-title">${item.nombre}</h5>
-                        </li>
-                        <li class="list-group-item">${item.edad}</li>
-                        <li class="list-group-item">${item.genero}</li>
-                      </ul>
-                      <div class="card-footer">
-                      ${item.estatus}
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-                  `;
+                    `;
           }
         })
 
-        /*ADOPTADO*/
+        /*Encontrado*/
         response.map(item => {
-          if (`${item.estatus}` == "Adoptado") {
+          if (`${item.estatus}` == "Encontrado") {
             relleno += `
                   <div class="col">
                   <div class="card h-100">
                       <img src="${item.foto}" class="card-img-top imagenMascota" alt="..." onclick="clickearPerro('${item.claveMascota}')">
-                    <div class="card-body">
-                    <form action="php/encontrarPerfil.php" method="post" autocomplete="off">
-                    <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">
-                    <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.claveMascota}" style="display: none;">
-                    </form>
+                  <div class="card-body">
+                  <form action="php/encontrarPerfilPerdido.php" method="post" autocomplete="off">
+                  <input type="text" name="claveMascota" value="${item.claveMascota}" style="display: none;">
+                  <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.claveMascota}" style="display: none;">
+                  </form>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                      <li class="list-group-item">
                           <h5 class="card-title">${item.nombre}</h5>
-                        </li>
-                        <li class="list-group-item">${item.edad}</li>
-                        <li class="list-group-item">${item.genero}</li>
+                      </li>
+                      <li class="list-group-item">${item.genero}</li>
+                      <li class="list-group-item">Ultima vez visto por: "${item.ultimaLocalizacion}"</li>
+                      <li class="list-group-item">${item.telefono}</li>
                       </ul>
-                      <div class="card-footer">
+                      <div class="card-footer" style="color: rgb(10, 197, 26);">
                       ${item.estatus}
                       </div>
                       
-                    </div>
                   </div>
-                </div>
+                  </div>
+              </div>
                   `;
           }
         })
