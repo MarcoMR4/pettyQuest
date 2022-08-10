@@ -9,8 +9,8 @@ var estatus = "";
 var tipo = "";
 var foto = "";
 var informacion = "";
-var tipousuario = "1";
 var idUsuario;
+var tipoUsuario;
 $(document).ready(function () {
     $("#espacio2").hide();
     $("#btn2").hide();
@@ -21,7 +21,22 @@ $(document).ready(function () {
     //llenar el perfil
     llenar_datos();
 
-    //identificar el tipo de usuario y si es que puede editar la mascota
+});
+
+$(window).ready(function () {
+
+    $.ajax({
+        type: "POST",
+        url: "./php/identificarTipoUsuario.php",
+        data: "data",
+        dataType: "JSON",
+        success: function (response) {
+            tipoUsuario = response[0]['tipo'];
+            console.log("Tipo de usuario: " + tipoUsuario);
+            //identificar el tipo de usuario y si es que puede editar la mascota
+            identificar_usuario();
+        }
+    });
 });
 
 function llenar_datos() {
@@ -67,11 +82,11 @@ function llenar_datos() {
                         $("#idGenero").val(genero);
                         $("#idRaza").val(raza);
                         $("#idTamaño").val(tamaño);
-                        $("#idUbicacion").val(ubicacion);                     
+                        $("#idUbicacion").val(ubicacion);
                         $("#idTipo").val(tipo);
                         $(".foto").html(relleno);
                         $("#idInformacion").val(informacion);
-                        identificar_usuario();
+
 
                     }
                 }
@@ -84,95 +99,87 @@ function llenar_datos() {
 }
 
 function identificar_usuario() {
-    $.ajax({
-        type: "POST",
-        url: "./php/identificarTipoUsuario.php",
-        data: "data",
-        dataType: "JSON",
-        success: function (response) {
-            if (response[0]['tipo'] == "0") {
-                tipousuario = "0";
-                $.ajax({
-                    type: "POST",
-                    url: "./php/pruebaSesionUsuario.php",
-                    data: "",
-                    dataType: "JSON",
-                    success: function (response2) {
-                        idUsuario = response2[0]['idUsuario'];
-                        $.ajax({
-                            type: "post",
-                            url: "php/Mascotas_Perdidas_PHP/misMascotasPerdidas.php",
-                            data: "",
-                            dataType: "JSON",
-                            success: function (response) {
-                                /* Ver si la mascota es de la veterinaria correcta para editar*/
-                                response.map(item => {
-                                    if (`${item.idUsuario}` == idUsuario && `${item.claveMascota}` == claveMascota) {
-                                        $("#espacio2").show();
-                                        $("#btn2").show();
-                                        if (estatus == "Encontrado") {
-                                            $("#btnEncontrado").hide();
-                                        }
-                                        else {
-                                            $("#btnEncontrado").show();
-                                        }
-                                    }
-                                    else {
-                                        $("#espacio1").hide();
-                                        $("#btn1").hide();
-                                    }
-                                })
-        
-                            }
-                        });
-                    }
-                });
-                
-            }
-            else {
-                var claveAsociacionVeterinaria;
-                //Conseguimos el ID de la veterinaria para ver si esta mascota puede ser editada por ellos
-                $.ajax({
-                    type: "POST",
-                    url: "./php/pruebaSesionVeterinaria.php",
-                    data: "",
-                    dataType: "JSON",
-                    success: function (response2) {
-                        claveAsociacionVeterinaria = response2[0]['claveAsociacionVeterinaria'];
-                    }
-                });
+
+    if (tipoUsuario == "0") {
+        console.log("Se buscara la mascota en usuarios");
+        $.ajax({
+            type: "POST",
+            url: "./php/pruebaSesionUsuario.php",
+            data: "",
+            dataType: "JSON",
+            success: function (response2) {
+                idUsuario = response2[0]['idUsuario'];
+                console.log(idUsuario);
+                var siEs;
                 $.ajax({
                     type: "post",
-                    url: "php/misMascotas.php",
+                    url: "php/misMascotasPerdidas.php",
                     data: "",
                     dataType: "JSON",
                     success: function (response) {
-                        /* Ver si la mascota es de la veterinaria correcta para editar*/
+                        console.log(response);
+                        /* Ver si la mascota es del Usuario correcto para editar*/
                         response.map(item => {
-                            if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria && `${item.claveMascota}` == claveMascota) {
-                                $("#espacio1").hide();
-                                $("#btn1").hide();
+                            console.log("El idUsuario de esta mascota: " + `${item.idUsuario}`);
+                            console.log("El claveMascota de esta mascota: " + `${item.claveMascota}`);
+                            if (`${item.idUsuario}` == idUsuario && `${item.claveMascota}` == claveMascota) {
                                 $("#espacio2").show();
                                 $("#btn2").show();
-                                if (estatus == "Adoptado") {
-                                    $("#btnAdoptado").hide();
+                                if (estatus == "Encontrado") {
+                                    $("#btnEncontrado").hide();
                                 }
                                 else {
-                                    $("#btnAdoptado").show();
+                                    $("#btnEncontrado").show();
                                 }
                             }
-                            else {
-                                $("#espacio1").hide();
-                                $("#btn1").hide();
-                            }
                         })
-
                     }
                 });
+            }
+        });
+
+    }
+    else {
+        var claveAsociacionVeterinaria;
+        //Conseguimos el ID de la veterinaria para ver si esta mascota puede ser editada por ellos
+        $.ajax({
+            type: "POST",
+            url: "./php/pruebaSesionVeterinaria.php",
+            data: "",
+            dataType: "JSON",
+            success: function (response2) {
+                claveAsociacionVeterinaria = response2[0]['claveAsociacionVeterinaria'];
+            }
+        });
+        $.ajax({
+            type: "post",
+            url: "php/misMascotasPerdidas2.php",
+            data: "",
+            dataType: "JSON",
+            success: function (response) {
+                console.log(response);
+                /* Ver si la mascota es de la veterinaria correcta para editar*/
+                response.map(item => {
+                    console.log("El claveAsociacionVeterinaria de esta mascota: " + `${item.claveAsociacionVeterinaria}`);
+                    console.log("El claveMascota de esta mascota: " + `${item.claveMascota}`);
+                    if (`${item.claveAsociacionVeterinaria}` == claveAsociacionVeterinaria && `${item.claveMascota}` == claveMascota) {
+                        $("#espacio2").show();
+                        $("#btn2").show();
+                        if (estatus == "Encontrado") {
+                            $("#btnEncontrado").hide();
+                        }
+                        else {
+                            $("#btnEncontrado").show();
+                        }
+                    }
+                    
+                })
 
             }
-        }
-    });
+        });
+
+    }
+
 }
 
 /* Lo importante es ocultar y mostrar botones*/
@@ -185,11 +192,11 @@ $("#btnEditar").click(function (e) {
     $("#btn2").hide();
     $("#idNombre").prop('readonly', false).prop('disabled', false).prop('required', true);
     $("#idEstatus").prop('readonly', false).prop('disabled', false).prop('required', true);
-    $("#idEdad").prop('readonly', false).prop('disabled', false).prop('required', true);
+    $("#idTelefono").prop('readonly', false).prop('disabled', false).prop('required', true);
     $("#idGenero").prop('readonly', false).prop('disabled', false).prop('required', true);
     $("#idRaza").prop('readonly', false).prop('disabled', false).prop('required', true);
     $("#idTamaño").prop('readonly', false).prop('disabled', false).prop('required', true);
-    //$("#idUbicacion").prop('readonly', false).prop('disabled', false).prop('required', true);
+    $("#idUbicacion").prop('readonly', false).prop('disabled', false).prop('required', true);
     $("#idTipo").prop('readonly', false).prop('disabled', false).prop('required', true);
     $("#idInformacion").prop('readonly', false).prop('disabled', false).prop('required', true);
     $("#btnFoto").hide();
@@ -208,21 +215,21 @@ $("#btnCancelar").click(function (e) {
     $("#btn2").show();
     $("#idNombre").prop('readonly', true).prop('disabled', true).prop('required', false);
     $("#idEstatus").prop('readonly', true).prop('disabled', true).prop('required', false);
-    $("#idEdad").prop('readonly', true).prop('disabled', true).prop('required', false);
+    $("#idTelefono").prop('readonly', true).prop('disabled', true).prop('required', false);
     $("#idGenero").prop('readonly', true).prop('disabled', true).prop('required', false);
     $("#idRaza").prop('readonly', true).prop('disabled', true).prop('required', false);
     $("#idTamaño").prop('readonly', true).prop('disabled', true).prop('required', false);
-    //$("#idUbicacion").prop('readonly', true).prop('disabled', true).prop('required', false);
+    $("#idUbicacion").prop('readonly', true).prop('disabled', true).prop('required', false);
     $("#idTipo").prop('readonly', true).prop('disabled', true).prop('required', false);
     $("#idInformacion").prop('readonly', true).prop('disabled', true).prop('required', false);
 });
 
-function adoptar() {
-    var nuevoEstatus = "Adoptado";
+function encontrar() {
+    var nuevoEstatus = "Encontrado";
     console.log(claveMascota);
     $.ajax({
         type: "post",
-        url: "./php/editarMascotaEstatus.php",
+        url: "./php/editarMascotaPerdidaEstatus.php",
         data: {
             'idMascota': claveMascota,
             'nuevoEstatus': nuevoEstatus
@@ -263,6 +270,7 @@ $("#btnFoto").click(function () {
 $("#btnAceptar").click(function () {
     $("#formeditar").submit();
 });
+
 
 
 

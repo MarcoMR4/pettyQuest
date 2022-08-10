@@ -266,7 +266,7 @@
     <div class="container-fluid">
         <!-- enctype sirve para trabajar con ficheros -->
 
-        <form action="php/editar_mascota.php" method="post" autocomplete="off" enctype="multipart/form-data"
+        <form action="php/editar_mascotaPerdida.php" method="post" autocomplete="off" enctype="multipart/form-data"
             id="formeditar">
             <div class="row justify-content-center">
                 <div class="col-lg-4">
@@ -325,7 +325,7 @@
                         <label class="col-sm-1 col-form-label"></label>
                         <label for="idUbicacion" class="col-sm-3 col-form-label">Telefono al cual comunicarse:</label>
                         <div class="col-sm-7 izq">
-                            <input type="text" readonly class="form-control-plaintext" id="idTelefono" disabled>
+                            <input type="text" readonly class="form-control-plaintext" id="idTelefono" name="idTelefono" disabled>
                         </div>
                     </div>
                     <hr>
@@ -361,7 +361,7 @@
                 <div class="col-8" id="espacio2"></div>
                 <div class="btn1 col-md-3" id="btn2">
                     <input class="btn btn-success" type="button" value="Editar" id="btnEditar">
-                    <input class="btn btn-warning" type="button" value="Encontrado" onclick="adoptar()" id="btnEncontrado"
+                    <input class="btn btn-warning" type="button" value="Encontrado" onclick="encontrar()" id="btnEncontrado"
                         style="color: black;">
                 </div>
                 <div class="col-8" id="espacio3"></div>

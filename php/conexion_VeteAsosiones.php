@@ -259,6 +259,18 @@ class conexion_VeteAsosiones{
       $mijson = json_encode($datos);
       return $mijson;
     }
+    function editar_mascota_encontrada($idMascota,$nuevoEstatus){
+      $link = $this->conectar();
+      $result = $link->query("UPDATE mascota_perdida SET estatus='$nuevoEstatus' WHERE claveMascota='$idMascota'") or die (print("Error")); 
+
+      /* Si regresa datos :v equis de*/
+      $datos[]=[
+          "estatus" => "hola",
+          "numero" => "123"
+      ];
+      $mijson = json_encode($datos);
+      return $mijson;
+    }
 
     function editar_asociacionveterinaria($idClave,$nombre,$ciudad,$calle,$numero,$nombreEncargado,$apellidoPEncargado,$apellidoMEncargado,$email,$telefono,$password){
         $link = $this->conectar();
@@ -335,6 +347,67 @@ class conexion_VeteAsosiones{
       }
       $datajson=json_encode($data);
         return $datajson;
+    }
+
+    function registroMascotasPerdidas($idNombre,$idDireccion,$idTelefono,$idRaza,$genero,$tamano,$idInfo,$idRazaAnimal,$tmpimg,$type){
+      $link = $this->conectar();
+      $sql="SELECT AUTO_INCREMENT FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'id19026854_pettyquest' AND   TABLE_NAME   = 'mascota_perdida'";
+      $autoincrement = $link->query($sql) or die (print("Error"));
+
+      $idmascota = "";
+      while($item = $autoincrement->fetch(PDO::FETCH_OBJ)){
+        $idmascota=$item->AUTO_INCREMENT;
+      }
+      
+      $name=$idNombre.$idmascota.$type;
+      $rutarelativa="img/uploaded/mascotasPerdidas/".$name;
+      $rutaguardarphp="../".$rutarelativa;
+      $estatus="Perdido";
+      if(move_uploaded_file($tmpimg, $rutaguardarphp)){
+        $result = $link->query("INSERT INTO mascota_perdida (nombre,ultimaLocalizacion,telefono,foto,raza,informacion,tipoAnimal,genero,tamaño,estatus) VALUES ('$idNombre','$idDireccion','$idTelefono','$rutarelativa','$idRaza','$idInfo','$idRazaAnimal','$genero','$tamano','$estatus')") or die (print("Error")); 
+        $data[]=[
+          'estatus' => 'registrado'
+        ];
+        $id=$_SESSION['idUsuarioVeterinaria'];
+        $result3 = $link->query("INSERT INTO fk_mascotaperdida_asociacionveterinaria (claveMascota,claveAsociacionVeterinaria) VALUES ('$idmascota','$id')") or die (print("Error")); 
+      }
+
+      $datajson=json_encode($data);
+      return $datajson;
+    }
+
+    function mis_MascotasPerdidas()
+    {
+      # code...
+      $link = $this->conectar();
+        $result = $link->query("SELECT * FROM fk_mascotaperdida_asociacionveterinaria NATURAL JOIN mascota_perdida") or die (print("Error")); 
+        $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+          $data[]=[
+              'claveMascota' => $item->claveMascota,
+              'claveAsociacionVeterinaria' => $item->claveAsociacionVeterinaria,
+              'nombre' => $item->nombre,
+              'ultimaLocalizacion' => $item->ultimaLocalizacion,
+              'telefono' => $item->telefono,
+              'foto' => $item->foto,
+              'raza' => $item->raza,
+              'informacion' => $item->informacion,
+              'tipoAnimal' => $item->tipoAnimal,
+              'genero' => $item->genero,
+              'tamaño' => $item->tamaño,
+              'estatus' => $item->estatus
+          ];
+      }
+      $datajson=json_encode($data);
+        return $datajson;
+    }
+
+    function editar_mascota_perdida($idMascota,$idNombre,$idEstatus,$idUbicacion,$idTelefono,$idRaza,$idGenero,$idTamaño,$idInformacion,$idTipo){
+      $link = $this->conectar();
+      $edicion = "UPDATE mascota_perdida SET nombre='$idNombre', 	ultimaLocalizacion='$idUbicacion', raza='$idRaza', telefono='$idTelefono', genero='$idGenero', 
+      tamaño='$idTamaño', estatus='$idEstatus', informacion='$idInformacion', tipoAnimal='$idTipo' WHERE claveMascota='$idMascota'";
+      echo $edicion;
+       $result = $link->query($edicion) or die (print("Error")); 
     }
 
     function buscar_productos($nombre)
