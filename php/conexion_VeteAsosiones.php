@@ -114,7 +114,21 @@ class conexion_VeteAsosiones{
     //   $mijson = json_encode($data);
     //   return $mijson;
     }
- 
+
+    function validarcorreo($email){
+      $link = $this->conectar();
+      $sql="SELECT * FROM asociacionveterinaria WHERE email='".$email."'";
+      $result = $link->query($sql) or die (print("Error"));
+      $data=[];
+      while($item = $result->fetch(PDO::FETCH_OBJ)){
+          $data[]=[
+              'correoexiste' => 'si',
+          ];
+      }
+
+      $datajson=json_encode($data);
+      return $datajson;
+  }
 
     function pruebaSesion(){
         $link = $this->conectar();

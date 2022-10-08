@@ -52,6 +52,7 @@ function actualizarMenu() {
                                         $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                                         $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_asociacionveterinaria.html');
                                         $("#Cambio2").hide();
+                                        $("#Cambio3").hide();
                                         // $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                                         $("#oculto").show();
                                         opciones(1, nombre);
@@ -76,6 +77,7 @@ function actualizarMenu() {
                                         $("#Cambio1").html("Registrar Veterinarias").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './registro_asosiacionveterinaria.html');
                                         $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                                         $("#oculto2").show();
+                                        $("#Cambio3").hide();
                                     }
 
                                 }
@@ -93,6 +95,7 @@ function actualizarMenu() {
                     $("#Cambio").html(nombre).addClass("nav-link color-link-black");
                     $("#Cambio1").html("Mi Perfil").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './perfil_usuario.html');
                     $("#Cambio2").hide();
+                    $("#Cambio3").hide();
                     // $("#Cambio2").html("Cerrar Sesion").addClass("dropdown-item").removeAttr("data-bs-toggle").attr('href', './index.html');
                     $("#oculto").show();
                     opciones(0, nombre);
