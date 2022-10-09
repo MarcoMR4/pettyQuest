@@ -26,22 +26,38 @@ $(window).ready(function () {
         if (usuarioexiste >= 1) {
           $("#feedback-correo").text("El correo ya esta en uso");
         } else {
-          if (password == password2) {
-            console.log("Son iguales");
-          } else {
-            console.log("la contraseña no es la misma");
-          }
-
           $.ajax({
             type: "POST",
-            url: "./php/registro.php",
+            url: "./php/correoexistente2.php",
             data: datos,
             dataType: "JSON",
             success: function (response) {
               console.log(response);
-              $.getScript("./js/cambio_menu_tipo.js", function () {});
-              $("#btnsalirregistro").trigger("click");
-              $("#abrirRegistroExitoso").trigger("click");
+              usuarioexiste = Object.keys(response).length;
+              if (usuarioexiste >= 1) {
+                $("#feedback-correo").text("El correo ya esta en uso");
+              } else {
+                if (password == password2) {
+                  console.log("Son iguales");
+                  $.ajax({
+                    type: "POST",
+                    url: "./php/registro.php",
+                    data: datos,
+                    dataType: "JSON",
+                    success: function (response) {
+                      console.log(response);
+                      $.getScript("./js/cambio_menu_tipo.js", function () {});
+                      $("#btnsalirregistro").trigger("click");
+                      $("#abrirRegistroExitoso").trigger("click");
+                    },
+                  });
+                } else {
+                  $("#feedback-correo").text("La contraseña no concuerda");
+                }
+              }
+            },
+            error: function (response) {
+              console.log("ERROR DE AJAX");
             },
           });
         }
@@ -72,25 +88,46 @@ $(window).ready(function () {
         if (usuarioexiste >= 1) {
           $("#feedback-correo2").text("El correo ya esta en uso");
         } else {
-          if (passwordE == passwordE2) {
-            console.log("Son iguales");
-            $.ajax({
-              type: "POST",
-              url: "./php/registro_asosiacionveterinaria.php",
-              data: datos,
-              dataType: "JSON",
-              success: function (response) {
-                console.log(response);
-                $.getScript("./js/cambio_menu_tipo.js", function () {});
-                $("#btnsalirregistro10").trigger("click");
-                $("#abrirRegistroExitoso").trigger("click");
-              },
-            });
-          } else {
-            $("#feedback-correo2").text("La contraseña no concuerda");
-            console.log(passwordE);
-            console.log(passwordE2);
-          }
+          $.ajax({
+            type: "POST",
+            url: "./php/correoexistente.php",
+            data: datos,
+            dataType: "JSON",
+            success: function (response) {
+              console.log(response);
+              usuarioexiste = Object.keys(response).length;
+              console.log(usuarioexiste);
+              if (usuarioexiste >= 1) {
+                $("#feedback-correo2").text("El correo ya esta en uso");
+              } else {
+                if (passwordE == passwordE2) {
+                  console.log("Son iguales");
+                  $.ajax({
+                    type: "POST",
+                    url: "./php/registro_asosiacionveterinaria.php",
+                    data: datos,
+                    dataType: "JSON",
+                    success: function (response) {
+                      console.log(response);
+                      $.getScript("./js/cambio_menu_tipo.js", function () {});
+                      $("#btnsalirregistro10").trigger("click");
+                      $("#abrirRegistroExitoso").trigger("click");
+                    },
+                    error: function (response) {
+                      console.log(response);
+                    },
+                  });
+                } else {
+                  $("#feedback-correo2").text("La contraseña no concuerda");
+                  console.log(passwordE);
+                  console.log(passwordE2);
+                }
+              }
+            },
+            error: function (response) {
+              console.log(response);
+            },
+          });
         }
       },
       error: function (response) {
