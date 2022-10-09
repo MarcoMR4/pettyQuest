@@ -76,309 +76,281 @@
         </div>
     </nav>
 
-    <!--Inicio de Sesion-->
-    <div class="modal" tabindex="-1" id="InicioSesion">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Iniciar Sesion </h5>
-                    <button type="button" class="btn-close" id="btnsalirsesion" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formini" aria-labelledby="navbarDropdown">
-                        <!-- <div class="row mb-5">
-                            <div class="col-12">
-                                <div class="btn-group d-flex justify-content-center" role="group"
-                                    aria-label="Basic radio toggle button group">
-                                    <input type="radio" class="btn-check" value="1" name="btnradio" id="btnUsuario"
-                                        autocomplete="off" checked>
-                                    <label class="btn btn-outline-primary" for="btnUsuario">Usuario</label>
-
-                                    <input type="radio" class="btn-check" value="2" name="btnradio" id="btnVeterinaria"
-                                        autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="btnVeterinaria">Asociación /
-                                        Veterinaria</label>
-
-                                    <input type="radio" class="btn-check" value="3" name="btnradio" id="btnAdmin"
-                                        autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="btnAdmin">Administrador</label>
+<!--Inicio de Sesion-->
+<div class="modal" tabindex="-1" id="InicioSesion">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Iniciar Sesion </h5>
+                <button type="button" class="btn-close" id="btnsalirsesion" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formini" aria-labelledby="navbarDropdown">
+                    <!-- <div class="row mb-5">
+                                <div class="col-12">
+                                    <div class="btn-group d-flex justify-content-center" role="group"
+                                        aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" value="1" name="btnradio" id="btnUsuario"
+                                            autocomplete="off" checked>
+                                        <label class="btn btn-outline-primary" for="btnUsuario">Usuario</label>
+    
+                                        <input type="radio" class="btn-check" value="2" name="btnradio" id="btnVeterinaria"
+                                            autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="btnVeterinaria">Asociación /
+                                            Veterinaria</label>
+    
+                                        <input type="radio" class="btn-check" value="3" name="btnradio" id="btnAdmin"
+                                            autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="btnAdmin">Administrador</label>
+                                    </div>
                                 </div>
-                            </div>
-                        </div> -->
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Correo" name="email" id="emaili"
-                                required aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <span class="input-group-text" id="basic-addon2">@example.com</span>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Contraseña" name="password"
-                                id="passwordi" required aria-label="Recipient's username"
-                                aria-describedby="basic-addon2">
-                        </div>
-                        <div class="text-danger" id="feedback-1">
-                        </div>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <input type="submit" class="btn btn-primary me-md-2" value="Iniciar Sesion"></input>
-                        </div>
-                    </form>
-                </div>
+                            </div> -->
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Correo" name="email" id="emaili" required
+                            aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">@example.com</span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Contraseña" name="password"
+                            id="passwordi" required aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="text-danger" id="feedback-1">
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <input type="submit" class="btn btn-primary me-md-2" value="Iniciar Sesion"></input>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <!--Registro-->
-    
-    <div class="modal fade" id="Registrar" tabindex="-1" aria-labelledby="RegistrarLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="RegistrarLabel">Registro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                        id="btnsalirregistro"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formregistro" aria-labelledby="navbarDropdown">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="nombre" class="col-form-label">Nombre</label>
-                                    <input type="text" class="form-control" name="nombre" id="nombre" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="ap" class="col-form-label">Apellido Paterno</label>
-                                    <input type="text" class="form-control" name="ap" id="ap" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="am" class="col-form-label">Apellido Materno</label>
-                                    <input type="text" class="form-control" name="am" id="am" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="ciudad" class="col-form-label">Ciudad</label>
-                                    <input type="text" class="form-control" name="ciudad" id="ciudad" require>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="calle" class="col-form-label">Calle</label>
-                                    <input type="text" class="form-control" name="calle" id="calle" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="numero" class="col-form-label">Numero</label>
-                                    <input type="text" class="form-control" name="numero" id="numero" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="emailr" class="col-form-label">Correo</label>
-                                    <input type="email" class="form-control" name="email" id="emailr" required>
-                                </div>
-                                <div class="text-danger" id="feedback-correo">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="passwordr" class="col-form-label">Contraseña (minimo de 8 caracteres, 1
-                                        mayúscula, 1 minúscula y
-                                        1 número mínimo):</label>
-                                    <input type="password" class="form-control" name="password" id="passwordr" required
-                                        minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
-                                        pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="password2" class="col-form-label">Confirmar Contraseña</label>
-                                    <input type="password" class="form-control" name="password2" id="password2" required
-                                        minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
-                                        pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="telefono" class="col-form-label">Telefono</label>
-                                    <input type="text" class="form-control" name="telefono" id="telefono" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="edad" class="col-form-label">Fecha de Nacimiento</label>
-                                    <input type="date" class="form-control" name="edad" id="edad" required>
-                                </div>
-                            </div>
-                        </div>
-<<<<<<< HEAD
-    
-=======
+<!--Registro-->
 
->>>>>>> 5a5de9b027d5fc16fd5328f4d41230d3569b3b1e
-                        <div>
-                            <label class="form-check-label mb-3">
-                                Acepto terminos y condiciones:
-                            </label>
-                            <input class="form-check-input" type="checkbox" value="" id="condiciones" name="condiciones"
-                                required>
+<div class="modal fade" id="Registrar" tabindex="-1" aria-labelledby="RegistrarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="RegistrarLabel">Registro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    id="btnsalirregistro"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formregistro" aria-labelledby="navbarDropdown">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="nombre" class="col-form-label">Nombre</label>
+                                <input type="text" class="form-control" name="nombre" id="nombre" required>
+                            </div>
                         </div>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <input type="submit" class="btn btn-primary me-md-2" value="Registrar"></input>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="ap" class="col-form-label">Apellido Paterno</label>
+                                <input type="text" class="form-control" name="ap" id="ap" required>
+                            </div>
                         </div>
-                    </form>
-                </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="am" class="col-form-label">Apellido Materno</label>
+                                <input type="text" class="form-control" name="am" id="am" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="ciudad" class="col-form-label">Ciudad</label>
+                                <input type="text" class="form-control" name="ciudad" id="ciudad" require>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="calle" class="col-form-label">Calle</label>
+                                <input type="text" class="form-control" name="calle" id="calle" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="numero" class="col-form-label">Numero</label>
+                                <input type="text" class="form-control" name="numero" id="numero" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="emailr" class="col-form-label">Correo</label>
+                                <input type="email" class="form-control" name="email" id="emailr" required>
+                            </div>
+                            <div class="text-danger" id="feedback-correo">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="passwordr" class="col-form-label">Contraseña (minimo de 8 caracteres, 1
+                                    mayúscula, 1 minúscula y
+                                    1 número mínimo):</label>
+                                <input type="password" class="form-control" name="password" id="passwordr" required
+                                    minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
+                                    pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="password2" class="col-form-label">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" name="password2" id="password2" required
+                                    minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
+                                    pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="telefono" class="col-form-label">Telefono</label>
+                                <input type="text" class="form-control" name="telefono" id="telefono" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="edad" class="col-form-label">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" name="edad" id="edad" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="form-check-label mb-3">
+                            Acepto terminos y condiciones:
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="condiciones" name="condiciones"
+                            required>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <input type="submit" class="btn btn-primary me-md-2" value="Registrar"></input>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-    
-=======
+</div>
 
->>>>>>> 5a5de9b027d5fc16fd5328f4d41230d3569b3b1e
-    <!--Registro veterinarias-->
-    <div class="modal fade" id="Registrarvet" tabindex="-1" aria-labelledby="RegistrarLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="RegistrarLabel">Registro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                        id="btnsalirregistro10"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formregistrovet" aria-labelledby="navbarDropdown">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mb-12">
-                                    <label for="nombre" class="col-form-label">Nombre de asociacion/veterinaria</label>
-                                    <input type="text" class="form-control" name="nombreA" id="nombreA" required>
-                                </div>
+<!--Registro veterinarias-->
+<div class="modal fade" id="Registrarvet" tabindex="-1" aria-labelledby="RegistrarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="RegistrarLabel">Registro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    id="btnsalirregistro10"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formregistrovet" aria-labelledby="navbarDropdown">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-12">
+                                <label for="nombre" class="col-form-label">Nombre de asociacion/veterinaria</label>
+                                <input type="text" class="form-control" name="nombreA" id="nombreA" required>
                             </div>
-<<<<<<< HEAD
-    
-=======
+                        </div>
 
->>>>>>> 5a5de9b027d5fc16fd5328f4d41230d3569b3b1e
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="ciudad" class="col-form-label">Ciudad</label>
-                                    <input type="text" class="form-control" name="ciudad" id="ciudad" require>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="calle" class="col-form-label">Calle</label>
-                                    <input type="text" class="form-control" name="calle" id="calle" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="numero" class="col-form-label">Numero</label>
-                                    <input type="text" class="form-control" name="numeroA" id="numeroA" required>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="ciudad" class="col-form-label">Ciudad</label>
+                                <input type="text" class="form-control" name="ciudad" id="ciudad" require>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="nombre" class="col-form-label">Nombre de encargado</label>
-                                    <input type="text" class="form-control" name="nombreE" id="nombreE" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="ap" class="col-form-label">Apellido Paterno</label>
-                                    <input type="text" class="form-control" name="apE" id="apE" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="am" class="col-form-label">Apellido Materno</label>
-                                    <input type="text" class="form-control" name="amE" id="amE" required>
-                                </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="calle" class="col-form-label">Calle</label>
+                                <input type="text" class="form-control" name="calle" id="calle" required>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="emailr" class="col-form-label">Correo</label>
-                                    <input type="email" class="form-control" name="email" id="emailA" required>
-                                </div>
-                                <div class="text-danger" id="feedback-correo2">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="passwordr" class="col-form-label" style="font-size: small;">Contraseña:
-                                        (minimo de 8 caracteres, 1 mayúscula, 1 minúscula y
-                                        1 número mínimo):</label>
-                                    <input type="password" class="form-control" name="passwordE" id="passwordE" required
-                                        minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
-                                        pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="password2" class="col-form-label">Confirmar Contraseña</label>
-<<<<<<< HEAD
-                                    <input type="password" class="form-control" name="password2" id="passwordE2" required
-                                        minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
-=======
-                                    <input type="password" class="form-control" name="password2" id="passwordE2"
-                                        required minlength="8"
-                                        title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
->>>>>>> 5a5de9b027d5fc16fd5328f4d41230d3569b3b1e
-                                        pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
-                                </div>
-                                <div class="text-danger-centered" id="feedback-contraseña2">
-                                </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="numero" class="col-form-label">Numero</label>
+                                <input type="text" class="form-control" name="numeroA" id="numeroA" required>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="telefono" class="col-form-label">Telefono</label>
-                                    <input type="text" class="form-control" name="telE" id="telE" required>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="nombre" class="col-form-label">Nombre de encargado</label>
+                                <input type="text" class="form-control" name="nombreE" id="nombreE" required>
                             </div>
                         </div>
-<<<<<<< HEAD
-    
-=======
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="ap" class="col-form-label">Apellido Paterno</label>
+                                <input type="text" class="form-control" name="apE" id="apE" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="am" class="col-form-label">Apellido Materno</label>
+                                <input type="text" class="form-control" name="amE" id="amE" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="emailr" class="col-form-label">Correo</label>
+                                <input type="email" class="form-control" name="email" id="emailA" required>
+                            </div>
+                            <div class="text-danger" id="feedback-correo2">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="passwordr" class="col-form-label" style="font-size: small;">Contraseña:
+                                    (minimo de 8 caracteres, 1 mayúscula, 1 minúscula y
+                                    1 número mínimo):</label>
+                                <input type="password" class="form-control" name="passwordE" id="passwordE" required
+                                    minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
+                                    pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="password2" class="col-form-label">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" name="password2" id="passwordE2" required
+                                    minlength="8" title="Debe tener 1 mayúscula, 1 minúscula y 1 número mínimo"
+                                    pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,12}$">
+                            </div>
+                            <div class="text-danger-centered" id="feedback-contraseña2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="telefono" class="col-form-label">Telefono</label>
+                                <input type="text" class="form-control" name="telE" id="telE" required>
+                            </div>
+                        </div>
+                    </div>
 
->>>>>>> 5a5de9b027d5fc16fd5328f4d41230d3569b3b1e
-                        <div>
-                            <label class="form-check-label mb-3">
-                                Acepto terminos y condiciones:
-                            </label>
-                            <input class="form-check-input" type="checkbox" value="" id="condiciones" name="condiciones"
-                                required>
-                        </div>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <input type="submit" class="btn btn-primary me-md-2" value="Registrar"></input>
-                        </div>
-                    </form>
-                </div>
+                    <div>
+                        <label class="form-check-label mb-3">
+                            Acepto terminos y condiciones:
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="condiciones" name="condiciones"
+                            required>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <input type="submit" class="btn btn-primary me-md-2" value="Registrar"></input>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 5a5de9b027d5fc16fd5328f4d41230d3569b3b1e
-
+</div>
 
     <button type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#modRegExito"
         id="abrirRegistroExitoso">
