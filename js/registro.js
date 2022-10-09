@@ -91,7 +91,7 @@ $(window).ready(function () {
                             success: function (response) {
                                 console.log(response);
                                 $.getScript('./js/cambio_menu_tipo.js', function () { });
-                                $("#btnsalirregistro2").trigger("click");
+                                $("#btnsalirregistro10").trigger("click");
                                 $("#abrirRegistroExitoso").trigger("click");
                             }
                         });
@@ -105,7 +105,7 @@ $(window).ready(function () {
                 }
             },
             error: function (response) {
-                console.log(response);
+                console.log("ERROR DE AJAX");
             }
         });
 
