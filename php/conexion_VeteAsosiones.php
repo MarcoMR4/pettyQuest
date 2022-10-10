@@ -106,13 +106,13 @@ class conexion_VeteAsosiones{
     function registroAV($nombre,$ciudad,$calle,$numero,$email,$nombreE,$apE,$amE,$telefono,$password){
       $link = $this->conectar();
       $result = $link->query("INSERT INTO asociacionveterinaria (claveAsociacionVeterinaria, nombre, ciudad, calle, numero, nombreEncargado, apellidoPEncargado, apellidoMEncargado, email, telefono, password) VALUES (NULL, '$nombre','$ciudad','$calle','$numero','$nombreE','$apE','$amE','$email','$telefono','$password')") or die (print("Error")); 
-    //     $data[]=[
-    //       'estatus' => 'registrado'
-    //     ];
-    //     //$id=$_SESSION['idUsuarioVeterinaria'];
+        $data[]=[
+          'estatus' => 'registrado'
+        ];
+        //$id=$_SESSION['idUsuarioVeterinaria'];
          
-    //   $mijson = json_encode($data);
-    //   return $mijson;
+      $mijson = json_encode($data);
+      return $mijson;
     }
 
     function validarcorreo($email){

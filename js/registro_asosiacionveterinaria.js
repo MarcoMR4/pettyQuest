@@ -13,10 +13,11 @@ $(window).ready(function() {
           processData: false,
           success: function (response) {
             console.log(response);
-            alert("SE HA REGISTRADO CON ÉXITO");
-            location.reload();
+            $("#btnsalirregistro10").trigger("click");            
           },
           error: function(response){
+            $("#btnsalirregistro10").trigger("click");
+            location.reload();
             console.log(response);
           }
         });
