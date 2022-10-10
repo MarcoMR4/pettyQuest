@@ -36,8 +36,9 @@
     border: 2px solid rgba(146, 143, 143, 0.425);
     box-shadow: 5px 5px 5px 0 grey; 
 }
-
-
+.campoEnfermendad{
+    font-size: large;
+}
 .btn1 {
    
     height: auto;
